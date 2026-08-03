@@ -1,0 +1,30 @@
+libgnu_a-stat-time.o: stat-time.c /usr/include/stdc-predef.h ../config.h \
+ stat-time.h /usr/include/errno.h /usr/include/features.h \
+ /usr/include/bits/errno.h \
+ /usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h \
+ stddef.h /usr/include/stddef.h /usr/include/bits/alltypes.h sys/stat.h \
+ sys/types.h /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h time.h /usr/include/time.h \
+ /usr/include/sys/stat.h /usr/include/bits/stat.h
+/usr/include/stdc-predef.h:
+../config.h:
+stat-time.h:
+/usr/include/errno.h:
+/usr/include/features.h:
+/usr/include/bits/errno.h:
+/usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+sys/stat.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:

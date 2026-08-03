@@ -1,0 +1,26 @@
+libgnulib_a-asnprintf.o: asnprintf.c /usr/include/stdc-predef.h \
+ ../../config.h vasnprintf.h /usr/include/stdarg.h \
+ /usr/include/bits/alltypes.h stddef.h /usr/include/stddef.h stdio.h \
+ /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/fortify/fortify-headers.h \
+ sys/types.h /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h
+/usr/include/stdc-predef.h:
+../../config.h:
+vasnprintf.h:
+/usr/include/stdarg.h:
+/usr/include/bits/alltypes.h:
+stddef.h:
+/usr/include/stddef.h:
+stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/features.h:
+/usr/include/fortify/fortify-headers.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:

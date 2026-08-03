@@ -1,0 +1,15 @@
+c-strcasecmp.o: c-strcasecmp.c /usr/include/stdc-predef.h ../config.h \
+ c-strcase.h ../gl/lib/stddef.h /usr/include/stddef.h \
+ /usr/include/bits/alltypes.h ../gl/lib/limits.h /usr/include/limits.h \
+ /usr/include/features.h /usr/include/bits/limits.h ../gl/lib/c-ctype.h
+/usr/include/stdc-predef.h:
+../config.h:
+c-strcase.h:
+../gl/lib/stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+../gl/lib/limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:
+../gl/lib/c-ctype.h:

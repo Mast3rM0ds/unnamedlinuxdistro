@@ -1,0 +1,27 @@
+lib/libcoreutils_a-se-selinux.o: lib/se-selinux.c \
+ /usr/include/stdc-predef.h lib/config.h lib/selinux/selinux.h \
+ lib/sys/types.h /usr/include/sys/types.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/endian.h lib/sys/select.h \
+ lib/sys/time.h /usr/include/sys/time.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ lib/signal.h /usr/include/signal.h /usr/include/bits/signal.h \
+ /usr/include/errno.h /usr/include/bits/errno.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/selinux/selinux.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/endian.h:
+lib/sys/select.h:
+lib/sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+lib/signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:

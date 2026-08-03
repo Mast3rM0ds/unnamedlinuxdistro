@@ -1,0 +1,27 @@
+libpatch_a-setlocale_null-unlocked.o: setlocale_null-unlocked.c \
+ /usr/include/stdc-predef.h ../config.h setlocale_null.h stddef.h \
+ /usr/include/stddef.h /usr/include/bits/alltypes.h arg-nonnull.h \
+ /usr/include/errno.h /usr/include/features.h /usr/include/bits/errno.h \
+ locale.h /usr/include/locale.h setlocale_null.h string.h \
+ /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ /usr/include/fortify/fortify-headers.h
+/usr/include/stdc-predef.h:
+../config.h:
+setlocale_null.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+arg-nonnull.h:
+/usr/include/errno.h:
+/usr/include/features.h:
+/usr/include/bits/errno.h:
+locale.h:
+/usr/include/locale.h:
+setlocale_null.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:

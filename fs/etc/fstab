@@ -1,0 +1,7 @@
+# <device>       <mountpoint>  <fstype>  <options>            <dump/pass>
+proc              /proc         proc      defaults             0 0
+sysfs             /sys          sysfs     defaults             0 0
+devtmpfs          /dev          devtmpfs  defaults             0 0
+tmpfs             /run          tmpfs     defaults,mode=0755   0 0
+tmpfs             /dev/shm      tmpfs     defaults,nosuid,nodev 0 0
+devpts            /dev/pts      devpts    defaults,gid=5,mode=0620 0 0

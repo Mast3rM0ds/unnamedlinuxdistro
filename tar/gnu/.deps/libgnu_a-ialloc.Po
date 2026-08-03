@@ -1,0 +1,30 @@
+libgnu_a-ialloc.o: ialloc.c /usr/include/stdc-predef.h ../config.h \
+ ialloc.h idx.h stddef.h /usr/include/stddef.h \
+ /usr/include/bits/alltypes.h stdint.h /usr/include/stdint.h \
+ /usr/include/bits/stdint.h limits.h /usr/include/limits.h \
+ /usr/include/features.h /usr/include/bits/limits.h /usr/include/errno.h \
+ /usr/include/bits/errno.h stdlib.h /usr/include/fortify/stdlib.h \
+ /usr/include/stdlib.h alloca.h /usr/include/limits.h \
+ /usr/include/fortify/fortify-headers.h
+/usr/include/stdc-predef.h:
+../config.h:
+ialloc.h:
+idx.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/fortify/fortify-headers.h:

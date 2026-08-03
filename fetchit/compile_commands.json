@@ -1,0 +1,41 @@
+[
+  {
+    "file": "src/dispatcher.c",
+    "arguments": [
+      "gcc",
+      "src/dispatcher.c",
+      "-o",
+      "build/fetchit",
+      "-I",
+      "src"
+    ],
+    "directory": "/home/vb/Projects/fetchit",
+    "output": "build/fetchit"
+  },
+  {
+    "file": "src/main.c",
+    "arguments": [
+      "gcc",
+      "src/main.c",
+      "-o",
+      "build/fetchit",
+      "-I",
+      "src"
+    ],
+    "directory": "/home/vb/Projects/fetchit",
+    "output": "build/fetchit"
+  },
+  {
+    "file": "src/module_registry.c",
+    "arguments": [
+      "gcc",
+      "src/module_registry.c",
+      "-o",
+      "build/fetchit",
+      "-I",
+      "src"
+    ],
+    "directory": "/home/vb/Projects/fetchit",
+    "output": "build/fetchit"
+  }
+]

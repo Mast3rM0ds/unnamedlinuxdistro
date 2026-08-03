@@ -1,0 +1,21 @@
+libgreputils_a-free.o: free.c /usr/include/stdc-predef.h ../config.h \
+ stdlib.h /usr/include/fortify/stdlib.h /usr/include/stdlib.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/fortify/fortify-headers.h stddef.h /usr/include/stddef.h \
+ /usr/include/errno.h /usr/include/bits/errno.h
+/usr/include/stdc-predef.h:
+../config.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:

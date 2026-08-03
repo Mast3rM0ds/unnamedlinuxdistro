@@ -1,0 +1,25 @@
+lib/libcoreutils_a-full-read.o: lib/full-read.c \
+ /usr/include/stdc-predef.h lib/full-write.c lib/config.h lib/full-read.h \
+ lib/stddef.h /usr/include/stddef.h /usr/include/bits/alltypes.h \
+ lib/idx.h lib/stdint.h /usr/include/stdint.h /usr/include/bits/stdint.h \
+ lib/limits.h /usr/include/limits.h /usr/include/features.h \
+ /usr/include/bits/limits.h /usr/include/errno.h \
+ /usr/include/bits/errno.h lib/safe-read.h
+/usr/include/stdc-predef.h:
+lib/full-write.c:
+lib/config.h:
+lib/full-read.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+lib/idx.h:
+lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+lib/limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+lib/safe-read.h:

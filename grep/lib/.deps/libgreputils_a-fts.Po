@@ -1,0 +1,97 @@
+libgreputils_a-fts.o: fts.c /usr/include/stdc-predef.h ../config.h fts_.h \
+ stddef.h /usr/include/stddef.h /usr/include/bits/alltypes.h sys/types.h \
+ /usr/include/sys/types.h /usr/include/features.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h dirent.h /usr/include/dirent.h \
+ /usr/include/bits/dirent.h sys/stat.h time.h /usr/include/time.h \
+ /usr/include/sys/stat.h /usr/include/bits/stat.h i-ring.h \
+ /usr/include/sys/param.h /usr/include/sys/resource.h \
+ /usr/include/sys/time.h /usr/include/bits/resource.h limits.h \
+ /usr/include/limits.h /usr/include/bits/limits.h fcntl.h \
+ /usr/include/fcntl.h /usr/include/bits/fcntl.h unistd.h \
+ /usr/include/fortify/unistd.h /usr/include/unistd.h \
+ /usr/include/fortify/fortify-headers.h stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h alloca.h \
+ /usr/include/limits.h getopt-cdefs.h getopt-pfx-core.h getopt-core.h \
+ /usr/include/errno.h /usr/include/bits/errno.h stdint.h \
+ /usr/include/stdint.h /usr/include/bits/stdint.h string.h \
+ /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h attribute.h \
+ fcntl--.h fcntl-safer.h flexmember.h openat.h opendirat.h same-inode.h \
+ fts-cycle.c cycle-check.h dev-ino.h hash.h stdio.h \
+ /usr/include/fortify/stdio.h /usr/include/stdio.h /usr/include/stdarg.h \
+ /usr/include/sys/vfs.h /usr/include/sys/statfs.h \
+ /usr/include/sys/statvfs.h /usr/include/bits/statfs.h
+/usr/include/stdc-predef.h:
+../config.h:
+fts_.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/features.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+dirent.h:
+/usr/include/dirent.h:
+/usr/include/bits/dirent.h:
+sys/stat.h:
+time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+i-ring.h:
+/usr/include/sys/param.h:
+/usr/include/sys/resource.h:
+/usr/include/sys/time.h:
+/usr/include/bits/resource.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+fcntl.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+/usr/include/fortify/fortify-headers.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+getopt-core.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+attribute.h:
+fcntl--.h:
+fcntl-safer.h:
+flexmember.h:
+openat.h:
+opendirat.h:
+same-inode.h:
+fts-cycle.c:
+cycle-check.h:
+dev-ino.h:
+hash.h:
+stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/stdarg.h:
+/usr/include/sys/vfs.h:
+/usr/include/sys/statfs.h:
+/usr/include/sys/statvfs.h:
+/usr/include/bits/statfs.h:

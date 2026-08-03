@@ -1,0 +1,29 @@
+lib/libsed_a-acl-errno-valid.o: lib/acl-errno-valid.c \
+ /usr/include/stdc-predef.h config.h lib/acl.h lib/sys/types.h \
+ /usr/include/sys/types.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h lib/sys/stat.h lib/time.h \
+ /usr/include/time.h lib/stddef.h /usr/include/stddef.h \
+ /usr/include/sys/stat.h /usr/include/bits/stat.h /usr/include/errno.h \
+ /usr/include/bits/errno.h
+/usr/include/stdc-predef.h:
+config.h:
+lib/acl.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+lib/sys/stat.h:
+lib/time.h:
+/usr/include/time.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:

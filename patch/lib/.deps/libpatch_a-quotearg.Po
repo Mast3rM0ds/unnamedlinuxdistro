@@ -1,0 +1,75 @@
+libpatch_a-quotearg.o: quotearg.c /usr/include/stdc-predef.h ../config.h \
+ quotearg.h stdlib.h /usr/include/fortify/stdlib.h /usr/include/stdlib.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/fortify/fortify-headers.h stddef.h /usr/include/stddef.h \
+ quote.h attribute.h minmax.h /usr/include/sys/param.h \
+ /usr/include/sys/resource.h sys/time.h /usr/include/sys/time.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/bits/resource.h \
+ /usr/include/endian.h limits.h /usr/include/limits.h xalloc.h idx.h \
+ stdint.h /usr/include/stdint.h /usr/include/bits/stdint.h c-strcaseeq.h \
+ c-strcase.h c-ctype.h localcharset.h /usr/include/ctype.h \
+ /usr/include/errno.h /usr/include/bits/errno.h string.h \
+ /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h uchar.h \
+ /usr/include/uchar.h wchar.h /usr/include/fortify/wchar.h \
+ /usr/include/wchar.h wctype.h /usr/include/wctype.h gettext.h locale.h \
+ /usr/include/locale.h setlocale_null.h arg-nonnull.h
+/usr/include/stdc-predef.h:
+../config.h:
+quotearg.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+stddef.h:
+/usr/include/stddef.h:
+quote.h:
+attribute.h:
+minmax.h:
+/usr/include/sys/param.h:
+/usr/include/sys/resource.h:
+sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/bits/resource.h:
+/usr/include/endian.h:
+limits.h:
+/usr/include/limits.h:
+xalloc.h:
+idx.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+c-strcaseeq.h:
+c-strcase.h:
+c-ctype.h:
+localcharset.h:
+/usr/include/ctype.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+uchar.h:
+/usr/include/uchar.h:
+wchar.h:
+/usr/include/fortify/wchar.h:
+/usr/include/wchar.h:
+wctype.h:
+/usr/include/wctype.h:
+gettext.h:
+locale.h:
+/usr/include/locale.h:
+setlocale_null.h:
+arg-nonnull.h:

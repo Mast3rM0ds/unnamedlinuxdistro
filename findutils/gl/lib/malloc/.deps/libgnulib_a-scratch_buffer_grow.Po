@@ -1,0 +1,28 @@
+malloc/libgnulib_a-scratch_buffer_grow.o: malloc/scratch_buffer_grow.c \
+ /usr/include/stdc-predef.h libc-config.h ../../config.h \
+ /usr/include/errno.h /usr/include/features.h /usr/include/bits/errno.h \
+ cdefs.h scratch_buffer.h malloc/scratch_buffer.gl.h \
+ /usr/include/stdbool.h stddef.h /usr/include/stddef.h \
+ /usr/include/bits/alltypes.h stdlib.h /usr/include/fortify/stdlib.h \
+ /usr/include/stdlib.h alloca.h /usr/include/limits.h \
+ /usr/include/bits/limits.h /usr/include/fortify/fortify-headers.h
+/usr/include/stdc-predef.h:
+libc-config.h:
+../../config.h:
+/usr/include/errno.h:
+/usr/include/features.h:
+/usr/include/bits/errno.h:
+cdefs.h:
+scratch_buffer.h:
+malloc/scratch_buffer.gl.h:
+/usr/include/stdbool.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:

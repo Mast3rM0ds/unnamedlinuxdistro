@@ -1,0 +1,156 @@
+src/chmod.o: src/chmod.c /usr/include/stdc-predef.h lib/config.h \
+ lib/stdio.h /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/stdarg.h \
+ lib/stddef.h /usr/include/stddef.h lib/sys/types.h \
+ /usr/include/sys/types.h /usr/include/endian.h lib/sys/select.h \
+ lib/sys/time.h /usr/include/sys/time.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ lib/signal.h /usr/include/signal.h /usr/include/bits/signal.h \
+ lib/getopt.h /usr/include/getopt.h lib/getopt-cdefs.h \
+ lib/getopt-pfx-core.h lib/unistd.h /usr/include/fortify/unistd.h \
+ /usr/include/unistd.h lib/stdlib.h /usr/include/fortify/stdlib.h \
+ /usr/include/stdlib.h lib/alloca.h /usr/include/limits.h \
+ /usr/include/bits/limits.h lib/getopt-core.h lib/getopt-pfx-ext.h \
+ lib/getopt-ext.h src/system.h lib/attribute.h lib/sys/stat.h lib/time.h \
+ /usr/include/time.h /usr/include/sys/stat.h /usr/include/bits/stat.h \
+ /usr/include/sys/param.h lib/sys/resource.h /usr/include/sys/resource.h \
+ /usr/include/bits/resource.h lib/limits.h /usr/include/limits.h \
+ lib/pathmax.h lib/configmake.h /usr/include/sys/sysmacros.h \
+ /usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h \
+ lib/string.h /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ /usr/include/errno.h /usr/include/bits/errno.h src/version.h \
+ lib/exitfail.h lib/fcntl.h /usr/include/fcntl.h \
+ /usr/include/bits/fcntl.h lib/dirent.h /usr/include/dirent.h \
+ /usr/include/bits/dirent.h lib/inttypes.h /usr/include/inttypes.h \
+ lib/stdint.h /usr/include/stdint.h /usr/include/bits/stdint.h \
+ lib/stat-macros.h lib/timespec.h lib/arg-nonnull.h lib/locale.h \
+ /usr/include/locale.h lib/setlocale_null.h lib/gettext.h lib/idx.h \
+ lib/xalloc.h lib/idx.h lib/verify.h lib/unlocked-io.h lib/same-inode.h \
+ lib/dirname.h lib/filename.h lib/basename-lgpl.h lib/openat.h \
+ lib/closein.h lib/closeout.h lib/version-etc.h lib/propername.h \
+ lib/progname.h lib/minmax.h lib/intprops.h lib/intprops-internal.h \
+ lib/inttostr.h lib/intprops.h lib/error.h lib/quotearg.h lib/assure.h \
+ /usr/include/assert.h lib/verify.h lib/dev-ino.h lib/filemode.h \
+ lib/ignore-value.h lib/modechange.h lib/quote.h lib/root-dev-ino.h \
+ lib/dev-ino.h lib/same-inode.h lib/xfts.h lib/fts_.h lib/i-ring.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/stdarg.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+lib/sys/select.h:
+lib/sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+lib/signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+lib/getopt.h:
+/usr/include/getopt.h:
+lib/getopt-cdefs.h:
+lib/getopt-pfx-core.h:
+lib/unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+lib/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+lib/getopt-core.h:
+lib/getopt-pfx-ext.h:
+lib/getopt-ext.h:
+src/system.h:
+lib/attribute.h:
+lib/sys/stat.h:
+lib/time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/sys/param.h:
+lib/sys/resource.h:
+/usr/include/sys/resource.h:
+/usr/include/bits/resource.h:
+lib/limits.h:
+/usr/include/limits.h:
+lib/pathmax.h:
+lib/configmake.h:
+/usr/include/sys/sysmacros.h:
+/usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h:
+lib/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+src/version.h:
+lib/exitfail.h:
+lib/fcntl.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+lib/dirent.h:
+/usr/include/dirent.h:
+/usr/include/bits/dirent.h:
+lib/inttypes.h:
+/usr/include/inttypes.h:
+lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+lib/stat-macros.h:
+lib/timespec.h:
+lib/arg-nonnull.h:
+lib/locale.h:
+/usr/include/locale.h:
+lib/setlocale_null.h:
+lib/gettext.h:
+lib/idx.h:
+lib/xalloc.h:
+lib/idx.h:
+lib/verify.h:
+lib/unlocked-io.h:
+lib/same-inode.h:
+lib/dirname.h:
+lib/filename.h:
+lib/basename-lgpl.h:
+lib/openat.h:
+lib/closein.h:
+lib/closeout.h:
+lib/version-etc.h:
+lib/propername.h:
+lib/progname.h:
+lib/minmax.h:
+lib/intprops.h:
+lib/intprops-internal.h:
+lib/inttostr.h:
+lib/intprops.h:
+lib/error.h:
+lib/quotearg.h:
+lib/assure.h:
+/usr/include/assert.h:
+lib/verify.h:
+lib/dev-ino.h:
+lib/filemode.h:
+lib/ignore-value.h:
+lib/modechange.h:
+lib/quote.h:
+lib/root-dev-ino.h:
+lib/dev-ino.h:
+lib/same-inode.h:
+lib/xfts.h:
+lib/fts_.h:
+lib/i-ring.h:

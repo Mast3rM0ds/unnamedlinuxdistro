@@ -1,0 +1,30 @@
+libgnu_a-stripslash.o: stripslash.c /usr/include/stdc-predef.h \
+ ../config.h dirname.h stdlib.h /usr/include/fortify/stdlib.h \
+ /usr/include/stdlib.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h alloca.h /usr/include/limits.h \
+ /usr/include/bits/limits.h /usr/include/fortify/fortify-headers.h \
+ stddef.h /usr/include/stddef.h filename.h string.h \
+ /usr/include/fortify/string.h /usr/include/string.h strings.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h basename-lgpl.h
+/usr/include/stdc-predef.h:
+../config.h:
+dirname.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+stddef.h:
+/usr/include/stddef.h:
+filename.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+basename-lgpl.h:

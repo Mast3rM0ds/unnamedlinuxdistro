@@ -1,0 +1,66 @@
+lib/libcoreutils_a-base64.o: lib/base64.c /usr/include/stdc-predef.h \
+ lib/config.h lib/base64.h lib/idx.h lib/stddef.h /usr/include/stddef.h \
+ /usr/include/bits/alltypes.h lib/stdint.h /usr/include/stdint.h \
+ /usr/include/bits/stdint.h lib/limits.h /usr/include/limits.h \
+ /usr/include/features.h /usr/include/bits/limits.h lib/ialloc.h \
+ lib/idx.h /usr/include/errno.h /usr/include/bits/errno.h lib/stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h lib/alloca.h \
+ /usr/include/limits.h /usr/include/fortify/fortify-headers.h \
+ lib/unistd.h /usr/include/fortify/unistd.h /usr/include/unistd.h \
+ lib/sys/types.h /usr/include/sys/types.h /usr/include/endian.h \
+ lib/sys/select.h lib/sys/time.h /usr/include/sys/time.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h lib/signal.h \
+ /usr/include/signal.h /usr/include/bits/signal.h lib/getopt-cdefs.h \
+ lib/getopt-pfx-core.h lib/getopt-core.h \
+ /usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h \
+ lib/string.h /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/base64.h:
+lib/idx.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+lib/limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:
+lib/ialloc.h:
+lib/idx.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+lib/alloca.h:
+/usr/include/limits.h:
+/usr/include/fortify/fortify-headers.h:
+lib/unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+lib/sys/select.h:
+lib/sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+lib/signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+lib/getopt-cdefs.h:
+lib/getopt-pfx-core.h:
+lib/getopt-core.h:
+/usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h:
+lib/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:

@@ -1,0 +1,54 @@
+libgnulib_a-mbscasestr.o: mbscasestr.c /usr/include/stdc-predef.h \
+ ../../config.h string.h /usr/include/fortify/string.h \
+ /usr/include/string.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h strings.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h /usr/include/fortify/fortify-headers.h stddef.h \
+ /usr/include/stddef.h ctype.h /usr/include/ctype.h stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h malloca.h stdint.h \
+ /usr/include/stdint.h /usr/include/bits/stdint.h limits.h \
+ /usr/include/limits.h xalloc-oversized.h mbuiter.h /usr/include/assert.h \
+ uchar.h /usr/include/uchar.h wchar.h /usr/include/fortify/wchar.h \
+ /usr/include/wchar.h wctype.h /usr/include/wctype.h mbchar.h \
+ mbiter-aux.h strnlen1.h str-kmp.h
+/usr/include/stdc-predef.h:
+../../config.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:
+stddef.h:
+/usr/include/stddef.h:
+ctype.h:
+/usr/include/ctype.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+malloca.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+limits.h:
+/usr/include/limits.h:
+xalloc-oversized.h:
+mbuiter.h:
+/usr/include/assert.h:
+uchar.h:
+/usr/include/uchar.h:
+wchar.h:
+/usr/include/fortify/wchar.h:
+/usr/include/wchar.h:
+wctype.h:
+/usr/include/wctype.h:
+mbchar.h:
+mbiter-aux.h:
+strnlen1.h:
+str-kmp.h:

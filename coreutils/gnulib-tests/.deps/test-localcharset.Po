@@ -1,0 +1,40 @@
+test-localcharset.o: test-localcharset.c /usr/include/stdc-predef.h \
+ ../lib/config.h ../lib/localcharset.h ../lib/locale.h \
+ /usr/include/locale.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h ../lib/stddef.h /usr/include/stddef.h \
+ ../lib/setlocale_null.h ../lib/arg-nonnull.h ../lib/stdio.h \
+ /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/stdarg.h \
+ ../lib/sys/types.h /usr/include/sys/types.h /usr/include/endian.h \
+ ../lib/sys/select.h ../lib/sys/time.h /usr/include/sys/time.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h ../lib/signal.h \
+ /usr/include/signal.h /usr/include/bits/signal.h
+/usr/include/stdc-predef.h:
+../lib/config.h:
+../lib/localcharset.h:
+../lib/locale.h:
+/usr/include/locale.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+../lib/stddef.h:
+/usr/include/stddef.h:
+../lib/setlocale_null.h:
+../lib/arg-nonnull.h:
+../lib/stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/stdarg.h:
+../lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+../lib/sys/select.h:
+../lib/sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+../lib/signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:

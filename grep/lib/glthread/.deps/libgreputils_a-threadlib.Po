@@ -1,0 +1,38 @@
+glthread/libgreputils_a-threadlib.o: glthread/threadlib.c \
+ /usr/include/stdc-predef.h ../config.h /usr/include/errno.h \
+ /usr/include/features.h /usr/include/bits/errno.h pthread.h \
+ /usr/include/pthread.h /usr/include/bits/alltypes.h sched.h \
+ /usr/include/sched.h sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h time.h \
+ /usr/include/time.h stddef.h /usr/include/stddef.h stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/fortify/fortify-headers.h
+/usr/include/stdc-predef.h:
+../config.h:
+/usr/include/errno.h:
+/usr/include/features.h:
+/usr/include/bits/errno.h:
+pthread.h:
+/usr/include/pthread.h:
+/usr/include/bits/alltypes.h:
+sched.h:
+/usr/include/sched.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+time.h:
+/usr/include/time.h:
+stddef.h:
+/usr/include/stddef.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:

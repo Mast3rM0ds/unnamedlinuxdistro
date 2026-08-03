@@ -1,0 +1,59 @@
+wordsplit.o: wordsplit.c /usr/include/stdc-predef.h ../config.h \
+ /usr/include/errno.h /usr/include/features.h /usr/include/bits/errno.h \
+ ../gnu/ctype.h /usr/include/ctype.h /usr/include/bits/alltypes.h \
+ ../gnu/unistd.h /usr/include/fortify/unistd.h /usr/include/unistd.h \
+ /usr/include/fortify/fortify-headers.h ../gnu/stddef.h \
+ /usr/include/stddef.h ../gnu/stdlib.h /usr/include/fortify/stdlib.h \
+ /usr/include/stdlib.h ../gnu/alloca.h /usr/include/limits.h \
+ /usr/include/bits/limits.h ../gnu/sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ ../gnu/getopt-cdefs.h ../gnu/getopt-pfx-core.h ../gnu/getopt-core.h \
+ ../gnu/string.h /usr/include/fortify/string.h /usr/include/string.h \
+ ../gnu/strings.h /usr/include/fortify/strings.h /usr/include/strings.h \
+ ../gnu/stdio.h /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/stdarg.h /usr/include/pwd.h /usr/include/glob.h wordsplit.h \
+ ../gnu/attribute.h
+/usr/include/stdc-predef.h:
+../config.h:
+/usr/include/errno.h:
+/usr/include/features.h:
+/usr/include/bits/errno.h:
+../gnu/ctype.h:
+/usr/include/ctype.h:
+/usr/include/bits/alltypes.h:
+../gnu/unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+/usr/include/fortify/fortify-headers.h:
+../gnu/stddef.h:
+/usr/include/stddef.h:
+../gnu/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+../gnu/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+../gnu/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+../gnu/getopt-cdefs.h:
+../gnu/getopt-pfx-core.h:
+../gnu/getopt-core.h:
+../gnu/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+../gnu/strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+../gnu/stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/stdarg.h:
+/usr/include/pwd.h:
+/usr/include/glob.h:
+wordsplit.h:
+../gnu/attribute.h:

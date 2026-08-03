@@ -1,0 +1,78 @@
+util.o: util.c /usr/include/stdc-predef.h lib/config.h \
+ /usr/include/ctype.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/errno.h \
+ /usr/include/bits/errno.h lib/limits.h /usr/include/limits.h \
+ /usr/include/bits/limits.h lib/unistd.h /usr/include/fortify/unistd.h \
+ /usr/include/unistd.h /usr/include/fortify/fortify-headers.h \
+ lib/stddef.h /usr/include/stddef.h lib/stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h lib/alloca.h \
+ /usr/include/limits.h lib/sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ lib/getopt-cdefs.h lib/getopt-pfx-core.h lib/getopt-core.h lib/fcntl.h \
+ lib/sys/stat.h lib/time.h /usr/include/time.h /usr/include/sys/stat.h \
+ /usr/include/bits/stat.h /usr/include/fcntl.h /usr/include/bits/fcntl.h \
+ lib/crc.h lib/stdint.h /usr/include/stdint.h /usr/include/bits/stdint.h \
+ tailor.h gzip.h lib/stdio.h /usr/include/fortify/stdio.h \
+ /usr/include/stdio.h /usr/include/stdarg.h lib/string.h \
+ /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h lib/dirname.h \
+ lib/filename.h lib/basename-lgpl.h lib/xalloc.h lib/idx.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+/usr/include/ctype.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+lib/limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+lib/unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+/usr/include/fortify/fortify-headers.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+lib/alloca.h:
+/usr/include/limits.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+lib/getopt-cdefs.h:
+lib/getopt-pfx-core.h:
+lib/getopt-core.h:
+lib/fcntl.h:
+lib/sys/stat.h:
+lib/time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+lib/crc.h:
+lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+tailor.h:
+gzip.h:
+lib/stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/stdarg.h:
+lib/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+lib/dirname.h:
+lib/filename.h:
+lib/basename-lgpl.h:
+lib/xalloc.h:
+lib/idx.h:

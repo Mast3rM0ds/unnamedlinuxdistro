@@ -1,0 +1,25 @@
+libdiffutils_a-c-file-type.o: c-file-type.c /usr/include/stdc-predef.h \
+ config.h file-type.h sys/types.h /usr/include/sys/types.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/endian.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ sys/stat.h time.h /usr/include/time.h stddef.h /usr/include/stddef.h \
+ /usr/include/sys/stat.h /usr/include/bits/stat.h
+/usr/include/stdc-predef.h:
+config.h:
+file-type.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+sys/stat.h:
+time.h:
+/usr/include/time.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:

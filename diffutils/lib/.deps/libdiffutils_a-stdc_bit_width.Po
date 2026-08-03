@@ -1,0 +1,5 @@
+libdiffutils_a-stdc_bit_width.o: stdc_bit_width.c \
+ /usr/include/stdc-predef.h config.h stdbit.h
+/usr/include/stdc-predef.h:
+config.h:
+stdbit.h:

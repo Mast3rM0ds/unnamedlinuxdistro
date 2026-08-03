@@ -1,0 +1,50 @@
+libgnu_a-file-has-acl.o: file-has-acl.c /usr/include/stdc-predef.h \
+ ../config.h acl.h sys/types.h /usr/include/sys/types.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/endian.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ sys/stat.h time.h /usr/include/time.h stddef.h /usr/include/stddef.h \
+ /usr/include/sys/stat.h /usr/include/bits/stat.h acl-internal.h stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/errno.h \
+ /usr/include/bits/errno.h limits.h /usr/include/limits.h attribute.h \
+ minmax.h /usr/include/sys/param.h /usr/include/sys/resource.h sys/time.h \
+ /usr/include/sys/time.h /usr/include/bits/resource.h
+/usr/include/stdc-predef.h:
+../config.h:
+acl.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+sys/stat.h:
+time.h:
+/usr/include/time.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+acl-internal.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+limits.h:
+/usr/include/limits.h:
+attribute.h:
+minmax.h:
+/usr/include/sys/param.h:
+/usr/include/sys/resource.h:
+sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/bits/resource.h:

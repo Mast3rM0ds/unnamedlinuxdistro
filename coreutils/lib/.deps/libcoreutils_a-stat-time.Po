@@ -1,0 +1,38 @@
+lib/libcoreutils_a-stat-time.o: lib/stat-time.c \
+ /usr/include/stdc-predef.h lib/config.h lib/stat-time.h \
+ /usr/include/errno.h /usr/include/features.h /usr/include/bits/errno.h \
+ /usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h \
+ lib/stddef.h /usr/include/stddef.h /usr/include/bits/alltypes.h \
+ lib/sys/stat.h lib/sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h lib/sys/select.h lib/sys/time.h \
+ /usr/include/sys/time.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ lib/signal.h /usr/include/signal.h /usr/include/bits/signal.h lib/time.h \
+ /usr/include/time.h /usr/include/sys/stat.h /usr/include/bits/stat.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/stat-time.h:
+/usr/include/errno.h:
+/usr/include/features.h:
+/usr/include/bits/errno.h:
+/usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+lib/sys/stat.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+lib/sys/select.h:
+lib/sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+lib/signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+lib/time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:

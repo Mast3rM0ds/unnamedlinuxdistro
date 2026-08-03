@@ -1,0 +1,30 @@
+libgnulib_a-malloca.o: malloca.c /usr/include/stdc-predef.h \
+ ../../config.h malloca.h alloca.h stddef.h /usr/include/stddef.h \
+ /usr/include/bits/alltypes.h stdlib.h /usr/include/fortify/stdlib.h \
+ /usr/include/stdlib.h /usr/include/features.h /usr/include/limits.h \
+ /usr/include/bits/limits.h /usr/include/fortify/fortify-headers.h \
+ stdint.h /usr/include/stdint.h /usr/include/bits/stdint.h limits.h \
+ /usr/include/limits.h xalloc-oversized.h \
+ /usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h idx.h
+/usr/include/stdc-predef.h:
+../../config.h:
+malloca.h:
+alloca.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/features.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+limits.h:
+/usr/include/limits.h:
+xalloc-oversized.h:
+/usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h:
+idx.h:

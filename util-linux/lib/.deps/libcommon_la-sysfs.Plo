@@ -1,0 +1,85 @@
+lib/libcommon_la-sysfs.lo: lib/sysfs.c /usr/include/stdc-predef.h \
+ config.h /usr/include/ctype.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/libgen.h /usr/include/fcntl.h \
+ /usr/include/bits/fcntl.h /usr/include/sys/stat.h \
+ /usr/include/bits/stat.h /usr/include/fortify/unistd.h \
+ /usr/include/unistd.h /usr/include/fortify/fortify-headers.h include/c.h \
+ /usr/include/limits.h /usr/include/bits/limits.h /usr/include/stddef.h \
+ /usr/include/stdint.h /usr/include/bits/stdint.h \
+ /usr/include/fortify/stdio.h /usr/include/stdio.h /usr/include/stdarg.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h \
+ /usr/include/alloca.h /usr/include/limits.h \
+ /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ /usr/include/errno.h /usr/include/bits/errno.h /usr/include/sys/types.h \
+ /usr/include/endian.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ /usr/include/grp.h /usr/include/assert.h /usr/include/err.h \
+ /usr/include/sys/sysmacros.h /usr/include/time.h include/pathnames.h \
+ /usr/include/paths.h include/sysfs.h /usr/include/inttypes.h \
+ /usr/include/dirent.h /usr/include/bits/dirent.h include/path.h \
+ include/c.h include/cpuset.h /usr/include/sched.h include/fileutils.h \
+ /usr/include/sys/syscall.h /usr/include/bits/syscall.h include/all-io.h \
+ /usr/include/sys/sendfile.h include/debug.h include/strutils.h \
+ include/buffer.h include/debugobj.h
+/usr/include/stdc-predef.h:
+config.h:
+/usr/include/ctype.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/libgen.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+/usr/include/fortify/fortify-headers.h:
+include/c.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/stddef.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/stdarg.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/alloca.h:
+/usr/include/limits.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/grp.h:
+/usr/include/assert.h:
+/usr/include/err.h:
+/usr/include/sys/sysmacros.h:
+/usr/include/time.h:
+include/pathnames.h:
+/usr/include/paths.h:
+include/sysfs.h:
+/usr/include/inttypes.h:
+/usr/include/dirent.h:
+/usr/include/bits/dirent.h:
+include/path.h:
+include/c.h:
+include/cpuset.h:
+/usr/include/sched.h:
+include/fileutils.h:
+/usr/include/sys/syscall.h:
+/usr/include/bits/syscall.h:
+include/all-io.h:
+/usr/include/sys/sendfile.h:
+include/debug.h:
+include/strutils.h:
+include/buffer.h:
+include/debugobj.h:

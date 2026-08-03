@@ -1,0 +1,29 @@
+libpatch_a-wctype-h.o: wctype-h.c /usr/include/stdc-predef.h ../config.h \
+ wctype.h wchar.h /usr/include/features.h stddef.h /usr/include/stddef.h \
+ /usr/include/bits/alltypes.h /usr/include/fortify/wchar.h \
+ /usr/include/limits.h /usr/include/bits/limits.h /usr/include/stdlib.h \
+ alloca.h /usr/include/string.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h /usr/include/fortify/fortify-headers.h \
+ /usr/include/wchar.h string.h /usr/include/fortify/string.h \
+ /usr/include/wctype.h
+/usr/include/stdc-predef.h:
+../config.h:
+wctype.h:
+wchar.h:
+/usr/include/features.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+/usr/include/fortify/wchar.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/wchar.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/wctype.h:

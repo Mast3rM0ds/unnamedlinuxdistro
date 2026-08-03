@@ -1,0 +1,24 @@
+libpatch_a-bitrotate.o: bitrotate.c /usr/include/stdc-predef.h \
+ ../config.h bitrotate.h limits.h /usr/include/limits.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/bits/limits.h stdint.h /usr/include/stdint.h \
+ /usr/include/bits/stdint.h sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h
+/usr/include/stdc-predef.h:
+../config.h:
+bitrotate.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/bits/limits.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:

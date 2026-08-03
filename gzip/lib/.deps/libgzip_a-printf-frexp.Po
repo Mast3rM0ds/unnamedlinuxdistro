@@ -1,0 +1,14 @@
+libgzip_a-printf-frexp.o: printf-frexp.c /usr/include/stdc-predef.h \
+ config.h printf-frexp.h float.h /usr/include/float.h \
+ /usr/include/bits/float.h math.h /usr/include/math.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h
+/usr/include/stdc-predef.h:
+config.h:
+printf-frexp.h:
+float.h:
+/usr/include/float.h:
+/usr/include/bits/float.h:
+math.h:
+/usr/include/math.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:

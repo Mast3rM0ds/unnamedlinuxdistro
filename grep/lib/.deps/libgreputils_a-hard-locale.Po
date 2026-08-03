@@ -1,0 +1,32 @@
+libgreputils_a-hard-locale.o: hard-locale.c /usr/include/stdc-predef.h \
+ ../config.h hard-locale.h locale.h /usr/include/locale.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h stddef.h \
+ /usr/include/stddef.h setlocale_null.h arg-nonnull.h stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/fortify/fortify-headers.h string.h \
+ /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h
+/usr/include/stdc-predef.h:
+../config.h:
+hard-locale.h:
+locale.h:
+/usr/include/locale.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+stddef.h:
+/usr/include/stddef.h:
+setlocale_null.h:
+arg-nonnull.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:

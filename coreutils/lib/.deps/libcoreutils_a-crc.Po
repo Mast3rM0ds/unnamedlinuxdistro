@@ -1,0 +1,31 @@
+lib/libcoreutils_a-crc.o: lib/crc.c /usr/include/stdc-predef.h \
+ lib/config.h lib/crc.h lib/stddef.h /usr/include/stddef.h \
+ /usr/include/bits/alltypes.h lib/stdint.h /usr/include/stdint.h \
+ /usr/include/bits/stdint.h lib/limits.h /usr/include/limits.h \
+ /usr/include/features.h /usr/include/bits/limits.h /usr/include/endian.h \
+ lib/crc-x86_64.h lib/string.h /usr/include/fortify/string.h \
+ /usr/include/string.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h /usr/include/fortify/fortify-headers.h \
+ lib/crc-sliceby8.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/crc.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+lib/limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:
+/usr/include/endian.h:
+lib/crc-x86_64.h:
+lib/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:
+lib/crc-sliceby8.h:

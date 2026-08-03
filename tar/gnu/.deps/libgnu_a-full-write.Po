@@ -1,0 +1,14 @@
+libgnu_a-full-write.o: full-write.c /usr/include/stdc-predef.h \
+ ../config.h full-write.h stddef.h /usr/include/stddef.h \
+ /usr/include/bits/alltypes.h /usr/include/errno.h \
+ /usr/include/features.h /usr/include/bits/errno.h safe-write.h
+/usr/include/stdc-predef.h:
+../config.h:
+full-write.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+/usr/include/errno.h:
+/usr/include/features.h:
+/usr/include/bits/errno.h:
+safe-write.h:

@@ -1,0 +1,47 @@
+libgnu_a-mbuiter.o: mbuiter.c /usr/include/stdc-predef.h ../config.h \
+ mbuiter.h /usr/include/assert.h /usr/include/features.h stddef.h \
+ /usr/include/stddef.h /usr/include/bits/alltypes.h stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/fortify/fortify-headers.h string.h \
+ /usr/include/fortify/string.h /usr/include/string.h strings.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h uchar.h \
+ /usr/include/uchar.h stdint.h /usr/include/stdint.h \
+ /usr/include/bits/stdint.h limits.h /usr/include/limits.h wchar.h \
+ /usr/include/fortify/wchar.h /usr/include/wchar.h wctype.h \
+ /usr/include/wctype.h mbchar.h strnlen1.h
+/usr/include/stdc-predef.h:
+../config.h:
+mbuiter.h:
+/usr/include/assert.h:
+/usr/include/features.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+uchar.h:
+/usr/include/uchar.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+limits.h:
+/usr/include/limits.h:
+wchar.h:
+/usr/include/fortify/wchar.h:
+/usr/include/wchar.h:
+wctype.h:
+/usr/include/wctype.h:
+mbchar.h:
+strnlen1.h:

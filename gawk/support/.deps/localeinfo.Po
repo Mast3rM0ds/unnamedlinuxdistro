@@ -1,0 +1,34 @@
+localeinfo.o: localeinfo.c /usr/include/stdc-predef.h ../config.h \
+ ../custom.h /usr/include/fortify/stdlib.h /usr/include/stdlib.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/alloca.h /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/fortify/fortify-headers.h pma.h localeinfo.h \
+ /usr/include/fortify/wchar.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ /usr/include/wchar.h /usr/include/uchar.h verify.h /usr/include/limits.h \
+ /usr/include/locale.h /usr/include/fortify/string.h \
+ /usr/include/wctype.h
+/usr/include/stdc-predef.h:
+../config.h:
+../custom.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+pma.h:
+localeinfo.h:
+/usr/include/fortify/wchar.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/wchar.h:
+/usr/include/uchar.h:
+verify.h:
+/usr/include/limits.h:
+/usr/include/locale.h:
+/usr/include/fortify/string.h:
+/usr/include/wctype.h:

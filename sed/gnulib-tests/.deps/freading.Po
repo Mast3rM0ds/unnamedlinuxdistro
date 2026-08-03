@@ -1,0 +1,39 @@
+freading.o: freading.c /usr/include/stdc-predef.h ../config.h freading.h \
+ ../lib/stdio.h /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/stdarg.h \
+ ../lib/stddef.h /usr/include/stddef.h ../lib/sys/types.h \
+ /usr/include/sys/types.h /usr/include/endian.h sys/select.h sys/time.h \
+ /usr/include/sys/time.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ signal.h /usr/include/signal.h /usr/include/bits/signal.h \
+ /usr/include/stdio_ext.h stdio-impl.h /usr/include/errno.h \
+ /usr/include/bits/errno.h
+/usr/include/stdc-predef.h:
+../config.h:
+freading.h:
+../lib/stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/stdarg.h:
+../lib/stddef.h:
+/usr/include/stddef.h:
+../lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+sys/select.h:
+sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+/usr/include/stdio_ext.h:
+stdio-impl.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:

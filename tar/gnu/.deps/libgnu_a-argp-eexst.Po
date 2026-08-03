@@ -1,0 +1,45 @@
+libgnu_a-argp-eexst.o: argp-eexst.c /usr/include/stdc-predef.h \
+ ../config.h /usr/include/sysexits.h argp.h stdio.h \
+ /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/stdarg.h stddef.h \
+ /usr/include/stddef.h sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h ctype.h \
+ /usr/include/ctype.h getopt.h /usr/include/getopt.h getopt-cdefs.h \
+ getopt-pfx-core.h getopt-core.h getopt-pfx-ext.h getopt-ext.h limits.h \
+ /usr/include/limits.h /usr/include/bits/limits.h /usr/include/errno.h \
+ /usr/include/bits/errno.h
+/usr/include/stdc-predef.h:
+../config.h:
+/usr/include/sysexits.h:
+argp.h:
+stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/stdarg.h:
+stddef.h:
+/usr/include/stddef.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+ctype.h:
+/usr/include/ctype.h:
+getopt.h:
+/usr/include/getopt.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+getopt-core.h:
+getopt-pfx-ext.h:
+getopt-ext.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:

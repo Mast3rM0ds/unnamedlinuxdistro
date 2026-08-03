@@ -1,0 +1,106 @@
+lib/libcoreutils_a-randread.o: lib/randread.c /usr/include/stdc-predef.h \
+ lib/config.h lib/randread.h lib/stddef.h /usr/include/stddef.h \
+ /usr/include/bits/alltypes.h /usr/include/errno.h \
+ /usr/include/features.h /usr/include/bits/errno.h lib/error.h \
+ /usr/include/stdarg.h lib/stdio.h /usr/include/fortify/stdio.h \
+ /usr/include/stdio.h /usr/include/fortify/fortify-headers.h \
+ lib/sys/types.h /usr/include/sys/types.h /usr/include/endian.h \
+ lib/sys/select.h lib/sys/time.h /usr/include/sys/time.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h lib/signal.h \
+ /usr/include/signal.h /usr/include/bits/signal.h lib/exitfail.h \
+ lib/fcntl.h lib/sys/stat.h lib/time.h /usr/include/time.h \
+ /usr/include/sys/stat.h /usr/include/bits/stat.h /usr/include/fcntl.h \
+ /usr/include/bits/fcntl.h lib/unistd.h /usr/include/fortify/unistd.h \
+ /usr/include/unistd.h lib/stdlib.h /usr/include/fortify/stdlib.h \
+ /usr/include/stdlib.h lib/alloca.h /usr/include/limits.h \
+ /usr/include/bits/limits.h lib/getopt-cdefs.h lib/getopt-pfx-core.h \
+ lib/getopt-core.h lib/quote.h lib/stdint.h /usr/include/stdint.h \
+ /usr/include/bits/stdint.h lib/limits.h /usr/include/limits.h \
+ lib/string.h /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h lib/sys/random.h \
+ /usr/include/sys/random.h lib/gettext.h lib/locale.h \
+ /usr/include/locale.h lib/setlocale_null.h lib/arg-nonnull.h \
+ lib/assure.h /usr/include/assert.h lib/verify.h lib/minmax.h \
+ /usr/include/sys/param.h lib/sys/resource.h /usr/include/sys/resource.h \
+ /usr/include/bits/resource.h lib/rand-isaac.h lib/stdio-safer.h \
+ lib/unlocked-io.h lib/xalloc.h lib/idx.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/randread.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+/usr/include/errno.h:
+/usr/include/features.h:
+/usr/include/bits/errno.h:
+lib/error.h:
+/usr/include/stdarg.h:
+lib/stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/fortify/fortify-headers.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+lib/sys/select.h:
+lib/sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+lib/signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+lib/exitfail.h:
+lib/fcntl.h:
+lib/sys/stat.h:
+lib/time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+lib/unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+lib/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+lib/getopt-cdefs.h:
+lib/getopt-pfx-core.h:
+lib/getopt-core.h:
+lib/quote.h:
+lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+lib/limits.h:
+/usr/include/limits.h:
+lib/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+lib/sys/random.h:
+/usr/include/sys/random.h:
+lib/gettext.h:
+lib/locale.h:
+/usr/include/locale.h:
+lib/setlocale_null.h:
+lib/arg-nonnull.h:
+lib/assure.h:
+/usr/include/assert.h:
+lib/verify.h:
+lib/minmax.h:
+/usr/include/sys/param.h:
+lib/sys/resource.h:
+/usr/include/sys/resource.h:
+/usr/include/bits/resource.h:
+lib/rand-isaac.h:
+lib/stdio-safer.h:
+lib/unlocked-io.h:
+lib/xalloc.h:
+lib/idx.h:

@@ -1,0 +1,52 @@
+libgnulib_a-cycle-check.o: cycle-check.c /usr/include/stdc-predef.h \
+ ../../config.h cycle-check.h stdint.h /usr/include/stdint.h \
+ /usr/include/bits/alltypes.h /usr/include/bits/stdint.h limits.h \
+ /usr/include/limits.h /usr/include/features.h /usr/include/bits/limits.h \
+ dev-ino.h sys/types.h /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h sys/stat.h time.h \
+ /usr/include/time.h stddef.h /usr/include/stddef.h \
+ /usr/include/sys/stat.h /usr/include/bits/stat.h same-inode.h stdio.h \
+ /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/stdarg.h stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h alloca.h \
+ /usr/include/limits.h assure.h /usr/include/assert.h verify.h
+/usr/include/stdc-predef.h:
+../../config.h:
+cycle-check.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/alltypes.h:
+/usr/include/bits/stdint.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:
+dev-ino.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+sys/stat.h:
+time.h:
+/usr/include/time.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+same-inode.h:
+stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/stdarg.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+assure.h:
+/usr/include/assert.h:
+verify.h:

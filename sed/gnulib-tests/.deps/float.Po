@@ -1,0 +1,7 @@
+float.o: float.c /usr/include/stdc-predef.h ../config.h float.h \
+ /usr/include/float.h /usr/include/bits/float.h
+/usr/include/stdc-predef.h:
+../config.h:
+float.h:
+/usr/include/float.h:
+/usr/include/bits/float.h:

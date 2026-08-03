@@ -1,0 +1,26 @@
+libgnulib_a-sys_socket.o: sys_socket.c /usr/include/stdc-predef.h \
+ ../../config.h sys/socket.h sys/types.h /usr/include/sys/types.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/endian.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ stddef.h /usr/include/stddef.h /usr/include/fortify/sys/socket.h \
+ /usr/include/sys/socket.h /usr/include/bits/socket.h sys/uio.h \
+ /usr/include/sys/uio.h
+/usr/include/stdc-predef.h:
+../../config.h:
+sys/socket.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/fortify/sys/socket.h:
+/usr/include/sys/socket.h:
+/usr/include/bits/socket.h:
+sys/uio.h:
+/usr/include/sys/uio.h:

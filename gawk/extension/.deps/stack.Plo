@@ -1,0 +1,15 @@
+stack.lo: stack.c /usr/include/stdc-predef.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/alloca.h /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/fortify/fortify-headers.h stack.h
+/usr/include/stdc-predef.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+stack.h:

@@ -1,0 +1,31 @@
+libgnulib_a-close-stream.o: close-stream.c /usr/include/stdc-predef.h \
+ ../../config.h close-stream.h stdio.h /usr/include/fortify/stdio.h \
+ /usr/include/stdio.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/fortify/fortify-headers.h \
+ /usr/include/stdarg.h stddef.h /usr/include/stddef.h sys/types.h \
+ /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/errno.h \
+ /usr/include/bits/errno.h fpending.h /usr/include/stdio_ext.h
+/usr/include/stdc-predef.h:
+../../config.h:
+close-stream.h:
+stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/stdarg.h:
+stddef.h:
+/usr/include/stddef.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+fpending.h:
+/usr/include/stdio_ext.h:

@@ -1,0 +1,39 @@
+lib/libcoreutils_a-c32_get_type_test.o: lib/c32_get_type_test.c \
+ /usr/include/stdc-predef.h lib/config.h lib/uchar.h /usr/include/uchar.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h lib/stdint.h \
+ /usr/include/stdint.h /usr/include/bits/stdint.h lib/limits.h \
+ /usr/include/limits.h /usr/include/bits/limits.h lib/wchar.h \
+ lib/stddef.h /usr/include/stddef.h /usr/include/fortify/wchar.h \
+ /usr/include/limits.h /usr/include/stdlib.h lib/alloca.h \
+ /usr/include/string.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h /usr/include/fortify/fortify-headers.h \
+ /usr/include/wchar.h lib/string.h /usr/include/fortify/string.h \
+ lib/wctype.h /usr/include/wctype.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/uchar.h:
+/usr/include/uchar.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+lib/limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+lib/wchar.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+/usr/include/fortify/wchar.h:
+/usr/include/limits.h:
+/usr/include/stdlib.h:
+lib/alloca.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/wchar.h:
+lib/string.h:
+/usr/include/fortify/string.h:
+lib/wctype.h:
+/usr/include/wctype.h:

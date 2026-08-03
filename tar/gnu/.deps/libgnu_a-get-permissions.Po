@@ -1,0 +1,49 @@
+libgnu_a-get-permissions.o: get-permissions.c /usr/include/stdc-predef.h \
+ ../config.h string.h /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h strings.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ /usr/include/fortify/fortify-headers.h stddef.h /usr/include/stddef.h \
+ acl.h sys/types.h /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h sys/stat.h time.h \
+ /usr/include/time.h /usr/include/sys/stat.h /usr/include/bits/stat.h \
+ acl-internal.h stdlib.h /usr/include/fortify/stdlib.h \
+ /usr/include/stdlib.h alloca.h /usr/include/limits.h \
+ /usr/include/bits/limits.h /usr/include/errno.h \
+ /usr/include/bits/errno.h limits.h /usr/include/limits.h
+/usr/include/stdc-predef.h:
+../config.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:
+stddef.h:
+/usr/include/stddef.h:
+acl.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+sys/stat.h:
+time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+acl-internal.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+limits.h:
+/usr/include/limits.h:

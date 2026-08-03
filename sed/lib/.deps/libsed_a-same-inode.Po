@@ -1,0 +1,26 @@
+lib/libsed_a-same-inode.o: lib/same-inode.c /usr/include/stdc-predef.h \
+ config.h lib/same-inode.h lib/sys/stat.h lib/sys/types.h \
+ /usr/include/sys/types.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h lib/time.h /usr/include/time.h \
+ lib/stddef.h /usr/include/stddef.h /usr/include/sys/stat.h \
+ /usr/include/bits/stat.h
+/usr/include/stdc-predef.h:
+config.h:
+lib/same-inode.h:
+lib/sys/stat.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+lib/time.h:
+/usr/include/time.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:

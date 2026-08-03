@@ -1,0 +1,10 @@
+prefix=/home/sonakrie/Work/testicular_linux/fs
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: apk
+Description: apk-tools: apk
+Version: 3.0.0
+Requires.private: openssl, zlib
+Libs: -L${libdir} -lapk
+Cflags: -I${includedir}

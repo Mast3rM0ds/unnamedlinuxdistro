@@ -1,0 +1,28 @@
+lib/libcoreutils_a-setlocale_null-unlocked.o: \
+ lib/setlocale_null-unlocked.c /usr/include/stdc-predef.h lib/config.h \
+ lib/setlocale_null.h lib/stddef.h /usr/include/stddef.h \
+ /usr/include/bits/alltypes.h lib/arg-nonnull.h /usr/include/errno.h \
+ /usr/include/features.h /usr/include/bits/errno.h lib/locale.h \
+ /usr/include/locale.h lib/setlocale_null.h lib/string.h \
+ /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ /usr/include/fortify/fortify-headers.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/setlocale_null.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+lib/arg-nonnull.h:
+/usr/include/errno.h:
+/usr/include/features.h:
+/usr/include/bits/errno.h:
+lib/locale.h:
+/usr/include/locale.h:
+lib/setlocale_null.h:
+lib/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:

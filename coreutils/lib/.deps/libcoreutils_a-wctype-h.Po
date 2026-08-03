@@ -1,0 +1,30 @@
+lib/libcoreutils_a-wctype-h.o: lib/wctype-h.c /usr/include/stdc-predef.h \
+ lib/config.h lib/wctype.h lib/wchar.h /usr/include/features.h \
+ lib/stddef.h /usr/include/stddef.h /usr/include/bits/alltypes.h \
+ /usr/include/fortify/wchar.h /usr/include/limits.h \
+ /usr/include/bits/limits.h /usr/include/stdlib.h lib/alloca.h \
+ /usr/include/string.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h /usr/include/fortify/fortify-headers.h \
+ /usr/include/wchar.h lib/string.h /usr/include/fortify/string.h \
+ /usr/include/wctype.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/wctype.h:
+lib/wchar.h:
+/usr/include/features.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+/usr/include/fortify/wchar.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/stdlib.h:
+lib/alloca.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/wchar.h:
+lib/string.h:
+/usr/include/fortify/string.h:
+/usr/include/wctype.h:

@@ -1,0 +1,21 @@
+lib/libuuid_la-sha1.lo: lib/sha1.c /usr/include/stdc-predef.h config.h \
+ /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/fortify/string.h \
+ /usr/include/string.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h /usr/include/stdint.h /usr/include/bits/stdint.h \
+ include/sha1.h
+/usr/include/stdc-predef.h:
+config.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+include/sha1.h:

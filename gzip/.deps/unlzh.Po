@@ -1,0 +1,42 @@
+unlzh.o: unlzh.c /usr/include/stdc-predef.h lib/config.h lib/limits.h \
+ /usr/include/limits.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/bits/limits.h lib/stdio.h \
+ /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/stdarg.h \
+ lib/stddef.h /usr/include/stddef.h lib/sys/types.h \
+ /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h tailor.h gzip.h lib/time.h \
+ /usr/include/time.h lib/string.h /usr/include/fortify/string.h \
+ /usr/include/string.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h lzw.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/bits/limits.h:
+lib/stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/stdarg.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+tailor.h:
+gzip.h:
+lib/time.h:
+/usr/include/time.h:
+lib/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+lzw.h:

@@ -1,0 +1,33 @@
+unistr/u32-set.o: unistr/u32-set.c /usr/include/stdc-predef.h ../config.h \
+ ../lib/unistr.h ../lib/unitypes.h ../lib/stdint.h /usr/include/stdint.h \
+ /usr/include/bits/alltypes.h /usr/include/bits/stdint.h ../lib/limits.h \
+ /usr/include/limits.h /usr/include/features.h /usr/include/bits/limits.h \
+ /usr/include/stdbool.h ../lib/stddef.h /usr/include/stddef.h \
+ ../lib/stdlib.h /usr/include/fortify/stdlib.h /usr/include/stdlib.h \
+ ../lib/alloca.h /usr/include/limits.h \
+ /usr/include/fortify/fortify-headers.h unistr/u-set.h \
+ /usr/include/errno.h /usr/include/bits/errno.h
+/usr/include/stdc-predef.h:
+../config.h:
+../lib/unistr.h:
+../lib/unitypes.h:
+../lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/alltypes.h:
+/usr/include/bits/stdint.h:
+../lib/limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:
+/usr/include/stdbool.h:
+../lib/stddef.h:
+/usr/include/stddef.h:
+../lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+../lib/alloca.h:
+/usr/include/limits.h:
+/usr/include/fortify/fortify-headers.h:
+unistr/u-set.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:

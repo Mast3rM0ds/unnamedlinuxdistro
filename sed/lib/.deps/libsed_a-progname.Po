@@ -1,0 +1,23 @@
+lib/libsed_a-progname.o: lib/progname.c /usr/include/stdc-predef.h \
+ config.h lib/progname.h lib/arg-nonnull.h /usr/include/errno.h \
+ /usr/include/features.h /usr/include/bits/errno.h lib/string.h \
+ /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/bits/alltypes.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h /usr/include/fortify/fortify-headers.h \
+ lib/stddef.h /usr/include/stddef.h
+/usr/include/stdc-predef.h:
+config.h:
+lib/progname.h:
+lib/arg-nonnull.h:
+/usr/include/errno.h:
+/usr/include/features.h:
+/usr/include/bits/errno.h:
+lib/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/bits/alltypes.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:
+lib/stddef.h:
+/usr/include/stddef.h:

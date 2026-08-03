@@ -1,0 +1,70 @@
+libdiffutils_a-diagnose.o: diagnose.c /usr/include/stdc-predef.h config.h \
+ diagnose.h gettext.h locale.h /usr/include/locale.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h stddef.h \
+ /usr/include/stddef.h setlocale_null.h arg-nonnull.h string.h \
+ /usr/include/fortify/string.h /usr/include/string.h strings.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ /usr/include/fortify/fortify-headers.h stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h unistd.h \
+ /usr/include/fortify/unistd.h /usr/include/unistd.h fcntl.h sys/types.h \
+ /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h sys/stat.h time.h \
+ /usr/include/time.h /usr/include/sys/stat.h /usr/include/bits/stat.h \
+ /usr/include/fcntl.h /usr/include/bits/fcntl.h getopt-cdefs.h \
+ getopt-pfx-core.h getopt-core.h progname.h quotearg.h error.h \
+ /usr/include/stdarg.h stdio.h /usr/include/fortify/stdio.h \
+ /usr/include/stdio.h
+/usr/include/stdc-predef.h:
+config.h:
+diagnose.h:
+gettext.h:
+locale.h:
+/usr/include/locale.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+stddef.h:
+/usr/include/stddef.h:
+setlocale_null.h:
+arg-nonnull.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+fcntl.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+sys/stat.h:
+time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+getopt-core.h:
+progname.h:
+quotearg.h:
+error.h:
+/usr/include/stdarg.h:
+stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:

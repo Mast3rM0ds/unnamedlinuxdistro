@@ -1,0 +1,18 @@
+lib/libsed_a-memeq.o: lib/memeq.c /usr/include/stdc-predef.h config.h \
+ lib/string.h /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ /usr/include/fortify/fortify-headers.h lib/stddef.h \
+ /usr/include/stddef.h
+/usr/include/stdc-predef.h:
+config.h:
+lib/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:
+lib/stddef.h:
+/usr/include/stddef.h:

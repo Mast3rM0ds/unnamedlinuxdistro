@@ -1,0 +1,14 @@
+libpatch_a-setlocale-lock.o: setlocale-lock.c /usr/include/stdc-predef.h \
+ ../config.h /usr/include/pthread.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/sched.h time.h \
+ /usr/include/time.h stddef.h /usr/include/stddef.h
+/usr/include/stdc-predef.h:
+../config.h:
+/usr/include/pthread.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/sched.h:
+time.h:
+/usr/include/time.h:
+stddef.h:
+/usr/include/stddef.h:

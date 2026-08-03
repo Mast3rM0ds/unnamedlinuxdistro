@@ -1,0 +1,4 @@
+lib/libsed_a-setlocale-lock.o: lib/setlocale-lock.c \
+ /usr/include/stdc-predef.h config.h
+/usr/include/stdc-predef.h:
+config.h:

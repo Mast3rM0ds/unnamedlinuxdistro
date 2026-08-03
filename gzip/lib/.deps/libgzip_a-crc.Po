@@ -1,0 +1,30 @@
+libgzip_a-crc.o: crc.c /usr/include/stdc-predef.h config.h crc.h stddef.h \
+ /usr/include/stddef.h /usr/include/bits/alltypes.h stdint.h \
+ /usr/include/stdint.h /usr/include/bits/stdint.h limits.h \
+ /usr/include/limits.h /usr/include/features.h /usr/include/bits/limits.h \
+ /usr/include/endian.h crc-x86_64.h string.h \
+ /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ /usr/include/fortify/fortify-headers.h crc-sliceby8.h
+/usr/include/stdc-predef.h:
+config.h:
+crc.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:
+/usr/include/endian.h:
+crc-x86_64.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:
+crc-sliceby8.h:

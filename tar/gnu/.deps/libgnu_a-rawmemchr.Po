@@ -1,0 +1,26 @@
+libgnu_a-rawmemchr.o: rawmemchr.c /usr/include/stdc-predef.h ../config.h \
+ string.h /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h strings.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ /usr/include/fortify/fortify-headers.h stddef.h /usr/include/stddef.h \
+ limits.h /usr/include/limits.h /usr/include/bits/limits.h stdint.h \
+ /usr/include/stdint.h /usr/include/bits/stdint.h
+/usr/include/stdc-predef.h:
+../config.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:
+stddef.h:
+/usr/include/stddef.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:

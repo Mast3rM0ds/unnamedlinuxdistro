@@ -1,0 +1,42 @@
+libgnu_a-safe-read.o: safe-read.c /usr/include/stdc-predef.h ../config.h \
+ safe-read.h stddef.h /usr/include/stddef.h /usr/include/bits/alltypes.h \
+ sys/types.h /usr/include/sys/types.h /usr/include/features.h \
+ /usr/include/endian.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ unistd.h /usr/include/fortify/unistd.h /usr/include/unistd.h \
+ /usr/include/fortify/fortify-headers.h stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h getopt-cdefs.h \
+ getopt-pfx-core.h getopt-core.h /usr/include/errno.h \
+ /usr/include/bits/errno.h sys-limits.h limits.h /usr/include/limits.h
+/usr/include/stdc-predef.h:
+../config.h:
+safe-read.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/features.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+/usr/include/fortify/fortify-headers.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+getopt-core.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+sys-limits.h:
+limits.h:
+/usr/include/limits.h:

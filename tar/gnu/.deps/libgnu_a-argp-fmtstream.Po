@@ -1,0 +1,57 @@
+libgnu_a-argp-fmtstream.o: argp-fmtstream.c /usr/include/stdc-predef.h \
+ ../config.h stdlib.h /usr/include/fortify/stdlib.h /usr/include/stdlib.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/fortify/fortify-headers.h stddef.h /usr/include/stddef.h \
+ string.h /usr/include/fortify/string.h /usr/include/string.h strings.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ /usr/include/errno.h /usr/include/bits/errno.h /usr/include/stdarg.h \
+ ctype.h /usr/include/ctype.h argp-fmtstream.h stdio.h \
+ /usr/include/fortify/stdio.h /usr/include/stdio.h sys/types.h \
+ /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h unistd.h \
+ /usr/include/fortify/unistd.h /usr/include/unistd.h getopt-cdefs.h \
+ getopt-pfx-core.h getopt-core.h argp-namefrob.h basename-lgpl.h
+/usr/include/stdc-predef.h:
+../config.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+stddef.h:
+/usr/include/stddef.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+/usr/include/stdarg.h:
+ctype.h:
+/usr/include/ctype.h:
+argp-fmtstream.h:
+stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+getopt-core.h:
+argp-namefrob.h:
+basename-lgpl.h:

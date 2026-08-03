@@ -1,0 +1,72 @@
+lib/libcoreutils_a-xstrtoimax.o: lib/xstrtoimax.c \
+ /usr/include/stdc-predef.h lib/xstrtol.c lib/config.h lib/xstrtol.h \
+ lib/stdint.h /usr/include/stdint.h /usr/include/bits/alltypes.h \
+ /usr/include/bits/stdint.h lib/limits.h /usr/include/limits.h \
+ /usr/include/features.h /usr/include/bits/limits.h lib/ctype.h \
+ /usr/include/ctype.h /usr/include/errno.h /usr/include/bits/errno.h \
+ /usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h \
+ lib/stdlib.h /usr/include/fortify/stdlib.h /usr/include/stdlib.h \
+ lib/alloca.h /usr/include/limits.h \
+ /usr/include/fortify/fortify-headers.h lib/stddef.h \
+ /usr/include/stddef.h lib/unistd.h /usr/include/fortify/unistd.h \
+ /usr/include/unistd.h lib/sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h lib/sys/select.h lib/sys/time.h \
+ /usr/include/sys/time.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ lib/signal.h /usr/include/signal.h /usr/include/bits/signal.h \
+ lib/getopt-cdefs.h lib/getopt-pfx-core.h lib/getopt-core.h lib/string.h \
+ /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h lib/inttypes.h \
+ /usr/include/inttypes.h lib/intprops.h lib/intprops-internal.h
+/usr/include/stdc-predef.h:
+lib/xstrtol.c:
+lib/config.h:
+lib/xstrtol.h:
+lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/alltypes.h:
+/usr/include/bits/stdint.h:
+lib/limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:
+lib/ctype.h:
+/usr/include/ctype.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+/usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h:
+lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+lib/alloca.h:
+/usr/include/limits.h:
+/usr/include/fortify/fortify-headers.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+lib/unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+lib/sys/select.h:
+lib/sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+lib/signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+lib/getopt-cdefs.h:
+lib/getopt-pfx-core.h:
+lib/getopt-core.h:
+lib/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+lib/inttypes.h:
+/usr/include/inttypes.h:
+lib/intprops.h:
+lib/intprops-internal.h:

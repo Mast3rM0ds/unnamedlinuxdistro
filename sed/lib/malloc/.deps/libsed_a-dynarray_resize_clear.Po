@@ -1,0 +1,26 @@
+lib/malloc/libsed_a-dynarray_resize_clear.o: \
+ lib/malloc/dynarray_resize_clear.c /usr/include/stdc-predef.h \
+ lib/libc-config.h config.h /usr/include/errno.h /usr/include/features.h \
+ /usr/include/bits/errno.h lib/cdefs.h lib/dynarray.h \
+ lib/malloc/dynarray.h lib/stddef.h /usr/include/stddef.h \
+ /usr/include/bits/alltypes.h lib/string.h /usr/include/fortify/string.h \
+ /usr/include/string.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h /usr/include/fortify/fortify-headers.h
+/usr/include/stdc-predef.h:
+lib/libc-config.h:
+config.h:
+/usr/include/errno.h:
+/usr/include/features.h:
+/usr/include/bits/errno.h:
+lib/cdefs.h:
+lib/dynarray.h:
+lib/malloc/dynarray.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+lib/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:

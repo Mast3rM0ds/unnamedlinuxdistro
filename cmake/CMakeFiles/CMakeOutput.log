@@ -1,0 +1,60 @@
+Determining if compiler supports C11 _Thread_local passed with the following output:
+Change Dir: '/home/sonakrie/Work/testicular_linux/cmake/CMakeFiles/CMakeTmp'
+
+Run Build Command(s): /home/sonakrie/Work/testicular_linux/cmake/Bootstrap.cmk/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_bc8ff/fast
+gmake  -f CMakeFiles/cmTC_bc8ff.dir/build.make CMakeFiles/cmTC_bc8ff.dir/build
+gmake[1]: Entering directory '/home/sonakrie/Work/testicular_linux/cmake/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bc8ff.dir/cm_c11_thread_local.c.o
+/usr/bin/gcc   -std=gnu11 -o CMakeFiles/cmTC_bc8ff.dir/cm_c11_thread_local.c.o -c /home/sonakrie/Work/testicular_linux/cmake/Source/Checks/cm_c11_thread_local.c
+Linking C executable cmTC_bc8ff
+/home/sonakrie/Work/testicular_linux/cmake/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_bc8ff.dir/link.txt --verbose=1
+/usr/bin/gcc CMakeFiles/cmTC_bc8ff.dir/cm_c11_thread_local.c.o -o cmTC_bc8ff
+gmake[1]: Leaving directory '/home/sonakrie/Work/testicular_linux/cmake/CMakeFiles/CMakeTmp'
+
+
+
+Determining if compiler supports needed C++17 constructs passed with the following output:
+Change Dir: '/home/sonakrie/Work/testicular_linux/cmake/CMakeFiles/CMakeTmp'
+
+Run Build Command(s): /home/sonakrie/Work/testicular_linux/cmake/Bootstrap.cmk/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_6c814/fast
+gmake  -f CMakeFiles/cmTC_6c814.dir/build.make CMakeFiles/cmTC_6c814.dir/build
+gmake[1]: Entering directory '/home/sonakrie/Work/testicular_linux/cmake/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_6c814.dir/cm_cxx17_check.cpp.o
+/usr/bin/g++    -o CMakeFiles/cmTC_6c814.dir/cm_cxx17_check.cpp.o -c /home/sonakrie/Work/testicular_linux/cmake/Source/Checks/cm_cxx17_check.cpp
+Linking CXX executable cmTC_6c814
+/home/sonakrie/Work/testicular_linux/cmake/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_6c814.dir/link.txt --verbose=1
+/usr/bin/g++ CMakeFiles/cmTC_6c814.dir/cm_cxx17_check.cpp.o -o cmTC_6c814
+gmake[1]: Leaving directory '/home/sonakrie/Work/testicular_linux/cmake/CMakeFiles/CMakeTmp'
+
+
+
+Determining if compiler supports C++ make_unique passed with the following output:
+Change Dir: '/home/sonakrie/Work/testicular_linux/cmake/CMakeFiles/CMakeTmp'
+
+Run Build Command(s): /home/sonakrie/Work/testicular_linux/cmake/Bootstrap.cmk/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_0e08b/fast
+gmake  -f CMakeFiles/cmTC_0e08b.dir/build.make CMakeFiles/cmTC_0e08b.dir/build
+gmake[1]: Entering directory '/home/sonakrie/Work/testicular_linux/cmake/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_0e08b.dir/cm_cxx_make_unique.cxx.o
+/usr/bin/g++    -o CMakeFiles/cmTC_0e08b.dir/cm_cxx_make_unique.cxx.o -c /home/sonakrie/Work/testicular_linux/cmake/Source/Checks/cm_cxx_make_unique.cxx
+Linking CXX executable cmTC_0e08b
+/home/sonakrie/Work/testicular_linux/cmake/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_0e08b.dir/link.txt --verbose=1
+/usr/bin/g++ CMakeFiles/cmTC_0e08b.dir/cm_cxx_make_unique.cxx.o -o cmTC_0e08b
+gmake[1]: Leaving directory '/home/sonakrie/Work/testicular_linux/cmake/CMakeFiles/CMakeTmp'
+
+
+
+Determining if compiler supports C++ filesystem passed with the following output:
+Change Dir: '/home/sonakrie/Work/testicular_linux/cmake/CMakeFiles/CMakeTmp'
+
+Run Build Command(s): /home/sonakrie/Work/testicular_linux/cmake/Bootstrap.cmk/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_2f67a/fast
+gmake  -f CMakeFiles/cmTC_2f67a.dir/build.make CMakeFiles/cmTC_2f67a.dir/build
+gmake[1]: Entering directory '/home/sonakrie/Work/testicular_linux/cmake/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_2f67a.dir/cm_cxx_filesystem.cxx.o
+/usr/bin/g++    -o CMakeFiles/cmTC_2f67a.dir/cm_cxx_filesystem.cxx.o -c /home/sonakrie/Work/testicular_linux/cmake/Source/Checks/cm_cxx_filesystem.cxx
+Linking CXX executable cmTC_2f67a
+/home/sonakrie/Work/testicular_linux/cmake/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_2f67a.dir/link.txt --verbose=1
+/usr/bin/g++ CMakeFiles/cmTC_2f67a.dir/cm_cxx_filesystem.cxx.o -o cmTC_2f67a
+gmake[1]: Leaving directory '/home/sonakrie/Work/testicular_linux/cmake/CMakeFiles/CMakeTmp'
+
+
+

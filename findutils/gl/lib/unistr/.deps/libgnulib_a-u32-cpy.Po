@@ -1,0 +1,38 @@
+unistr/libgnulib_a-u32-cpy.o: unistr/u32-cpy.c /usr/include/stdc-predef.h \
+ ../../config.h unistr.h unitypes.h stdint.h /usr/include/stdint.h \
+ /usr/include/bits/alltypes.h /usr/include/bits/stdint.h limits.h \
+ /usr/include/limits.h /usr/include/features.h /usr/include/bits/limits.h \
+ /usr/include/stdbool.h stddef.h /usr/include/stddef.h stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h alloca.h \
+ /usr/include/limits.h /usr/include/fortify/fortify-headers.h \
+ unistr/u-cpy.h string.h /usr/include/fortify/string.h \
+ /usr/include/string.h strings.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h
+/usr/include/stdc-predef.h:
+../../config.h:
+unistr.h:
+unitypes.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/alltypes.h:
+/usr/include/bits/stdint.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:
+/usr/include/stdbool.h:
+stddef.h:
+/usr/include/stddef.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/fortify/fortify-headers.h:
+unistr/u-cpy.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:

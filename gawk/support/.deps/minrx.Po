@@ -1,0 +1,51 @@
+minrx.o: minrx.c /usr/include/stdc-predef.h /usr/include/ctype.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/limits.h /usr/include/bits/limits.h /usr/include/locale.h \
+ /usr/include/setjmp.h /usr/include/bits/setjmp.h /usr/include/stddef.h \
+ /usr/include/stdint.h /usr/include/bits/stdint.h \
+ /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/fortify/wchar.h \
+ /usr/include/limits.h /usr/include/stdlib.h /usr/include/alloca.h \
+ /usr/include/wchar.h /usr/include/wctype.h /usr/include/langinfo.h \
+ /usr/include/nl_types.h ../config.h ../custom.h \
+ /usr/include/fortify/stdlib.h pma.h /usr/include/uchar.h minrx.h \
+ charset.c /usr/include/assert.h /usr/include/fortify/stdio.h \
+ /usr/include/stdio.h /usr/include/stdbool.h charset.h
+/usr/include/stdc-predef.h:
+/usr/include/ctype.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/locale.h:
+/usr/include/setjmp.h:
+/usr/include/bits/setjmp.h:
+/usr/include/stddef.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/fortify/wchar.h:
+/usr/include/limits.h:
+/usr/include/stdlib.h:
+/usr/include/alloca.h:
+/usr/include/wchar.h:
+/usr/include/wctype.h:
+/usr/include/langinfo.h:
+/usr/include/nl_types.h:
+../config.h:
+../custom.h:
+/usr/include/fortify/stdlib.h:
+pma.h:
+/usr/include/uchar.h:
+minrx.h:
+charset.c:
+/usr/include/assert.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/stdbool.h:
+charset.h:

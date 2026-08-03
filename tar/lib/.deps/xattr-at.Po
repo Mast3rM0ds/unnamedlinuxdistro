@@ -1,0 +1,74 @@
+xattr-at.o: xattr-at.c /usr/include/stdc-predef.h ../config.h xattr-at.h \
+ ../gnu/sys/types.h /usr/include/sys/types.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/sys/xattr.h \
+ /usr/include/errno.h /usr/include/bits/errno.h ../gnu/openat.h \
+ ../gnu/fcntl.h ../gnu/sys/stat.h ../gnu/time.h /usr/include/time.h \
+ ../gnu/stddef.h /usr/include/stddef.h /usr/include/sys/stat.h \
+ /usr/include/bits/stat.h /usr/include/fcntl.h /usr/include/bits/fcntl.h \
+ ../gnu/unistd.h /usr/include/fortify/unistd.h /usr/include/unistd.h \
+ /usr/include/fortify/fortify-headers.h ../gnu/stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h ../gnu/alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h ../gnu/getopt-cdefs.h \
+ ../gnu/getopt-pfx-core.h ../gnu/getopt-core.h ../gnu/dirname.h \
+ ../gnu/filename.h ../gnu/string.h /usr/include/fortify/string.h \
+ /usr/include/string.h ../gnu/strings.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h ../gnu/basename-lgpl.h ../gnu/save-cwd.h \
+ ../gnu/openat-priv.h ../gnu/limits.h /usr/include/limits.h \
+ ../gnu/at-func.c ../gnu/openat.h ../gnu/openat-priv.h ../gnu/save-cwd.h
+/usr/include/stdc-predef.h:
+../config.h:
+xattr-at.h:
+../gnu/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/sys/xattr.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+../gnu/openat.h:
+../gnu/fcntl.h:
+../gnu/sys/stat.h:
+../gnu/time.h:
+/usr/include/time.h:
+../gnu/stddef.h:
+/usr/include/stddef.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+../gnu/unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+/usr/include/fortify/fortify-headers.h:
+../gnu/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+../gnu/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+../gnu/getopt-cdefs.h:
+../gnu/getopt-pfx-core.h:
+../gnu/getopt-core.h:
+../gnu/dirname.h:
+../gnu/filename.h:
+../gnu/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+../gnu/strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+../gnu/basename-lgpl.h:
+../gnu/save-cwd.h:
+../gnu/openat-priv.h:
+../gnu/limits.h:
+/usr/include/limits.h:
+../gnu/at-func.c:
+../gnu/openat.h:
+../gnu/openat-priv.h:
+../gnu/save-cwd.h:

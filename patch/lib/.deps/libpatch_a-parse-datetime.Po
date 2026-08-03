@@ -1,0 +1,69 @@
+libpatch_a-parse-datetime.o: parse-datetime.c /usr/include/stdc-predef.h \
+ ../config.h parse-datetime.h time.h /usr/include/time.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h stddef.h \
+ /usr/include/stddef.h idx.h stdint.h /usr/include/stdint.h \
+ /usr/include/bits/stdint.h limits.h /usr/include/limits.h \
+ /usr/include/bits/limits.h intprops.h intprops-internal.h timespec.h \
+ arg-nonnull.h inttypes.h /usr/include/inttypes.h c-ctype.h \
+ /usr/include/stdarg.h \
+ /usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h stdio.h \
+ /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/fortify/fortify-headers.h sys/types.h \
+ /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h alloca.h \
+ /usr/include/limits.h string.h /usr/include/fortify/string.h \
+ /usr/include/string.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h gettext.h locale.h /usr/include/locale.h \
+ setlocale_null.h arg-nonnull.h
+/usr/include/stdc-predef.h:
+../config.h:
+parse-datetime.h:
+time.h:
+/usr/include/time.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+stddef.h:
+/usr/include/stddef.h:
+idx.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+intprops.h:
+intprops-internal.h:
+timespec.h:
+arg-nonnull.h:
+inttypes.h:
+/usr/include/inttypes.h:
+c-ctype.h:
+/usr/include/stdarg.h:
+/usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h:
+stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/fortify/fortify-headers.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+gettext.h:
+locale.h:
+/usr/include/locale.h:
+setlocale_null.h:
+arg-nonnull.h:

@@ -1,0 +1,85 @@
+libmount/src/la-hook_mount_legacy.lo: libmount/src/hook_mount_legacy.c \
+ /usr/include/stdc-predef.h config.h libmount/src/mountP.h \
+ /usr/include/errno.h /usr/include/features.h /usr/include/bits/errno.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h \
+ /usr/include/bits/alltypes.h /usr/include/alloca.h /usr/include/limits.h \
+ /usr/include/bits/limits.h /usr/include/fortify/fortify-headers.h \
+ /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ /usr/include/sys/stat.h /usr/include/bits/stat.h \
+ /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/sys/vfs.h \
+ /usr/include/sys/statfs.h /usr/include/sys/statvfs.h \
+ /usr/include/bits/statfs.h /usr/include/fortify/unistd.h \
+ /usr/include/unistd.h /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/stdarg.h include/c.h /usr/include/limits.h \
+ /usr/include/stddef.h /usr/include/stdint.h /usr/include/bits/stdint.h \
+ /usr/include/grp.h /usr/include/assert.h /usr/include/err.h \
+ /usr/include/sys/sysmacros.h /usr/include/fcntl.h \
+ /usr/include/bits/fcntl.h /usr/include/time.h include/list.h include/c.h \
+ include/debug.h include/buffer.h libmount/src/libmount.h \
+ /usr/include/mntent.h /usr/include/sys/mount.h /usr/include/sys/ioctl.h \
+ /usr/include/bits/ioctl.h /usr/include/bits/ioctl_fix.h \
+ include/debugobj.h include/nls.h /usr/include/locale.h \
+ /usr/include/langinfo.h /usr/include/nl_types.h
+/usr/include/stdc-predef.h:
+config.h:
+libmount/src/mountP.h:
+/usr/include/errno.h:
+/usr/include/features.h:
+/usr/include/bits/errno.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/bits/alltypes.h:
+/usr/include/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/sys/vfs.h:
+/usr/include/sys/statfs.h:
+/usr/include/sys/statvfs.h:
+/usr/include/bits/statfs.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/stdarg.h:
+include/c.h:
+/usr/include/limits.h:
+/usr/include/stddef.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+/usr/include/grp.h:
+/usr/include/assert.h:
+/usr/include/err.h:
+/usr/include/sys/sysmacros.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+/usr/include/time.h:
+include/list.h:
+include/c.h:
+include/debug.h:
+include/buffer.h:
+libmount/src/libmount.h:
+/usr/include/mntent.h:
+/usr/include/sys/mount.h:
+/usr/include/sys/ioctl.h:
+/usr/include/bits/ioctl.h:
+/usr/include/bits/ioctl_fix.h:
+include/debugobj.h:
+include/nls.h:
+/usr/include/locale.h:
+/usr/include/langinfo.h:
+/usr/include/nl_types.h:

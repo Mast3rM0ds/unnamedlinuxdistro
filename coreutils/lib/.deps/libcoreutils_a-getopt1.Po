@@ -1,0 +1,49 @@
+lib/libcoreutils_a-getopt1.o: lib/getopt1.c /usr/include/stdc-predef.h \
+ lib/config.h lib/getopt.h /usr/include/getopt.h lib/getopt-cdefs.h \
+ lib/getopt-pfx-core.h lib/unistd.h /usr/include/fortify/unistd.h \
+ /usr/include/unistd.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/fortify/fortify-headers.h \
+ lib/stddef.h /usr/include/stddef.h lib/stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h lib/alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h lib/sys/types.h \
+ /usr/include/sys/types.h /usr/include/endian.h lib/sys/select.h \
+ lib/sys/time.h /usr/include/sys/time.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ lib/signal.h /usr/include/signal.h /usr/include/bits/signal.h \
+ lib/getopt-core.h lib/getopt-pfx-ext.h lib/getopt-ext.h lib/getopt_int.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/getopt.h:
+/usr/include/getopt.h:
+lib/getopt-cdefs.h:
+lib/getopt-pfx-core.h:
+lib/unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/fortify/fortify-headers.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+lib/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+lib/sys/select.h:
+lib/sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+lib/signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+lib/getopt-core.h:
+lib/getopt-pfx-ext.h:
+lib/getopt-ext.h:
+lib/getopt_int.h:

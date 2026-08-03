@@ -1,0 +1,14 @@
+libpatch_a-timespec.o: timespec.c /usr/include/stdc-predef.h ../config.h \
+ timespec.h time.h /usr/include/time.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h stddef.h /usr/include/stddef.h \
+ arg-nonnull.h
+/usr/include/stdc-predef.h:
+../config.h:
+timespec.h:
+time.h:
+/usr/include/time.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+stddef.h:
+/usr/include/stddef.h:
+arg-nonnull.h:

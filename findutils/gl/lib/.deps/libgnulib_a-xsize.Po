@@ -1,0 +1,19 @@
+libgnulib_a-xsize.o: xsize.c /usr/include/stdc-predef.h ../../config.h \
+ xsize.h stddef.h /usr/include/stddef.h /usr/include/bits/alltypes.h \
+ limits.h /usr/include/limits.h /usr/include/features.h \
+ /usr/include/bits/limits.h stdint.h /usr/include/stdint.h \
+ /usr/include/bits/stdint.h attribute.h
+/usr/include/stdc-predef.h:
+../../config.h:
+xsize.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+attribute.h:

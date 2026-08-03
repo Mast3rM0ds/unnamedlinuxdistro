@@ -1,0 +1,8 @@
+math.o: math.c /usr/include/stdc-predef.h ../lib/config.h math.h \
+ /usr/include/math.h /usr/include/features.h /usr/include/bits/alltypes.h
+/usr/include/stdc-predef.h:
+../lib/config.h:
+math.h:
+/usr/include/math.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:

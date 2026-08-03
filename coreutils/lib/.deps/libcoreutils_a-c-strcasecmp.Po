@@ -1,0 +1,16 @@
+lib/libcoreutils_a-c-strcasecmp.o: lib/c-strcasecmp.c \
+ /usr/include/stdc-predef.h lib/config.h lib/c-strcase.h lib/stddef.h \
+ /usr/include/stddef.h /usr/include/bits/alltypes.h lib/limits.h \
+ /usr/include/limits.h /usr/include/features.h /usr/include/bits/limits.h \
+ lib/c-ctype.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/c-strcase.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+lib/limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:
+lib/c-ctype.h:

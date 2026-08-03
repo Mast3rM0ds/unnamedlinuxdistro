@@ -1,0 +1,14 @@
+lib/libcoreutils_a-gettime-res.o: lib/gettime-res.c \
+ /usr/include/stdc-predef.h lib/config.h lib/timespec.h lib/time.h \
+ /usr/include/time.h /usr/include/features.h /usr/include/bits/alltypes.h \
+ lib/stddef.h /usr/include/stddef.h lib/arg-nonnull.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/timespec.h:
+lib/time.h:
+/usr/include/time.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+lib/arg-nonnull.h:

@@ -1,0 +1,74 @@
+lib/libcoreutils_a-canon-host.o: lib/canon-host.c \
+ /usr/include/stdc-predef.h lib/config.h lib/canon-host.h lib/stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h lib/alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/fortify/fortify-headers.h lib/stddef.h \
+ /usr/include/stddef.h lib/unistd.h /usr/include/fortify/unistd.h \
+ /usr/include/unistd.h lib/sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h lib/sys/select.h lib/sys/time.h \
+ /usr/include/sys/time.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ lib/signal.h /usr/include/signal.h /usr/include/bits/signal.h \
+ lib/getopt-cdefs.h lib/getopt-pfx-core.h lib/getopt-core.h lib/string.h \
+ /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h lib/netdb.h \
+ /usr/include/netdb.h /usr/include/netinet/in.h lib/inttypes.h \
+ /usr/include/inttypes.h lib/stdint.h /usr/include/stdint.h \
+ /usr/include/bits/stdint.h lib/limits.h /usr/include/limits.h \
+ lib/sys/socket.h /usr/include/fortify/sys/socket.h \
+ /usr/include/sys/socket.h /usr/include/bits/socket.h lib/sys/uio.h \
+ /usr/include/sys/uio.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/canon-host.h:
+lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+lib/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+lib/unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+lib/sys/select.h:
+lib/sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+lib/signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+lib/getopt-cdefs.h:
+lib/getopt-pfx-core.h:
+lib/getopt-core.h:
+lib/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+lib/netdb.h:
+/usr/include/netdb.h:
+/usr/include/netinet/in.h:
+lib/inttypes.h:
+/usr/include/inttypes.h:
+lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+lib/limits.h:
+/usr/include/limits.h:
+lib/sys/socket.h:
+/usr/include/fortify/sys/socket.h:
+/usr/include/sys/socket.h:
+/usr/include/bits/socket.h:
+lib/sys/uio.h:
+/usr/include/sys/uio.h:

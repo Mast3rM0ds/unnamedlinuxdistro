@@ -1,0 +1,70 @@
+libgreputils_a-exclude.o: exclude.c /usr/include/stdc-predef.h \
+ ../config.h ctype.h /usr/include/ctype.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/errno.h \
+ /usr/include/bits/errno.h regex.h sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ limits.h /usr/include/limits.h /usr/include/bits/limits.h stddef.h \
+ /usr/include/stddef.h stdio.h /usr/include/fortify/stdio.h \
+ /usr/include/stdio.h /usr/include/fortify/fortify-headers.h \
+ /usr/include/stdarg.h stdlib.h /usr/include/fortify/stdlib.h \
+ /usr/include/stdlib.h alloca.h /usr/include/limits.h string.h \
+ /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h uchar.h \
+ /usr/include/uchar.h stdint.h /usr/include/stdint.h \
+ /usr/include/bits/stdint.h wchar.h /usr/include/fortify/wchar.h \
+ /usr/include/wchar.h wctype.h /usr/include/wctype.h exclude.h filename.h \
+ /usr/include/fnmatch.h hash.h mcel.h verify.h xalloc.h idx.h
+/usr/include/stdc-predef.h:
+../config.h:
+ctype.h:
+/usr/include/ctype.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+regex.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+stddef.h:
+/usr/include/stddef.h:
+stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/stdarg.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+uchar.h:
+/usr/include/uchar.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+wchar.h:
+/usr/include/fortify/wchar.h:
+/usr/include/wchar.h:
+wctype.h:
+/usr/include/wctype.h:
+exclude.h:
+filename.h:
+/usr/include/fnmatch.h:
+hash.h:
+mcel.h:
+verify.h:
+xalloc.h:
+idx.h:

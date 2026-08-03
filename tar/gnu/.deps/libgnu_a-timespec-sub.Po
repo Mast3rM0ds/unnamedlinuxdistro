@@ -1,0 +1,23 @@
+libgnu_a-timespec-sub.o: timespec-sub.c /usr/include/stdc-predef.h \
+ ../config.h timespec.h time.h /usr/include/time.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h stddef.h \
+ /usr/include/stddef.h arg-nonnull.h \
+ /usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h \
+ intprops.h intprops-internal.h limits.h /usr/include/limits.h \
+ /usr/include/bits/limits.h
+/usr/include/stdc-predef.h:
+../config.h:
+timespec.h:
+time.h:
+/usr/include/time.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+stddef.h:
+/usr/include/stddef.h:
+arg-nonnull.h:
+/usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h:
+intprops.h:
+intprops-internal.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:

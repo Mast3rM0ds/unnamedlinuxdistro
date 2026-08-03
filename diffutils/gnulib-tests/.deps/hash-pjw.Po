@@ -1,0 +1,14 @@
+hash-pjw.o: hash-pjw.c /usr/include/stdc-predef.h ../lib/config.h \
+ hash-pjw.h ../lib/stddef.h /usr/include/stddef.h \
+ /usr/include/bits/alltypes.h ../lib/limits.h /usr/include/limits.h \
+ /usr/include/features.h /usr/include/bits/limits.h
+/usr/include/stdc-predef.h:
+../lib/config.h:
+hash-pjw.h:
+../lib/stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+../lib/limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:

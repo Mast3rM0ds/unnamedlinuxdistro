@@ -1,0 +1,54 @@
+libgnu_a-areadlinkat-with-size.o: areadlinkat-with-size.c \
+ /usr/include/stdc-predef.h ../config.h areadlink.h stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/fortify/fortify-headers.h stddef.h /usr/include/stddef.h \
+ /usr/include/errno.h /usr/include/bits/errno.h limits.h \
+ /usr/include/limits.h stdint.h /usr/include/stdint.h \
+ /usr/include/bits/stdint.h string.h /usr/include/fortify/string.h \
+ /usr/include/string.h strings.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h unistd.h /usr/include/fortify/unistd.h \
+ /usr/include/unistd.h sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ getopt-cdefs.h getopt-pfx-core.h getopt-core.h
+/usr/include/stdc-predef.h:
+../config.h:
+areadlink.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+limits.h:
+/usr/include/limits.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+getopt-core.h:

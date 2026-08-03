@@ -1,0 +1,17 @@
+lib/libcoreutils_a-strintcmp.o: lib/strintcmp.c \
+ /usr/include/stdc-predef.h lib/config.h lib/strnumcmp-in.h \
+ lib/strnumcmp.h lib/c-ctype.h lib/stddef.h /usr/include/stddef.h \
+ /usr/include/bits/alltypes.h lib/limits.h /usr/include/limits.h \
+ /usr/include/features.h /usr/include/bits/limits.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/strnumcmp-in.h:
+lib/strnumcmp.h:
+lib/c-ctype.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+lib/limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:

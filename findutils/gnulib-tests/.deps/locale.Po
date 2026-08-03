@@ -1,0 +1,53 @@
+locale.o: locale.c /usr/include/stdc-predef.h ../config.h \
+ ../gl/lib/locale.h /usr/include/locale.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h ../gl/lib/stddef.h /usr/include/stddef.h \
+ ../gl/lib/setlocale_null.h ../gl/lib/arg-nonnull.h ../gl/lib/stdio.h \
+ /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/stdarg.h \
+ ../gl/lib/sys/types.h /usr/include/sys/types.h /usr/include/endian.h \
+ sys/select.h ../gl/lib/sys/time.h /usr/include/sys/time.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h signal.h /usr/include/signal.h \
+ /usr/include/bits/signal.h ../gl/lib/stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h ../gl/lib/alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h ../gl/lib/stdint.h \
+ /usr/include/stdint.h /usr/include/bits/stdint.h ../gl/lib/limits.h \
+ /usr/include/limits.h
+/usr/include/stdc-predef.h:
+../config.h:
+../gl/lib/locale.h:
+/usr/include/locale.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+../gl/lib/stddef.h:
+/usr/include/stddef.h:
+../gl/lib/setlocale_null.h:
+../gl/lib/arg-nonnull.h:
+../gl/lib/stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/stdarg.h:
+../gl/lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+sys/select.h:
+../gl/lib/sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+../gl/lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+../gl/lib/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+../gl/lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+../gl/lib/limits.h:
+/usr/include/limits.h:

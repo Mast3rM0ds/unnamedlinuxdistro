@@ -1,0 +1,100 @@
+vasnprintf.o: vasnprintf.c /usr/include/stdc-predef.h ../lib/config.h \
+ ../lib/alloca.h vasnprintf.h /usr/include/stdarg.h \
+ /usr/include/bits/alltypes.h ../lib/stddef.h /usr/include/stddef.h \
+ ../lib/stdio.h /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/fortify/fortify-headers.h \
+ ../lib/sys/types.h /usr/include/sys/types.h /usr/include/endian.h \
+ sys/select.h ../lib/sys/time.h /usr/include/sys/time.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h ../lib/signal.h \
+ /usr/include/signal.h /usr/include/bits/signal.h ../lib/locale.h \
+ /usr/include/locale.h ../lib/setlocale_null.h ../lib/arg-nonnull.h \
+ ../lib/stdint.h /usr/include/stdint.h /usr/include/bits/stdint.h \
+ ../lib/limits.h /usr/include/limits.h /usr/include/bits/limits.h \
+ ../lib/stdlib.h /usr/include/fortify/stdlib.h /usr/include/stdlib.h \
+ /usr/include/limits.h ../lib/unistd.h /usr/include/fortify/unistd.h \
+ /usr/include/unistd.h ../lib/fcntl.h ../lib/sys/stat.h ../lib/time.h \
+ /usr/include/time.h /usr/include/sys/stat.h /usr/include/bits/stat.h \
+ /usr/include/fcntl.h /usr/include/bits/fcntl.h ../lib/getopt-cdefs.h \
+ ../lib/getopt-pfx-core.h ../lib/getopt-core.h ../lib/string.h \
+ /usr/include/fortify/string.h /usr/include/string.h ../lib/strings.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h ../lib/wchar.h \
+ /usr/include/fortify/wchar.h /usr/include/wchar.h /usr/include/errno.h \
+ /usr/include/bits/errno.h float.h /usr/include/float.h \
+ /usr/include/bits/float.h ../lib/langinfo.h /usr/include/langinfo.h \
+ /usr/include/nl_types.h printf-parse.h printf-args.h xsize.h \
+ ../lib/attribute.h
+/usr/include/stdc-predef.h:
+../lib/config.h:
+../lib/alloca.h:
+vasnprintf.h:
+/usr/include/stdarg.h:
+/usr/include/bits/alltypes.h:
+../lib/stddef.h:
+/usr/include/stddef.h:
+../lib/stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/features.h:
+/usr/include/fortify/fortify-headers.h:
+../lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+sys/select.h:
+../lib/sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+../lib/signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+../lib/locale.h:
+/usr/include/locale.h:
+../lib/setlocale_null.h:
+../lib/arg-nonnull.h:
+../lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+../lib/limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+../lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/limits.h:
+../lib/unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+../lib/fcntl.h:
+../lib/sys/stat.h:
+../lib/time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+../lib/getopt-cdefs.h:
+../lib/getopt-pfx-core.h:
+../lib/getopt-core.h:
+../lib/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+../lib/strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+../lib/wchar.h:
+/usr/include/fortify/wchar.h:
+/usr/include/wchar.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+float.h:
+/usr/include/float.h:
+/usr/include/bits/float.h:
+../lib/langinfo.h:
+/usr/include/langinfo.h:
+/usr/include/nl_types.h:
+printf-parse.h:
+printf-args.h:
+xsize.h:
+../lib/attribute.h:

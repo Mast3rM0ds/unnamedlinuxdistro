@@ -1,0 +1,21 @@
+libgzip_a-gettime.o: gettime.c /usr/include/stdc-predef.h config.h \
+ timespec.h time.h /usr/include/time.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h stddef.h /usr/include/stddef.h \
+ arg-nonnull.h sys/time.h /usr/include/sys/time.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h
+/usr/include/stdc-predef.h:
+config.h:
+timespec.h:
+time.h:
+/usr/include/time.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+stddef.h:
+/usr/include/stddef.h:
+arg-nonnull.h:
+sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:

@@ -1,0 +1,67 @@
+lib/libcoreutils_a-randperm.o: lib/randperm.c /usr/include/stdc-predef.h \
+ lib/config.h lib/randperm.h lib/randint.h lib/stdint.h \
+ /usr/include/stdint.h /usr/include/bits/alltypes.h \
+ /usr/include/bits/stdint.h lib/limits.h /usr/include/limits.h \
+ /usr/include/features.h /usr/include/bits/limits.h lib/randread.h \
+ lib/stddef.h /usr/include/stddef.h lib/stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h lib/alloca.h \
+ /usr/include/limits.h /usr/include/fortify/fortify-headers.h \
+ lib/unistd.h /usr/include/fortify/unistd.h /usr/include/unistd.h \
+ lib/sys/types.h /usr/include/sys/types.h /usr/include/endian.h \
+ lib/sys/select.h lib/sys/time.h /usr/include/sys/time.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h lib/signal.h \
+ /usr/include/signal.h /usr/include/bits/signal.h lib/getopt-cdefs.h \
+ lib/getopt-pfx-core.h lib/getopt-core.h lib/stdbit.h \
+ /usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h \
+ lib/attribute.h lib/hash.h lib/stdio.h /usr/include/fortify/stdio.h \
+ /usr/include/stdio.h /usr/include/stdarg.h lib/xalloc.h lib/idx.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/randperm.h:
+lib/randint.h:
+lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/alltypes.h:
+/usr/include/bits/stdint.h:
+lib/limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:
+lib/randread.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+lib/alloca.h:
+/usr/include/limits.h:
+/usr/include/fortify/fortify-headers.h:
+lib/unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+lib/sys/select.h:
+lib/sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+lib/signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+lib/getopt-cdefs.h:
+lib/getopt-pfx-core.h:
+lib/getopt-core.h:
+lib/stdbit.h:
+/usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h:
+lib/attribute.h:
+lib/hash.h:
+lib/stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/stdarg.h:
+lib/xalloc.h:
+lib/idx.h:

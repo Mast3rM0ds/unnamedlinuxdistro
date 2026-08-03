@@ -1,0 +1,41 @@
+lib/libcoreutils_a-close-stream.o: lib/close-stream.c \
+ /usr/include/stdc-predef.h lib/config.h lib/close-stream.h lib/stdio.h \
+ /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/stdarg.h \
+ lib/stddef.h /usr/include/stddef.h lib/sys/types.h \
+ /usr/include/sys/types.h /usr/include/endian.h lib/sys/select.h \
+ lib/sys/time.h /usr/include/sys/time.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ lib/signal.h /usr/include/signal.h /usr/include/bits/signal.h \
+ /usr/include/errno.h /usr/include/bits/errno.h lib/fpending.h \
+ /usr/include/stdio_ext.h lib/unlocked-io.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/close-stream.h:
+lib/stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/stdarg.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+lib/sys/select.h:
+lib/sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+lib/signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+lib/fpending.h:
+/usr/include/stdio_ext.h:
+lib/unlocked-io.h:

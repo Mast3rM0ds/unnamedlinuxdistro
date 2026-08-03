@@ -1,0 +1,68 @@
+libgnu_a-argp-help.o: argp-help.c /usr/include/stdc-predef.h ../config.h \
+ alloca.h /usr/include/errno.h /usr/include/features.h \
+ /usr/include/bits/errno.h stddef.h /usr/include/stddef.h \
+ /usr/include/bits/alltypes.h stdlib.h /usr/include/fortify/stdlib.h \
+ /usr/include/stdlib.h /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/fortify/fortify-headers.h string.h \
+ /usr/include/fortify/string.h /usr/include/string.h strings.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ /usr/include/assert.h /usr/include/stdarg.h ctype.h /usr/include/ctype.h \
+ limits.h /usr/include/limits.h gettext.h argp.h stdio.h \
+ /usr/include/fortify/stdio.h /usr/include/stdio.h sys/types.h \
+ /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h getopt.h /usr/include/getopt.h \
+ getopt-cdefs.h getopt-pfx-core.h getopt-core.h getopt-pfx-ext.h \
+ getopt-ext.h argp-fmtstream.h unistd.h /usr/include/fortify/unistd.h \
+ /usr/include/unistd.h argp-namefrob.h basename-lgpl.h
+/usr/include/stdc-predef.h:
+../config.h:
+alloca.h:
+/usr/include/errno.h:
+/usr/include/features.h:
+/usr/include/bits/errno.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/assert.h:
+/usr/include/stdarg.h:
+ctype.h:
+/usr/include/ctype.h:
+limits.h:
+/usr/include/limits.h:
+gettext.h:
+argp.h:
+stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+getopt.h:
+/usr/include/getopt.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+getopt-core.h:
+getopt-pfx-ext.h:
+getopt-ext.h:
+argp-fmtstream.h:
+unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+argp-namefrob.h:
+basename-lgpl.h:

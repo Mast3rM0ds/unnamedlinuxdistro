@@ -1,0 +1,57 @@
+dircallback.o: dircallback.c /usr/include/stdc-predef.h ../config.h \
+ /usr/include/errno.h /usr/include/features.h /usr/include/bits/errno.h \
+ /usr/include/stdarg.h /usr/include/bits/alltypes.h ../gl/lib/sys/stat.h \
+ ../gl/lib/sys/types.h /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h ../gl/lib/time.h \
+ /usr/include/time.h ../gl/lib/stddef.h /usr/include/stddef.h \
+ /usr/include/sys/stat.h /usr/include/bits/stat.h ../gl/lib/fcntl--.h \
+ ../gl/lib/fcntl.h /usr/include/fcntl.h /usr/include/bits/fcntl.h \
+ ../gl/lib/unistd.h /usr/include/fortify/unistd.h /usr/include/unistd.h \
+ /usr/include/fortify/fortify-headers.h ../gl/lib/stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h ../gl/lib/alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h \
+ ../gl/lib/getopt-cdefs.h ../gl/lib/getopt-pfx-core.h \
+ ../gl/lib/getopt-core.h ../gl/lib/fcntl-safer.h ../gl/lib/openat.h \
+ ../gl/lib/save-cwd.h dircallback.h
+/usr/include/stdc-predef.h:
+../config.h:
+/usr/include/errno.h:
+/usr/include/features.h:
+/usr/include/bits/errno.h:
+/usr/include/stdarg.h:
+/usr/include/bits/alltypes.h:
+../gl/lib/sys/stat.h:
+../gl/lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+../gl/lib/time.h:
+/usr/include/time.h:
+../gl/lib/stddef.h:
+/usr/include/stddef.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+../gl/lib/fcntl--.h:
+../gl/lib/fcntl.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+../gl/lib/unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+/usr/include/fortify/fortify-headers.h:
+../gl/lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+../gl/lib/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+../gl/lib/getopt-cdefs.h:
+../gl/lib/getopt-pfx-core.h:
+../gl/lib/getopt-core.h:
+../gl/lib/fcntl-safer.h:
+../gl/lib/openat.h:
+../gl/lib/save-cwd.h:
+dircallback.h:

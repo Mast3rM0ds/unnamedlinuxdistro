@@ -1,0 +1,58 @@
+lib/libcoreutils_a-sm3-stream.o: lib/sm3-stream.c \
+ /usr/include/stdc-predef.h lib/config.h lib/sm3.h lib/stdio.h \
+ /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/stdarg.h \
+ lib/stddef.h /usr/include/stddef.h lib/sys/types.h \
+ /usr/include/sys/types.h /usr/include/endian.h lib/sys/select.h \
+ lib/sys/time.h /usr/include/sys/time.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ lib/signal.h /usr/include/signal.h /usr/include/bits/signal.h \
+ lib/stdint.h /usr/include/stdint.h /usr/include/bits/stdint.h \
+ lib/limits.h /usr/include/limits.h /usr/include/bits/limits.h \
+ lib/stdlib.h /usr/include/fortify/stdlib.h /usr/include/stdlib.h \
+ lib/alloca.h /usr/include/limits.h lib/unistd.h \
+ /usr/include/fortify/unistd.h /usr/include/unistd.h lib/getopt-cdefs.h \
+ lib/getopt-pfx-core.h lib/getopt-core.h lib/unlocked-io.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/sm3.h:
+lib/stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/stdarg.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+lib/sys/select.h:
+lib/sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+lib/signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+lib/limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+lib/alloca.h:
+/usr/include/limits.h:
+lib/unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+lib/getopt-cdefs.h:
+lib/getopt-pfx-core.h:
+lib/getopt-core.h:
+lib/unlocked-io.h:

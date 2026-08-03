@@ -1,0 +1,31 @@
+malloc/libgnu_a-scratch_buffer_set_array_size.o: \
+ malloc/scratch_buffer_set_array_size.c /usr/include/stdc-predef.h \
+ libc-config.h ../config.h /usr/include/errno.h /usr/include/features.h \
+ /usr/include/bits/errno.h cdefs.h scratch_buffer.h \
+ malloc/scratch_buffer.gl.h /usr/include/stdbool.h stddef.h \
+ /usr/include/stddef.h /usr/include/bits/alltypes.h stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/fortify/fortify-headers.h limits.h /usr/include/limits.h
+/usr/include/stdc-predef.h:
+libc-config.h:
+../config.h:
+/usr/include/errno.h:
+/usr/include/features.h:
+/usr/include/bits/errno.h:
+cdefs.h:
+scratch_buffer.h:
+malloc/scratch_buffer.gl.h:
+/usr/include/stdbool.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+limits.h:
+/usr/include/limits.h:

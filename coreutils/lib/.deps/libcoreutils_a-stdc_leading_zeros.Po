@@ -1,0 +1,5 @@
+lib/libcoreutils_a-stdc_leading_zeros.o: lib/stdc_leading_zeros.c \
+ /usr/include/stdc-predef.h lib/config.h lib/stdbit.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/stdbit.h:

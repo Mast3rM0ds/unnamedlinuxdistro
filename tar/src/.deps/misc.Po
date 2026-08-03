@@ -1,0 +1,148 @@
+misc.o: misc.c /usr/include/stdc-predef.h ../lib/system.h ../config.h \
+ ../gnu/alloca.h ../gnu/sys/types.h /usr/include/sys/types.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/endian.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ ../gnu/ctype.h /usr/include/ctype.h ../gnu/string.h \
+ /usr/include/fortify/string.h /usr/include/string.h ../gnu/strings.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ /usr/include/fortify/fortify-headers.h ../gnu/stddef.h \
+ /usr/include/stddef.h /usr/include/errno.h /usr/include/bits/errno.h \
+ ../gnu/fcntl.h ../gnu/sys/stat.h ../gnu/time.h /usr/include/time.h \
+ /usr/include/sys/stat.h /usr/include/bits/stat.h /usr/include/fcntl.h \
+ /usr/include/bits/fcntl.h ../gnu/unistd.h /usr/include/fortify/unistd.h \
+ /usr/include/unistd.h ../gnu/stdlib.h /usr/include/fortify/stdlib.h \
+ /usr/include/stdlib.h /usr/include/limits.h /usr/include/bits/limits.h \
+ ../gnu/getopt-cdefs.h ../gnu/getopt-pfx-core.h ../gnu/getopt-core.h \
+ /usr/include/sys/sysmacros.h /usr/include/sys/wait.h ../gnu/signal.h \
+ /usr/include/signal.h /usr/include/bits/signal.h \
+ /usr/include/sys/resource.h ../gnu/sys/time.h /usr/include/sys/time.h \
+ /usr/include/bits/resource.h ../gnu/stdio.h /usr/include/fortify/stdio.h \
+ /usr/include/stdio.h /usr/include/stdarg.h ../gnu/limits.h \
+ /usr/include/limits.h ../gnu/inttypes.h /usr/include/inttypes.h \
+ ../gnu/stdint.h /usr/include/stdint.h /usr/include/bits/stdint.h \
+ ../gnu/intprops.h ../gnu/intprops-internal.h ../gnu/locale.h \
+ /usr/include/locale.h ../gnu/setlocale_null.h ../gnu/arg-nonnull.h \
+ ../gnu/dirname.h ../gnu/filename.h ../gnu/basename-lgpl.h ../gnu/error.h \
+ ../gnu/savedir.h ../gnu/dirent.h /usr/include/dirent.h \
+ /usr/include/bits/dirent.h ../gnu/unlocked-io.h ../gnu/xalloc.h \
+ ../gnu/idx.h ../gnu/gettext.h /usr/include/pwd.h /usr/include/grp.h \
+ ../lib/paxlib.h ../lib/rmt.h common.h tar.h arith.h ../gnu/attribute.h \
+ ../gnu/backupfile.h ../gnu/exclude.h ../gnu/full-write.h ../gnu/idx.h \
+ ../gnu/inttostr.h ../gnu/intprops.h ../gnu/modechange.h ../gnu/quote.h \
+ ../gnu/safe-read.h ../gnu/full-read.h ../gnu/stat-time.h \
+ /usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h \
+ ../gnu/timespec.h ../gnu/obstack.h ../gnu/progname.h ../gnu/xvasprintf.h \
+ xattrs.h ../gnu/quotearg.h ../gnu/xgetcwd.h ../gnu/unlinkdir.h \
+ ../gnu/utimens.h
+/usr/include/stdc-predef.h:
+../lib/system.h:
+../config.h:
+../gnu/alloca.h:
+../gnu/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+../gnu/ctype.h:
+/usr/include/ctype.h:
+../gnu/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+../gnu/strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:
+../gnu/stddef.h:
+/usr/include/stddef.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+../gnu/fcntl.h:
+../gnu/sys/stat.h:
+../gnu/time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+../gnu/unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+../gnu/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+../gnu/getopt-cdefs.h:
+../gnu/getopt-pfx-core.h:
+../gnu/getopt-core.h:
+/usr/include/sys/sysmacros.h:
+/usr/include/sys/wait.h:
+../gnu/signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+/usr/include/sys/resource.h:
+../gnu/sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/bits/resource.h:
+../gnu/stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/stdarg.h:
+../gnu/limits.h:
+/usr/include/limits.h:
+../gnu/inttypes.h:
+/usr/include/inttypes.h:
+../gnu/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+../gnu/intprops.h:
+../gnu/intprops-internal.h:
+../gnu/locale.h:
+/usr/include/locale.h:
+../gnu/setlocale_null.h:
+../gnu/arg-nonnull.h:
+../gnu/dirname.h:
+../gnu/filename.h:
+../gnu/basename-lgpl.h:
+../gnu/error.h:
+../gnu/savedir.h:
+../gnu/dirent.h:
+/usr/include/dirent.h:
+/usr/include/bits/dirent.h:
+../gnu/unlocked-io.h:
+../gnu/xalloc.h:
+../gnu/idx.h:
+../gnu/gettext.h:
+/usr/include/pwd.h:
+/usr/include/grp.h:
+../lib/paxlib.h:
+../lib/rmt.h:
+common.h:
+tar.h:
+arith.h:
+../gnu/attribute.h:
+../gnu/backupfile.h:
+../gnu/exclude.h:
+../gnu/full-write.h:
+../gnu/idx.h:
+../gnu/inttostr.h:
+../gnu/intprops.h:
+../gnu/modechange.h:
+../gnu/quote.h:
+../gnu/safe-read.h:
+../gnu/full-read.h:
+../gnu/stat-time.h:
+/usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h:
+../gnu/timespec.h:
+../gnu/obstack.h:
+../gnu/progname.h:
+../gnu/xvasprintf.h:
+xattrs.h:
+../gnu/quotearg.h:
+../gnu/xgetcwd.h:
+../gnu/unlinkdir.h:
+../gnu/utimens.h:

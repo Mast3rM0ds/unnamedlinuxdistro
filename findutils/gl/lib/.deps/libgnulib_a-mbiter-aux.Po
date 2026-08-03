@@ -1,0 +1,31 @@
+libgnulib_a-mbiter-aux.o: mbiter-aux.c /usr/include/stdc-predef.h \
+ ../../config.h mbiter-aux.h stddef.h /usr/include/stddef.h \
+ /usr/include/bits/alltypes.h uchar.h /usr/include/uchar.h \
+ /usr/include/features.h wchar.h /usr/include/fortify/wchar.h \
+ /usr/include/limits.h /usr/include/bits/limits.h /usr/include/stdlib.h \
+ alloca.h /usr/include/string.h strings.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h /usr/include/fortify/fortify-headers.h \
+ /usr/include/wchar.h wctype.h /usr/include/wctype.h
+/usr/include/stdc-predef.h:
+../../config.h:
+mbiter-aux.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+uchar.h:
+/usr/include/uchar.h:
+/usr/include/features.h:
+wchar.h:
+/usr/include/fortify/wchar.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/string.h:
+strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/wchar.h:
+wctype.h:
+/usr/include/wctype.h:

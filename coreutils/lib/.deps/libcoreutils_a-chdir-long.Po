@@ -1,0 +1,78 @@
+lib/libcoreutils_a-chdir-long.o: lib/chdir-long.c \
+ /usr/include/stdc-predef.h lib/config.h lib/chdir-long.h lib/unistd.h \
+ /usr/include/fortify/unistd.h /usr/include/unistd.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/fortify/fortify-headers.h lib/stddef.h \
+ /usr/include/stddef.h lib/stdlib.h /usr/include/fortify/stdlib.h \
+ /usr/include/stdlib.h lib/alloca.h /usr/include/limits.h \
+ /usr/include/bits/limits.h lib/sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h lib/sys/select.h lib/sys/time.h \
+ /usr/include/sys/time.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ lib/signal.h /usr/include/signal.h /usr/include/bits/signal.h \
+ lib/getopt-cdefs.h lib/getopt-pfx-core.h lib/getopt-core.h lib/limits.h \
+ /usr/include/limits.h lib/pathmax.h /usr/include/errno.h \
+ /usr/include/bits/errno.h lib/fcntl.h lib/sys/stat.h lib/time.h \
+ /usr/include/time.h /usr/include/sys/stat.h /usr/include/bits/stat.h \
+ /usr/include/fcntl.h /usr/include/bits/fcntl.h lib/string.h \
+ /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h lib/stdio.h \
+ /usr/include/fortify/stdio.h /usr/include/stdio.h /usr/include/stdarg.h \
+ lib/assure.h /usr/include/assert.h lib/verify.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/chdir-long.h:
+lib/unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/fortify/fortify-headers.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+lib/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+lib/sys/select.h:
+lib/sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+lib/signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+lib/getopt-cdefs.h:
+lib/getopt-pfx-core.h:
+lib/getopt-core.h:
+lib/limits.h:
+/usr/include/limits.h:
+lib/pathmax.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+lib/fcntl.h:
+lib/sys/stat.h:
+lib/time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+lib/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+lib/stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/stdarg.h:
+lib/assure.h:
+/usr/include/assert.h:
+lib/verify.h:

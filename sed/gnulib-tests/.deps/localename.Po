@@ -1,0 +1,79 @@
+localename.o: localename.c /usr/include/stdc-predef.h ../config.h \
+ localename.h ../lib/limits.h /usr/include/limits.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/bits/limits.h ../lib/stdlib.h /usr/include/fortify/stdlib.h \
+ /usr/include/stdlib.h ../lib/alloca.h /usr/include/limits.h \
+ /usr/include/fortify/fortify-headers.h ../lib/stddef.h \
+ /usr/include/stddef.h ../lib/stdint.h /usr/include/stdint.h \
+ /usr/include/bits/stdint.h ../lib/unistd.h /usr/include/fortify/unistd.h \
+ /usr/include/unistd.h ../lib/sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h sys/select.h sys/time.h /usr/include/sys/time.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h signal.h /usr/include/signal.h \
+ /usr/include/bits/signal.h ../lib/getopt-cdefs.h \
+ ../lib/getopt-pfx-core.h ../lib/getopt-core.h ../lib/fcntl.h \
+ ../lib/sys/stat.h ../lib/time.h /usr/include/time.h \
+ /usr/include/sys/stat.h /usr/include/bits/stat.h /usr/include/fcntl.h \
+ /usr/include/bits/fcntl.h ../lib/locale.h /usr/include/locale.h \
+ ../lib/setlocale_null.h ../lib/arg-nonnull.h ../lib/string.h \
+ /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ ../lib/flexmember.h ../lib/glthread/lock.h thread-optim.h struniq.h
+/usr/include/stdc-predef.h:
+../config.h:
+localename.h:
+../lib/limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/bits/limits.h:
+../lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+../lib/alloca.h:
+/usr/include/limits.h:
+/usr/include/fortify/fortify-headers.h:
+../lib/stddef.h:
+/usr/include/stddef.h:
+../lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+../lib/unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+../lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+sys/select.h:
+sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+../lib/getopt-cdefs.h:
+../lib/getopt-pfx-core.h:
+../lib/getopt-core.h:
+../lib/fcntl.h:
+../lib/sys/stat.h:
+../lib/time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+../lib/locale.h:
+/usr/include/locale.h:
+../lib/setlocale_null.h:
+../lib/arg-nonnull.h:
+../lib/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+../lib/flexmember.h:
+../lib/glthread/lock.h:
+thread-optim.h:
+struniq.h:

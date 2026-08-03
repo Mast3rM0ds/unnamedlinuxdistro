@@ -1,0 +1,52 @@
+libgnulib_a-fnmatch.o: fnmatch.c /usr/include/stdc-predef.h libc-config.h \
+ ../../config.h /usr/include/errno.h /usr/include/features.h \
+ /usr/include/bits/errno.h cdefs.h fnmatch.h /usr/include/assert.h \
+ ctype.h /usr/include/ctype.h /usr/include/bits/alltypes.h string.h \
+ /usr/include/fortify/string.h /usr/include/string.h strings.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ /usr/include/fortify/fortify-headers.h stddef.h /usr/include/stddef.h \
+ /usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h \
+ stdlib.h /usr/include/fortify/stdlib.h /usr/include/stdlib.h alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h uchar.h \
+ /usr/include/uchar.h wchar.h /usr/include/fortify/wchar.h \
+ /usr/include/wchar.h wctype.h /usr/include/wctype.h attribute.h \
+ flexmember.h idx.h fnmatch_loop.c
+/usr/include/stdc-predef.h:
+libc-config.h:
+../../config.h:
+/usr/include/errno.h:
+/usr/include/features.h:
+/usr/include/bits/errno.h:
+cdefs.h:
+fnmatch.h:
+/usr/include/assert.h:
+ctype.h:
+/usr/include/ctype.h:
+/usr/include/bits/alltypes.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+uchar.h:
+/usr/include/uchar.h:
+wchar.h:
+/usr/include/fortify/wchar.h:
+/usr/include/wchar.h:
+wctype.h:
+/usr/include/wctype.h:
+attribute.h:
+flexmember.h:
+idx.h:
+fnmatch_loop.c:

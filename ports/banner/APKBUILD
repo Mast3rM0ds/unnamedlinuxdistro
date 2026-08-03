@@ -1,0 +1,24 @@
+pkgname=banner
+pkgver=1.3.6
+pkgrel=0
+pkgdesc="a simple unix style banner program"
+url="https://github.com/pronovic/banner"
+arch="all"
+license="none"
+depends="musl"
+subpackages="$pkgname-doc"
+source="https://github.com/pronovic/banner/releases/download/BANNER_V$pkgver/banner-$pkgver.tar.gz"
+builddir="$srcdir/banner-$pkgver"
+
+build() {
+	./configure --prefix=/usr --localstatedir=/var
+	make
+}
+
+package() {
+	make DESTDIR="$pkgdir" install
+}
+
+sha512sums="
+ad60dd430c2260cf8965739c0dc0a53b8bd5b3b68f66c9af2bc2fc5cadaf2f9649877463d9c373efbd14677999b0ae1b8591363d845ce7900813c8c9ab6c0b2c  banner-1.3.6.tar.gz
+"

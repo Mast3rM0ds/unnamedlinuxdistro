@@ -1,0 +1,51 @@
+src/blake2/cksum-blake2b-ref.o: src/blake2/blake2b-ref.c \
+ /usr/include/stdc-predef.h lib/config.h lib/stdint.h \
+ /usr/include/stdint.h /usr/include/bits/alltypes.h \
+ /usr/include/bits/stdint.h lib/limits.h /usr/include/limits.h \
+ /usr/include/features.h /usr/include/bits/limits.h lib/string.h \
+ /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ /usr/include/fortify/fortify-headers.h lib/stddef.h \
+ /usr/include/stddef.h lib/stdio.h /usr/include/fortify/stdio.h \
+ /usr/include/stdio.h /usr/include/stdarg.h lib/sys/types.h \
+ /usr/include/sys/types.h /usr/include/endian.h lib/sys/select.h \
+ lib/sys/time.h /usr/include/sys/time.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ lib/signal.h /usr/include/signal.h /usr/include/bits/signal.h \
+ src/blake2/blake2.h src/blake2/blake2-impl.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/alltypes.h:
+/usr/include/bits/stdint.h:
+lib/limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:
+lib/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+lib/stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/stdarg.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+lib/sys/select.h:
+lib/sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+lib/signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+src/blake2/blake2.h:
+src/blake2/blake2-impl.h:

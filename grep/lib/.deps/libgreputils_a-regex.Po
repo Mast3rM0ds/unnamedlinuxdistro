@@ -1,0 +1,97 @@
+libgreputils_a-regex.o: regex.c /usr/include/stdc-predef.h libc-config.h \
+ ../config.h /usr/include/errno.h /usr/include/features.h \
+ /usr/include/bits/errno.h cdefs.h limits.h /usr/include/limits.h \
+ /usr/include/bits/alltypes.h /usr/include/bits/limits.h regex.h \
+ sys/types.h /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h regex_internal.h ctype.h \
+ /usr/include/ctype.h stdio.h /usr/include/fortify/stdio.h \
+ /usr/include/stdio.h /usr/include/fortify/fortify-headers.h \
+ /usr/include/stdarg.h stddef.h /usr/include/stddef.h stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h alloca.h \
+ /usr/include/limits.h string.h /usr/include/fortify/string.h \
+ /usr/include/string.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h langinfo.h /usr/include/langinfo.h \
+ /usr/include/nl_types.h locale.h /usr/include/locale.h setlocale_null.h \
+ arg-nonnull.h wchar.h /usr/include/fortify/wchar.h /usr/include/wchar.h \
+ wctype.h /usr/include/wctype.h \
+ /usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h \
+ stdint.h /usr/include/stdint.h /usr/include/bits/stdint.h dynarray.h \
+ malloc/dynarray.h intprops.h intprops-internal.h verify.h \
+ glthread/lock.h glthread/once.h /usr/include/threads.h time.h \
+ /usr/include/time.h pthread.h /usr/include/pthread.h sched.h \
+ /usr/include/sched.h attribute.h regex_internal.c regcomp.c regexec.c \
+ malloc/dynarray-skeleton.c
+/usr/include/stdc-predef.h:
+libc-config.h:
+../config.h:
+/usr/include/errno.h:
+/usr/include/features.h:
+/usr/include/bits/errno.h:
+cdefs.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/bits/alltypes.h:
+/usr/include/bits/limits.h:
+regex.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+regex_internal.h:
+ctype.h:
+/usr/include/ctype.h:
+stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/stdarg.h:
+stddef.h:
+/usr/include/stddef.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+langinfo.h:
+/usr/include/langinfo.h:
+/usr/include/nl_types.h:
+locale.h:
+/usr/include/locale.h:
+setlocale_null.h:
+arg-nonnull.h:
+wchar.h:
+/usr/include/fortify/wchar.h:
+/usr/include/wchar.h:
+wctype.h:
+/usr/include/wctype.h:
+/usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+dynarray.h:
+malloc/dynarray.h:
+intprops.h:
+intprops-internal.h:
+verify.h:
+glthread/lock.h:
+glthread/once.h:
+/usr/include/threads.h:
+time.h:
+/usr/include/time.h:
+pthread.h:
+/usr/include/pthread.h:
+sched.h:
+/usr/include/sched.h:
+attribute.h:
+regex_internal.c:
+regcomp.c:
+regexec.c:
+malloc/dynarray-skeleton.c:

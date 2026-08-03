@@ -1,0 +1,53 @@
+qmark.o: qmark.c /usr/include/stdc-predef.h ../config.h ../gl/lib/ctype.h \
+ /usr/include/ctype.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h ../gl/lib/stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h ../gl/lib/alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/fortify/fortify-headers.h ../gl/lib/stddef.h \
+ /usr/include/stddef.h ../gl/lib/string.h /usr/include/fortify/string.h \
+ /usr/include/string.h ../gl/lib/strings.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h ../gl/lib/wchar.h /usr/include/fortify/wchar.h \
+ /usr/include/wchar.h printquoted.h /usr/include/stdbool.h \
+ ../gl/lib/stdio.h /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/stdarg.h ../gl/lib/sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ ../gl/lib/quote.h ../gl/lib/quotearg.h
+/usr/include/stdc-predef.h:
+../config.h:
+../gl/lib/ctype.h:
+/usr/include/ctype.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+../gl/lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+../gl/lib/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+../gl/lib/stddef.h:
+/usr/include/stddef.h:
+../gl/lib/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+../gl/lib/strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+../gl/lib/wchar.h:
+/usr/include/fortify/wchar.h:
+/usr/include/wchar.h:
+printquoted.h:
+/usr/include/stdbool.h:
+../gl/lib/stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/stdarg.h:
+../gl/lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+../gl/lib/quote.h:
+../gl/lib/quotearg.h:

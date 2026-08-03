@@ -1,0 +1,73 @@
+lib/libcoreutils_a-xfts.o: lib/xfts.c /usr/include/stdc-predef.h \
+ lib/config.h lib/stdlib.h /usr/include/fortify/stdlib.h \
+ /usr/include/stdlib.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h lib/alloca.h /usr/include/limits.h \
+ /usr/include/bits/limits.h /usr/include/fortify/fortify-headers.h \
+ lib/stddef.h /usr/include/stddef.h lib/unistd.h \
+ /usr/include/fortify/unistd.h /usr/include/unistd.h lib/sys/types.h \
+ /usr/include/sys/types.h /usr/include/endian.h lib/sys/select.h \
+ lib/sys/time.h /usr/include/sys/time.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ lib/signal.h /usr/include/signal.h /usr/include/bits/signal.h \
+ lib/getopt-cdefs.h lib/getopt-pfx-core.h lib/getopt-core.h \
+ /usr/include/errno.h /usr/include/bits/errno.h lib/assure.h \
+ /usr/include/assert.h lib/verify.h lib/xalloc.h lib/idx.h lib/stdint.h \
+ /usr/include/stdint.h /usr/include/bits/stdint.h lib/limits.h \
+ /usr/include/limits.h lib/xfts.h lib/fts_.h lib/dirent.h \
+ /usr/include/dirent.h /usr/include/bits/dirent.h lib/sys/stat.h \
+ lib/time.h /usr/include/time.h /usr/include/sys/stat.h \
+ /usr/include/bits/stat.h lib/i-ring.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+lib/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+lib/unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+lib/sys/select.h:
+lib/sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+lib/signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+lib/getopt-cdefs.h:
+lib/getopt-pfx-core.h:
+lib/getopt-core.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+lib/assure.h:
+/usr/include/assert.h:
+lib/verify.h:
+lib/xalloc.h:
+lib/idx.h:
+lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+lib/limits.h:
+/usr/include/limits.h:
+lib/xfts.h:
+lib/fts_.h:
+lib/dirent.h:
+/usr/include/dirent.h:
+/usr/include/bits/dirent.h:
+lib/sys/stat.h:
+lib/time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+lib/i-ring.h:

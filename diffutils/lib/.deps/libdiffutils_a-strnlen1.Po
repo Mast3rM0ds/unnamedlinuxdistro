@@ -1,0 +1,19 @@
+libdiffutils_a-strnlen1.o: strnlen1.c /usr/include/stdc-predef.h config.h \
+ strnlen1.h stddef.h /usr/include/stddef.h /usr/include/bits/alltypes.h \
+ string.h /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/features.h strings.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h /usr/include/fortify/fortify-headers.h
+/usr/include/stdc-predef.h:
+config.h:
+strnlen1.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/features.h:
+strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:

@@ -1,0 +1,71 @@
+libgreputils_a-closeout.o: closeout.c /usr/include/stdc-predef.h \
+ ../config.h closeout.h /usr/include/errno.h /usr/include/features.h \
+ /usr/include/bits/errno.h stdio.h /usr/include/fortify/stdio.h \
+ /usr/include/stdio.h /usr/include/bits/alltypes.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/stdarg.h stddef.h \
+ /usr/include/stddef.h sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ unistd.h /usr/include/fortify/unistd.h /usr/include/unistd.h fcntl.h \
+ sys/stat.h time.h /usr/include/time.h /usr/include/sys/stat.h \
+ /usr/include/bits/stat.h /usr/include/fcntl.h /usr/include/bits/fcntl.h \
+ stdlib.h /usr/include/fortify/stdlib.h /usr/include/stdlib.h alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h getopt-cdefs.h \
+ getopt-pfx-core.h getopt-core.h gettext.h locale.h /usr/include/locale.h \
+ setlocale_null.h arg-nonnull.h string.h /usr/include/fortify/string.h \
+ /usr/include/string.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h close-stream.h error.h exitfail.h quotearg.h
+/usr/include/stdc-predef.h:
+../config.h:
+closeout.h:
+/usr/include/errno.h:
+/usr/include/features.h:
+/usr/include/bits/errno.h:
+stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/bits/alltypes.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/stdarg.h:
+stddef.h:
+/usr/include/stddef.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+fcntl.h:
+sys/stat.h:
+time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+getopt-core.h:
+gettext.h:
+locale.h:
+/usr/include/locale.h:
+setlocale_null.h:
+arg-nonnull.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+close-stream.h:
+error.h:
+exitfail.h:
+quotearg.h:

@@ -1,0 +1,40 @@
+strtoll.o: strtoll.c /usr/include/stdc-predef.h strtol.c ../config.h \
+ ../gl/lib/ctype.h /usr/include/ctype.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/errno.h \
+ /usr/include/bits/errno.h ../gl/lib/limits.h /usr/include/limits.h \
+ /usr/include/bits/limits.h ../gl/lib/stddef.h /usr/include/stddef.h \
+ ../gl/lib/stdlib.h /usr/include/fortify/stdlib.h /usr/include/stdlib.h \
+ ../gl/lib/alloca.h /usr/include/limits.h \
+ /usr/include/fortify/fortify-headers.h ../gl/lib/stdint.h \
+ /usr/include/stdint.h /usr/include/bits/stdint.h ../gl/lib/string.h \
+ /usr/include/fortify/string.h /usr/include/string.h ../gl/lib/strings.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h
+/usr/include/stdc-predef.h:
+strtol.c:
+../config.h:
+../gl/lib/ctype.h:
+/usr/include/ctype.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+../gl/lib/limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+../gl/lib/stddef.h:
+/usr/include/stddef.h:
+../gl/lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+../gl/lib/alloca.h:
+/usr/include/limits.h:
+/usr/include/fortify/fortify-headers.h:
+../gl/lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+../gl/lib/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+../gl/lib/strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:

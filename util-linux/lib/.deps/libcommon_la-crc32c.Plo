@@ -1,0 +1,19 @@
+lib/libcommon_la-crc32c.lo: lib/crc32c.c /usr/include/stdc-predef.h \
+ config.h /usr/include/assert.h /usr/include/features.h include/crc32c.h \
+ /usr/include/sys/types.h /usr/include/bits/alltypes.h \
+ /usr/include/endian.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ /usr/include/stdint.h /usr/include/bits/stdint.h
+/usr/include/stdc-predef.h:
+config.h:
+/usr/include/assert.h:
+/usr/include/features.h:
+include/crc32c.h:
+/usr/include/sys/types.h:
+/usr/include/bits/alltypes.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:

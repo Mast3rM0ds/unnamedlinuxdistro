@@ -1,0 +1,5 @@
+lib/libcoreutils_a-stdbit.o: lib/stdbit.c /usr/include/stdc-predef.h \
+ lib/config.h lib/stdbit.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/stdbit.h:

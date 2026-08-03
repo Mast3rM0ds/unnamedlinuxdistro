@@ -1,0 +1,21 @@
+lib/libsed_a-se-label.o: lib/se-label.c /usr/include/stdc-predef.h \
+ config.h lib/selinux/label.h lib/selinux/selinux.h lib/sys/types.h \
+ /usr/include/sys/types.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/errno.h \
+ /usr/include/bits/errno.h
+/usr/include/stdc-predef.h:
+config.h:
+lib/selinux/label.h:
+lib/selinux/selinux.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:

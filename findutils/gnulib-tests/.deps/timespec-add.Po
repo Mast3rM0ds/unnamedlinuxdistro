@@ -1,0 +1,23 @@
+timespec-add.o: timespec-add.c /usr/include/stdc-predef.h ../config.h \
+ ../gl/lib/timespec.h ../gl/lib/time.h /usr/include/time.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h ../gl/lib/stddef.h \
+ /usr/include/stddef.h ../gl/lib/arg-nonnull.h \
+ /usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h \
+ ../gl/lib/intprops.h ../gl/lib/intprops-internal.h ../gl/lib/limits.h \
+ /usr/include/limits.h /usr/include/bits/limits.h
+/usr/include/stdc-predef.h:
+../config.h:
+../gl/lib/timespec.h:
+../gl/lib/time.h:
+/usr/include/time.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+../gl/lib/stddef.h:
+/usr/include/stddef.h:
+../gl/lib/arg-nonnull.h:
+/usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h:
+../gl/lib/intprops.h:
+../gl/lib/intprops-internal.h:
+../gl/lib/limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:

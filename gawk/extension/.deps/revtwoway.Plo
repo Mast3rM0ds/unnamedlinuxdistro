@@ -1,0 +1,40 @@
+revtwoway.lo: revtwoway.c /usr/include/stdc-predef.h config.h \
+ ext_custom.h /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/fortify/stdlib.h \
+ /usr/include/stdlib.h /usr/include/alloca.h /usr/include/limits.h \
+ /usr/include/bits/limits.h /usr/include/fortify/string.h \
+ /usr/include/string.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h /usr/include/fortify/unistd.h \
+ /usr/include/unistd.h /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/sys/stat.h \
+ /usr/include/bits/stat.h ../gawkapi.h ../gettext.h
+/usr/include/stdc-predef.h:
+config.h:
+ext_custom.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+../gawkapi.h:
+../gettext.h:

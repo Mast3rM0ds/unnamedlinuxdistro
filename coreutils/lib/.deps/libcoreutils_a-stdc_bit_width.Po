@@ -1,0 +1,5 @@
+lib/libcoreutils_a-stdc_bit_width.o: lib/stdc_bit_width.c \
+ /usr/include/stdc-predef.h lib/config.h lib/stdbit.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/stdbit.h:

@@ -1,0 +1,14 @@
+libgnulib_a-hashcode-string2.o: hashcode-string2.c \
+ /usr/include/stdc-predef.h ../../config.h hashcode-string2.h stddef.h \
+ /usr/include/stddef.h /usr/include/bits/alltypes.h limits.h \
+ /usr/include/limits.h /usr/include/features.h /usr/include/bits/limits.h
+/usr/include/stdc-predef.h:
+../../config.h:
+hashcode-string2.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:

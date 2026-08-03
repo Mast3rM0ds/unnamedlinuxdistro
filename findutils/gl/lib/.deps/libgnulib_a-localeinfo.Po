@@ -1,0 +1,46 @@
+libgnulib_a-localeinfo.o: localeinfo.c /usr/include/stdc-predef.h \
+ ../../config.h localeinfo.h uchar.h /usr/include/uchar.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h wchar.h stddef.h \
+ /usr/include/stddef.h /usr/include/fortify/wchar.h /usr/include/limits.h \
+ /usr/include/bits/limits.h /usr/include/stdlib.h alloca.h \
+ /usr/include/string.h strings.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h /usr/include/fortify/fortify-headers.h \
+ /usr/include/wchar.h wctype.h /usr/include/wctype.h verify.h limits.h \
+ /usr/include/limits.h locale.h /usr/include/locale.h setlocale_null.h \
+ arg-nonnull.h stdcountof.h stdlib.h /usr/include/fortify/stdlib.h \
+ string.h /usr/include/fortify/string.h
+/usr/include/stdc-predef.h:
+../../config.h:
+localeinfo.h:
+uchar.h:
+/usr/include/uchar.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+wchar.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/fortify/wchar.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/string.h:
+strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/wchar.h:
+wctype.h:
+/usr/include/wctype.h:
+verify.h:
+limits.h:
+/usr/include/limits.h:
+locale.h:
+/usr/include/locale.h:
+setlocale_null.h:
+arg-nonnull.h:
+stdcountof.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+string.h:
+/usr/include/fortify/string.h:

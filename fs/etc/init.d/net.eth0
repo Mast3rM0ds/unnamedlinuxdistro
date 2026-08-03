@@ -1,0 +1,24 @@
+#!/sbin/openrc-run
+
+description="Bring up eth0 via DHCP"
+
+depend() {
+    need net
+    after firewall
+    provide net
+}
+
+start() {
+    ebegin "Bringing up eth0"
+    ip link set eth0 up
+    udhcpc -i eth0 -b -q -n -p /run/udhcpc.eth0.pid \
+        -s /usr/share/udhcpc/default.script
+    eend $?
+}
+
+stop() {
+    ebegin "Bringing down eth0"
+    [ -f /run/udhcpc.eth0.pid ] && kill $(cat /run/udhcpc.eth0.pid) 2>/dev/null
+    ip link set eth0 down
+    eend 0
+}

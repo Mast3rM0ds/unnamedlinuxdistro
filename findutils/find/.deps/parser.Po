@@ -1,0 +1,134 @@
+parser.o: parser.c /usr/include/stdc-predef.h ../config.h \
+ /usr/include/assert.h /usr/include/features.h ../gl/lib/ctype.h \
+ /usr/include/ctype.h /usr/include/bits/alltypes.h /usr/include/errno.h \
+ /usr/include/bits/errno.h ../gl/lib/fcntl.h ../gl/lib/sys/types.h \
+ /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h ../gl/lib/sys/stat.h \
+ ../gl/lib/time.h /usr/include/time.h ../gl/lib/stddef.h \
+ /usr/include/stddef.h /usr/include/sys/stat.h /usr/include/bits/stat.h \
+ /usr/include/fcntl.h /usr/include/bits/fcntl.h ../gl/lib/unistd.h \
+ /usr/include/fortify/unistd.h /usr/include/unistd.h \
+ /usr/include/fortify/fortify-headers.h ../gl/lib/stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h ../gl/lib/alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h \
+ ../gl/lib/getopt-cdefs.h ../gl/lib/getopt-pfx-core.h \
+ ../gl/lib/getopt-core.h /usr/include/grp.h ../gl/lib/math.h \
+ /usr/include/math.h /usr/include/pwd.h ../gl/lib/regex.h \
+ ../gl/lib/limits.h /usr/include/limits.h ../gl/lib/fnmatch.h \
+ ../gl/lib/intprops.h ../gl/lib/intprops-internal.h \
+ ../gl/lib/modechange.h ../gl/lib/mountlist.h ../gl/lib/parse-datetime.h \
+ print.h defs.h ../gl/lib/stdio.h /usr/include/fortify/stdio.h \
+ /usr/include/stdio.h /usr/include/stdarg.h ../gl/lib/string.h \
+ /usr/include/fortify/string.h /usr/include/string.h ../gl/lib/strings.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ /usr/include/stdbool.h ../gl/lib/stdint.h /usr/include/stdint.h \
+ /usr/include/bits/stdint.h ../gl/lib/selinux/selinux.h \
+ ../gl/lib/inttypes.h /usr/include/inttypes.h ../gl/lib/timespec.h \
+ ../gl/lib/arg-nonnull.h ../lib/buildcmd.h ../gl/lib/quotearg.h \
+ sharefile.h ../gl/lib/gcc-function-attributes.h ../gl/lib/progname.h \
+ ../lib/regextype.h ../lib/safe-atoi.h ../gl/lib/selinux-at.h \
+ ../gl/lib/selinux/context.h ../lib/splitstring.h ../gl/lib/stat-time.h \
+ /usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h \
+ ../gl/lib/stdcountof.h ../gl/lib/xalloc.h ../gl/lib/idx.h \
+ ../gl/lib/xstrtod.h ../gl/lib/xstrtol.h ../lib/fdleak.h \
+ ../lib/findutils-version.h ../lib/system.h ../gl/lib/locale.h \
+ /usr/include/locale.h ../gl/lib/setlocale_null.h ../gl/lib/error.h \
+ ../gl/lib/gettext.h
+/usr/include/stdc-predef.h:
+../config.h:
+/usr/include/assert.h:
+/usr/include/features.h:
+../gl/lib/ctype.h:
+/usr/include/ctype.h:
+/usr/include/bits/alltypes.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+../gl/lib/fcntl.h:
+../gl/lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+../gl/lib/sys/stat.h:
+../gl/lib/time.h:
+/usr/include/time.h:
+../gl/lib/stddef.h:
+/usr/include/stddef.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+../gl/lib/unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+/usr/include/fortify/fortify-headers.h:
+../gl/lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+../gl/lib/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+../gl/lib/getopt-cdefs.h:
+../gl/lib/getopt-pfx-core.h:
+../gl/lib/getopt-core.h:
+/usr/include/grp.h:
+../gl/lib/math.h:
+/usr/include/math.h:
+/usr/include/pwd.h:
+../gl/lib/regex.h:
+../gl/lib/limits.h:
+/usr/include/limits.h:
+../gl/lib/fnmatch.h:
+../gl/lib/intprops.h:
+../gl/lib/intprops-internal.h:
+../gl/lib/modechange.h:
+../gl/lib/mountlist.h:
+../gl/lib/parse-datetime.h:
+print.h:
+defs.h:
+../gl/lib/stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/stdarg.h:
+../gl/lib/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+../gl/lib/strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/stdbool.h:
+../gl/lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+../gl/lib/selinux/selinux.h:
+../gl/lib/inttypes.h:
+/usr/include/inttypes.h:
+../gl/lib/timespec.h:
+../gl/lib/arg-nonnull.h:
+../lib/buildcmd.h:
+../gl/lib/quotearg.h:
+sharefile.h:
+../gl/lib/gcc-function-attributes.h:
+../gl/lib/progname.h:
+../lib/regextype.h:
+../lib/safe-atoi.h:
+../gl/lib/selinux-at.h:
+../gl/lib/selinux/context.h:
+../lib/splitstring.h:
+../gl/lib/stat-time.h:
+/usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h:
+../gl/lib/stdcountof.h:
+../gl/lib/xalloc.h:
+../gl/lib/idx.h:
+../gl/lib/xstrtod.h:
+../gl/lib/xstrtol.h:
+../lib/fdleak.h:
+../lib/findutils-version.h:
+../lib/system.h:
+../gl/lib/locale.h:
+/usr/include/locale.h:
+../gl/lib/setlocale_null.h:
+../gl/lib/error.h:
+../gl/lib/gettext.h:

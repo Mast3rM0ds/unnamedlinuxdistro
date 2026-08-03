@@ -1,0 +1,27 @@
+libgnu_a-imaxtostr.o: imaxtostr.c /usr/include/stdc-predef.h anytostr.c \
+ ../config.h inttostr.h stdint.h /usr/include/stdint.h \
+ /usr/include/bits/alltypes.h /usr/include/bits/stdint.h limits.h \
+ /usr/include/limits.h /usr/include/features.h /usr/include/bits/limits.h \
+ sys/types.h /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h intprops.h intprops-internal.h
+/usr/include/stdc-predef.h:
+anytostr.c:
+../config.h:
+inttostr.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/alltypes.h:
+/usr/include/bits/stdint.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+intprops.h:
+intprops-internal.h:

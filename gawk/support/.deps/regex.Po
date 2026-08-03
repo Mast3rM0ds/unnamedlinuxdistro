@@ -1,0 +1,71 @@
+regex.o: regex.c /usr/include/stdc-predef.h libc-config.h ../config.h \
+ ../custom.h /usr/include/fortify/stdlib.h /usr/include/stdlib.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/alloca.h /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/fortify/fortify-headers.h pma.h /usr/include/errno.h \
+ /usr/include/bits/errno.h cdefs.h /usr/include/limits.h regex.h \
+ /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h regex_internal.h \
+ /usr/include/ctype.h /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ /usr/include/langinfo.h /usr/include/nl_types.h /usr/include/locale.h \
+ /usr/include/fortify/wchar.h /usr/include/wchar.h /usr/include/wctype.h \
+ /usr/include/stdint.h /usr/include/bits/stdint.h dynarray.h \
+ malloc/dynarray.h /usr/include/stddef.h intprops.h intprops-internal.h \
+ verify.h ../gettext.h /usr/include/uchar.h attribute.h regex_internal.c \
+ regcomp.c localeinfo.h regexec.c malloc/dynarray-skeleton.c
+/usr/include/stdc-predef.h:
+libc-config.h:
+../config.h:
+../custom.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+pma.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+cdefs.h:
+/usr/include/limits.h:
+regex.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+regex_internal.h:
+/usr/include/ctype.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/langinfo.h:
+/usr/include/nl_types.h:
+/usr/include/locale.h:
+/usr/include/fortify/wchar.h:
+/usr/include/wchar.h:
+/usr/include/wctype.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+dynarray.h:
+malloc/dynarray.h:
+/usr/include/stddef.h:
+intprops.h:
+intprops-internal.h:
+verify.h:
+../gettext.h:
+/usr/include/uchar.h:
+attribute.h:
+regex_internal.c:
+regcomp.c:
+localeinfo.h:
+regexec.c:
+malloc/dynarray-skeleton.c:

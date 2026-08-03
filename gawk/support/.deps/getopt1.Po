@@ -1,0 +1,24 @@
+getopt1.o: getopt1.c /usr/include/stdc-predef.h ../config.h ../custom.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/alloca.h /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/fortify/fortify-headers.h pma.h getopt.h \
+ /usr/include/ctype.h getopt_int.h /usr/include/fortify/stdio.h \
+ /usr/include/stdio.h
+/usr/include/stdc-predef.h:
+../config.h:
+../custom.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+pma.h:
+getopt.h:
+/usr/include/ctype.h:
+getopt_int.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:

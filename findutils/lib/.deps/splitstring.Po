@@ -1,0 +1,22 @@
+splitstring.o: splitstring.c /usr/include/stdc-predef.h ../config.h \
+ /usr/include/stdbool.h ../gl/lib/string.h /usr/include/fortify/string.h \
+ /usr/include/string.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h ../gl/lib/strings.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ /usr/include/fortify/fortify-headers.h ../gl/lib/stddef.h \
+ /usr/include/stddef.h splitstring.h
+/usr/include/stdc-predef.h:
+../config.h:
+/usr/include/stdbool.h:
+../gl/lib/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+../gl/lib/strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:
+../gl/lib/stddef.h:
+/usr/include/stddef.h:
+splitstring.h:

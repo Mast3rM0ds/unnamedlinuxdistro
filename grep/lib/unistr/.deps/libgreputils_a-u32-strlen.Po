@@ -1,0 +1,31 @@
+unistr/libgreputils_a-u32-strlen.o: unistr/u32-strlen.c \
+ /usr/include/stdc-predef.h ../config.h unistr.h unitypes.h stdint.h \
+ /usr/include/stdint.h /usr/include/bits/alltypes.h \
+ /usr/include/bits/stdint.h limits.h /usr/include/limits.h \
+ /usr/include/features.h /usr/include/bits/limits.h \
+ /usr/include/stdbool.h stddef.h /usr/include/stddef.h stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h alloca.h \
+ /usr/include/limits.h /usr/include/fortify/fortify-headers.h \
+ unistr/u-strlen.h
+/usr/include/stdc-predef.h:
+../config.h:
+unistr.h:
+unitypes.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/alltypes.h:
+/usr/include/bits/stdint.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:
+/usr/include/stdbool.h:
+stddef.h:
+/usr/include/stddef.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/fortify/fortify-headers.h:
+unistr/u-strlen.h:

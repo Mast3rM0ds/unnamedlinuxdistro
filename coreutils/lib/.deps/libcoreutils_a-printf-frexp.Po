@@ -1,0 +1,14 @@
+lib/libcoreutils_a-printf-frexp.o: lib/printf-frexp.c \
+ /usr/include/stdc-predef.h lib/config.h lib/printf-frexp.h lib/float.h \
+ /usr/include/float.h /usr/include/bits/float.h lib/math.h \
+ /usr/include/math.h /usr/include/features.h /usr/include/bits/alltypes.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/printf-frexp.h:
+lib/float.h:
+/usr/include/float.h:
+/usr/include/bits/float.h:
+lib/math.h:
+/usr/include/math.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:

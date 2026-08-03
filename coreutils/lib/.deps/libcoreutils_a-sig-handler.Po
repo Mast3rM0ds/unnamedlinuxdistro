@@ -1,0 +1,24 @@
+lib/libcoreutils_a-sig-handler.o: lib/sig-handler.c \
+ /usr/include/stdc-predef.h lib/config.h lib/sig-handler.h lib/signal.h \
+ lib/sys/types.h /usr/include/sys/types.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/endian.h lib/sys/select.h \
+ lib/sys/time.h /usr/include/sys/time.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ /usr/include/signal.h /usr/include/bits/signal.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/sig-handler.h:
+lib/signal.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/endian.h:
+lib/sys/select.h:
+lib/sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:

@@ -1,0 +1,47 @@
+lib/libcoreutils_a-setlocale-lock.o: lib/setlocale-lock.c \
+ /usr/include/stdc-predef.h lib/config.h lib/pthread.h \
+ /usr/include/pthread.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h lib/sched.h /usr/include/sched.h \
+ lib/sys/types.h /usr/include/sys/types.h /usr/include/endian.h \
+ lib/sys/select.h lib/sys/time.h /usr/include/sys/time.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h lib/signal.h \
+ /usr/include/signal.h /usr/include/bits/signal.h lib/time.h \
+ /usr/include/time.h lib/stddef.h /usr/include/stddef.h lib/stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h lib/alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/errno.h \
+ /usr/include/bits/errno.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/pthread.h:
+/usr/include/pthread.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+lib/sched.h:
+/usr/include/sched.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+lib/sys/select.h:
+lib/sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+lib/signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+lib/time.h:
+/usr/include/time.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+lib/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:

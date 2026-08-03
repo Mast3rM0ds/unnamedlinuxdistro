@@ -1,0 +1,9 @@
+libgnulib_a-se-context.o: se-context.c /usr/include/stdc-predef.h \
+ ../../config.h selinux/context.h /usr/include/errno.h \
+ /usr/include/features.h /usr/include/bits/errno.h
+/usr/include/stdc-predef.h:
+../../config.h:
+selinux/context.h:
+/usr/include/errno.h:
+/usr/include/features.h:
+/usr/include/bits/errno.h:

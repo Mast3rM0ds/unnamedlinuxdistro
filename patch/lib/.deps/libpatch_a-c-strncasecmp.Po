@@ -1,0 +1,15 @@
+libpatch_a-c-strncasecmp.o: c-strncasecmp.c /usr/include/stdc-predef.h \
+ ../config.h c-strcase.h stddef.h /usr/include/stddef.h \
+ /usr/include/bits/alltypes.h limits.h /usr/include/limits.h \
+ /usr/include/features.h /usr/include/bits/limits.h c-ctype.h
+/usr/include/stdc-predef.h:
+../config.h:
+c-strcase.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:
+c-ctype.h:

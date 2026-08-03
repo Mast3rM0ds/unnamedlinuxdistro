@@ -1,0 +1,50 @@
+libgnu_a-argmatch.o: argmatch.c /usr/include/stdc-predef.h ../config.h \
+ argmatch.h limits.h /usr/include/limits.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/bits/limits.h stddef.h \
+ /usr/include/stddef.h stdio.h /usr/include/fortify/stdio.h \
+ /usr/include/stdio.h /usr/include/fortify/fortify-headers.h \
+ /usr/include/stdarg.h sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ string.h /usr/include/fortify/string.h /usr/include/string.h strings.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h gettext.h quote.h \
+ stdlib.h /usr/include/fortify/stdlib.h /usr/include/stdlib.h alloca.h \
+ /usr/include/limits.h error.h quotearg.h unlocked-io.h exitfail.h
+/usr/include/stdc-predef.h:
+../config.h:
+argmatch.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/bits/limits.h:
+stddef.h:
+/usr/include/stddef.h:
+stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/stdarg.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+gettext.h:
+quote.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+error.h:
+quotearg.h:
+unlocked-io.h:
+exitfail.h:

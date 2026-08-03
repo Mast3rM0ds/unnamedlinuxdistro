@@ -1,0 +1,55 @@
+c32tob.o: c32tob.c /usr/include/stdc-predef.h ../config.h \
+ ../gl/lib/uchar.h /usr/include/uchar.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h ../gl/lib/wchar.h ../gl/lib/stddef.h \
+ /usr/include/stddef.h /usr/include/fortify/wchar.h /usr/include/limits.h \
+ /usr/include/bits/limits.h /usr/include/stdlib.h ../gl/lib/alloca.h \
+ /usr/include/string.h ../gl/lib/strings.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h /usr/include/fortify/fortify-headers.h \
+ /usr/include/wchar.h ../gl/lib/wctype.h /usr/include/wctype.h \
+ ../gl/lib/stdio.h /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/stdarg.h ../gl/lib/sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h sys/select.h ../gl/lib/sys/time.h \
+ /usr/include/sys/time.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ signal.h /usr/include/signal.h /usr/include/bits/signal.h \
+ ../gl/lib/string.h /usr/include/fortify/string.h
+/usr/include/stdc-predef.h:
+../config.h:
+../gl/lib/uchar.h:
+/usr/include/uchar.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+../gl/lib/wchar.h:
+../gl/lib/stddef.h:
+/usr/include/stddef.h:
+/usr/include/fortify/wchar.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/stdlib.h:
+../gl/lib/alloca.h:
+/usr/include/string.h:
+../gl/lib/strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/wchar.h:
+../gl/lib/wctype.h:
+/usr/include/wctype.h:
+../gl/lib/stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/stdarg.h:
+../gl/lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+sys/select.h:
+../gl/lib/sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+../gl/lib/string.h:
+/usr/include/fortify/string.h:

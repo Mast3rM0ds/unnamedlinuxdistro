@@ -1,0 +1,36 @@
+lib/libcoreutils_a-hash-triple.o: lib/hash-triple.c \
+ /usr/include/stdc-predef.h lib/config.h lib/hash-triple.h \
+ lib/sys/types.h /usr/include/sys/types.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/endian.h lib/sys/select.h \
+ lib/sys/time.h /usr/include/sys/time.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ lib/signal.h /usr/include/signal.h /usr/include/bits/signal.h \
+ lib/sys/stat.h lib/time.h /usr/include/time.h lib/stddef.h \
+ /usr/include/stddef.h /usr/include/sys/stat.h /usr/include/bits/stat.h \
+ lib/same.h lib/same-inode.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/hash-triple.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/endian.h:
+lib/sys/select.h:
+lib/sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+lib/signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+lib/sys/stat.h:
+lib/time.h:
+/usr/include/time.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+lib/same.h:
+lib/same-inode.h:

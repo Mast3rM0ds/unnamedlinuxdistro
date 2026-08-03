@@ -1,0 +1,106 @@
+disk-utils/mkfs.minix.o: disk-utils/mkfs.minix.c \
+ /usr/include/stdc-predef.h config.h /usr/include/fortify/stdio.h \
+ /usr/include/stdio.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/fortify/fortify-headers.h \
+ /usr/include/time.h /usr/include/fortify/unistd.h /usr/include/unistd.h \
+ /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ /usr/include/signal.h /usr/include/bits/signal.h /usr/include/fcntl.h \
+ /usr/include/bits/fcntl.h /usr/include/ctype.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h \
+ /usr/include/alloca.h /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/termios.h /usr/include/bits/termios.h \
+ /usr/include/sys/stat.h /usr/include/bits/stat.h /usr/include/getopt.h \
+ /usr/include/err.h /usr/include/stdarg.h include/blkdev.h \
+ /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/sys/ioctl.h \
+ /usr/include/bits/ioctl.h /usr/include/bits/ioctl_fix.h \
+ /usr/include/stdint.h /usr/include/bits/stdint.h \
+ disk-utils/minix_programs.h include/minix.h include/nls.h \
+ /usr/include/locale.h /usr/include/langinfo.h /usr/include/nl_types.h \
+ include/pathnames.h /usr/include/paths.h include/bitops.h \
+ /usr/include/sys/param.h /usr/include/sys/resource.h \
+ /usr/include/sys/time.h /usr/include/bits/resource.h \
+ /usr/include/limits.h /usr/include/byteswap.h include/exitcodes.h \
+ include/strutils.h /usr/include/inttypes.h /usr/include/errno.h \
+ /usr/include/bits/errno.h include/c.h /usr/include/stddef.h \
+ /usr/include/grp.h /usr/include/assert.h /usr/include/sys/sysmacros.h \
+ include/all-io.h /usr/include/sys/sendfile.h include/closestream.h \
+ /usr/include/stdio_ext.h include/nls.h include/ismounted.h \
+ include/xalloc.h include/strutils.h
+/usr/include/stdc-predef.h:
+config.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/time.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+/usr/include/ctype.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/termios.h:
+/usr/include/bits/termios.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/getopt.h:
+/usr/include/err.h:
+/usr/include/stdarg.h:
+include/blkdev.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/sys/ioctl.h:
+/usr/include/bits/ioctl.h:
+/usr/include/bits/ioctl_fix.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+disk-utils/minix_programs.h:
+include/minix.h:
+include/nls.h:
+/usr/include/locale.h:
+/usr/include/langinfo.h:
+/usr/include/nl_types.h:
+include/pathnames.h:
+/usr/include/paths.h:
+include/bitops.h:
+/usr/include/sys/param.h:
+/usr/include/sys/resource.h:
+/usr/include/sys/time.h:
+/usr/include/bits/resource.h:
+/usr/include/limits.h:
+/usr/include/byteswap.h:
+include/exitcodes.h:
+include/strutils.h:
+/usr/include/inttypes.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+include/c.h:
+/usr/include/stddef.h:
+/usr/include/grp.h:
+/usr/include/assert.h:
+/usr/include/sys/sysmacros.h:
+include/all-io.h:
+/usr/include/sys/sendfile.h:
+include/closestream.h:
+/usr/include/stdio_ext.h:
+include/nls.h:
+include/ismounted.h:
+include/xalloc.h:
+include/strutils.h:

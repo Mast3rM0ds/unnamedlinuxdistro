@@ -1,0 +1,73 @@
+libdiffutils_a-careadlinkat.o: careadlinkat.c /usr/include/stdc-predef.h \
+ config.h careadlinkat.h fcntl.h sys/types.h /usr/include/sys/types.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/endian.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ sys/stat.h time.h /usr/include/time.h stddef.h /usr/include/stddef.h \
+ /usr/include/sys/stat.h /usr/include/bits/stat.h /usr/include/fcntl.h \
+ /usr/include/bits/fcntl.h unistd.h /usr/include/fortify/unistd.h \
+ /usr/include/unistd.h /usr/include/fortify/fortify-headers.h stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h getopt-cdefs.h \
+ getopt-pfx-core.h getopt-core.h idx.h stdint.h /usr/include/stdint.h \
+ /usr/include/bits/stdint.h limits.h /usr/include/limits.h minmax.h \
+ /usr/include/sys/param.h /usr/include/sys/resource.h sys/time.h \
+ /usr/include/sys/time.h /usr/include/bits/resource.h \
+ /usr/include/errno.h /usr/include/bits/errno.h string.h \
+ /usr/include/fortify/string.h /usr/include/string.h strings.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h allocator.h
+/usr/include/stdc-predef.h:
+config.h:
+careadlinkat.h:
+fcntl.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+sys/stat.h:
+time.h:
+/usr/include/time.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+/usr/include/fortify/fortify-headers.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+getopt-core.h:
+idx.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+limits.h:
+/usr/include/limits.h:
+minmax.h:
+/usr/include/sys/param.h:
+/usr/include/sys/resource.h:
+sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/bits/resource.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+allocator.h:

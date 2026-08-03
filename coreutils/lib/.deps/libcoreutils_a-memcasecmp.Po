@@ -1,0 +1,17 @@
+lib/libcoreutils_a-memcasecmp.o: lib/memcasecmp.c \
+ /usr/include/stdc-predef.h lib/config.h lib/memcasecmp.h lib/stddef.h \
+ /usr/include/stddef.h /usr/include/bits/alltypes.h lib/ctype.h \
+ /usr/include/ctype.h /usr/include/features.h lib/limits.h \
+ /usr/include/limits.h /usr/include/bits/limits.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/memcasecmp.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+lib/ctype.h:
+/usr/include/ctype.h:
+/usr/include/features.h:
+lib/limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:

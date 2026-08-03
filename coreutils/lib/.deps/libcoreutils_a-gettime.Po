@@ -1,0 +1,31 @@
+lib/libcoreutils_a-gettime.o: lib/gettime.c /usr/include/stdc-predef.h \
+ lib/config.h lib/timespec.h lib/time.h /usr/include/time.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h lib/stddef.h \
+ /usr/include/stddef.h lib/arg-nonnull.h lib/sys/time.h \
+ /usr/include/sys/time.h lib/sys/select.h lib/sys/types.h \
+ /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h lib/signal.h \
+ /usr/include/signal.h /usr/include/bits/signal.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/timespec.h:
+lib/time.h:
+/usr/include/time.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+lib/arg-nonnull.h:
+lib/sys/time.h:
+/usr/include/sys/time.h:
+lib/sys/select.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+lib/signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:

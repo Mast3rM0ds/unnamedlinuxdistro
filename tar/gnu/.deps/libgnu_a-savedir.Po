@@ -1,0 +1,54 @@
+libgnu_a-savedir.o: savedir.c /usr/include/stdc-predef.h ../config.h \
+ savedir.h dirent.h /usr/include/dirent.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/bits/dirent.h sys/types.h \
+ /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/fortify/fortify-headers.h stddef.h /usr/include/stddef.h \
+ /usr/include/errno.h /usr/include/bits/errno.h dirent--.h dirent-safer.h \
+ string.h /usr/include/fortify/string.h /usr/include/string.h strings.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h xalloc.h idx.h \
+ stdint.h /usr/include/stdint.h /usr/include/bits/stdint.h limits.h \
+ /usr/include/limits.h
+/usr/include/stdc-predef.h:
+../config.h:
+savedir.h:
+dirent.h:
+/usr/include/dirent.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/bits/dirent.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+dirent--.h:
+dirent-safer.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+xalloc.h:
+idx.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+limits.h:
+/usr/include/limits.h:

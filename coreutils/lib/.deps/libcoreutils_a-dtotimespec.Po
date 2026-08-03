@@ -1,0 +1,21 @@
+lib/libcoreutils_a-dtotimespec.o: lib/dtotimespec.c \
+ /usr/include/stdc-predef.h lib/config.h lib/timespec.h lib/time.h \
+ /usr/include/time.h /usr/include/features.h /usr/include/bits/alltypes.h \
+ lib/stddef.h /usr/include/stddef.h lib/arg-nonnull.h lib/intprops.h \
+ lib/intprops-internal.h lib/limits.h /usr/include/limits.h \
+ /usr/include/bits/limits.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/timespec.h:
+lib/time.h:
+/usr/include/time.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+lib/arg-nonnull.h:
+lib/intprops.h:
+lib/intprops-internal.h:
+lib/limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:

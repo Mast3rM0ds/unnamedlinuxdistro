@@ -1,0 +1,57 @@
+libgreputils_a-xalloc-die.o: xalloc-die.c /usr/include/stdc-predef.h \
+ ../config.h xalloc.h stddef.h /usr/include/stddef.h \
+ /usr/include/bits/alltypes.h stdlib.h /usr/include/fortify/stdlib.h \
+ /usr/include/stdlib.h /usr/include/features.h alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/fortify/fortify-headers.h idx.h stdint.h \
+ /usr/include/stdint.h /usr/include/bits/stdint.h limits.h \
+ /usr/include/limits.h error.h /usr/include/stdarg.h stdio.h \
+ /usr/include/fortify/stdio.h /usr/include/stdio.h sys/types.h \
+ /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h exitfail.h gettext.h locale.h \
+ /usr/include/locale.h setlocale_null.h arg-nonnull.h string.h \
+ /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h
+/usr/include/stdc-predef.h:
+../config.h:
+xalloc.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/features.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+idx.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+limits.h:
+/usr/include/limits.h:
+error.h:
+/usr/include/stdarg.h:
+stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+exitfail.h:
+gettext.h:
+locale.h:
+/usr/include/locale.h:
+setlocale_null.h:
+arg-nonnull.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:

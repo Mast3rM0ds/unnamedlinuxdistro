@@ -1,0 +1,42 @@
+libgnulib_a-getlocalename_l-unsafe.o: getlocalename_l-unsafe.c \
+ /usr/include/stdc-predef.h ../../config.h getlocalename_l-unsafe.h \
+ locale.h /usr/include/locale.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h stddef.h /usr/include/stddef.h \
+ setlocale_null.h arg-nonnull.h arg-nonnull.h limits.h \
+ /usr/include/limits.h /usr/include/bits/limits.h stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h alloca.h \
+ /usr/include/limits.h /usr/include/fortify/fortify-headers.h string.h \
+ /usr/include/fortify/string.h /usr/include/string.h strings.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h setlocale_null.h \
+ langinfo.h /usr/include/langinfo.h /usr/include/nl_types.h
+/usr/include/stdc-predef.h:
+../../config.h:
+getlocalename_l-unsafe.h:
+locale.h:
+/usr/include/locale.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+stddef.h:
+/usr/include/stddef.h:
+setlocale_null.h:
+arg-nonnull.h:
+arg-nonnull.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/fortify/fortify-headers.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+setlocale_null.h:
+langinfo.h:
+/usr/include/langinfo.h:
+/usr/include/nl_types.h:

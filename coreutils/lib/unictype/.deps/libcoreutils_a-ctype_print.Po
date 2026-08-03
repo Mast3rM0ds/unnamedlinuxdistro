@@ -1,0 +1,24 @@
+lib/unictype/libcoreutils_a-ctype_print.o: lib/unictype/ctype_print.c \
+ /usr/include/stdc-predef.h lib/config.h lib/unictype.h lib/unitypes.h \
+ lib/stdint.h /usr/include/stdint.h /usr/include/bits/alltypes.h \
+ /usr/include/bits/stdint.h lib/limits.h /usr/include/limits.h \
+ /usr/include/features.h /usr/include/bits/limits.h \
+ /usr/include/stdbool.h lib/stddef.h /usr/include/stddef.h \
+ lib/unictype/bitmap.h lib/unictype/ctype_print.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/unictype.h:
+lib/unitypes.h:
+lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/alltypes.h:
+/usr/include/bits/stdint.h:
+lib/limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:
+/usr/include/stdbool.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+lib/unictype/bitmap.h:
+lib/unictype/ctype_print.h:

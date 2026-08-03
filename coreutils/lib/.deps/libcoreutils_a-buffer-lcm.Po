@@ -1,0 +1,9 @@
+lib/libcoreutils_a-buffer-lcm.o: lib/buffer-lcm.c \
+ /usr/include/stdc-predef.h lib/config.h lib/buffer-lcm.h lib/stddef.h \
+ /usr/include/stddef.h /usr/include/bits/alltypes.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/buffer-lcm.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:

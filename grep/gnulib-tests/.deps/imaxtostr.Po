@@ -1,0 +1,36 @@
+imaxtostr.o: imaxtostr.c /usr/include/stdc-predef.h anytostr.c \
+ ../config.h inttostr.h ../lib/stdint.h /usr/include/stdint.h \
+ /usr/include/bits/alltypes.h /usr/include/bits/stdint.h ../lib/limits.h \
+ /usr/include/limits.h /usr/include/features.h /usr/include/bits/limits.h \
+ ../lib/sys/types.h /usr/include/sys/types.h /usr/include/endian.h \
+ sys/select.h sys/time.h /usr/include/sys/time.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h ../lib/signal.h \
+ /usr/include/signal.h /usr/include/bits/signal.h ../lib/intprops.h \
+ ../lib/intprops-internal.h
+/usr/include/stdc-predef.h:
+anytostr.c:
+../config.h:
+inttostr.h:
+../lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/alltypes.h:
+/usr/include/bits/stdint.h:
+../lib/limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:
+../lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+sys/select.h:
+sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+../lib/signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+../lib/intprops.h:
+../lib/intprops-internal.h:

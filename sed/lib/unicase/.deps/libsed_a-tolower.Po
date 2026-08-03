@@ -1,0 +1,25 @@
+lib/unicase/libsed_a-tolower.o: lib/unicase/tolower.c \
+ /usr/include/stdc-predef.h config.h lib/unicase.h lib/unitypes.h \
+ lib/stdint.h /usr/include/stdint.h /usr/include/bits/alltypes.h \
+ /usr/include/bits/stdint.h lib/limits.h /usr/include/limits.h \
+ /usr/include/features.h /usr/include/bits/limits.h \
+ /usr/include/stdbool.h lib/stddef.h /usr/include/stddef.h lib/uninorm.h \
+ lib/unicase/tolower.h lib/unicase/simple-mapping.h
+/usr/include/stdc-predef.h:
+config.h:
+lib/unicase.h:
+lib/unitypes.h:
+lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/alltypes.h:
+/usr/include/bits/stdint.h:
+lib/limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:
+/usr/include/stdbool.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+lib/uninorm.h:
+lib/unicase/tolower.h:
+lib/unicase/simple-mapping.h:

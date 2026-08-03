@@ -1,0 +1,112 @@
+sys-utils/lscpu-lscpu.o: sys-utils/lscpu.c /usr/include/stdc-predef.h \
+ config.h /usr/include/assert.h /usr/include/features.h \
+ /usr/include/ctype.h /usr/include/bits/alltypes.h /usr/include/dirent.h \
+ /usr/include/bits/dirent.h /usr/include/errno.h \
+ /usr/include/bits/errno.h /usr/include/fcntl.h /usr/include/bits/fcntl.h \
+ /usr/include/getopt.h /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/fortify/stdlib.h \
+ /usr/include/stdlib.h /usr/include/alloca.h /usr/include/limits.h \
+ /usr/include/bits/limits.h /usr/include/fortify/string.h \
+ /usr/include/string.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h /usr/include/sys/utsname.h \
+ /usr/include/fortify/unistd.h /usr/include/unistd.h \
+ /usr/include/stdarg.h /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/sys/stat.h \
+ /usr/include/bits/stat.h /usr/include/sys/personality.h \
+ libsmartcols/src/libsmartcols.h include/closestream.h \
+ /usr/include/stdio_ext.h include/c.h /usr/include/limits.h \
+ /usr/include/stddef.h /usr/include/stdint.h /usr/include/bits/stdint.h \
+ /usr/include/grp.h /usr/include/err.h /usr/include/sys/sysmacros.h \
+ /usr/include/time.h include/nls.h /usr/include/locale.h \
+ /usr/include/langinfo.h /usr/include/nl_types.h include/optutils.h \
+ include/cctype.h include/c_strtod.h include/sysfs.h \
+ /usr/include/inttypes.h include/path.h include/cpuset.h \
+ /usr/include/sched.h sys-utils/lscpu.h include/c.h include/nls.h \
+ include/cpuset.h include/xalloc.h include/strutils.h include/strutils.h \
+ include/bitops.h /usr/include/sys/param.h /usr/include/sys/resource.h \
+ /usr/include/sys/time.h /usr/include/bits/resource.h \
+ /usr/include/byteswap.h include/path.h include/pathnames.h \
+ /usr/include/paths.h include/all-io.h /usr/include/sys/sendfile.h \
+ include/debug.h include/debugobj.h
+/usr/include/stdc-predef.h:
+config.h:
+/usr/include/assert.h:
+/usr/include/features.h:
+/usr/include/ctype.h:
+/usr/include/bits/alltypes.h:
+/usr/include/dirent.h:
+/usr/include/bits/dirent.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+/usr/include/getopt.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/sys/utsname.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+/usr/include/stdarg.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/sys/personality.h:
+libsmartcols/src/libsmartcols.h:
+include/closestream.h:
+/usr/include/stdio_ext.h:
+include/c.h:
+/usr/include/limits.h:
+/usr/include/stddef.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+/usr/include/grp.h:
+/usr/include/err.h:
+/usr/include/sys/sysmacros.h:
+/usr/include/time.h:
+include/nls.h:
+/usr/include/locale.h:
+/usr/include/langinfo.h:
+/usr/include/nl_types.h:
+include/optutils.h:
+include/cctype.h:
+include/c_strtod.h:
+include/sysfs.h:
+/usr/include/inttypes.h:
+include/path.h:
+include/cpuset.h:
+/usr/include/sched.h:
+sys-utils/lscpu.h:
+include/c.h:
+include/nls.h:
+include/cpuset.h:
+include/xalloc.h:
+include/strutils.h:
+include/strutils.h:
+include/bitops.h:
+/usr/include/sys/param.h:
+/usr/include/sys/resource.h:
+/usr/include/sys/time.h:
+/usr/include/bits/resource.h:
+/usr/include/byteswap.h:
+include/path.h:
+include/pathnames.h:
+/usr/include/paths.h:
+include/all-io.h:
+/usr/include/sys/sendfile.h:
+include/debug.h:
+include/debugobj.h:

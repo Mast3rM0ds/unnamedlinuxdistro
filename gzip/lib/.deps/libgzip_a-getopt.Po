@@ -1,0 +1,55 @@
+libgzip_a-getopt.o: getopt.c /usr/include/stdc-predef.h config.h getopt.h \
+ /usr/include/getopt.h getopt-cdefs.h getopt-pfx-core.h unistd.h \
+ /usr/include/fortify/unistd.h /usr/include/unistd.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/fortify/fortify-headers.h stddef.h /usr/include/stddef.h \
+ stdlib.h /usr/include/fortify/stdlib.h /usr/include/stdlib.h alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h sys/types.h \
+ /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h getopt-core.h getopt-pfx-ext.h \
+ getopt-ext.h stdio.h /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/stdarg.h string.h /usr/include/fortify/string.h \
+ /usr/include/string.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h gettext.h /usr/include/locale.h getopt_int.h
+/usr/include/stdc-predef.h:
+config.h:
+getopt.h:
+/usr/include/getopt.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/fortify/fortify-headers.h:
+stddef.h:
+/usr/include/stddef.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+getopt-core.h:
+getopt-pfx-ext.h:
+getopt-ext.h:
+stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/stdarg.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+gettext.h:
+/usr/include/locale.h:
+getopt_int.h:

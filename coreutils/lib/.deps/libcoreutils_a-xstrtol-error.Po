@@ -1,0 +1,79 @@
+lib/libcoreutils_a-xstrtol-error.o: lib/xstrtol-error.c \
+ /usr/include/stdc-predef.h lib/config.h lib/xstrtol-error.h \
+ lib/xstrtol.h lib/stdint.h /usr/include/stdint.h \
+ /usr/include/bits/alltypes.h /usr/include/bits/stdint.h lib/limits.h \
+ /usr/include/limits.h /usr/include/features.h /usr/include/bits/limits.h \
+ lib/getopt.h /usr/include/getopt.h lib/getopt-cdefs.h \
+ lib/getopt-pfx-core.h lib/unistd.h /usr/include/fortify/unistd.h \
+ /usr/include/unistd.h /usr/include/fortify/fortify-headers.h \
+ lib/stddef.h /usr/include/stddef.h lib/stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h lib/alloca.h \
+ /usr/include/limits.h lib/sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h lib/sys/select.h lib/sys/time.h \
+ /usr/include/sys/time.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ lib/signal.h /usr/include/signal.h /usr/include/bits/signal.h \
+ lib/getopt-core.h lib/getopt-pfx-ext.h lib/getopt-ext.h lib/error.h \
+ /usr/include/stdarg.h lib/stdio.h /usr/include/fortify/stdio.h \
+ /usr/include/stdio.h lib/exitfail.h lib/gettext.h lib/locale.h \
+ /usr/include/locale.h lib/setlocale_null.h lib/arg-nonnull.h \
+ lib/string.h /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/xstrtol-error.h:
+lib/xstrtol.h:
+lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/alltypes.h:
+/usr/include/bits/stdint.h:
+lib/limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:
+lib/getopt.h:
+/usr/include/getopt.h:
+lib/getopt-cdefs.h:
+lib/getopt-pfx-core.h:
+lib/unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+/usr/include/fortify/fortify-headers.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+lib/alloca.h:
+/usr/include/limits.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+lib/sys/select.h:
+lib/sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+lib/signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+lib/getopt-core.h:
+lib/getopt-pfx-ext.h:
+lib/getopt-ext.h:
+lib/error.h:
+/usr/include/stdarg.h:
+lib/stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+lib/exitfail.h:
+lib/gettext.h:
+lib/locale.h:
+/usr/include/locale.h:
+lib/setlocale_null.h:
+lib/arg-nonnull.h:
+lib/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:

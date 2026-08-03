@@ -1,0 +1,27 @@
+extendbuf.o: extendbuf.c /usr/include/stdc-predef.h ../config.h \
+ /usr/include/assert.h /usr/include/features.h /usr/include/errno.h \
+ /usr/include/bits/errno.h ../gl/lib/stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h \
+ /usr/include/bits/alltypes.h ../gl/lib/alloca.h /usr/include/limits.h \
+ /usr/include/bits/limits.h /usr/include/fortify/fortify-headers.h \
+ ../gl/lib/stddef.h /usr/include/stddef.h ../gl/lib/xalloc.h \
+ ../gl/lib/idx.h extendbuf.h
+/usr/include/stdc-predef.h:
+../config.h:
+/usr/include/assert.h:
+/usr/include/features.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+../gl/lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/bits/alltypes.h:
+../gl/lib/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+../gl/lib/stddef.h:
+/usr/include/stddef.h:
+../gl/lib/xalloc.h:
+../gl/lib/idx.h:
+extendbuf.h:

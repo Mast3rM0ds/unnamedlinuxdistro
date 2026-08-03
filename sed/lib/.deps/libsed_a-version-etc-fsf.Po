@@ -1,0 +1,27 @@
+lib/libsed_a-version-etc-fsf.o: lib/version-etc-fsf.c \
+ /usr/include/stdc-predef.h config.h lib/version-etc.h \
+ /usr/include/stdarg.h /usr/include/bits/alltypes.h lib/stdio.h \
+ /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/fortify/fortify-headers.h \
+ lib/stddef.h /usr/include/stddef.h lib/sys/types.h \
+ /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h
+/usr/include/stdc-predef.h:
+config.h:
+lib/version-etc.h:
+/usr/include/stdarg.h:
+/usr/include/bits/alltypes.h:
+lib/stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/features.h:
+/usr/include/fortify/fortify-headers.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:

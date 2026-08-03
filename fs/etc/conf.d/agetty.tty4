@@ -1,0 +1,1 @@
+agetty_options="--autologin root --skip-login --login-program /usr/local/bin/autologin-shell --noclear"

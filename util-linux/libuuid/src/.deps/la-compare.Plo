@@ -1,0 +1,32 @@
+libuuid/src/la-compare.lo: libuuid/src/compare.c \
+ /usr/include/stdc-predef.h config.h libuuid/src/uuidP.h \
+ /usr/include/inttypes.h /usr/include/features.h /usr/include/stdint.h \
+ /usr/include/bits/alltypes.h /usr/include/bits/stdint.h \
+ /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h libuuid/src/uuid.h \
+ /usr/include/sys/time.h /usr/include/time.h \
+ /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ /usr/include/fortify/fortify-headers.h
+/usr/include/stdc-predef.h:
+config.h:
+libuuid/src/uuidP.h:
+/usr/include/inttypes.h:
+/usr/include/features.h:
+/usr/include/stdint.h:
+/usr/include/bits/alltypes.h:
+/usr/include/bits/stdint.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+libuuid/src/uuid.h:
+/usr/include/sys/time.h:
+/usr/include/time.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:

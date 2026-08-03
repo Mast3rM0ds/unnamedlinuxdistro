@@ -1,0 +1,115 @@
+kwsearch.o: kwsearch.c /usr/include/stdc-predef.h ../config.h search.h \
+ ../lib/sys/types.h /usr/include/sys/types.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h ../lib/stdint.h \
+ /usr/include/stdint.h /usr/include/bits/stdint.h ../lib/limits.h \
+ /usr/include/limits.h /usr/include/bits/limits.h ../lib/wchar.h \
+ ../lib/stddef.h /usr/include/stddef.h /usr/include/fortify/wchar.h \
+ /usr/include/limits.h /usr/include/stdlib.h ../lib/alloca.h \
+ /usr/include/string.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h /usr/include/fortify/fortify-headers.h \
+ /usr/include/wchar.h ../lib/string.h /usr/include/fortify/string.h \
+ ../lib/regex.h system.h ../lib/fcntl.h ../lib/sys/stat.h ../lib/time.h \
+ /usr/include/time.h /usr/include/sys/stat.h /usr/include/bits/stat.h \
+ /usr/include/fcntl.h /usr/include/bits/fcntl.h ../lib/unistd.h \
+ /usr/include/fortify/unistd.h /usr/include/unistd.h ../lib/stdlib.h \
+ /usr/include/fortify/stdlib.h ../lib/getopt-cdefs.h \
+ ../lib/getopt-pfx-core.h ../lib/getopt-core.h /usr/include/errno.h \
+ /usr/include/bits/errno.h ../lib/configmake.h ../lib/dirname.h \
+ ../lib/filename.h ../lib/basename-lgpl.h ../lib/ignore-value.h \
+ ../lib/minmax.h /usr/include/sys/param.h /usr/include/sys/resource.h \
+ /usr/include/sys/time.h /usr/include/bits/resource.h ../lib/same-inode.h \
+ ../lib/ctype.h /usr/include/ctype.h ../lib/gettext.h ../lib/locale.h \
+ /usr/include/locale.h ../lib/setlocale_null.h ../lib/arg-nonnull.h \
+ ../lib/unlocked-io.h ../lib/stdio.h /usr/include/fortify/stdio.h \
+ /usr/include/stdio.h /usr/include/stdarg.h grep.h ../lib/idx.h \
+ ../lib/dfa.h ../lib/idx.h kwset.h ../lib/arg-nonnull.h ../lib/xalloc.h \
+ ../lib/localeinfo.h ../lib/uchar.h /usr/include/uchar.h ../lib/wctype.h \
+ /usr/include/wctype.h
+/usr/include/stdc-predef.h:
+../config.h:
+search.h:
+../lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+../lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+../lib/limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+../lib/wchar.h:
+../lib/stddef.h:
+/usr/include/stddef.h:
+/usr/include/fortify/wchar.h:
+/usr/include/limits.h:
+/usr/include/stdlib.h:
+../lib/alloca.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/wchar.h:
+../lib/string.h:
+/usr/include/fortify/string.h:
+../lib/regex.h:
+system.h:
+../lib/fcntl.h:
+../lib/sys/stat.h:
+../lib/time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+../lib/unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+../lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+../lib/getopt-cdefs.h:
+../lib/getopt-pfx-core.h:
+../lib/getopt-core.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+../lib/configmake.h:
+../lib/dirname.h:
+../lib/filename.h:
+../lib/basename-lgpl.h:
+../lib/ignore-value.h:
+../lib/minmax.h:
+/usr/include/sys/param.h:
+/usr/include/sys/resource.h:
+/usr/include/sys/time.h:
+/usr/include/bits/resource.h:
+../lib/same-inode.h:
+../lib/ctype.h:
+/usr/include/ctype.h:
+../lib/gettext.h:
+../lib/locale.h:
+/usr/include/locale.h:
+../lib/setlocale_null.h:
+../lib/arg-nonnull.h:
+../lib/unlocked-io.h:
+../lib/stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/stdarg.h:
+grep.h:
+../lib/idx.h:
+../lib/dfa.h:
+../lib/idx.h:
+kwset.h:
+../lib/arg-nonnull.h:
+../lib/xalloc.h:
+../lib/localeinfo.h:
+../lib/uchar.h:
+/usr/include/uchar.h:
+../lib/wctype.h:
+/usr/include/wctype.h:

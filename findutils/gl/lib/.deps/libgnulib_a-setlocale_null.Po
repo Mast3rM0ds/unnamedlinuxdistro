@@ -1,0 +1,54 @@
+libgnulib_a-setlocale_null.o: setlocale_null.c /usr/include/stdc-predef.h \
+ ../../config.h setlocale_null.h stddef.h /usr/include/stddef.h \
+ /usr/include/bits/alltypes.h arg-nonnull.h /usr/include/errno.h \
+ /usr/include/features.h /usr/include/bits/errno.h locale.h \
+ /usr/include/locale.h setlocale_null.h stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/fortify/fortify-headers.h string.h \
+ /usr/include/fortify/string.h /usr/include/string.h strings.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h pthread.h \
+ /usr/include/pthread.h sched.h /usr/include/sched.h sys/types.h \
+ /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h time.h /usr/include/time.h \
+ /usr/include/threads.h
+/usr/include/stdc-predef.h:
+../../config.h:
+setlocale_null.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+arg-nonnull.h:
+/usr/include/errno.h:
+/usr/include/features.h:
+/usr/include/bits/errno.h:
+locale.h:
+/usr/include/locale.h:
+setlocale_null.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+pthread.h:
+/usr/include/pthread.h:
+sched.h:
+/usr/include/sched.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+time.h:
+/usr/include/time.h:
+/usr/include/threads.h:

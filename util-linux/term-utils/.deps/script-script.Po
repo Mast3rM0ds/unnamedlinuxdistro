@@ -1,0 +1,118 @@
+term-utils/script-script.o: term-utils/script.c \
+ /usr/include/stdc-predef.h config.h /usr/include/fortify/stdio.h \
+ /usr/include/stdio.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/fortify/fortify-headers.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h \
+ /usr/include/alloca.h /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/paths.h /usr/include/time.h /usr/include/sys/stat.h \
+ /usr/include/bits/stat.h /usr/include/termios.h \
+ /usr/include/bits/termios.h /usr/include/sys/ioctl.h \
+ /usr/include/bits/ioctl.h /usr/include/bits/ioctl_fix.h \
+ /usr/include/sys/time.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ /usr/include/signal.h /usr/include/bits/signal.h /usr/include/errno.h \
+ /usr/include/bits/errno.h /usr/include/fortify/string.h \
+ /usr/include/string.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h /usr/include/getopt.h \
+ /usr/include/fortify/unistd.h /usr/include/unistd.h /usr/include/fcntl.h \
+ /usr/include/bits/fcntl.h /usr/include/limits.h /usr/include/locale.h \
+ /usr/include/stddef.h /usr/include/sys/wait.h \
+ /usr/include/sys/resource.h /usr/include/bits/resource.h \
+ /usr/include/fortify/poll.h /usr/include/poll.h /usr/include/bits/poll.h \
+ /usr/include/sys/signalfd.h /usr/include/stdint.h \
+ /usr/include/bits/stdint.h /usr/include/assert.h /usr/include/inttypes.h \
+ include/closestream.h /usr/include/stdio_ext.h include/c.h \
+ /usr/include/stdarg.h /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/grp.h /usr/include/err.h /usr/include/sys/sysmacros.h \
+ include/nls.h /usr/include/langinfo.h /usr/include/nl_types.h \
+ include/nls.h include/c.h include/ttyutils.h \
+ /usr/include/sys/ttydefaults.h include/all-io.h \
+ /usr/include/sys/sendfile.h include/monotonic.h include/timeutils.h \
+ /usr/include/stdbool.h include/timeutils.h include/strutils.h \
+ /usr/include/ctype.h include/xalloc.h include/strutils.h \
+ include/optutils.h include/cctype.h include/signames.h \
+ include/pty-session.h /usr/include/pty.h include/debug.h
+/usr/include/stdc-predef.h:
+config.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/paths.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/termios.h:
+/usr/include/bits/termios.h:
+/usr/include/sys/ioctl.h:
+/usr/include/bits/ioctl.h:
+/usr/include/bits/ioctl_fix.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/getopt.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+/usr/include/limits.h:
+/usr/include/locale.h:
+/usr/include/stddef.h:
+/usr/include/sys/wait.h:
+/usr/include/sys/resource.h:
+/usr/include/bits/resource.h:
+/usr/include/fortify/poll.h:
+/usr/include/poll.h:
+/usr/include/bits/poll.h:
+/usr/include/sys/signalfd.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+/usr/include/assert.h:
+/usr/include/inttypes.h:
+include/closestream.h:
+/usr/include/stdio_ext.h:
+include/c.h:
+/usr/include/stdarg.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/grp.h:
+/usr/include/err.h:
+/usr/include/sys/sysmacros.h:
+include/nls.h:
+/usr/include/langinfo.h:
+/usr/include/nl_types.h:
+include/nls.h:
+include/c.h:
+include/ttyutils.h:
+/usr/include/sys/ttydefaults.h:
+include/all-io.h:
+/usr/include/sys/sendfile.h:
+include/monotonic.h:
+include/timeutils.h:
+/usr/include/stdbool.h:
+include/timeutils.h:
+include/strutils.h:
+/usr/include/ctype.h:
+include/xalloc.h:
+include/strutils.h:
+include/optutils.h:
+include/cctype.h:
+include/signames.h:
+include/pty-session.h:
+/usr/include/pty.h:
+include/debug.h:

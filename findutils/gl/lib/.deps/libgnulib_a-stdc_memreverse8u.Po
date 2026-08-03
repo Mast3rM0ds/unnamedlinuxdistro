@@ -1,0 +1,16 @@
+libgnulib_a-stdc_memreverse8u.o: stdc_memreverse8u.c \
+ /usr/include/stdc-predef.h ../../config.h stdbit.h stdint.h \
+ /usr/include/stdint.h /usr/include/bits/alltypes.h \
+ /usr/include/bits/stdint.h limits.h /usr/include/limits.h \
+ /usr/include/features.h /usr/include/bits/limits.h
+/usr/include/stdc-predef.h:
+../../config.h:
+stdbit.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/alltypes.h:
+/usr/include/bits/stdint.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:

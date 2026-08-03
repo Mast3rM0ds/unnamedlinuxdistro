@@ -1,0 +1,161 @@
+grep.o: grep.c /usr/include/stdc-predef.h ../config.h ../lib/sys/types.h \
+ /usr/include/sys/types.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h ../lib/sys/stat.h ../lib/time.h \
+ /usr/include/time.h ../lib/stddef.h /usr/include/stddef.h \
+ /usr/include/sys/stat.h /usr/include/bits/stat.h ../lib/uchar.h \
+ /usr/include/uchar.h ../lib/stdint.h /usr/include/stdint.h \
+ /usr/include/bits/stdint.h ../lib/limits.h /usr/include/limits.h \
+ /usr/include/bits/limits.h ../lib/wchar.h /usr/include/fortify/wchar.h \
+ /usr/include/limits.h /usr/include/stdlib.h ../lib/alloca.h \
+ /usr/include/string.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h /usr/include/fortify/fortify-headers.h \
+ /usr/include/wchar.h ../lib/string.h /usr/include/fortify/string.h \
+ ../lib/wctype.h /usr/include/wctype.h ../lib/inttypes.h \
+ /usr/include/inttypes.h /usr/include/stdarg.h \
+ /usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h \
+ ../lib/stdio.h /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ system.h ../lib/fcntl.h /usr/include/fcntl.h /usr/include/bits/fcntl.h \
+ ../lib/unistd.h /usr/include/fortify/unistd.h /usr/include/unistd.h \
+ ../lib/stdlib.h /usr/include/fortify/stdlib.h ../lib/getopt-cdefs.h \
+ ../lib/getopt-pfx-core.h ../lib/getopt-core.h /usr/include/errno.h \
+ /usr/include/bits/errno.h ../lib/configmake.h ../lib/dirname.h \
+ ../lib/filename.h ../lib/basename-lgpl.h ../lib/ignore-value.h \
+ ../lib/minmax.h /usr/include/sys/param.h /usr/include/sys/resource.h \
+ /usr/include/sys/time.h /usr/include/bits/resource.h ../lib/same-inode.h \
+ ../lib/ctype.h /usr/include/ctype.h ../lib/gettext.h ../lib/locale.h \
+ /usr/include/locale.h ../lib/setlocale_null.h ../lib/arg-nonnull.h \
+ ../lib/unlocked-io.h ../lib/argmatch.h ../lib/gettext.h ../lib/quote.h \
+ ../lib/c-ctype.h ../lib/c-stack.h ../lib/closeout.h ../lib/colorize.h \
+ die.h ../lib/error.h ../lib/verify.h ../lib/exclude.h ../lib/exitfail.h \
+ ../lib/fcntl-safer.h ../lib/fts_.h ../lib/dirent.h /usr/include/dirent.h \
+ /usr/include/bits/dirent.h ../lib/i-ring.h ../lib/getopt.h \
+ /usr/include/getopt.h ../lib/getopt-pfx-ext.h ../lib/getopt-ext.h grep.h \
+ ../lib/idx.h ../lib/hash.h ../lib/intprops.h ../lib/intprops-internal.h \
+ ../lib/safe-read.h ../lib/idx.h search.h ../lib/regex.h system.h grep.h \
+ ../lib/dfa.h kwset.h ../lib/arg-nonnull.h ../lib/xalloc.h \
+ ../lib/localeinfo.h ../lib/c-strcase.h ../lib/version-etc.h \
+ ../lib/xbinary-io.h ../lib/binary-io.h ../lib/xstrtol.h
+/usr/include/stdc-predef.h:
+../config.h:
+../lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+../lib/sys/stat.h:
+../lib/time.h:
+/usr/include/time.h:
+../lib/stddef.h:
+/usr/include/stddef.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+../lib/uchar.h:
+/usr/include/uchar.h:
+../lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+../lib/limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+../lib/wchar.h:
+/usr/include/fortify/wchar.h:
+/usr/include/limits.h:
+/usr/include/stdlib.h:
+../lib/alloca.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/wchar.h:
+../lib/string.h:
+/usr/include/fortify/string.h:
+../lib/wctype.h:
+/usr/include/wctype.h:
+../lib/inttypes.h:
+/usr/include/inttypes.h:
+/usr/include/stdarg.h:
+/usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h:
+../lib/stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+system.h:
+../lib/fcntl.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+../lib/unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+../lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+../lib/getopt-cdefs.h:
+../lib/getopt-pfx-core.h:
+../lib/getopt-core.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+../lib/configmake.h:
+../lib/dirname.h:
+../lib/filename.h:
+../lib/basename-lgpl.h:
+../lib/ignore-value.h:
+../lib/minmax.h:
+/usr/include/sys/param.h:
+/usr/include/sys/resource.h:
+/usr/include/sys/time.h:
+/usr/include/bits/resource.h:
+../lib/same-inode.h:
+../lib/ctype.h:
+/usr/include/ctype.h:
+../lib/gettext.h:
+../lib/locale.h:
+/usr/include/locale.h:
+../lib/setlocale_null.h:
+../lib/arg-nonnull.h:
+../lib/unlocked-io.h:
+../lib/argmatch.h:
+../lib/gettext.h:
+../lib/quote.h:
+../lib/c-ctype.h:
+../lib/c-stack.h:
+../lib/closeout.h:
+../lib/colorize.h:
+die.h:
+../lib/error.h:
+../lib/verify.h:
+../lib/exclude.h:
+../lib/exitfail.h:
+../lib/fcntl-safer.h:
+../lib/fts_.h:
+../lib/dirent.h:
+/usr/include/dirent.h:
+/usr/include/bits/dirent.h:
+../lib/i-ring.h:
+../lib/getopt.h:
+/usr/include/getopt.h:
+../lib/getopt-pfx-ext.h:
+../lib/getopt-ext.h:
+grep.h:
+../lib/idx.h:
+../lib/hash.h:
+../lib/intprops.h:
+../lib/intprops-internal.h:
+../lib/safe-read.h:
+../lib/idx.h:
+search.h:
+../lib/regex.h:
+system.h:
+grep.h:
+../lib/dfa.h:
+kwset.h:
+../lib/arg-nonnull.h:
+../lib/xalloc.h:
+../lib/localeinfo.h:
+../lib/c-strcase.h:
+../lib/version-etc.h:
+../lib/xbinary-io.h:
+../lib/binary-io.h:
+../lib/xstrtol.h:

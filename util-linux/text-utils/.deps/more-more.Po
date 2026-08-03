@@ -1,0 +1,110 @@
+text-utils/more-more.o: text-utils/more.c /usr/include/stdc-predef.h \
+ config.h /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/fortify/string.h \
+ /usr/include/string.h /usr/include/fortify/strings.h \
+ /usr/include/strings.h /usr/include/fortify/unistd.h \
+ /usr/include/unistd.h /usr/include/fortify/stdlib.h \
+ /usr/include/stdlib.h /usr/include/alloca.h /usr/include/limits.h \
+ /usr/include/bits/limits.h /usr/include/stdarg.h \
+ /usr/include/sys/param.h /usr/include/sys/resource.h \
+ /usr/include/sys/time.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ /usr/include/bits/resource.h /usr/include/endian.h /usr/include/limits.h \
+ /usr/include/ctype.h /usr/include/signal.h /usr/include/bits/signal.h \
+ /usr/include/errno.h /usr/include/bits/errno.h /usr/include/fcntl.h \
+ /usr/include/bits/fcntl.h /usr/include/termios.h \
+ /usr/include/bits/termios.h /usr/include/sys/ioctl.h \
+ /usr/include/bits/ioctl.h /usr/include/bits/ioctl_fix.h \
+ /usr/include/sys/stat.h /usr/include/bits/stat.h /usr/include/sys/file.h \
+ /usr/include/sys/ttydefaults.h /usr/include/sys/wait.h \
+ /usr/include/regex.h /usr/include/assert.h /usr/include/fortify/poll.h \
+ /usr/include/poll.h /usr/include/bits/poll.h /usr/include/sys/signalfd.h \
+ /usr/include/stdint.h /usr/include/bits/stdint.h /usr/include/paths.h \
+ /usr/include/getopt.h \
+ /home/sonakrie/Work/testicular_linux/util-linux/../fs/usr/include/term.h \
+ /home/sonakrie/Work/testicular_linux/util-linux/../fs/usr/include/ncurses_dll.h \
+ include/strutils.h /usr/include/inttypes.h /usr/include/sys/types.h \
+ /usr/include/time.h include/c.h /usr/include/stddef.h /usr/include/grp.h \
+ /usr/include/err.h /usr/include/sys/sysmacros.h include/nls.h \
+ /usr/include/locale.h /usr/include/langinfo.h /usr/include/nl_types.h \
+ include/xalloc.h include/strutils.h include/widechar.h \
+ include/closestream.h /usr/include/stdio_ext.h include/nls.h \
+ include/env.h
+/usr/include/stdc-predef.h:
+config.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/stdarg.h:
+/usr/include/sys/param.h:
+/usr/include/sys/resource.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/bits/resource.h:
+/usr/include/endian.h:
+/usr/include/limits.h:
+/usr/include/ctype.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+/usr/include/termios.h:
+/usr/include/bits/termios.h:
+/usr/include/sys/ioctl.h:
+/usr/include/bits/ioctl.h:
+/usr/include/bits/ioctl_fix.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/sys/file.h:
+/usr/include/sys/ttydefaults.h:
+/usr/include/sys/wait.h:
+/usr/include/regex.h:
+/usr/include/assert.h:
+/usr/include/fortify/poll.h:
+/usr/include/poll.h:
+/usr/include/bits/poll.h:
+/usr/include/sys/signalfd.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+/usr/include/paths.h:
+/usr/include/getopt.h:
+/home/sonakrie/Work/testicular_linux/util-linux/../fs/usr/include/term.h:
+/home/sonakrie/Work/testicular_linux/util-linux/../fs/usr/include/ncurses_dll.h:
+include/strutils.h:
+/usr/include/inttypes.h:
+/usr/include/sys/types.h:
+/usr/include/time.h:
+include/c.h:
+/usr/include/stddef.h:
+/usr/include/grp.h:
+/usr/include/err.h:
+/usr/include/sys/sysmacros.h:
+include/nls.h:
+/usr/include/locale.h:
+/usr/include/langinfo.h:
+/usr/include/nl_types.h:
+include/xalloc.h:
+include/strutils.h:
+include/widechar.h:
+include/closestream.h:
+/usr/include/stdio_ext.h:
+include/nls.h:
+include/env.h:

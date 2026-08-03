@@ -1,0 +1,42 @@
+libgnulib_a-mbswidth.o: mbswidth.c /usr/include/stdc-predef.h \
+ ../../config.h mbswidth.h stddef.h /usr/include/stddef.h \
+ /usr/include/bits/alltypes.h stdlib.h /usr/include/fortify/stdlib.h \
+ /usr/include/stdlib.h /usr/include/features.h alloca.h \
+ /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/fortify/fortify-headers.h string.h \
+ /usr/include/fortify/string.h /usr/include/string.h strings.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h ctype.h \
+ /usr/include/ctype.h wchar.h /usr/include/fortify/wchar.h \
+ /usr/include/wchar.h uchar.h /usr/include/uchar.h wctype.h \
+ /usr/include/wctype.h limits.h /usr/include/limits.h
+/usr/include/stdc-predef.h:
+../../config.h:
+mbswidth.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/features.h:
+alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+strings.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+ctype.h:
+/usr/include/ctype.h:
+wchar.h:
+/usr/include/fortify/wchar.h:
+/usr/include/wchar.h:
+uchar.h:
+/usr/include/uchar.h:
+wctype.h:
+/usr/include/wctype.h:
+limits.h:
+/usr/include/limits.h:

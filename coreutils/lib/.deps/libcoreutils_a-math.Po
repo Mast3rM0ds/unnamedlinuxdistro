@@ -1,0 +1,9 @@
+lib/libcoreutils_a-math.o: lib/math.c /usr/include/stdc-predef.h \
+ lib/config.h lib/math.h /usr/include/math.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/math.h:
+/usr/include/math.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:

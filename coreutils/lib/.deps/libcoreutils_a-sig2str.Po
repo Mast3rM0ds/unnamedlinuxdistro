@@ -1,0 +1,59 @@
+lib/libcoreutils_a-sig2str.o: lib/sig2str.c /usr/include/stdc-predef.h \
+ lib/config.h lib/signal.h lib/sys/types.h /usr/include/sys/types.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/endian.h lib/sys/select.h lib/sys/time.h \
+ /usr/include/sys/time.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ /usr/include/signal.h /usr/include/bits/signal.h lib/limits.h \
+ /usr/include/limits.h /usr/include/bits/limits.h lib/stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h lib/alloca.h \
+ /usr/include/limits.h /usr/include/fortify/fortify-headers.h \
+ lib/stddef.h /usr/include/stddef.h lib/unistd.h \
+ /usr/include/fortify/unistd.h /usr/include/unistd.h lib/getopt-cdefs.h \
+ lib/getopt-pfx-core.h lib/getopt-core.h lib/stdio.h \
+ /usr/include/fortify/stdio.h /usr/include/stdio.h /usr/include/stdarg.h \
+ lib/string.h /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h lib/sig2str.h
+/usr/include/stdc-predef.h:
+lib/config.h:
+lib/signal.h:
+lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/endian.h:
+lib/sys/select.h:
+lib/sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+lib/limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+lib/alloca.h:
+/usr/include/limits.h:
+/usr/include/fortify/fortify-headers.h:
+lib/stddef.h:
+/usr/include/stddef.h:
+lib/unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+lib/getopt-cdefs.h:
+lib/getopt-pfx-core.h:
+lib/getopt-core.h:
+lib/stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/stdarg.h:
+lib/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+lib/sig2str.h:

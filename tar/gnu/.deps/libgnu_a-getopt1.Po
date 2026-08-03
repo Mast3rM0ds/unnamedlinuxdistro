@@ -1,0 +1,14 @@
+libgnu_a-getopt1.o: getopt1.c /usr/include/stdc-predef.h ../config.h \
+ getopt.h getopt.h /usr/include/getopt.h getopt-cdefs.h getopt-pfx-core.h \
+ getopt-core.h getopt-pfx-ext.h getopt-ext.h getopt_int.h
+/usr/include/stdc-predef.h:
+../config.h:
+getopt.h:
+getopt.h:
+/usr/include/getopt.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+getopt-core.h:
+getopt-pfx-ext.h:
+getopt-ext.h:
+getopt_int.h:
