@@ -1,1 +1,3 @@
 init.cpio
+linux/vmlinux*
+linux/.tmp_vmlinux*
