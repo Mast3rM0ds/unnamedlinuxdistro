@@ -1,0 +1,75 @@
+pkgname=ncurses
+pkgver=6.6_p20260516
+_pkgver=${pkgver/_p/-}
+pkgrel=0
+pkgdesc="Console display library"
+url="https://invisible-island.net/ncurses/"
+arch="all"
+options="!check" # "tests" are actual demo programs, not a test suite.
+license="X11"
+makedepends_build="ncurses"
+subpackages="
+	$pkgname-static
+	$pkgname-dev
+	$pkgname-doc
+	$pkgname-libs:compat:noarch
+	"
+source="https://invisible-mirror.net/archives/ncurses/current/ncurses-$_pkgver.tgz"
+builddir="$srcdir/$pkgname-$_pkgver"
+
+build() {
+	./configure \
+		--mandir=/usr/share/man \
+		--prefix=/usr \
+		--without-tests \
+		--with-pkg-config-libdir=/usr/lib/pkgconfig \
+		--with-cxx-shared \
+		--enable-pc-files \
+		--with-shared \
+	make
+}
+
+package() {
+	make -j1 DESTDIR="$pkgdir" install
+
+	cd "$pkgdir"
+
+	# force link against *w.so
+	local lib; for lib in ncurses ncurses++ form panel menu; do
+		ln -s ${lib}w.pc usr/lib/pkgconfig/$lib.pc
+		ln -s lib${lib}w.a usr/lib/lib$lib.a
+		ln -s lib${lib}w.so usr/lib/lib$lib.so
+	done
+
+	# link curses, tic, tinfo -> ncurses
+	for lib in curses tic tinfo; do
+		ln -s libncurses.a usr/lib/lib${lib}.a
+		ln -s libncurses.so usr/lib/lib${lib}.so
+		ln -s ncurses.pc usr/lib/pkgconfig/${lib}.pc
+	done
+	ln -s libncursesw.so usr/lib/libcursesw.so
+}
+
+compat() {
+	pkgdesc="Ncurses libraries (old compat to pull sublibs)"
+	provides="ncurses-widec-libs=$pkgver-r$pkgrel"
+	depends="
+		libformw=$pkgver-r$pkgrel
+		libmenuw=$pkgver-r$pkgrel
+		libncursesw=$pkgver-r$pkgrel
+		libpanelw=$pkgver-r$pkgrel
+		"
+
+	mkdir -p "$subpkgdir"
+}
+
+base() {
+	pkgdesc="Descriptions of common terminals"
+	depends=""
+
+	amove etc/terminfo
+}
+
+sha512sums="
+20ffc27f3266b078b410f712422db00d77f5fd497e398b7be252fd207ab70ebd72a2bdf8fd6c94e2a9e41bd2b64d1c6502240c0b8423c99add073bd1226f5859  ncurses-6.6-20260516.tgz
+"

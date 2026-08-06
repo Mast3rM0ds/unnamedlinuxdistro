@@ -1,0 +1,20 @@
+!<thin>
+//                                              118       `
+hgsmi_base.o/
+modesetting.o/
+vbva_base.o/
+vbox_drv.o/
+vbox_hgsmi.o/
+vbox_irq.o/
+vbox_main.o/
+vbox_mode.o/
+vbox_ttm.o/
+/0              0           0     0     644     5120      `
+/14             0           0     0     644     3760      `
+/29             0           0     0     644     5832      `
+/42             0           0     0     644     11568     `
+/54             0           0     0     644     2648      `
+/68             0           0     0     644     4976      `
+/80             0           0     0     644     4600      `
+/93             0           0     0     644     21664     `
+/106            0           0     0     644     1880      `

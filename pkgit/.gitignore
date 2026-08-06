@@ -1,8 +1,0 @@
-pkgit
-obj/
-patches/
-*.patch
-demo
-demo*
-core*
-*.scm
