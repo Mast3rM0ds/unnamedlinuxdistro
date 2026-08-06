@@ -1,0 +1,1 @@
+savedcmd_fs/nfs/blocklayout/built-in.a := rm -f fs/nfs/blocklayout/built-in.a;  printf "fs/nfs/blocklayout/%s " blocklayout.o dev.o extent_tree.o rpc_pipefs.o | xargs ar cDPrST fs/nfs/blocklayout/built-in.a

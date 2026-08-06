@@ -1,4 +1,4 @@
-savedcmd_arch/x86/boot/pmjump.o := gcc -Wp,-MMD,arch/x86/boot/.pmjump.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -D__KERNEL__ -fmacro-prefix-map=./= -Werror -std=gnu11 -m16 -g -Os -DDISABLE_BRANCH_PROFILING -D__DISABLE_EXPORTS -Wall -Wstrict-prototypes -march=i386 -mregparm=3 -fno-strict-aliasing -fomit-frame-pointer -fno-pic -mno-mmx -mno-sse -fcf-protection=none -ffreestanding -fno-stack-protector -Wno-address-of-packed-member -mpreferred-stack-boundary=2 -D_SETUP -D__ASSEMBLY__ -DSVGA_MODE=NORMAL_VGA    -DKBUILD_MODFILE='"arch/x86/boot/pmjump"' -DKBUILD_MODNAME='"pmjump"' -D__KBUILD_MODNAME=kmod_pmjump -c -o arch/x86/boot/pmjump.o arch/x86/boot/pmjump.S 
+savedcmd_arch/x86/boot/pmjump.o := gcc -Wp,-MMD,arch/x86/boot/.pmjump.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -D__KERNEL__ -Werror -std=gnu11 -fms-extensions -m16 -g -Os -DDISABLE_BRANCH_PROFILING -D__DISABLE_EXPORTS -Wall -Wstrict-prototypes -march=i386 -mregparm=3 -fno-strict-aliasing -fomit-frame-pointer -fno-pic -mno-mmx -mno-sse -fcf-protection=none -ffreestanding -fno-stack-protector -Wno-address-of-packed-member -mpreferred-stack-boundary=2 -D_SETUP -D__ASSEMBLY__ -DSVGA_MODE=NORMAL_VGA    -DKBUILD_MODFILE='"arch/x86/boot/pmjump"' -DKBUILD_MODNAME='"pmjump"' -D__KBUILD_MODNAME=pmjump -c -o arch/x86/boot/pmjump.o arch/x86/boot/pmjump.S 
 
 source_arch/x86/boot/pmjump.o := arch/x86/boot/pmjump.S
 
@@ -29,7 +29,6 @@ deps_arch/x86/boot/pmjump.o := \
     $(wildcard include/config/ARCH_HAS_MEM_ENCRYPT) \
     $(wildcard include/config/AMD_MEM_ENCRYPT) \
   arch/x86/include/asm/page_types.h \
-    $(wildcard include/config/PAGE_SHIFT) \
     $(wildcard include/config/PHYSICAL_START) \
     $(wildcard include/config/DYNAMIC_PHYSICAL_MASK) \
   include/linux/types.h \
@@ -47,10 +46,10 @@ deps_arch/x86/boot/pmjump.o := \
   arch/x86/include/uapi/asm/bitsperlong.h \
   include/asm-generic/bitsperlong.h \
   include/uapi/asm-generic/bitsperlong.h \
+  include/vdso/page.h \
+    $(wildcard include/config/PAGE_SHIFT) \
   arch/x86/include/asm/page_64_types.h \
     $(wildcard include/config/KASAN) \
-    $(wildcard include/config/DYNAMIC_MEMORY_LAYOUT) \
-    $(wildcard include/config/X86_5LEVEL) \
     $(wildcard include/config/RANDOMIZE_BASE) \
   arch/x86/include/asm/pgtable_64_types.h \
     $(wildcard include/config/RANDOMIZE_MEMORY) \
@@ -72,25 +71,30 @@ deps_arch/x86/boot/pmjump.o := \
     $(wildcard include/config/MITIGATION_RETHUNK) \
     $(wildcard include/config/OBJTOOL) \
   include/linux/stringify.h \
+  include/linux/objtool.h \
+    $(wildcard include/config/FRAME_POINTER) \
+    $(wildcard include/config/NOINSTR_VALIDATION) \
+    $(wildcard include/config/MITIGATION_UNRET_ENTRY) \
+    $(wildcard include/config/MITIGATION_SRSO) \
+  include/linux/objtool_types.h \
+  include/linux/annotate.h \
   arch/x86/include/asm/asm.h \
     $(wildcard include/config/KPROBES) \
+  arch/x86/include/asm/asm-offsets.h \
+  include/generated/asm-offsets.h \
   arch/x86/include/asm/extable_fixup_types.h \
   arch/x86/include/asm/bug.h \
     $(wildcard include/config/GENERIC_BUG) \
     $(wildcard include/config/DEBUG_BUGVERBOSE) \
+    $(wildcard include/config/DEBUG_BUGVERBOSE_DETAILED) \
   include/linux/instrumentation.h \
-    $(wildcard include/config/NOINSTR_VALIDATION) \
-  include/linux/objtool.h \
-    $(wildcard include/config/FRAME_POINTER) \
-    $(wildcard include/config/MITIGATION_UNRET_ENTRY) \
-    $(wildcard include/config/MITIGATION_SRSO) \
-  include/linux/objtool_types.h \
   include/asm-generic/bug.h \
     $(wildcard include/config/BUG) \
     $(wildcard include/config/GENERIC_BUG_RELATIVE_POINTERS) \
   include/linux/compiler.h \
     $(wildcard include/config/TRACE_BRANCH_PROFILING) \
     $(wildcard include/config/PROFILE_ALL_BRANCHES) \
+    $(wildcard include/config/CFI) \
   include/linux/compiler_types.h \
     $(wildcard include/config/DEBUG_INFO_BTF) \
     $(wildcard include/config/PAHOLE_HAS_BTF_TAG) \
@@ -101,8 +105,14 @@ deps_arch/x86/boot/pmjump.o := \
     $(wildcard include/config/LTO_CLANG) \
     $(wildcard include/config/HAVE_ARCH_COMPILER_H) \
     $(wildcard include/config/KCSAN) \
+    $(wildcard include/config/CC_HAS_ASSUME) \
     $(wildcard include/config/CC_HAS_COUNTED_BY) \
-    $(wildcard include/config/UBSAN_SIGNED_WRAP) \
+    $(wildcard include/config/FORTIFY_SOURCE) \
+    $(wildcard include/config/UBSAN_BOUNDS) \
+    $(wildcard include/config/CC_HAS_COUNTED_BY_PTR) \
+    $(wildcard include/config/CC_HAS_MULTIDIMENSIONAL_NONSTRING) \
+    $(wildcard include/config/ARCH_USES_CFI_GENERIC_LLVM_PASS) \
+    $(wildcard include/config/CC_HAS_BROKEN_COUNTED_BY_REF) \
     $(wildcard include/config/CC_HAS_ASM_INLINE) \
   arch/x86/include/generated/asm/rwonce.h \
   include/asm-generic/rwonce.h \
@@ -117,6 +127,7 @@ deps_arch/x86/boot/pmjump.o := \
     $(wildcard include/config/ARCH_USE_SYM_ANNOTATIONS) \
   include/linux/export.h \
     $(wildcard include/config/MODVERSIONS) \
+    $(wildcard include/config/GENDWARFKSYMS) \
   arch/x86/include/asm/linkage.h \
     $(wildcard include/config/CALL_PADDING) \
     $(wildcard include/config/MITIGATION_RETPOLINE) \

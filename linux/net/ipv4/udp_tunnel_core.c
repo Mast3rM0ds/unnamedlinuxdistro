@@ -4,6 +4,7 @@
 #include <linux/socket.h>
 #include <linux/kernel.h>
 #include <net/dst_metadata.h>
+#include <net/flow.h>
 #include <net/udp.h>
 #include <net/udp_tunnel.h>
 #include <net/inet_dscp.h>
@@ -28,7 +29,7 @@ int udp_sock_create4(struct net *net, struct udp_port_cfg *cfg,
 	udp_addr.sin_family = AF_INET;
 	udp_addr.sin_addr = cfg->local_ip;
 	udp_addr.sin_port = cfg->local_udp_port;
-	err = kernel_bind(sock, (struct sockaddr *)&udp_addr,
+	err = kernel_bind(sock, (struct sockaddr_unsized *)&udp_addr,
 			  sizeof(udp_addr));
 	if (err < 0)
 		goto error;
@@ -37,7 +38,7 @@ int udp_sock_create4(struct net *net, struct udp_port_cfg *cfg,
 		udp_addr.sin_family = AF_INET;
 		udp_addr.sin_addr = cfg->peer_ip;
 		udp_addr.sin_port = cfg->peer_udp_port;
-		err = kernel_connect(sock, (struct sockaddr *)&udp_addr,
+		err = kernel_connect(sock, (struct sockaddr_unsized *)&udp_addr,
 				     sizeof(udp_addr), 0);
 		if (err < 0)
 			goto error;
@@ -58,11 +59,18 @@ error:
 }
 EXPORT_SYMBOL(udp_sock_create4);
 
-void setup_udp_tunnel_sock(struct net *net, struct socket *sock,
+static bool sk_saddr_any(struct sock *sk)
+{
+#if IS_ENABLED(CONFIG_IPV6)
+	return ipv6_addr_any(&sk->sk_v6_rcv_saddr);
+#else
+	return !sk->sk_rcv_saddr;
+#endif
+}
+
+void setup_udp_tunnel_sock(struct net *net, struct sock *sk,
 			   struct udp_tunnel_sock_cfg *cfg)
 {
-	struct sock *sk = sock->sk;
-
 	/* Disable multicast loopback */
 	inet_clear_bit(MC_LOOP, sk);
 
@@ -80,6 +88,12 @@ void setup_udp_tunnel_sock(struct net *net, struct socket *sock,
 	udp_sk(sk)->gro_complete = cfg->gro_complete;
 
 	udp_tunnel_encap_enable(sk);
+
+	udp_tunnel_update_gro_rcv(sk, true);
+
+	if (!sk->sk_dport && !sk->sk_bound_dev_if && sk_saddr_any(sk) &&
+	    sk->sk_kern_sock)
+		udp_tunnel_update_gro_lookup(net, sk, true);
 }
 EXPORT_SYMBOL_GPL(setup_udp_tunnel_sock);
 
@@ -158,7 +172,7 @@ EXPORT_SYMBOL_GPL(udp_tunnel_notify_del_rx_port);
 void udp_tunnel_xmit_skb(struct rtable *rt, struct sock *sk, struct sk_buff *skb,
 			 __be32 src, __be32 dst, __u8 tos, __u8 ttl,
 			 __be16 df, __be16 src_port, __be16 dst_port,
-			 bool xnet, bool nocheck)
+			 bool xnet, bool nocheck, u16 ipcb_flags)
 {
 	struct udphdr *uh;
 
@@ -174,13 +188,16 @@ void udp_tunnel_xmit_skb(struct rtable *rt, struct sock *sk, struct sk_buff *skb
 
 	udp_set_csum(nocheck, skb, src, dst, skb->len);
 
-	iptunnel_xmit(sk, rt, skb, src, dst, IPPROTO_UDP, tos, ttl, df, xnet);
+	iptunnel_xmit(sk, rt, skb, src, dst, IPPROTO_UDP, tos, ttl, df, xnet,
+		      ipcb_flags);
 }
 EXPORT_SYMBOL_GPL(udp_tunnel_xmit_skb);
 
-void udp_tunnel_sock_release(struct socket *sock)
+void udp_tunnel_sock_release(struct sock *sk)
 {
-	rcu_assign_sk_user_data(sock->sk, NULL);
+	struct socket *sock = sk->sk_socket;
+
+	rcu_assign_sk_user_data(sk, NULL);
 	synchronize_rcu();
 	kernel_sock_shutdown(sock, SHUT_RDWR);
 	sock_release(sock);
@@ -237,7 +254,7 @@ struct rtable *udp_tunnel_dst_lookup(struct sk_buff *skb,
 	fl4.saddr = key->u.ipv4.src;
 	fl4.fl4_dport = dport;
 	fl4.fl4_sport = sport;
-	fl4.flowi4_tos = tos & INET_DSCP_MASK;
+	fl4.flowi4_dscp = inet_dsfield_to_dscp(tos);
 	fl4.flowi4_flags = key->flow_flags;
 
 	rt = ip_route_output_key(net, &fl4);

@@ -14,9 +14,9 @@
 #include "adf_4xxx_hw_data.h"
 
 static const struct pci_device_id adf_pci_tbl[] = {
-	{ PCI_VDEVICE(INTEL, ADF_4XXX_PCI_DEVICE_ID), },
-	{ PCI_VDEVICE(INTEL, ADF_401XX_PCI_DEVICE_ID), },
-	{ PCI_VDEVICE(INTEL, ADF_402XX_PCI_DEVICE_ID), },
+	{ PCI_VDEVICE(INTEL, PCI_DEVICE_ID_INTEL_QAT_4XXX) },
+	{ PCI_VDEVICE(INTEL, PCI_DEVICE_ID_INTEL_QAT_401XX) },
+	{ PCI_VDEVICE(INTEL, PCI_DEVICE_ID_INTEL_QAT_402XX) },
 	{ }
 };
 MODULE_DEVICE_TABLE(pci, adf_pci_tbl);
@@ -131,19 +131,22 @@ static int adf_probe(struct pci_dev *pdev, const struct pci_device_id *ent)
 	/* Find and map all the device's BARS */
 	bar_mask = pci_select_bars(pdev, IORESOURCE_MEM) & ADF_GEN4_BAR_MASK;
 
-	ret = pcim_iomap_regions_request_all(pdev, bar_mask, pci_name(pdev));
+	ret = pcim_request_all_regions(pdev, pci_name(pdev));
 	if (ret) {
-		dev_err(&pdev->dev, "Failed to map pci regions.\n");
+		dev_err(&pdev->dev, "Failed to request PCI regions.\n");
 		goto out_err;
 	}
 
 	i = 0;
 	for_each_set_bit(bar_nr, &bar_mask, PCI_STD_NUM_BARS) {
 		bar = &accel_pci_dev->pci_bars[i++];
-		bar->virt_addr = pcim_iomap_table(pdev)[bar_nr];
+		bar->virt_addr = pcim_iomap(pdev, bar_nr, 0);
+		if (!bar->virt_addr) {
+			dev_err(&pdev->dev, "Failed to ioremap PCI region.\n");
+			ret = -ENOMEM;
+			goto out_err;
+		}
 	}
-
-	pci_set_master(pdev);
 
 	if (pci_save_state(pdev)) {
 		dev_err(&pdev->dev, "Failed to save pci state.\n");
@@ -211,4 +214,4 @@ MODULE_FIRMWARE(ADF_402XX_MMP);
 MODULE_DESCRIPTION("Intel(R) QuickAssist Technology");
 MODULE_VERSION(ADF_DRV_VERSION);
 MODULE_SOFTDEP("pre: crypto-intel_qat");
-MODULE_IMPORT_NS(CRYPTO_QAT);
+MODULE_IMPORT_NS("CRYPTO_QAT");

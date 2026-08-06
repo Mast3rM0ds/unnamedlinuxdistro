@@ -14,6 +14,7 @@
 #include "connection.h"
 #include "transport_tcp.h"
 #include "transport_rdma.h"
+#include "misc.h"
 
 static DEFINE_MUTEX(init_lock);
 
@@ -21,6 +22,62 @@ static struct ksmbd_conn_ops default_conn_ops;
 
 DEFINE_HASHTABLE(conn_list, CONN_HASH_BITS);
 DECLARE_RWSEM(conn_list_lock);
+
+#ifdef CONFIG_PROC_FS
+static struct proc_dir_entry *proc_clients;
+
+static int proc_show_clients(struct seq_file *m, void *v)
+{
+	struct ksmbd_conn *conn;
+	struct timespec64 now, t;
+	int i;
+
+	seq_printf(m, "#%-20s %-10s %-10s %-10s %-10s %-10s\n",
+			"<name>", "<dialect>", "<credits>", "<open files>",
+			"<requests>", "<last active>");
+
+	down_read(&conn_list_lock);
+	hash_for_each(conn_list, i, conn, hlist) {
+		jiffies_to_timespec64(jiffies - conn->last_active, &t);
+		ktime_get_real_ts64(&now);
+		t = timespec64_sub(now, t);
+#if IS_ENABLED(CONFIG_IPV6)
+		if (!conn->inet_addr)
+			seq_printf(m, "%-20pI6c", &conn->inet6_addr);
+		else
+#endif
+			seq_printf(m, "%-20pI4", &conn->inet_addr);
+		seq_printf(m, "   0x%-10x %-10u %-12d %-10d %ptT\n",
+			   conn->dialect,
+			   conn->total_credits,
+			   atomic_read(&conn->stats.open_files_count),
+			   atomic_read(&conn->req_running),
+			   &t);
+	}
+	up_read(&conn_list_lock);
+	return 0;
+}
+
+static int create_proc_clients(void)
+{
+	proc_clients = ksmbd_proc_create("clients",
+					 proc_show_clients, NULL);
+	if (!proc_clients)
+		return -ENOMEM;
+	return 0;
+}
+
+static void delete_proc_clients(void)
+{
+	if (proc_clients) {
+		proc_remove(proc_clients);
+		proc_clients = NULL;
+	}
+}
+#else
+static int create_proc_clients(void) { return 0; }
+static void delete_proc_clients(void) {}
+#endif
 
 static struct workqueue_struct *ksmbd_conn_wq;
 
@@ -65,6 +122,8 @@ static void __ksmbd_conn_release_work(struct work_struct *work)
 /**
  * ksmbd_conn_get() - take a reference on @conn and return it.
  *
+ * @conn: connection instance to get a reference to
+ *
  * Returns @conn unchanged so callers can write
  * "fp->conn = ksmbd_conn_get(work->conn);" in one expression.  Returns NULL
  * if @conn is NULL.
@@ -81,6 +140,8 @@ struct ksmbd_conn *ksmbd_conn_get(struct ksmbd_conn *conn)
 /**
  * ksmbd_conn_put() - drop a reference and, if it was the last, queue the
  * release onto ksmbd_conn_wq so it runs from process context.
+ *
+ * @conn: connection instance to put a reference to
  *
  * Callable from any context including RCU softirq callbacks and non-sleeping
  * locks; the actual release is deferred to the workqueue.  ksmbd_conn_wq is
@@ -135,7 +196,7 @@ struct ksmbd_conn *ksmbd_conn_alloc(void)
 {
 	struct ksmbd_conn *conn;
 
-	conn = kzalloc(sizeof(struct ksmbd_conn), KSMBD_DEFAULT_GFP);
+	conn = kzalloc_obj(struct ksmbd_conn, KSMBD_DEFAULT_GFP);
 	if (!conn)
 		return NULL;
 
@@ -322,7 +383,7 @@ int ksmbd_conn_write(struct ksmbd_work *work)
 
 int ksmbd_conn_rdma_read(struct ksmbd_conn *conn,
 			 void *buf, unsigned int buflen,
-			 struct smb2_buffer_desc_v1 *desc,
+			 struct smbdirect_buffer_descriptor_v1 *desc,
 			 unsigned int desc_len)
 {
 	int ret = -EINVAL;
@@ -336,7 +397,7 @@ int ksmbd_conn_rdma_read(struct ksmbd_conn *conn,
 
 int ksmbd_conn_rdma_write(struct ksmbd_conn *conn,
 			  void *buf, unsigned int buflen,
-			  struct smb2_buffer_desc_v1 *desc,
+			  struct smbdirect_buffer_descriptor_v1 *desc,
 			  unsigned int desc_len)
 {
 	int ret = -EINVAL;
@@ -376,8 +437,11 @@ bool ksmbd_conn_alive(struct ksmbd_conn *conn)
 	return true;
 }
 
-#define SMB1_MIN_SUPPORTED_HEADER_SIZE (sizeof(struct smb_hdr))
-#define SMB2_MIN_SUPPORTED_HEADER_SIZE (sizeof(struct smb2_hdr) + 4)
+/* "+2" for BCC field (ByteCount, 2 bytes) */
+#define SMB1_MIN_SUPPORTED_PDU_SIZE (sizeof(struct smb_hdr) + 2)
+#define SMB2_MIN_SUPPORTED_PDU_SIZE (sizeof(struct smb2_pdu))
+#define SMB2_TRANSFORM_MIN_SUPPORTED_PDU_SIZE	\
+	(sizeof(struct smb2_transform_hdr) + sizeof(struct smb2_hdr))
 
 /**
  * ksmbd_conn_handler_loop() - session thread to listen on new smb requests
@@ -392,14 +456,12 @@ int ksmbd_conn_handler_loop(void *p)
 	struct ksmbd_conn *conn = (struct ksmbd_conn *)p;
 	struct ksmbd_transport *t = conn->transport;
 	unsigned int pdu_size, max_allowed_pdu_size, max_req;
+	__le32 proto;
 	char hdr_buf[4] = {0,};
 	int size;
 
 	mutex_init(&conn->srv_mutex);
 	__module_get(THIS_MODULE);
-
-	if (t->ops->prepare && t->ops->prepare(t))
-		goto out;
 
 	max_req = server_conf.max_inflight_req;
 	conn->last_active = jiffies;
@@ -444,7 +506,7 @@ recheck:
 		if (pdu_size > MAX_STREAM_PROT_LEN)
 			break;
 
-		if (pdu_size < SMB1_MIN_SUPPORTED_HEADER_SIZE)
+		if (pdu_size < SMB1_MIN_SUPPORTED_PDU_SIZE)
 			break;
 
 		/* 4 for rfc1002 length field */
@@ -475,11 +537,14 @@ recheck:
 		if (!ksmbd_smb_request(conn))
 			break;
 
-		if (((struct smb2_hdr *)smb2_get_msg(conn->request_buf))->ProtocolId ==
-		    SMB2_PROTO_NUMBER) {
-			if (pdu_size < SMB2_MIN_SUPPORTED_HEADER_SIZE)
-				break;
-		}
+		proto = *(__le32 *)smb_get_msg(conn->request_buf);
+		if (proto == SMB2_PROTO_NUMBER &&
+		    pdu_size < SMB2_MIN_SUPPORTED_PDU_SIZE)
+			break;
+
+		if (proto == SMB2_TRANSFORM_PROTO_NUM &&
+		    pdu_size < SMB2_TRANSFORM_MIN_SUPPORTED_PDU_SIZE)
+			break;
 
 		if (!default_conn_ops.process_fn) {
 			pr_err("No connection request callback\n");
@@ -492,9 +557,9 @@ recheck:
 		}
 	}
 
-out:
 	ksmbd_conn_set_releasing(conn);
 	/* Wait till all reference dropped to the Server object*/
+	ksmbd_debug(CONN, "Wait for all pending requests(%d)\n", atomic_read(&conn->r_count));
 	wait_event(conn->r_count_q, atomic_read(&conn->r_count) == 0);
 
 	if (IS_ENABLED(CONFIG_UNICODE))
@@ -550,6 +615,7 @@ int ksmbd_conn_transport_init(void)
 	}
 out:
 	mutex_unlock(&init_lock);
+	create_proc_clients();
 	return ret;
 }
 
@@ -610,10 +676,10 @@ again:
 
 void ksmbd_conn_transport_destroy(void)
 {
+	delete_proc_clients();
 	mutex_lock(&init_lock);
 	ksmbd_tcp_destroy();
 	ksmbd_rdma_stop_listening();
 	stop_sessions();
-	ksmbd_rdma_destroy();
 	mutex_unlock(&init_lock);
 }

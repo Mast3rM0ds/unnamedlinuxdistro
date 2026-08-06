@@ -1,4 +1,4 @@
-savedcmd_arch/x86/realmode/rm/realmode.lds := gcc -E -Wp,-MMD,arch/x86/realmode/rm/.realmode.lds.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -D__KERNEL__ -fmacro-prefix-map=./= -Werror  -P -C -I./arch/x86/realmode/rm -P -Ux86 -D__ASSEMBLY__ -DLINKER_SCRIPT -o arch/x86/realmode/rm/realmode.lds arch/x86/realmode/rm/realmode.lds.S
+savedcmd_arch/x86/realmode/rm/realmode.lds := gcc -E -Wp,-MMD,arch/x86/realmode/rm/.realmode.lds.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -D__KERNEL__ -Werror  -P -C -I./arch/x86/realmode/rm -P -Ux86 -D__ASSEMBLY__ -DLINKER_SCRIPT -o arch/x86/realmode/rm/realmode.lds arch/x86/realmode/rm/realmode.lds.S
 
 source_arch/x86/realmode/rm/realmode.lds := arch/x86/realmode/rm/realmode.lds.S
 
@@ -10,7 +10,6 @@ deps_arch/x86/realmode/rm/realmode.lds := \
     $(wildcard include/config/BOOGER) \
     $(wildcard include/config/FOO) \
   arch/x86/include/asm/page_types.h \
-    $(wildcard include/config/PAGE_SHIFT) \
     $(wildcard include/config/PHYSICAL_START) \
     $(wildcard include/config/PHYSICAL_ALIGN) \
     $(wildcard include/config/X86_64) \
@@ -36,10 +35,10 @@ deps_arch/x86/realmode/rm/realmode.lds := \
   include/linux/mem_encrypt.h \
     $(wildcard include/config/ARCH_HAS_MEM_ENCRYPT) \
     $(wildcard include/config/AMD_MEM_ENCRYPT) \
+  include/vdso/page.h \
+    $(wildcard include/config/PAGE_SHIFT) \
   arch/x86/include/asm/page_64_types.h \
     $(wildcard include/config/KASAN) \
-    $(wildcard include/config/DYNAMIC_MEMORY_LAYOUT) \
-    $(wildcard include/config/X86_5LEVEL) \
     $(wildcard include/config/RANDOMIZE_BASE) \
   arch/x86/realmode/rm/pasyms.h \
 

@@ -140,7 +140,6 @@ int hci_update_scan(struct hci_dev *hdev);
 int hci_write_le_host_supported_sync(struct hci_dev *hdev, u8 le, u8 simul);
 int hci_remove_ext_adv_instance_sync(struct hci_dev *hdev, u8 instance,
 				     struct sock *sk);
-int hci_remove_ext_adv_instance(struct hci_dev *hdev, u8 instance);
 struct sk_buff *hci_read_local_oob_data_sync(struct hci_dev *hdev, bool ext,
 					     struct sock *sk);
 
@@ -189,3 +188,9 @@ int hci_le_conn_update_sync(struct hci_dev *hdev, struct hci_conn *conn,
 
 int hci_connect_pa_sync(struct hci_dev *hdev, struct hci_conn *conn);
 int hci_connect_big_sync(struct hci_dev *hdev, struct hci_conn *conn);
+int hci_past_sync(struct hci_conn *conn, struct hci_conn *le);
+
+int hci_le_read_remote_features(struct hci_conn *conn);
+
+int hci_acl_change_pkt_type(struct hci_conn *conn, u16 pkt_type);
+int hci_le_set_phy(struct hci_conn *conn, u8 tx_phys, u8 rx_phys);

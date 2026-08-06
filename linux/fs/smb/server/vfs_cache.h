@@ -46,6 +46,7 @@ struct ksmbd_lock {
 struct stream {
 	char *name;
 	ssize_t size;
+	loff_t pos;
 };
 
 struct ksmbd_inode {
@@ -121,6 +122,8 @@ struct ksmbd_file {
 	bool				is_durable;
 	bool				is_persistent;
 	bool				is_resilient;
+
+	bool                            is_posix_ctxt;
 	struct durable_owner		owner;
 };
 
@@ -172,8 +175,8 @@ int ksmbd_close_inode_fds(struct ksmbd_work *work, struct inode *inode);
 int ksmbd_init_global_file_table(void);
 void ksmbd_free_global_file_table(void);
 void ksmbd_set_fd_limit(unsigned long limit);
-void ksmbd_update_fstate(struct ksmbd_file_table *ft, struct ksmbd_file *fp,
-			 unsigned int state);
+int ksmbd_update_fstate(struct ksmbd_file_table *ft, struct ksmbd_file *fp,
+			unsigned int state);
 bool ksmbd_vfs_compare_durable_owner(struct ksmbd_file *fp,
 		struct ksmbd_user *user);
 

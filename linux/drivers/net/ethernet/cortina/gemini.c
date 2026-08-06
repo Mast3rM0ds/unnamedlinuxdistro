@@ -40,6 +40,7 @@
 #include <linux/in.h>
 #include <linux/ip.h>
 #include <linux/ipv6.h>
+#include <net/gro.h>
 
 #include "gemini.h"
 
@@ -556,7 +557,7 @@ static int gmac_setup_txqs(struct net_device *netdev)
 
 	rwptr_reg = port->dma_base + GMAC_SW_TX_QUEUE0_PTR_REG;
 
-	skb_tab = kcalloc(len, sizeof(*skb_tab), GFP_KERNEL);
+	skb_tab = kzalloc_objs(*skb_tab, len);
 	if (!skb_tab)
 		return -ENOMEM;
 
@@ -942,8 +943,7 @@ static int geth_setup_freeq(struct gemini_ethernet *geth)
 	}
 
 	/* Allocate a mapping to page look-up index */
-	geth->freeq_pages = kcalloc(pages, sizeof(*geth->freeq_pages),
-				    GFP_KERNEL);
+	geth->freeq_pages = kzalloc_objs(*geth->freeq_pages, pages);
 	if (!geth->freeq_pages)
 		goto err_freeq;
 	geth->num_freeq_pages = pages;
@@ -1494,9 +1494,9 @@ static unsigned int gmac_rx(struct net_device *netdev, unsigned int budget)
 		gpage = gmac_get_queue_page(geth, port, mapping + PAGE_SIZE);
 		if (!gpage) {
 			dev_err(geth->dev, "could not find mapping\n");
+			port->stats.rx_dropped++;
 			if (skb) {
 				napi_free_frags(&port->napi);
-				port->stats.rx_dropped++;
 				skb = NULL;
 				frag_nr = 0;
 			}
@@ -1869,9 +1869,8 @@ static int gmac_open(struct net_device *netdev)
 	gmac_enable_tx_rx(netdev);
 	netif_tx_start_all_queues(netdev);
 
-	hrtimer_init(&port->rx_coalesce_timer, CLOCK_MONOTONIC,
-		     HRTIMER_MODE_REL);
-	port->rx_coalesce_timer.function = &gmac_coalesce_delay_expired;
+	hrtimer_setup(&port->rx_coalesce_timer, &gmac_coalesce_delay_expired, CLOCK_MONOTONIC,
+		      HRTIMER_MODE_REL);
 
 	netdev_dbg(netdev, "opened\n");
 
@@ -2611,7 +2610,7 @@ static struct platform_driver gemini_ethernet_port_driver = {
 		.of_match_table = gemini_ethernet_port_of_match,
 	},
 	.probe = gemini_ethernet_port_probe,
-	.remove_new = gemini_ethernet_port_remove,
+	.remove = gemini_ethernet_port_remove,
 };
 
 static int gemini_ethernet_probe(struct platform_device *pdev)
@@ -2675,7 +2674,7 @@ static struct platform_driver gemini_ethernet_driver = {
 		.of_match_table = gemini_ethernet_of_match,
 	},
 	.probe = gemini_ethernet_probe,
-	.remove_new = gemini_ethernet_remove,
+	.remove = gemini_ethernet_remove,
 };
 
 static int __init gemini_ethernet_module_init(void)

@@ -30,17 +30,15 @@ static ssize_t sta_ ##name## _read(struct file *file,			\
 #define STA_READ_D(name, field) STA_READ(name, field, "%d\n")
 
 #define STA_OPS(name)							\
-static const struct file_operations sta_ ##name## _ops = {		\
+static const struct debugfs_short_fops sta_ ##name## _ops = {		\
 	.read = sta_##name##_read,					\
-	.open = simple_open,						\
 	.llseek = generic_file_llseek,					\
 }
 
 #define STA_OPS_RW(name)						\
-static const struct file_operations sta_ ##name## _ops = {		\
+static const struct debugfs_short_fops sta_ ##name## _ops = {		\
 	.read = sta_##name##_read,					\
 	.write = sta_##name##_write,					\
-	.open = simple_open,						\
 	.llseek = generic_file_llseek,					\
 }
 
@@ -150,7 +148,6 @@ static ssize_t sta_aqm_read(struct file *file, char __user *userbuf,
 		return -ENOMEM;
 
 	spin_lock_bh(&local->fq.lock);
-	rcu_read_lock();
 
 	p += scnprintf(p,
 		       bufsz + buf - p,
@@ -180,7 +177,6 @@ static ssize_t sta_aqm_read(struct file *file, char __user *userbuf,
 			       test_bit(IEEE80211_TXQ_DIRTY, &txqi->flags) ? " DIRTY" : "");
 	}
 
-	rcu_read_unlock();
 	spin_unlock_bh(&local->fq.lock);
 
 	rv = simple_read_from_buffer(userbuf, count, ppos, buf, p - buf);
@@ -444,9 +440,8 @@ STA_OPS_RW(agg_status);
 
 /* link sta attributes */
 #define LINK_STA_OPS(name)						\
-static const struct file_operations link_sta_ ##name## _ops = {		\
+static const struct debugfs_short_fops link_sta_ ##name## _ops = {		\
 	.read = link_sta_##name##_read,					\
-	.open = simple_open,						\
 	.llseek = generic_file_llseek,					\
 }
 

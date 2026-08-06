@@ -58,7 +58,7 @@ static int atmel_sha204a_rng_read_nonblocking(struct hwrng *rng, void *data,
 		memcpy(data, &work_data->cmd.data[RSP_DATA_IDX], max);
 		rng->priv = 0;
 	} else {
-		work_data = kmalloc(sizeof(*work_data), GFP_ATOMIC);
+		work_data = kmalloc_obj(*work_data, GFP_ATOMIC);
 		if (!work_data) {
 			atomic_dec(&i2c_priv->tfm_count);
 			return -ENOMEM;
@@ -187,10 +187,6 @@ static int atmel_sha204a_probe(struct i2c_client *client)
 		dev_err(&client->dev, "failed to register RNG (%d)\n", ret);
 		return ret;
 	}
-
-	/* otp read out */
-	if (!i2c_check_functionality(client->adapter, I2C_FUNC_I2C))
-		return -ENODEV;
 
 	ret = sysfs_create_group(&client->dev.kobj, &atmel_sha204a_groups);
 	if (ret) {

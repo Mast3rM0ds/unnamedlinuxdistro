@@ -73,6 +73,26 @@ void scsi_eh_wakeup(struct Scsi_Host *shost, unsigned int busy)
 	}
 }
 
+void scsi_rcu_eh_wakeup(struct work_struct *work)
+{
+	struct Scsi_Host *shost = container_of(work, struct Scsi_Host, eh_work);
+	unsigned long flags;
+	unsigned int busy;
+
+	/*
+	 * Ensure any running scsi_dec_host_busy has completed its rcu section
+	 * so changes to host state and host_eh_scheduled are visible to all
+	 * future calls of scsi_dec_host_busy
+	 */
+	synchronize_rcu();
+
+	busy = scsi_host_busy(shost);
+
+	spin_lock_irqsave(shost->host_lock, flags);
+	scsi_eh_wakeup(shost, busy);
+	spin_unlock_irqrestore(shost->host_lock, flags);
+}
+
 /**
  * scsi_schedule_eh - schedule EH for SCSI host
  * @shost:	SCSI host to invoke error handling on.
@@ -88,7 +108,7 @@ void scsi_schedule_eh(struct Scsi_Host *shost)
 	if (scsi_host_set_state(shost, SHOST_RECOVERY) == 0 ||
 	    scsi_host_set_state(shost, SHOST_CANCEL_RECOVERY) == 0) {
 		shost->host_eh_scheduled++;
-		scsi_eh_wakeup(shost, scsi_host_busy(shost));
+		queue_work(shost->tmf_work_q, &shost->eh_work);
 	}
 
 	spin_unlock_irqrestore(shost->host_lock, flags);
@@ -556,6 +576,18 @@ enum scsi_disposition scsi_check_sense(struct scsi_cmnd *scmd)
 
 	scsi_report_sense(sdev, &sshdr);
 
+	if (sshdr.sense_key == UNIT_ATTENTION) {
+		/*
+		 * Increment the counters for Power on/Reset or New Media so
+		 * that all ULDs interested in these can see that those have
+		 * happened, even if someone else gets the sense data.
+		 */
+		if (sshdr.asc == 0x28)
+			atomic_inc(&sdev->ua_new_media_ctr);
+		else if (sshdr.asc == 0x29)
+			atomic_inc(&sdev->ua_por_ctr);
+	}
+
 	if (scsi_sense_is_deferred(&sshdr))
 		return NEEDS_RETRY;
 
@@ -662,7 +694,8 @@ enum scsi_disposition scsi_check_sense(struct scsi_cmnd *scmd)
 		 * if the device is in the process of becoming ready, we
 		 * should retry.
 		 */
-		if ((sshdr.asc == 0x04) && (sshdr.ascq == 0x01))
+		if ((sshdr.asc == 0x04) &&
+		    (sshdr.ascq == 0x01 || sshdr.ascq == 0x0a))
 			return NEEDS_RETRY;
 		/*
 		 * if the device is not started, we need to wake
@@ -720,6 +753,13 @@ enum scsi_disposition scsi_check_sense(struct scsi_cmnd *scmd)
 		return SUCCESS;
 
 	case COMPLETED:
+		/*
+		 * A command using command duration limits (CDL) with a
+		 * descriptor set with policy 0xD may be completed with success
+		 * and the sense data DATA CURRENTLY UNAVAILABLE, indicating
+		 * that the command was in fact aborted because it exceeded its
+		 * duration limit. Never retry these commands.
+		 */
 		if (sshdr.asc == 0x55 && sshdr.ascq == 0x0a) {
 			set_scsi_ml_byte(scmd, SCSIML_STAT_DL_TIMEOUT);
 			req->cmd_flags |= REQ_FAILFAST_DEV;
@@ -737,6 +777,9 @@ static void scsi_handle_queue_ramp_up(struct scsi_device *sdev)
 {
 	const struct scsi_host_template *sht = sdev->host->hostt;
 	struct scsi_device *tmp_sdev;
+
+	if (!sdev->budget_map.map)
+		return;
 
 	if (!sht->track_queue_depth ||
 	    sdev->queue_depth >= sdev->max_queue_depth)
@@ -2095,7 +2138,8 @@ maybe_retry:
 }
 
 static enum rq_end_io_ret eh_lock_door_done(struct request *req,
-					    blk_status_t status)
+					    blk_status_t status,
+					    const struct io_comp_batch *iob)
 {
 	blk_mq_free_request(req);
 	return RQ_END_IO_NONE;
@@ -2396,14 +2440,14 @@ int scsi_error_handler(void *data)
 	return 0;
 }
 
-/*
- * Function:    scsi_report_bus_reset()
+/**
+ * scsi_report_bus_reset() - report bus reset observed
  *
- * Purpose:     Utility function used by low-level drivers to report that
- *		they have observed a bus reset on the bus being handled.
+ * Utility function used by low-level drivers to report that
+ * they have observed a bus reset on the bus being handled.
  *
- * Arguments:   shost       - Host in question
- *		channel     - channel on which reset was observed.
+ * @shost:      Host in question
+ * @channel:    channel on which reset was observed.
  *
  * Returns:     Nothing
  *
@@ -2428,15 +2472,15 @@ void scsi_report_bus_reset(struct Scsi_Host *shost, int channel)
 }
 EXPORT_SYMBOL(scsi_report_bus_reset);
 
-/*
- * Function:    scsi_report_device_reset()
+/**
+ * scsi_report_device_reset() - report device reset observed
  *
- * Purpose:     Utility function used by low-level drivers to report that
- *		they have observed a device reset on the device being handled.
+ * Utility function used by low-level drivers to report that
+ * they have observed a device reset on the device being handled.
  *
- * Arguments:   shost       - Host in question
- *		channel     - channel on which reset was observed
- *		target	    - target on which reset was observed
+ * @shost:      Host in question
+ * @channel:    channel on which reset was observed
+ * @target:     target on which reset was observed
  *
  * Returns:     Nothing
  *

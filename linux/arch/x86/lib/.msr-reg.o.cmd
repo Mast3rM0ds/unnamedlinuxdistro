@@ -1,4 +1,4 @@
-savedcmd_arch/x86/lib/msr-reg.o := gcc -Wp,-MMD,arch/x86/lib/.msr-reg.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -D__KERNEL__ -fmacro-prefix-map=./= -Werror -D__ASSEMBLY__ -fno-PIE -m64    -DKBUILD_MODFILE='"arch/x86/lib/msr-reg"' -DKBUILD_MODNAME='"msr_reg"' -D__KBUILD_MODNAME=kmod_msr_reg -c -o arch/x86/lib/msr-reg.o arch/x86/lib/msr-reg.S 
+savedcmd_arch/x86/lib/msr-reg.o := gcc -Wp,-MMD,arch/x86/lib/.msr-reg.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -D__KERNEL__ -Werror -D__ASSEMBLY__ -fno-PIE -m64 -Wa,--fatal-warnings    -DKBUILD_MODFILE='"arch/x86/lib/msr-reg"' -DKBUILD_MODNAME='"msr_reg"' -D__KBUILD_MODNAME=msr_reg -c -o arch/x86/lib/msr-reg.o arch/x86/lib/msr-reg.S 
 
 source_arch/x86/lib/msr-reg.o := arch/x86/lib/msr-reg.S
 
@@ -22,13 +22,21 @@ deps_arch/x86/lib/msr-reg.o := \
     $(wildcard include/config/LTO_CLANG) \
     $(wildcard include/config/HAVE_ARCH_COMPILER_H) \
     $(wildcard include/config/KCSAN) \
+    $(wildcard include/config/CC_HAS_ASSUME) \
     $(wildcard include/config/CC_HAS_COUNTED_BY) \
-    $(wildcard include/config/UBSAN_SIGNED_WRAP) \
+    $(wildcard include/config/FORTIFY_SOURCE) \
+    $(wildcard include/config/UBSAN_BOUNDS) \
+    $(wildcard include/config/CC_HAS_COUNTED_BY_PTR) \
+    $(wildcard include/config/CC_HAS_MULTIDIMENSIONAL_NONSTRING) \
+    $(wildcard include/config/CFI) \
+    $(wildcard include/config/ARCH_USES_CFI_GENERIC_LLVM_PASS) \
+    $(wildcard include/config/CC_HAS_BROKEN_COUNTED_BY_REF) \
     $(wildcard include/config/CC_HAS_ASM_INLINE) \
   include/linux/stringify.h \
   include/linux/export.h \
     $(wildcard include/config/MODVERSIONS) \
     $(wildcard include/config/64BIT) \
+    $(wildcard include/config/GENDWARFKSYMS) \
   include/linux/compiler.h \
     $(wildcard include/config/TRACE_BRANCH_PROFILING) \
     $(wildcard include/config/PROFILE_ALL_BRANCHES) \
@@ -64,8 +72,13 @@ deps_arch/x86/lib/msr-reg.o := \
   arch/x86/include/generated/uapi/asm/errno.h \
   include/uapi/asm-generic/errno.h \
   include/uapi/asm-generic/errno-base.h \
+  include/linux/cfi_types.h \
   arch/x86/include/asm/asm.h \
     $(wildcard include/config/KPROBES) \
+  include/linux/annotate.h \
+  include/linux/objtool_types.h \
+  arch/x86/include/asm/asm-offsets.h \
+  include/generated/asm-offsets.h \
   arch/x86/include/asm/extable_fixup_types.h \
   arch/x86/include/asm/msr.h \
     $(wildcard include/config/TRACEPOINTS) \
@@ -73,10 +86,9 @@ deps_arch/x86/lib/msr-reg.o := \
     $(wildcard include/config/SMP) \
   arch/x86/include/asm/msr-index.h \
   include/linux/bits.h \
-  include/linux/const.h \
+  include/vdso/bits.h \
   include/vdso/const.h \
   include/uapi/linux/const.h \
-  include/vdso/bits.h \
   include/uapi/linux/bits.h \
 
 arch/x86/lib/msr-reg.o: $(deps_arch/x86/lib/msr-reg.o)

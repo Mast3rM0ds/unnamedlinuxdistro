@@ -1,0 +1,1 @@
+savedcmd_drivers/iommu/generic_pt/fmt/built-in.a := rm -f drivers/iommu/generic_pt/fmt/built-in.a;  printf "drivers/iommu/generic_pt/fmt/%s " iommu_amdv1.o iommu_vtdss.o iommu_x86_64.o | xargs ar cDPrST drivers/iommu/generic_pt/fmt/built-in.a

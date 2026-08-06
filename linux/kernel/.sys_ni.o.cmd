@@ -1,4 +1,4 @@
-savedcmd_kernel/sys_ni.o := gcc -Wp,-MMD,kernel/.sys_ni.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -fmacro-prefix-map=./= -Werror -std=gnu11 -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -fcf-protection=branch -fno-jump-tables -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -mtune=generic -mno-red-zone -mcmodel=kernel -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -mindirect-branch-cs-prefix -mfunction-return=thunk-extern -fno-jump-tables -fpatchable-function-entry=16,16 -fno-delete-null-pointer-checks -O2 -fno-allow-store-data-races -fstack-protector-strong -fomit-frame-pointer -ftrivial-auto-var-init=zero -fno-stack-clash-protection -fmin-function-alignment=16 -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -fno-builtin-wcslen -fno-builtin-wcslen -Wall -Wextra -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wmissing-declarations -Wmissing-prototypes -Wframe-larger-than=2048 -Wno-main -Wno-dangling-pointer -Wvla -Wno-pointer-sign -Wcast-function-type -Wno-unterminated-string-initialization -Wno-array-bounds -Wno-stringop-overflow -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -fzero-init-padding-bits=all -Wunused -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-truncation -Wno-override-init -Wno-missing-field-initializers -Wno-type-limits -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -Wno-unused-parameter    -DKBUILD_MODFILE='"kernel/sys_ni"' -DKBUILD_BASENAME='"sys_ni"' -DKBUILD_MODNAME='"sys_ni"' -D__KBUILD_MODNAME=kmod_sys_ni -c -o kernel/sys_ni.o kernel/sys_ni.c  
+savedcmd_kernel/sys_ni.o := gcc -Wp,-MMD,kernel/.sys_ni.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -Werror -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -std=gnu11 -fms-extensions -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -mno-sse4a -fcf-protection=branch -fno-jump-tables -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -march=x86-64 -mtune=generic -mno-red-zone -mcmodel=kernel -mstack-protector-guard-reg=gs -mstack-protector-guard-symbol=__ref_stack_chk_guard -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -mindirect-branch-cs-prefix -mfunction-return=thunk-extern -fno-jump-tables -fpatchable-function-entry=16,16 -fno-delete-null-pointer-checks -O2 -fno-allow-store-data-races -fstack-protector-strong -fomit-frame-pointer -ftrivial-auto-var-init=zero -fzero-init-padding-bits=all -fno-stack-clash-protection -fmin-function-alignment=16 -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -fno-builtin-wcslen -Wall -Wextra -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wmissing-declarations -Wmissing-prototypes -Wframe-larger-than=2048 -Wno-main -Wno-type-limits -Wno-dangling-pointer -Wvla-larger-than=1 -Wno-pointer-sign -Wcast-function-type -Wno-unterminated-string-initialization -Wno-array-bounds -Wno-stringop-overflow -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -Wunused -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-truncation -Wno-override-init -Wno-missing-field-initializers -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -Wno-unused-parameter -DGCC_PLUGINS    -DKBUILD_MODFILE='"kernel/sys_ni"' -DKBUILD_BASENAME='"sys_ni"' -DKBUILD_MODNAME='"sys_ni"' -D__KBUILD_MODNAME=sys_ni -c -o kernel/sys_ni.o kernel/sys_ni.c  
 
 source_kernel/sys_ni.o := kernel/sys_ni.c
 
@@ -7,6 +7,7 @@ deps_kernel/sys_ni.o := \
     $(wildcard include/config/MMU) \
   include/linux/compiler-version.h \
     $(wildcard include/config/CC_VERSION_TEXT) \
+  include/generated/gcc-plugins.h \
   include/linux/kconfig.h \
     $(wildcard include/config/CPU_BIG_ENDIAN) \
     $(wildcard include/config/BOOGER) \
@@ -22,21 +23,30 @@ deps_kernel/sys_ni.o := \
     $(wildcard include/config/LTO_CLANG) \
     $(wildcard include/config/HAVE_ARCH_COMPILER_H) \
     $(wildcard include/config/KCSAN) \
+    $(wildcard include/config/CC_HAS_ASSUME) \
     $(wildcard include/config/CC_HAS_COUNTED_BY) \
-    $(wildcard include/config/UBSAN_SIGNED_WRAP) \
+    $(wildcard include/config/FORTIFY_SOURCE) \
+    $(wildcard include/config/UBSAN_BOUNDS) \
+    $(wildcard include/config/CC_HAS_COUNTED_BY_PTR) \
+    $(wildcard include/config/CC_HAS_MULTIDIMENSIONAL_NONSTRING) \
+    $(wildcard include/config/CFI) \
+    $(wildcard include/config/ARCH_USES_CFI_GENERIC_LLVM_PASS) \
+    $(wildcard include/config/CC_HAS_BROKEN_COUNTED_BY_REF) \
     $(wildcard include/config/CC_HAS_ASM_INLINE) \
+  include/linux/compiler-context-analysis.h \
   include/linux/compiler_attributes.h \
   include/linux/compiler-gcc.h \
-    $(wildcard include/config/MITIGATION_RETPOLINE) \
     $(wildcard include/config/ARCH_USE_BUILTIN_BSWAP) \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
+    $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
   include/linux/linkage.h \
     $(wildcard include/config/ARCH_USE_SYM_ANNOTATIONS) \
   include/linux/stringify.h \
   include/linux/export.h \
     $(wildcard include/config/MODVERSIONS) \
     $(wildcard include/config/64BIT) \
+    $(wildcard include/config/GENDWARFKSYMS) \
   include/linux/compiler.h \
     $(wildcard include/config/TRACE_BRANCH_PROFILING) \
     $(wildcard include/config/PROFILE_ALL_BRANCHES) \
@@ -73,6 +83,7 @@ deps_kernel/sys_ni.o := \
   arch/x86/include/asm/linkage.h \
     $(wildcard include/config/CALL_PADDING) \
     $(wildcard include/config/MITIGATION_RETHUNK) \
+    $(wildcard include/config/MITIGATION_RETPOLINE) \
     $(wildcard include/config/MITIGATION_SLS) \
     $(wildcard include/config/FUNCTION_PADDING_BYTES) \
     $(wildcard include/config/UML) \
@@ -105,25 +116,33 @@ deps_kernel/sys_ni.o := \
   arch/x86/include/asm/alternative.h \
     $(wildcard include/config/CALL_THUNKS) \
     $(wildcard include/config/MITIGATION_ITS) \
+  include/linux/objtool.h \
+    $(wildcard include/config/FRAME_POINTER) \
+    $(wildcard include/config/NOINSTR_VALIDATION) \
+    $(wildcard include/config/MITIGATION_UNRET_ENTRY) \
+    $(wildcard include/config/MITIGATION_SRSO) \
+  include/linux/objtool_types.h \
+  include/linux/annotate.h \
   arch/x86/include/asm/asm.h \
     $(wildcard include/config/KPROBES) \
+  arch/x86/include/asm/asm-offsets.h \
+  include/generated/asm-offsets.h \
   arch/x86/include/asm/extable_fixup_types.h \
   arch/x86/include/asm/bug.h \
     $(wildcard include/config/GENERIC_BUG) \
     $(wildcard include/config/DEBUG_BUGVERBOSE) \
+    $(wildcard include/config/DEBUG_BUGVERBOSE_DETAILED) \
   include/linux/instrumentation.h \
-    $(wildcard include/config/NOINSTR_VALIDATION) \
-  include/linux/objtool.h \
-    $(wildcard include/config/FRAME_POINTER) \
-    $(wildcard include/config/MITIGATION_UNRET_ENTRY) \
-    $(wildcard include/config/MITIGATION_SRSO) \
-  include/linux/objtool_types.h \
+  include/linux/static_call_types.h \
+    $(wildcard include/config/HAVE_STATIC_CALL) \
+    $(wildcard include/config/HAVE_STATIC_CALL_INLINE) \
   include/asm-generic/bug.h \
     $(wildcard include/config/BUG) \
     $(wildcard include/config/GENERIC_BUG_RELATIVE_POINTERS) \
   include/linux/once_lite.h \
   include/linux/panic.h \
     $(wildcard include/config/PANIC_TIMEOUT) \
+  include/linux/stdarg.h \
   include/linux/printk.h \
     $(wildcard include/config/MESSAGE_LOGLEVEL_DEFAULT) \
     $(wildcard include/config/CONSOLE_LOGLEVEL_DEFAULT) \
@@ -133,7 +152,6 @@ deps_kernel/sys_ni.o := \
     $(wildcard include/config/PRINTK_INDEX) \
     $(wildcard include/config/DYNAMIC_DEBUG) \
     $(wildcard include/config/DYNAMIC_DEBUG_CORE) \
-  include/linux/stdarg.h \
   include/linux/init.h \
     $(wildcard include/config/MEMORY_HOTPLUG) \
     $(wildcard include/config/HAVE_ARCH_PREL32_RELOCATIONS) \
@@ -175,7 +193,6 @@ deps_kernel/sys_ni.o := \
     $(wildcard include/config/X86_INTERNODE_CACHE_SHIFT) \
     $(wildcard include/config/X86_VSMP) \
   arch/x86/include/asm/page_types.h \
-    $(wildcard include/config/PAGE_SHIFT) \
     $(wildcard include/config/PHYSICAL_START) \
     $(wildcard include/config/PHYSICAL_ALIGN) \
     $(wildcard include/config/DYNAMIC_PHYSICAL_MASK) \
@@ -186,10 +203,10 @@ deps_kernel/sys_ni.o := \
     $(wildcard include/config/X86_MEM_ENCRYPT) \
   include/linux/cc_platform.h \
     $(wildcard include/config/ARCH_HAS_CC_PLATFORM) \
+  include/vdso/page.h \
+    $(wildcard include/config/PAGE_SHIFT) \
   arch/x86/include/asm/page_64_types.h \
     $(wildcard include/config/KASAN) \
-    $(wildcard include/config/DYNAMIC_MEMORY_LAYOUT) \
-    $(wildcard include/config/X86_5LEVEL) \
     $(wildcard include/config/RANDOMIZE_BASE) \
   arch/x86/include/asm/kaslr.h \
     $(wildcard include/config/RANDOMIZE_MEMORY) \
@@ -199,74 +216,8 @@ deps_kernel/sys_ni.o := \
     $(wildcard include/config/VM86) \
     $(wildcard include/config/MITIGATION_PAGE_TABLE_ISOLATION) \
   arch/x86/include/uapi/asm/processor-flags.h \
-  arch/x86/include/asm/paravirt_types.h \
-    $(wildcard include/config/X86_IOPL_IOPERM) \
-    $(wildcard include/config/PGTABLE_LEVELS) \
-    $(wildcard include/config/ZERO_CALL_USED_REGS) \
-    $(wildcard include/config/PARAVIRT_DEBUG) \
-  arch/x86/include/asm/desc_defs.h \
-  arch/x86/include/asm/pgtable_types.h \
-    $(wildcard include/config/X86_INTEL_MEMORY_PROTECTION_KEYS) \
-    $(wildcard include/config/X86_PAE) \
-    $(wildcard include/config/MEM_SOFT_DIRTY) \
-    $(wildcard include/config/HAVE_ARCH_USERFAULTFD_WP) \
-    $(wildcard include/config/PROC_FS) \
-  arch/x86/include/asm/pgtable_64_types.h \
-    $(wildcard include/config/KMSAN) \
-    $(wildcard include/config/DEBUG_KMAP_LOCAL_FORCE_MAP) \
-  arch/x86/include/asm/sparsemem.h \
-    $(wildcard include/config/SPARSEMEM) \
-  arch/x86/include/asm/nospec-branch.h \
-    $(wildcard include/config/CALL_THUNKS_DEBUG) \
-    $(wildcard include/config/MITIGATION_CALL_DEPTH_TRACKING) \
-    $(wildcard include/config/MITIGATION_IBPB_ENTRY) \
-    $(wildcard include/config/BPF_JIT) \
-  include/linux/static_key.h \
-  include/linux/jump_label.h \
-    $(wildcard include/config/JUMP_LABEL) \
-    $(wildcard include/config/HAVE_ARCH_JUMP_LABEL_RELATIVE) \
-  arch/x86/include/asm/jump_label.h \
-    $(wildcard include/config/HAVE_JUMP_LABEL_HACK) \
-  arch/x86/include/asm/nops.h \
-  arch/x86/include/asm/cpufeatures.h \
-  arch/x86/include/asm/required-features.h \
-    $(wildcard include/config/X86_MINIMUM_CPU_FAMILY) \
-    $(wildcard include/config/MATH_EMULATION) \
-    $(wildcard include/config/X86_CMPXCHG64) \
-    $(wildcard include/config/X86_CMOV) \
-    $(wildcard include/config/X86_P6_NOP) \
-    $(wildcard include/config/MATOM) \
-  arch/x86/include/asm/disabled-features.h \
-    $(wildcard include/config/X86_UMIP) \
-    $(wildcard include/config/ADDRESS_MASKING) \
-    $(wildcard include/config/INTEL_IOMMU_SVM) \
-    $(wildcard include/config/X86_SGX) \
-    $(wildcard include/config/INTEL_TDX_GUEST) \
-    $(wildcard include/config/X86_USER_SHADOW_STACK) \
-    $(wildcard include/config/X86_FRED) \
-    $(wildcard include/config/KVM_AMD_SEV) \
-  arch/x86/include/asm/msr-index.h \
-  arch/x86/include/asm/unwind_hints.h \
-  arch/x86/include/asm/orc_types.h \
-  arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/X86_64_SMP) \
-    $(wildcard include/config/CC_HAS_NAMED_AS) \
-    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
-  include/asm-generic/percpu.h \
-    $(wildcard include/config/DEBUG_PREEMPT) \
-    $(wildcard include/config/HAVE_SETUP_PER_CPU_AREA) \
-  include/linux/threads.h \
-    $(wildcard include/config/BASE_SMALL) \
-  include/linux/percpu-defs.h \
-    $(wildcard include/config/DEBUG_FORCE_WEAK_PER_CPU) \
-  arch/x86/include/asm/current.h \
-  include/linux/cache.h \
-    $(wildcard include/config/ARCH_HAS_CACHE_LINE_SIZE) \
-  include/uapi/linux/kernel.h \
-  include/uapi/linux/sysinfo.h \
-  arch/x86/include/asm/asm-offsets.h \
-  include/generated/asm-offsets.h \
-  arch/x86/include/asm/GEN-for-each-reg.h \
+  arch/x86/include/asm/paravirt-base.h \
+    $(wildcard include/config/PARAVIRT_SPINLOCKS) \
   arch/x86/include/asm/proto.h \
   arch/x86/include/uapi/asm/ldt.h \
 

@@ -292,13 +292,10 @@ static void snd_seq_midisynth_delete(struct seq_midisynth *msynth)
 
 /* register new midi synth port */
 static int
-snd_seq_midisynth_probe(struct device *_dev)
+snd_seq_midisynth_probe(struct snd_seq_device *dev)
 {
-	struct snd_seq_device *dev = to_seq_dev(_dev);
 	struct seq_midisynth_client *client;
 	struct seq_midisynth *msynth, *ms;
-	struct snd_seq_port_info *port __free(kfree) = NULL;
-	struct snd_rawmidi_info *info __free(kfree) = NULL;
 	struct snd_rawmidi *rmidi = dev->private_data;
 	int newclient = 0;
 	unsigned int p, ports;
@@ -309,7 +306,9 @@ snd_seq_midisynth_probe(struct device *_dev)
 
 	if (snd_BUG_ON(!card || device < 0 || device >= SNDRV_RAWMIDI_DEVICES))
 		return -EINVAL;
-	info = kmalloc(sizeof(*info), GFP_KERNEL);
+
+	struct snd_rawmidi_info *info __free(kfree) =
+		kmalloc_obj(*info);
 	if (! info)
 		return -ENOMEM;
 	info->device = device;
@@ -333,7 +332,7 @@ snd_seq_midisynth_probe(struct device *_dev)
 	client = synths[card->number];
 	if (client == NULL) {
 		newclient = 1;
-		client = kzalloc(sizeof(*client), GFP_KERNEL);
+		client = kzalloc_obj(*client);
 		if (client == NULL)
 			return -ENOMEM;
 		client->seq_client =
@@ -346,8 +345,10 @@ snd_seq_midisynth_probe(struct device *_dev)
 		}
 	}
 
-	msynth = kcalloc(ports, sizeof(struct seq_midisynth), GFP_KERNEL);
-	port = kmalloc(sizeof(*port), GFP_KERNEL);
+	msynth = kzalloc_objs(struct seq_midisynth, ports);
+
+	struct snd_seq_port_info *port __free(kfree) =
+		kmalloc_obj(*port);
 	if (msynth == NULL || port == NULL)
 		goto __nomem;
 
@@ -371,7 +372,7 @@ snd_seq_midisynth_probe(struct device *_dev)
 			info->stream = SNDRV_RAWMIDI_STREAM_INPUT;
 		info->subdevice = p;
 		if (snd_rawmidi_info_select(card, info) >= 0)
-			strcpy(port->name, info->subname);
+			strscpy(port->name, info->subname);
 		if (! port->name[0]) {
 			if (info->name[0]) {
 				if (ports > 1)
@@ -438,10 +439,9 @@ snd_seq_midisynth_probe(struct device *_dev)
 }
 
 /* release midi synth port */
-static int
-snd_seq_midisynth_remove(struct device *_dev)
+static void
+snd_seq_midisynth_remove(struct snd_seq_device *dev)
 {
-	struct snd_seq_device *dev = to_seq_dev(_dev);
 	struct seq_midisynth_client *client;
 	struct seq_midisynth *msynth;
 	struct snd_card *card = dev->card;
@@ -450,7 +450,7 @@ snd_seq_midisynth_remove(struct device *_dev)
 	guard(mutex)(&register_mutex);
 	client = synths[card->number];
 	if (client == NULL || client->ports[device] == NULL)
-		return -ENODEV;
+		return;
 	ports = client->ports_per_device[device];
 	client->ports_per_device[device] = 0;
 	msynth = client->ports[device];
@@ -464,14 +464,13 @@ snd_seq_midisynth_remove(struct device *_dev)
 		synths[card->number] = NULL;
 		kfree(client);
 	}
-	return 0;
 }
 
 static struct snd_seq_driver seq_midisynth_driver = {
+	.probe = snd_seq_midisynth_probe,
+	.remove = snd_seq_midisynth_remove,
 	.driver = {
 		.name = KBUILD_MODNAME,
-		.probe = snd_seq_midisynth_probe,
-		.remove = snd_seq_midisynth_remove,
 	},
 	.id = SNDRV_SEQ_DEV_ID_MIDISYNTH,
 	.argsize = 0,

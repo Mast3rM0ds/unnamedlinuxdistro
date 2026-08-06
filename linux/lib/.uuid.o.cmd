@@ -1,10 +1,11 @@
-savedcmd_lib/uuid.o := gcc -Wp,-MMD,lib/.uuid.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -fmacro-prefix-map=./= -Werror -std=gnu11 -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -fcf-protection=branch -fno-jump-tables -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -mtune=generic -mno-red-zone -mcmodel=kernel -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -mindirect-branch-cs-prefix -mfunction-return=thunk-extern -fno-jump-tables -fpatchable-function-entry=16,16 -fno-delete-null-pointer-checks -O2 -fno-allow-store-data-races -fstack-protector-strong -fomit-frame-pointer -ftrivial-auto-var-init=zero -fno-stack-clash-protection -fmin-function-alignment=16 -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -fno-builtin-wcslen -fno-builtin-wcslen -Wall -Wextra -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wmissing-declarations -Wmissing-prototypes -Wframe-larger-than=2048 -Wno-main -Wno-dangling-pointer -Wvla -Wno-pointer-sign -Wcast-function-type -Wno-unterminated-string-initialization -Wno-array-bounds -Wno-stringop-overflow -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -fzero-init-padding-bits=all -Wunused -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-truncation -Wno-override-init -Wno-missing-field-initializers -Wno-type-limits -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -Wno-unused-parameter    -DKBUILD_MODFILE='"lib/uuid"' -DKBUILD_BASENAME='"uuid"' -DKBUILD_MODNAME='"uuid"' -D__KBUILD_MODNAME=kmod_uuid -c -o lib/uuid.o lib/uuid.c  
+savedcmd_lib/uuid.o := gcc -Wp,-MMD,lib/.uuid.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -Werror -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -std=gnu11 -fms-extensions -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -mno-sse4a -fcf-protection=branch -fno-jump-tables -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -march=x86-64 -mtune=generic -mno-red-zone -mcmodel=kernel -mstack-protector-guard-reg=gs -mstack-protector-guard-symbol=__ref_stack_chk_guard -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -mindirect-branch-cs-prefix -mfunction-return=thunk-extern -fno-jump-tables -fpatchable-function-entry=16,16 -fno-delete-null-pointer-checks -O2 -fno-allow-store-data-races -fstack-protector-strong -fomit-frame-pointer -ftrivial-auto-var-init=zero -fzero-init-padding-bits=all -fno-stack-clash-protection -fmin-function-alignment=16 -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -fno-builtin-wcslen -Wall -Wextra -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wmissing-declarations -Wmissing-prototypes -Wframe-larger-than=2048 -Wno-main -Wno-type-limits -Wno-dangling-pointer -Wvla-larger-than=1 -Wno-pointer-sign -Wcast-function-type -Wno-unterminated-string-initialization -Wno-array-bounds -Wno-stringop-overflow -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -Wunused -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-truncation -Wno-override-init -Wno-missing-field-initializers -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -Wno-unused-parameter -DGCC_PLUGINS    -DKBUILD_MODFILE='"lib/uuid"' -DKBUILD_BASENAME='"uuid"' -DKBUILD_MODNAME='"uuid"' -D__KBUILD_MODNAME=uuid -c -o lib/uuid.o lib/uuid.c  
 
 source_lib/uuid.o := lib/uuid.c
 
 deps_lib/uuid.o := \
   include/linux/compiler-version.h \
     $(wildcard include/config/CC_VERSION_TEXT) \
+  include/generated/gcc-plugins.h \
   include/linux/kconfig.h \
     $(wildcard include/config/CPU_BIG_ENDIAN) \
     $(wildcard include/config/BOOGER) \
@@ -20,15 +21,23 @@ deps_lib/uuid.o := \
     $(wildcard include/config/LTO_CLANG) \
     $(wildcard include/config/HAVE_ARCH_COMPILER_H) \
     $(wildcard include/config/KCSAN) \
+    $(wildcard include/config/CC_HAS_ASSUME) \
     $(wildcard include/config/CC_HAS_COUNTED_BY) \
-    $(wildcard include/config/UBSAN_SIGNED_WRAP) \
+    $(wildcard include/config/FORTIFY_SOURCE) \
+    $(wildcard include/config/UBSAN_BOUNDS) \
+    $(wildcard include/config/CC_HAS_COUNTED_BY_PTR) \
+    $(wildcard include/config/CC_HAS_MULTIDIMENSIONAL_NONSTRING) \
+    $(wildcard include/config/CFI) \
+    $(wildcard include/config/ARCH_USES_CFI_GENERIC_LLVM_PASS) \
+    $(wildcard include/config/CC_HAS_BROKEN_COUNTED_BY_REF) \
     $(wildcard include/config/CC_HAS_ASM_INLINE) \
+  include/linux/compiler-context-analysis.h \
   include/linux/compiler_attributes.h \
   include/linux/compiler-gcc.h \
-    $(wildcard include/config/MITIGATION_RETPOLINE) \
     $(wildcard include/config/ARCH_USE_BUILTIN_BSWAP) \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
+    $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
   include/linux/kernel.h \
     $(wildcard include/config/PREEMPT_VOLUNTARY_BUILD) \
     $(wildcard include/config/PREEMPT_DYNAMIC) \
@@ -39,11 +48,10 @@ deps_lib/uuid.o := \
     $(wildcard include/config/SMP) \
     $(wildcard include/config/MMU) \
     $(wildcard include/config/PROVE_LOCKING) \
-    $(wildcard include/config/TRACING) \
-    $(wildcard include/config/FTRACE_MCOUNT_RECORD) \
+    $(wildcard include/config/DYNAMIC_FTRACE) \
   include/linux/stdarg.h \
   include/linux/align.h \
-  include/linux/const.h \
+  include/vdso/align.h \
   include/vdso/const.h \
   include/uapi/linux/const.h \
   include/linux/array_size.h \
@@ -51,7 +59,6 @@ deps_lib/uuid.o := \
     $(wildcard include/config/TRACE_BRANCH_PROFILING) \
     $(wildcard include/config/PROFILE_ALL_BRANCHES) \
     $(wildcard include/config/OBJTOOL) \
-    $(wildcard include/config/64BIT) \
   arch/x86/include/generated/asm/rwonce.h \
   include/asm-generic/rwonce.h \
   include/linux/kasan-checks.h \
@@ -62,6 +69,7 @@ deps_lib/uuid.o := \
     $(wildcard include/config/UID16) \
     $(wildcard include/config/ARCH_DMA_ADDR_T_64BIT) \
     $(wildcard include/config/PHYS_ADDR_T_64BIT) \
+    $(wildcard include/config/64BIT) \
     $(wildcard include/config/ARCH_32BIT_USTAT_F_TINODE) \
   include/uapi/linux/types.h \
   arch/x86/include/generated/uapi/asm/types.h \
@@ -89,9 +97,11 @@ deps_lib/uuid.o := \
   include/linux/stringify.h \
   include/linux/export.h \
     $(wildcard include/config/MODVERSIONS) \
+    $(wildcard include/config/GENDWARFKSYMS) \
   arch/x86/include/asm/linkage.h \
     $(wildcard include/config/CALL_PADDING) \
     $(wildcard include/config/MITIGATION_RETHUNK) \
+    $(wildcard include/config/MITIGATION_RETPOLINE) \
     $(wildcard include/config/MITIGATION_SLS) \
     $(wildcard include/config/FUNCTION_PADDING_BYTES) \
     $(wildcard include/config/UML) \
@@ -104,6 +114,7 @@ deps_lib/uuid.o := \
   include/vdso/bits.h \
   include/uapi/linux/bits.h \
   include/linux/overflow.h \
+  include/linux/const.h \
   include/linux/typecheck.h \
   include/uapi/linux/kernel.h \
   include/uapi/linux/sysinfo.h \
@@ -112,19 +123,26 @@ deps_lib/uuid.o := \
   arch/x86/include/asm/alternative.h \
     $(wildcard include/config/CALL_THUNKS) \
     $(wildcard include/config/MITIGATION_ITS) \
+  include/linux/objtool.h \
+    $(wildcard include/config/FRAME_POINTER) \
+    $(wildcard include/config/NOINSTR_VALIDATION) \
+    $(wildcard include/config/MITIGATION_UNRET_ENTRY) \
+    $(wildcard include/config/MITIGATION_SRSO) \
+  include/linux/objtool_types.h \
+  include/linux/annotate.h \
   arch/x86/include/asm/asm.h \
     $(wildcard include/config/KPROBES) \
+  arch/x86/include/asm/asm-offsets.h \
+  include/generated/asm-offsets.h \
   arch/x86/include/asm/extable_fixup_types.h \
   arch/x86/include/asm/bug.h \
     $(wildcard include/config/GENERIC_BUG) \
     $(wildcard include/config/DEBUG_BUGVERBOSE) \
+    $(wildcard include/config/DEBUG_BUGVERBOSE_DETAILED) \
   include/linux/instrumentation.h \
-    $(wildcard include/config/NOINSTR_VALIDATION) \
-  include/linux/objtool.h \
-    $(wildcard include/config/FRAME_POINTER) \
-    $(wildcard include/config/MITIGATION_UNRET_ENTRY) \
-    $(wildcard include/config/MITIGATION_SRSO) \
-  include/linux/objtool_types.h \
+  include/linux/static_call_types.h \
+    $(wildcard include/config/HAVE_STATIC_CALL) \
+    $(wildcard include/config/HAVE_STATIC_CALL_INLINE) \
   include/asm-generic/bug.h \
     $(wildcard include/config/BUG) \
     $(wildcard include/config/GENERIC_BUG_RELATIVE_POINTERS) \
@@ -177,31 +195,13 @@ deps_lib/uuid.o := \
   include/asm-generic/bitops/sched.h \
   arch/x86/include/asm/arch_hweight.h \
   arch/x86/include/asm/cpufeatures.h \
-  arch/x86/include/asm/required-features.h \
-    $(wildcard include/config/X86_MINIMUM_CPU_FAMILY) \
-    $(wildcard include/config/MATH_EMULATION) \
-    $(wildcard include/config/X86_PAE) \
-    $(wildcard include/config/X86_CMPXCHG64) \
-    $(wildcard include/config/X86_P6_NOP) \
-    $(wildcard include/config/MATOM) \
-    $(wildcard include/config/PARAVIRT_XXL) \
-  arch/x86/include/asm/disabled-features.h \
-    $(wildcard include/config/X86_UMIP) \
-    $(wildcard include/config/X86_INTEL_MEMORY_PROTECTION_KEYS) \
-    $(wildcard include/config/X86_5LEVEL) \
-    $(wildcard include/config/MITIGATION_PAGE_TABLE_ISOLATION) \
-    $(wildcard include/config/MITIGATION_CALL_DEPTH_TRACKING) \
-    $(wildcard include/config/ADDRESS_MASKING) \
-    $(wildcard include/config/INTEL_IOMMU_SVM) \
-    $(wildcard include/config/X86_SGX) \
-    $(wildcard include/config/XEN_PV) \
-    $(wildcard include/config/INTEL_TDX_GUEST) \
-    $(wildcard include/config/X86_USER_SHADOW_STACK) \
-    $(wildcard include/config/X86_FRED) \
-    $(wildcard include/config/KVM_AMD_SEV) \
   include/asm-generic/bitops/const_hweight.h \
   include/asm-generic/bitops/instrumented-atomic.h \
   include/linux/instrumented.h \
+    $(wildcard include/config/DEBUG_ATOMIC) \
+    $(wildcard include/config/DEBUG_ATOMIC_LARGEST_ALIGN) \
+  include/linux/bug.h \
+    $(wildcard include/config/BUG_ON_DATA_CORRUPTION) \
   include/linux/kmsan-checks.h \
     $(wildcard include/config/KMSAN) \
   include/asm-generic/bitops/instrumented-non-atomic.h \
@@ -209,7 +209,6 @@ deps_lib/uuid.o := \
   include/asm-generic/bitops/instrumented-lock.h \
   include/asm-generic/bitops/le.h \
   include/asm-generic/bitops/ext2-atomic-setbit.h \
-  include/linux/hex.h \
   include/linux/kstrtox.h \
   include/linux/log2.h \
     $(wildcard include/config/ARCH_HAS_ILOG2_U32) \
@@ -217,12 +216,14 @@ deps_lib/uuid.o := \
   include/linux/math.h \
   arch/x86/include/asm/div64.h \
   include/asm-generic/div64.h \
+    $(wildcard include/config/CC_OPTIMIZE_FOR_PERFORMANCE) \
   include/linux/minmax.h \
   include/linux/sprintf.h \
-  include/linux/static_call_types.h \
-    $(wildcard include/config/HAVE_STATIC_CALL) \
-    $(wildcard include/config/HAVE_STATIC_CALL_INLINE) \
+  include/linux/trace_printk.h \
+    $(wildcard include/config/TRACING) \
   include/linux/instruction_pointer.h \
+  include/linux/util_macros.h \
+    $(wildcard include/config/FOO_SUSPEND) \
   include/linux/wordpart.h \
   include/linux/ctype.h \
   include/linux/errno.h \
@@ -230,10 +231,11 @@ deps_lib/uuid.o := \
   arch/x86/include/generated/uapi/asm/errno.h \
   include/uapi/asm-generic/errno.h \
   include/uapi/asm-generic/errno-base.h \
+  include/linux/hex.h \
   include/linux/uuid.h \
   include/linux/string.h \
     $(wildcard include/config/BINARY_PRINTF) \
-    $(wildcard include/config/FORTIFY_SOURCE) \
+  include/linux/cleanup.h \
   include/linux/err.h \
   include/uapi/linux/string.h \
   arch/x86/include/asm/string.h \
@@ -246,8 +248,6 @@ deps_lib/uuid.o := \
     $(wildcard include/config/HAVE_JUMP_LABEL_HACK) \
   include/linux/random.h \
     $(wildcard include/config/VMGENID) \
-  include/linux/bug.h \
-    $(wildcard include/config/BUG_ON_DATA_CORRUPTION) \
   include/linux/list.h \
     $(wildcard include/config/LIST_HARDENED) \
     $(wildcard include/config/DEBUG_LIST) \
@@ -260,8 +260,6 @@ deps_lib/uuid.o := \
   include/uapi/asm-generic/ioctl.h \
   include/linux/irqnr.h \
   include/uapi/linux/irqnr.h \
-  include/linux/prandom.h \
-  include/linux/once.h \
 
 lib/uuid.o: $(deps_lib/uuid.o)
 

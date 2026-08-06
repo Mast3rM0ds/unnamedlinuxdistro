@@ -72,10 +72,12 @@ enum ad_link_speed_type {
 	AD_LINK_SPEED_40000MBPS,
 	AD_LINK_SPEED_50000MBPS,
 	AD_LINK_SPEED_56000MBPS,
+	AD_LINK_SPEED_80000MBPS,
 	AD_LINK_SPEED_100000MBPS,
 	AD_LINK_SPEED_200000MBPS,
 	AD_LINK_SPEED_400000MBPS,
 	AD_LINK_SPEED_800000MBPS,
+	AD_LINK_SPEED_1600000MBPS,
 };
 
 /* compare MAC addresses */
@@ -296,10 +298,12 @@ static inline int __check_agg_selection_timer(struct port *port)
  *     %AD_LINK_SPEED_40000MBPS
  *     %AD_LINK_SPEED_50000MBPS
  *     %AD_LINK_SPEED_56000MBPS
+ *     %AD_LINK_SPEED_80000MBPS
  *     %AD_LINK_SPEED_100000MBPS
  *     %AD_LINK_SPEED_200000MBPS
  *     %AD_LINK_SPEED_400000MBPS
  *     %AD_LINK_SPEED_800000MBPS
+ *     %AD_LINK_SPEED_1600000MBPS
  */
 static u16 __get_link_speed(struct port *port)
 {
@@ -363,6 +367,10 @@ static u16 __get_link_speed(struct port *port)
 			speed = AD_LINK_SPEED_56000MBPS;
 			break;
 
+		case SPEED_80000:
+			speed = AD_LINK_SPEED_80000MBPS;
+			break;
+
 		case SPEED_100000:
 			speed = AD_LINK_SPEED_100000MBPS;
 			break;
@@ -377,6 +385,10 @@ static u16 __get_link_speed(struct port *port)
 
 		case SPEED_800000:
 			speed = AD_LINK_SPEED_800000MBPS;
+			break;
+
+		case SPEED_1600000:
+			speed = AD_LINK_SPEED_1600000MBPS;
 			break;
 
 		default:
@@ -733,6 +745,21 @@ static void __set_agg_ports_ready(struct aggregator *aggregator, int val)
 	}
 }
 
+static int __agg_usable_ports(struct aggregator *agg)
+{
+	struct port *port;
+	int valid = 0;
+
+	for (port = agg->lag_ports; port;
+	     port = port->next_port_in_aggregator) {
+		if (port->actor_oper_port_state & LACP_STATE_COLLECTING &&
+		    port->actor_oper_port_state & LACP_STATE_DISTRIBUTING)
+			valid++;
+	}
+
+	return valid;
+}
+
 static int __agg_active_ports(struct aggregator *agg)
 {
 	struct port *port;
@@ -745,6 +772,18 @@ static int __agg_active_ports(struct aggregator *agg)
 	}
 
 	return active;
+}
+
+static unsigned int __agg_ports_priority(const struct aggregator *agg)
+{
+	struct port *port = agg->lag_ports;
+	unsigned int prio = 0;
+
+	for (; port; port = port->next_port_in_aggregator)
+		if (port->is_enabled)
+			prio += port->actor_port_priority;
+
+	return prio;
 }
 
 /**
@@ -798,6 +837,9 @@ static u32 __get_agg_bandwidth(struct aggregator *aggregator)
 		case AD_LINK_SPEED_56000MBPS:
 			bandwidth = nports * 56000;
 			break;
+		case AD_LINK_SPEED_80000MBPS:
+			bandwidth = nports * 80000;
+			break;
 		case AD_LINK_SPEED_100000MBPS:
 			bandwidth = nports * 100000;
 			break;
@@ -809,6 +851,9 @@ static u32 __get_agg_bandwidth(struct aggregator *aggregator)
 			break;
 		case AD_LINK_SPEED_800000MBPS:
 			bandwidth = nports * 800000;
+			break;
+		case AD_LINK_SPEED_1600000MBPS:
+			bandwidth = nports * 1600000;
 			break;
 		default:
 			bandwidth = 0; /* to silence the compiler */
@@ -983,6 +1028,14 @@ static int ad_marker_send(struct port *port, struct bond_marker *marker)
 	return 0;
 }
 
+static void ad_cond_set_peer_notif(struct port *port)
+{
+	struct bonding *bond = port->slave->bond;
+
+	if (bond->params.broadcast_neighbor)
+		bond_peer_notify_work_rearm(bond, 0);
+}
+
 /**
  * ad_mux_machine - handle a port's mux state machine
  * @port: the port we're looking at
@@ -1141,10 +1194,10 @@ static void ad_mux_machine(struct port *port, bool *update_slave_arr)
 		switch (port->sm_mux_state) {
 		case AD_MUX_DETACHED:
 			port->actor_oper_port_state &= ~LACP_STATE_SYNCHRONIZATION;
-			ad_disable_collecting_distributing(port,
-							   update_slave_arr);
 			port->actor_oper_port_state &= ~LACP_STATE_COLLECTING;
 			port->actor_oper_port_state &= ~LACP_STATE_DISTRIBUTING;
+			ad_disable_collecting_distributing(port,
+							   update_slave_arr);
 			port->ntt = true;
 			break;
 		case AD_MUX_WAITING:
@@ -1390,7 +1443,7 @@ static void ad_tx_machine(struct port *port)
 	/* check if tx timer expired, to verify that we do not send more than
 	 * 3 packets per second
 	 */
-	if (port->sm_tx_timer_counter && !(--port->sm_tx_timer_counter)) {
+	if (!port->sm_tx_timer_counter || !(--port->sm_tx_timer_counter)) {
 		/* check if there is something to send */
 		if (port->ntt && (port->sm_vars & AD_PORT_LACP_ENABLED)) {
 			__update_lacpdu_from_port(port);
@@ -1405,12 +1458,13 @@ static void ad_tx_machine(struct port *port)
 				 * again until demanded
 				 */
 				port->ntt = false;
+
+				/* restart tx timer(to verify that we will not
+				 * exceed AD_MAX_TX_IN_SECOND
+				 */
+				port->sm_tx_timer_counter = ad_ticks_per_sec / AD_MAX_TX_IN_SECOND;
 			}
 		}
-		/* restart tx timer(to verify that we will not exceed
-		 * AD_MAX_TX_IN_SECOND
-		 */
-		port->sm_tx_timer_counter = ad_ticks_per_sec/AD_MAX_TX_IN_SECOND;
 	}
 }
 
@@ -1701,6 +1755,9 @@ static struct aggregator *ad_agg_selection_test(struct aggregator *best,
 	 * 4.  Therefore, current and best both have partner replies or
 	 *     both do not, so perform selection policy:
 	 *
+	 * BOND_AD_PRIO: Select by total priority of ports. If priority
+	 *     is equal, select by count.
+	 *
 	 * BOND_AD_COUNT: Select by count of ports.  If count is equal,
 	 *     select by bandwidth.
 	 *
@@ -1722,6 +1779,14 @@ static struct aggregator *ad_agg_selection_test(struct aggregator *best,
 		return best;
 
 	switch (__get_agg_selection_mode(curr->lag_ports)) {
+	case BOND_AD_PRIO:
+		if (__agg_ports_priority(curr) > __agg_ports_priority(best))
+			return curr;
+
+		if (__agg_ports_priority(curr) < __agg_ports_priority(best))
+			return best;
+
+		fallthrough;
 	case BOND_AD_COUNT:
 		if (__agg_active_ports(curr) > __agg_active_ports(best))
 			return curr;
@@ -1784,6 +1849,10 @@ static int agg_device_up(const struct aggregator *agg)
  * set of slaves in the bond changes.
  *
  * BOND_AD_COUNT: select the aggregator with largest number of ports
+ * (slaves), and reselect whenever a link state change takes place or the
+ * set of slaves in the bond changes.
+ *
+ * BOND_AD_PRIO: select the aggregator with highest total priority of ports
  * (slaves), and reselect whenever a link state change takes place or the
  * set of slaves in the bond changes.
  *
@@ -2054,6 +2123,7 @@ static void ad_disable_distributing(struct port *port, bool *update_slave_arr)
 			  port->actor_port_number,
 			  aggregator->aggregator_identifier);
 		__disable_distributing_port(port);
+		bond_3ad_set_carrier(port->slave->bond);
 		/* Slave array needs an update */
 		*update_slave_arr = true;
 	}
@@ -2077,8 +2147,11 @@ static void ad_enable_collecting_distributing(struct port *port,
 			  port->actor_port_number,
 			  aggregator->aggregator_identifier);
 		__enable_port(port);
+		bond_3ad_set_carrier(port->slave->bond);
 		/* Slave array needs update */
 		*update_slave_arr = true;
+		/* Should notify peers if possible */
+		ad_cond_set_peer_notif(port);
 	}
 }
 
@@ -2098,6 +2171,7 @@ static void ad_disable_collecting_distributing(struct port *port,
 			  port->actor_port_number,
 			  aggregator->aggregator_identifier);
 		__disable_port(port);
+		bond_3ad_set_carrier(port->slave->bond);
 		/* Slave array needs an update */
 		*update_slave_arr = true;
 	}
@@ -2777,7 +2851,9 @@ int bond_3ad_set_carrier(struct bonding *bond)
 	active = __get_active_agg(&(SLAVE_AD_INFO(first_slave)->aggregator));
 	if (active) {
 		/* are enough slaves available to consider link up? */
-		if (__agg_active_ports(active) < bond->params.min_links) {
+		if ((bond->params.lacp_strict ? __agg_usable_ports(active)
+					: __agg_active_ports(active)) <
+		    bond->params.min_links) {
 			if (netif_carrier_ok(bond->dev)) {
 				netif_carrier_off(bond->dev);
 				goto out;

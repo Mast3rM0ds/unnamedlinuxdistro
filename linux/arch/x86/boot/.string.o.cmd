@@ -1,4 +1,4 @@
-savedcmd_arch/x86/boot/string.o := gcc -Wp,-MMD,arch/x86/boot/.string.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -fmacro-prefix-map=./= -Werror -std=gnu11 -m16 -g -Os -DDISABLE_BRANCH_PROFILING -D__DISABLE_EXPORTS -Wall -Wstrict-prototypes -march=i386 -mregparm=3 -fno-strict-aliasing -fomit-frame-pointer -fno-pic -mno-mmx -mno-sse -fcf-protection=none -ffreestanding -fno-stack-protector -Wno-address-of-packed-member -mpreferred-stack-boundary=2 -D_SETUP -fmacro-prefix-map=./= -fno-asynchronous-unwind-tables -Wimplicit-fallthrough=5    -DKBUILD_MODFILE='"arch/x86/boot/string"' -DKBUILD_BASENAME='"string"' -DKBUILD_MODNAME='"string"' -D__KBUILD_MODNAME=kmod_string -c -o arch/x86/boot/string.o arch/x86/boot/string.c  
+savedcmd_arch/x86/boot/string.o := gcc -Wp,-MMD,arch/x86/boot/.string.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -Werror -std=gnu11 -fms-extensions -m16 -g -Os -DDISABLE_BRANCH_PROFILING -D__DISABLE_EXPORTS -Wall -Wstrict-prototypes -march=i386 -mregparm=3 -fno-strict-aliasing -fomit-frame-pointer -fno-pic -mno-mmx -mno-sse -fcf-protection=none -ffreestanding -fno-stack-protector -Wno-address-of-packed-member -mpreferred-stack-boundary=2 -D_SETUP -fno-asynchronous-unwind-tables -Wimplicit-fallthrough=5    -DKBUILD_MODFILE='"arch/x86/boot/string"' -DKBUILD_BASENAME='"string"' -DKBUILD_MODNAME='"string"' -D__KBUILD_MODNAME=string -c -o arch/x86/boot/string.o arch/x86/boot/string.c  
 
 source_arch/x86/boot/string.o := arch/x86/boot/string.c
 
@@ -20,15 +20,23 @@ deps_arch/x86/boot/string.o := \
     $(wildcard include/config/LTO_CLANG) \
     $(wildcard include/config/HAVE_ARCH_COMPILER_H) \
     $(wildcard include/config/KCSAN) \
+    $(wildcard include/config/CC_HAS_ASSUME) \
     $(wildcard include/config/CC_HAS_COUNTED_BY) \
-    $(wildcard include/config/UBSAN_SIGNED_WRAP) \
+    $(wildcard include/config/FORTIFY_SOURCE) \
+    $(wildcard include/config/UBSAN_BOUNDS) \
+    $(wildcard include/config/CC_HAS_COUNTED_BY_PTR) \
+    $(wildcard include/config/CC_HAS_MULTIDIMENSIONAL_NONSTRING) \
+    $(wildcard include/config/CFI) \
+    $(wildcard include/config/ARCH_USES_CFI_GENERIC_LLVM_PASS) \
+    $(wildcard include/config/CC_HAS_BROKEN_COUNTED_BY_REF) \
     $(wildcard include/config/CC_HAS_ASM_INLINE) \
+  include/linux/compiler-context-analysis.h \
   include/linux/compiler_attributes.h \
   include/linux/compiler-gcc.h \
-    $(wildcard include/config/MITIGATION_RETPOLINE) \
     $(wildcard include/config/ARCH_USE_BUILTIN_BSWAP) \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
+    $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
   include/linux/types.h \
     $(wildcard include/config/HAVE_UID16) \
     $(wildcard include/config/UID16) \
@@ -73,7 +81,11 @@ deps_arch/x86/boot/string.o := \
   include/vdso/limits.h \
   arch/x86/include/asm/asm.h \
     $(wildcard include/config/KPROBES) \
+  include/linux/annotate.h \
+  include/linux/objtool_types.h \
   include/linux/stringify.h \
+  arch/x86/include/asm/asm-offsets.h \
+  include/generated/asm-offsets.h \
   arch/x86/include/asm/extable_fixup_types.h \
   arch/x86/boot/ctype.h \
   arch/x86/boot/string.h \

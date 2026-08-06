@@ -1,4 +1,4 @@
-savedcmd_scripts/asn1_compiler := gcc -Wp,-MMD,scripts/.asn1_compiler.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu11   -I ./scripts/include  -I./include   -o scripts/asn1_compiler scripts/asn1_compiler.c   
+savedcmd_scripts/asn1_compiler := gcc -Wp,-MMD,scripts/.asn1_compiler.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu11   -I ./scripts/include -Werror  -I./include   -Wl,--fatal-warnings -o scripts/asn1_compiler scripts/asn1_compiler.c   
 
 source_scripts/asn1_compiler := scripts/asn1_compiler.c
 

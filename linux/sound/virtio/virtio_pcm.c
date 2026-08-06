@@ -355,7 +355,7 @@ int virtsnd_pcm_parse_cfg(struct virtio_snd *snd)
 		spin_lock_init(&vss->lock);
 	}
 
-	info = kcalloc(snd->nsubstreams, sizeof(*info), GFP_KERNEL);
+	info = kzalloc_objs(*info, snd->nsubstreams);
 	if (!info)
 		return -ENOMEM;
 
@@ -516,10 +516,10 @@ void virtsnd_pcm_event(struct virtio_snd *snd, struct virtio_snd_event *event)
 		/* TODO: deal with shmem elapsed period */
 		break;
 	case VIRTIO_SND_EVT_PCM_XRUN:
-		spin_lock(&vss->lock);
-		if (vss->xfer_enabled)
-			vss->xfer_xrun = true;
-		spin_unlock(&vss->lock);
+		scoped_guard(spinlock, &vss->lock) {
+			if (vss->xfer_enabled)
+				vss->xfer_xrun = true;
+		}
 		break;
 	}
 }

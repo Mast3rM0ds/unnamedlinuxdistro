@@ -2,6 +2,11 @@
 /*
  * fwnode.h - Firmware device node object handle type definition.
  *
+ * This header file provides low-level data types and definitions for firmware
+ * and device property providers. The respective API header files supplied by
+ * them should contain all of the requisite data types and definitions for end
+ * users, so including it directly should not be necessary.
+ *
  * Copyright (C) 2015, Intel Corporation
  * Author: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
  */
@@ -113,6 +118,7 @@ struct fwnode_reference_args {
  * @device_is_available: Return true if the device is available.
  * @device_get_match_data: Return the device driver match data.
  * @property_present: Return true if a property is present.
+ * @property_read_bool: Return a boolean property value.
  * @property_read_int_array: Read an array of integer properties. Return zero on
  *			     success, a negative error code otherwise.
  * @property_read_string_array: Read an array of string properties. Return zero
@@ -142,6 +148,8 @@ struct fwnode_operations {
 	(*device_get_dma_attr)(const struct fwnode_handle *fwnode);
 	bool (*property_present)(const struct fwnode_handle *fwnode,
 				 const char *propname);
+	bool (*property_read_bool)(const struct fwnode_handle *fwnode,
+				   const char *propname);
 	int (*property_read_int_array)(const struct fwnode_handle *fwnode,
 				       const char *propname,
 				       unsigned int elem_size, void *val,
@@ -245,6 +253,7 @@ int fwnode_link_add(struct fwnode_handle *con, struct fwnode_handle *sup,
 		    u8 flags);
 void fwnode_links_purge(struct fwnode_handle *fwnode);
 void fw_devlink_purge_absent_suppliers(struct fwnode_handle *fwnode);
+void fw_devlink_refresh_fwnode(struct fwnode_handle *fwnode);
 bool fw_devlink_is_strict(void);
 
 #endif

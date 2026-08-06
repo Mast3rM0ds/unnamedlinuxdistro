@@ -152,7 +152,7 @@ static int fs_enet_mdio_probe(struct platform_device *ofdev)
 	struct bb_info *bitbang;
 	int ret = -ENOMEM;
 
-	bitbang = kzalloc(sizeof(struct bb_info), GFP_KERNEL);
+	bitbang = kzalloc_obj(struct bb_info);
 	if (!bitbang)
 		goto out;
 
@@ -214,7 +214,7 @@ static struct platform_driver fs_enet_bb_mdio_driver = {
 		.of_match_table = fs_enet_mdio_bb_match,
 	},
 	.probe = fs_enet_mdio_probe,
-	.remove_new = fs_enet_mdio_remove,
+	.remove = fs_enet_mdio_remove,
 };
 
 module_platform_driver(fs_enet_bb_mdio_driver);

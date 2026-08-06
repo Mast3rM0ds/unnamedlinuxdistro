@@ -10,7 +10,6 @@
 #include <linux/mm.h>
 #include <linux/pagemap.h>
 #include <linux/slab.h>
-#include <linux/pagevec.h>
 #include "internal.h"
 
 /*
@@ -35,30 +34,38 @@ static struct folio *netfs_grab_folio_for_write(struct address_space *mapping,
  * data written into the pagecache until we can find out from the server what
  * the values actually are.
  */
-static void netfs_update_i_size(struct netfs_inode *ctx, struct inode *inode,
-				loff_t i_size, loff_t pos, size_t copied)
+void netfs_update_i_size(struct netfs_inode *ctx, struct inode *inode,
+			 loff_t pos, size_t copied)
 {
+	loff_t i_size, end = pos + copied;
 	blkcnt_t add;
 	size_t gap;
 
+	if (end <= i_size_read(inode))
+		return;
+
 	if (ctx->ops->update_i_size) {
-		ctx->ops->update_i_size(inode, pos);
+		ctx->ops->update_i_size(inode, end);
 		return;
 	}
 
 	spin_lock(&inode->i_lock);
-	i_size_write(inode, pos);
+
+	i_size = i_size_read(inode);
+	if (end > i_size) {
+		i_size_write(inode, end);
 #if IS_ENABLED(CONFIG_FSCACHE)
-	fscache_update_cookie(ctx->cache, NULL, &pos);
+		fscache_update_cookie(ctx->cache, NULL, &end);
 #endif
 
-	gap = SECTOR_SIZE - (i_size & (SECTOR_SIZE - 1));
-	if (copied > gap) {
-		add = DIV_ROUND_UP(copied - gap, SECTOR_SIZE);
+		gap = SECTOR_SIZE - (i_size & (SECTOR_SIZE - 1));
+		if (copied > gap) {
+			add = DIV_ROUND_UP(copied - gap, SECTOR_SIZE);
 
-		inode->i_blocks = min_t(blkcnt_t,
-					DIV_ROUND_UP(pos, SECTOR_SIZE),
-					inode->i_blocks + add);
+			inode->i_blocks = min_t(blkcnt_t,
+						DIV_ROUND_UP(end, SECTOR_SIZE),
+						inode->i_blocks + add);
+		}
 	}
 	spin_unlock(&inode->i_lock);
 }
@@ -95,12 +102,11 @@ ssize_t netfs_perform_write(struct kiocb *iocb, struct iov_iter *iter,
 	struct folio *folio = NULL, *writethrough = NULL;
 	unsigned int bdp_flags = (iocb->ki_flags & IOCB_NOWAIT) ? BDP_ASYNC : 0;
 	ssize_t written = 0, ret, ret2;
-	loff_t i_size, pos = iocb->ki_pos;
+	loff_t pos = iocb->ki_pos;
 	size_t max_chunk = mapping_max_folio_size(mapping);
 	bool maybe_trouble = false;
 
-	if (unlikely(test_bit(NETFS_ICTX_WRITETHROUGH, &ctx->flags) ||
-		     iocb->ki_flags & (IOCB_DSYNC | IOCB_SYNC))
+	if (unlikely(iocb->ki_flags & (IOCB_DSYNC | IOCB_SYNC))
 	    ) {
 		wbc_attach_fdatawrite_inode(&wbc, mapping->host);
 
@@ -219,7 +225,7 @@ ssize_t netfs_perform_write(struct kiocb *iocb, struct iov_iter *iter,
 		 * server would just return a block of zeros or a short read if
 		 * we try to read it.
 		 */
-		if (fpos >= ctx->zero_point) {
+		if (fpos >= netfs_read_zero_point(inode)) {
 			folio_zero_segment(folio, 0, offset);
 			copied = copy_folio_from_iter_atomic(folio, offset, part, iter);
 			if (unlikely(copied == 0))
@@ -303,7 +309,7 @@ ssize_t netfs_perform_write(struct kiocb *iocb, struct iov_iter *iter,
 				goto mark_uptodate;
 			}
 
-			finfo = kzalloc(sizeof(*finfo), GFP_KERNEL);
+			finfo = kzalloc_obj(*finfo);
 			if (!finfo) {
 				iov_iter_revert(iter, copied);
 				ret = -ENOMEM;
@@ -380,10 +386,8 @@ ssize_t netfs_perform_write(struct kiocb *iocb, struct iov_iter *iter,
 		flush_dcache_folio(folio);
 
 		/* Update the inode size if we moved the EOF marker */
+		netfs_update_i_size(ctx, inode, pos, copied);
 		pos += copied;
-		i_size = i_size_read(inode);
-		if (pos > i_size)
-			netfs_update_i_size(ctx, inode, i_size, pos, copied);
 		written += copied;
 
 		if (likely(!wreq)) {
@@ -421,7 +425,7 @@ out:
 		wbc_detach_inode(&wbc);
 		if (ret2 == -EIOCBQUEUED)
 			return ret2;
-		if (ret == 0)
+		if (ret == 0 && ret2 < 0)
 			ret = ret2;
 	}
 
@@ -566,7 +570,7 @@ vm_fault_t netfs_page_mkwrite(struct vm_fault *vmf, struct netfs_group *netfs_gr
 		folio_unlock(folio);
 		err = filemap_fdatawrite_range(mapping,
 					       folio_pos(folio),
-					       folio_pos(folio) + folio_size(folio));
+					       folio_next_pos(folio));
 		switch (err) {
 		case 0:
 			ret = VM_FAULT_RETRY;

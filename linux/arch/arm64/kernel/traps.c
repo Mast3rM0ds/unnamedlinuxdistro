@@ -41,7 +41,7 @@
 #include <asm/extable.h>
 #include <asm/insn.h>
 #include <asm/kprobes.h>
-#include <asm/patching.h>
+#include <asm/text-patching.h>
 #include <asm/traps.h>
 #include <asm/smp.h>
 #include <asm/stack_pointer.h>
@@ -149,19 +149,18 @@ pstate_check_t * const aarch32_opcode_cond_checks[16] = {
 
 int show_unhandled_signals = 0;
 
-static void dump_kernel_instr(const char *lvl, struct pt_regs *regs)
+void dump_kernel_instr(unsigned long kaddr)
 {
-	unsigned long addr = instruction_pointer(regs);
 	char str[sizeof("00000000 ") * 5 + 2 + 1], *p = str;
 	int i;
 
-	if (user_mode(regs))
+	if (!is_ttbr1_addr(kaddr))
 		return;
 
 	for (i = -4; i < 1; i++) {
 		unsigned int val, bad;
 
-		bad = aarch64_insn_read(&((u32 *)addr)[i], &val);
+		bad = aarch64_insn_read(&((u32 *)kaddr)[i], &val);
 
 		if (!bad)
 			p += sprintf(p, i == 0 ? "(%08x) " : "%08x ", val);
@@ -169,16 +168,8 @@ static void dump_kernel_instr(const char *lvl, struct pt_regs *regs)
 			p += sprintf(p, i == 0 ? "(????????) " : "???????? ");
 	}
 
-	printk("%sCode: %s\n", lvl, str);
+	printk(KERN_EMERG "Code: %s\n", str);
 }
-
-#ifdef CONFIG_PREEMPT
-#define S_PREEMPT " PREEMPT"
-#elif defined(CONFIG_PREEMPT_RT)
-#define S_PREEMPT " PREEMPT_RT"
-#else
-#define S_PREEMPT ""
-#endif
 
 #define S_SMP " SMP"
 
@@ -186,8 +177,9 @@ static int __die(const char *str, long err, struct pt_regs *regs)
 {
 	static int die_counter;
 	int ret;
+	unsigned long addr = instruction_pointer(regs);
 
-	pr_emerg("Internal error: %s: %016lx [#%d]" S_PREEMPT S_SMP "\n",
+	pr_emerg("Internal error: %s: %016lx [#%d] " S_SMP "\n",
 		 str, err, ++die_counter);
 
 	/* trap and error numbers are mostly meaningless on ARM */
@@ -198,7 +190,10 @@ static int __die(const char *str, long err, struct pt_regs *regs)
 	print_modules();
 	show_regs(regs);
 
-	dump_kernel_instr(KERN_EMERG, regs);
+	if (user_mode(regs))
+		return ret;
+
+	dump_kernel_instr(addr);
 
 	return ret;
 }
@@ -506,6 +501,16 @@ void do_el1_bti(struct pt_regs *regs, unsigned long esr)
 	die("Oops - BTI", regs, esr);
 }
 
+void do_el0_gcs(struct pt_regs *regs, unsigned long esr)
+{
+	force_signal_inject(SIGSEGV, SEGV_CPERR, regs->pc, 0);
+}
+
+void do_el1_gcs(struct pt_regs *regs, unsigned long esr)
+{
+	die("Oops - GCS", regs, esr);
+}
+
 void do_el0_fpac(struct pt_regs *regs, unsigned long esr)
 {
 	force_signal_inject(SIGILL, ILL_ILLOPN, regs->pc, esr);
@@ -529,6 +534,13 @@ void do_el0_mops(struct pt_regs *regs, unsigned long esr)
 	 * prologue instruction.
 	 */
 	user_fastforward_single_step(current);
+}
+
+void do_el1_mops(struct pt_regs *regs, unsigned long esr)
+{
+	arm64_mops_reset_regs(&regs->user_regs, esr);
+
+	kernel_fastforward_single_step(regs);
 }
 
 #define __user_cache_maint(insn, address, res)			\
@@ -852,6 +864,7 @@ static const char *esr_class_str[] = {
 	[ESR_ELx_EC_MOPS]		= "MOPS",
 	[ESR_ELx_EC_FP_EXC32]		= "FP (AArch32)",
 	[ESR_ELx_EC_FP_EXC64]		= "FP (AArch64)",
+	[ESR_ELx_EC_GCS]		= "Guarded Control Stack",
 	[ESR_ELx_EC_SERROR]		= "SError",
 	[ESR_ELx_EC_BREAKPT_LOW]	= "Breakpoint (lower EL)",
 	[ESR_ELx_EC_BREAKPT_CUR]	= "Breakpoint (current EL)",
@@ -884,8 +897,6 @@ void bad_el0_sync(struct pt_regs *regs, int reason, unsigned long esr)
 			      "Bad EL0 synchronous exception");
 }
 
-#ifdef CONFIG_VMAP_STACK
-
 DEFINE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)], overflow_stack)
 	__aligned(16);
 
@@ -911,13 +922,12 @@ void __noreturn panic_bad_stack(struct pt_regs *regs, unsigned long esr, unsigne
 	__show_regs(regs);
 
 	/*
-	 * We use nmi_panic to limit the potential for recusive overflows, and
+	 * We use nmi_panic to limit the potential for recursive overflows, and
 	 * to get a better stack trace.
 	 */
 	nmi_panic(NULL, "kernel stack overflow");
 	cpu_park_loop();
 }
-#endif
 
 void __noreturn arm64_serror_panic(struct pt_regs *regs, unsigned long esr)
 {
@@ -1008,7 +1018,7 @@ int bug_brk_handler(struct pt_regs *regs, unsigned long esr)
 	return DBG_HOOK_HANDLED;
 }
 
-#ifdef CONFIG_CFI_CLANG
+#ifdef CONFIG_CFI
 int cfi_brk_handler(struct pt_regs *regs, unsigned long esr)
 {
 	unsigned long target;
@@ -1032,7 +1042,7 @@ int cfi_brk_handler(struct pt_regs *regs, unsigned long esr)
 	arm64_skip_faulting_instruction(regs, AARCH64_INSN_SIZE);
 	return DBG_HOOK_HANDLED;
 }
-#endif /* CONFIG_CFI_CLANG */
+#endif /* CONFIG_CFI */
 
 int reserved_fault_brk_handler(struct pt_regs *regs, unsigned long esr)
 {
@@ -1087,7 +1097,7 @@ int kasan_brk_handler(struct pt_regs *regs, unsigned long esr)
 #ifdef CONFIG_UBSAN_TRAP
 int ubsan_brk_handler(struct pt_regs *regs, unsigned long esr)
 {
-	die(report_ubsan_failure(regs, esr & UBSAN_BRK_MASK), regs, esr);
+	die(report_ubsan_failure(esr & UBSAN_BRK_MASK), regs, esr);
 	return DBG_HOOK_HANDLED;
 }
 #endif

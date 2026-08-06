@@ -1,4 +1,4 @@
-savedcmd_arch/x86/kernel/ibt_selftest.o := gcc -Wp,-MMD,arch/x86/kernel/.ibt_selftest.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -D__KERNEL__ -fmacro-prefix-map=./= -Werror -D__ASSEMBLY__ -fno-PIE -m64    -DKBUILD_MODFILE='"arch/x86/kernel/ibt_selftest"' -DKBUILD_MODNAME='"ibt_selftest"' -D__KBUILD_MODNAME=kmod_ibt_selftest -c -o arch/x86/kernel/ibt_selftest.o arch/x86/kernel/ibt_selftest.S 
+savedcmd_arch/x86/kernel/ibt_selftest.o := gcc -Wp,-MMD,arch/x86/kernel/.ibt_selftest.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -D__KERNEL__ -Werror -D__ASSEMBLY__ -fno-PIE -m64 -Wa,--fatal-warnings    -DKBUILD_MODFILE='"arch/x86/kernel/ibt_selftest"' -DKBUILD_MODNAME='"ibt_selftest"' -D__KBUILD_MODNAME=ibt_selftest -c -o arch/x86/kernel/ibt_selftest.o arch/x86/kernel/ibt_selftest.S 
 
 source_arch/x86/kernel/ibt_selftest.o := arch/x86/kernel/ibt_selftest.S
 
@@ -22,13 +22,21 @@ deps_arch/x86/kernel/ibt_selftest.o := \
     $(wildcard include/config/LTO_CLANG) \
     $(wildcard include/config/HAVE_ARCH_COMPILER_H) \
     $(wildcard include/config/KCSAN) \
+    $(wildcard include/config/CC_HAS_ASSUME) \
     $(wildcard include/config/CC_HAS_COUNTED_BY) \
-    $(wildcard include/config/UBSAN_SIGNED_WRAP) \
+    $(wildcard include/config/FORTIFY_SOURCE) \
+    $(wildcard include/config/UBSAN_BOUNDS) \
+    $(wildcard include/config/CC_HAS_COUNTED_BY_PTR) \
+    $(wildcard include/config/CC_HAS_MULTIDIMENSIONAL_NONSTRING) \
+    $(wildcard include/config/CFI) \
+    $(wildcard include/config/ARCH_USES_CFI_GENERIC_LLVM_PASS) \
+    $(wildcard include/config/CC_HAS_BROKEN_COUNTED_BY_REF) \
     $(wildcard include/config/CC_HAS_ASM_INLINE) \
   include/linux/stringify.h \
   include/linux/export.h \
     $(wildcard include/config/MODVERSIONS) \
     $(wildcard include/config/64BIT) \
+    $(wildcard include/config/GENDWARFKSYMS) \
   include/linux/compiler.h \
     $(wildcard include/config/TRACE_BRANCH_PROFILING) \
     $(wildcard include/config/PROFILE_ALL_BRANCHES) \
@@ -65,9 +73,7 @@ deps_arch/x86/kernel/ibt_selftest.o := \
     $(wildcard include/config/MITIGATION_UNRET_ENTRY) \
     $(wildcard include/config/MITIGATION_SRSO) \
   include/linux/objtool_types.h \
-  arch/x86/include/asm/asm.h \
-    $(wildcard include/config/KPROBES) \
-  arch/x86/include/asm/extable_fixup_types.h \
+  include/linux/annotate.h \
   arch/x86/include/asm/nospec-branch.h \
     $(wildcard include/config/CALL_THUNKS_DEBUG) \
     $(wildcard include/config/MITIGATION_CALL_DEPTH_TRACKING) \
@@ -80,6 +86,11 @@ deps_arch/x86/kernel/ibt_selftest.o := \
     $(wildcard include/config/HAVE_ARCH_JUMP_LABEL_RELATIVE) \
   arch/x86/include/asm/jump_label.h \
     $(wildcard include/config/HAVE_JUMP_LABEL_HACK) \
+  arch/x86/include/asm/asm.h \
+    $(wildcard include/config/KPROBES) \
+  arch/x86/include/asm/asm-offsets.h \
+  include/generated/asm-offsets.h \
+  arch/x86/include/asm/extable_fixup_types.h \
   arch/x86/include/asm/nops.h \
   arch/x86/include/asm/alternative.h \
     $(wildcard include/config/SMP) \
@@ -87,51 +98,25 @@ deps_arch/x86/kernel/ibt_selftest.o := \
   arch/x86/include/asm/bug.h \
     $(wildcard include/config/GENERIC_BUG) \
     $(wildcard include/config/DEBUG_BUGVERBOSE) \
+    $(wildcard include/config/DEBUG_BUGVERBOSE_DETAILED) \
   include/linux/instrumentation.h \
   include/asm-generic/bug.h \
     $(wildcard include/config/BUG) \
     $(wildcard include/config/GENERIC_BUG_RELATIVE_POINTERS) \
   include/linux/once_lite.h \
   arch/x86/include/asm/cpufeatures.h \
-  arch/x86/include/asm/required-features.h \
-    $(wildcard include/config/X86_MINIMUM_CPU_FAMILY) \
-    $(wildcard include/config/MATH_EMULATION) \
-    $(wildcard include/config/X86_PAE) \
-    $(wildcard include/config/X86_CMPXCHG64) \
-    $(wildcard include/config/X86_CMOV) \
-    $(wildcard include/config/X86_P6_NOP) \
-    $(wildcard include/config/MATOM) \
-    $(wildcard include/config/PARAVIRT_XXL) \
-  arch/x86/include/asm/disabled-features.h \
-    $(wildcard include/config/X86_UMIP) \
-    $(wildcard include/config/X86_INTEL_MEMORY_PROTECTION_KEYS) \
-    $(wildcard include/config/X86_5LEVEL) \
-    $(wildcard include/config/MITIGATION_PAGE_TABLE_ISOLATION) \
-    $(wildcard include/config/ADDRESS_MASKING) \
-    $(wildcard include/config/INTEL_IOMMU_SVM) \
-    $(wildcard include/config/X86_SGX) \
-    $(wildcard include/config/XEN_PV) \
-    $(wildcard include/config/INTEL_TDX_GUEST) \
-    $(wildcard include/config/X86_USER_SHADOW_STACK) \
-    $(wildcard include/config/X86_FRED) \
-    $(wildcard include/config/KVM_AMD_SEV) \
   arch/x86/include/asm/msr-index.h \
   include/linux/bits.h \
-  include/linux/const.h \
+  include/vdso/bits.h \
   include/vdso/const.h \
   include/uapi/linux/const.h \
-  include/vdso/bits.h \
   include/uapi/linux/bits.h \
   arch/x86/include/asm/unwind_hints.h \
   arch/x86/include/asm/orc_types.h \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/X86_64_SMP) \
     $(wildcard include/config/CC_HAS_NAMED_AS) \
     $(wildcard include/config/USE_X86_SEG_SUPPORT) \
-  arch/x86/include/asm/current.h \
-  include/linux/build_bug.h \
-  arch/x86/include/asm/asm-offsets.h \
-  include/generated/asm-offsets.h \
+  arch/x86/include/uapi/asm/ptrace-abi.h \
 
 arch/x86/kernel/ibt_selftest.o: $(deps_arch/x86/kernel/ibt_selftest.o)
 

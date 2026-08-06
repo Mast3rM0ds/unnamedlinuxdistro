@@ -221,7 +221,7 @@ static struct rfcomm_dev *__rfcomm_dev_add(struct rfcomm_dev_req *req,
 	struct list_head *head = &rfcomm_dev_list;
 	int err = 0;
 
-	dev = kzalloc(sizeof(struct rfcomm_dev), GFP_KERNEL);
+	dev = kzalloc_obj(struct rfcomm_dev);
 	if (!dev)
 		return ERR_PTR(-ENOMEM);
 
@@ -510,7 +510,7 @@ static int rfcomm_get_dev_list(void __user *arg)
 	if (!dev_num || dev_num > (PAGE_SIZE * 4) / sizeof(*di))
 		return -EINVAL;
 
-	dl = kzalloc(struct_size(dl, dev_info, dev_num), GFP_KERNEL);
+	dl = kzalloc_flex(*dl, dev_info, dev_num);
 	if (!dl)
 		return -ENOMEM;
 
@@ -861,7 +861,7 @@ static void rfcomm_tty_set_termios(struct tty_struct *tty,
 
 	BT_DBG("tty %p termios %p", tty, old);
 
-	if (!dev || !dev->dlc || !dev->dlc->session)
+	if (!dev || !dev->dlc)
 		return;
 
 	/* Handle turning off CRTSCTS */
@@ -975,16 +975,15 @@ static void rfcomm_tty_set_termios(struct tty_struct *tty,
 		baud = RFCOMM_RPN_BR_230400;
 		break;
 	default:
-		/* 9600 is standard accordinag to the RFCOMM specification */
+		/* 9600 is standard according to the RFCOMM specification */
 		baud = RFCOMM_RPN_BR_9600;
 		break;
 
 	}
 
 	if (changes)
-		rfcomm_send_rpn(dev->dlc->session, 1, dev->dlc->dlci, baud,
-				data_bits, stop_bits, parity,
-				RFCOMM_RPN_FLOW_NONE, x_on, x_off, changes);
+		rfcomm_dlc_send_rpn(dev->dlc, baud, data_bits, stop_bits, parity,
+				    RFCOMM_RPN_FLOW_NONE, x_on, x_off, changes);
 }
 
 static void rfcomm_tty_throttle(struct tty_struct *tty)

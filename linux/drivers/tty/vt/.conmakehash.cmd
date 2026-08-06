@@ -1,4 +1,4 @@
-savedcmd_drivers/tty/vt/conmakehash := gcc -Wp,-MMD,drivers/tty/vt/.conmakehash.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu11   -I ./scripts/include     -o drivers/tty/vt/conmakehash drivers/tty/vt/conmakehash.c   
+savedcmd_drivers/tty/vt/conmakehash := gcc -Wp,-MMD,drivers/tty/vt/.conmakehash.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu11   -I ./scripts/include -Werror     -Wl,--fatal-warnings -o drivers/tty/vt/conmakehash drivers/tty/vt/conmakehash.c   
 
 source_drivers/tty/vt/conmakehash := drivers/tty/vt/conmakehash.c
 

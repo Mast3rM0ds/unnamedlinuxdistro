@@ -2796,10 +2796,6 @@ static int smu7_patch_dependency_tables_with_leakage(struct pp_hwmgr *hwmgr)
 	if (tmp)
 		return -EINVAL;
 
-	tmp = smu7_patch_vddc(hwmgr, hwmgr->dyn_state.vddc_dep_on_dal_pwrl);
-	if (tmp)
-		return -EINVAL;
-
 	tmp = smu7_patch_vddci(hwmgr, hwmgr->dyn_state.vddci_dependency_on_mclk);
 	if (tmp)
 		return -EINVAL;
@@ -2889,8 +2885,6 @@ static int smu7_set_private_data_based_on_pptable_v0(struct pp_hwmgr *hwmgr)
 
 static int smu7_hwmgr_backend_fini(struct pp_hwmgr *hwmgr)
 {
-	kfree(hwmgr->dyn_state.vddc_dep_on_dal_pwrl);
-	hwmgr->dyn_state.vddc_dep_on_dal_pwrl = NULL;
 	kfree(hwmgr->dyn_state.vddc_dependency_on_display_clock);
 	hwmgr->dyn_state.vddc_dependency_on_display_clock = NULL;
 	kfree(hwmgr->backend);
@@ -3033,7 +3027,7 @@ static int smu7_hwmgr_backend_init(struct pp_hwmgr *hwmgr)
 	struct smu7_hwmgr *data;
 	int result = 0;
 
-	data = kzalloc(sizeof(struct smu7_hwmgr), GFP_KERNEL);
+	data = kzalloc_obj(struct smu7_hwmgr);
 	if (data == NULL)
 		return -ENOMEM;
 
@@ -3067,12 +3061,6 @@ static int smu7_hwmgr_backend_init(struct pp_hwmgr *hwmgr)
 		smu7_patch_dependency_tables_with_leakage(hwmgr);
 		smu7_set_private_data_based_on_pptable_v0(hwmgr);
 	}
-
-	/* Initalize Dynamic State Adjustment Rule Settings */
-	result = phm_initializa_dynamic_state_adjustment_rule_settings(hwmgr);
-
-	if (result)
-		goto fail;
 
 	data->is_tlu_enabled = false;
 
@@ -4756,7 +4744,7 @@ static const struct amdgpu_irq_src_funcs smu7_irq_funcs = {
 static int smu7_register_irq_handlers(struct pp_hwmgr *hwmgr)
 {
 	struct amdgpu_irq_src *source =
-		kzalloc(sizeof(struct amdgpu_irq_src), GFP_KERNEL);
+		kzalloc_obj(struct amdgpu_irq_src);
 
 	if (!source)
 		return -ENOMEM;
@@ -5065,8 +5053,9 @@ static int smu7_force_clock_level(struct pp_hwmgr *hwmgr,
 	return 0;
 }
 
-static int smu7_print_clock_levels(struct pp_hwmgr *hwmgr,
-		enum pp_clock_type type, char *buf)
+static int smu7_emit_clock_levels(struct pp_hwmgr *hwmgr,
+				  enum pp_clock_type type, char *buf,
+				  int *offset)
 {
 	struct smu7_hwmgr *data = (struct smu7_hwmgr *)(hwmgr->backend);
 	struct smu7_single_dpm_table *sclk_table = &(data->dpm_table.sclk_table);
@@ -5075,7 +5064,7 @@ static int smu7_print_clock_levels(struct pp_hwmgr *hwmgr,
 	struct smu7_odn_dpm_table *odn_table = &(data->odn_dpm_table);
 	struct phm_odn_clock_levels *odn_sclk_table = &(odn_table->odn_core_clock_dpm_levels);
 	struct phm_odn_clock_levels *odn_mclk_table = &(odn_table->odn_memory_clock_dpm_levels);
-	int size = 0, ret = 0;
+	int size = *offset, ret = 0;
 	uint32_t i, now, clock, pcie_speed;
 
 	switch (type) {
@@ -5091,9 +5080,10 @@ static int smu7_print_clock_levels(struct pp_hwmgr *hwmgr,
 		now = i;
 
 		for (i = 0; i < sclk_table->count; i++)
-			size += sprintf(buf + size, "%d: %uMhz %s\n",
-					i, sclk_table->dpm_levels[i].value / 100,
-					(i == now) ? "*" : "");
+			size += sysfs_emit_at(buf, size, "%d: %uMhz %s\n", i,
+					      sclk_table->dpm_levels[i].value /
+						      100,
+					      (i == now) ? "*" : "");
 		break;
 	case PP_MCLK:
 		ret = smum_send_msg_to_smc(hwmgr, PPSMC_MSG_API_GetMclkFrequency, &clock);
@@ -5107,9 +5097,10 @@ static int smu7_print_clock_levels(struct pp_hwmgr *hwmgr,
 		now = i;
 
 		for (i = 0; i < mclk_table->count; i++)
-			size += sprintf(buf + size, "%d: %uMhz %s\n",
-					i, mclk_table->dpm_levels[i].value / 100,
-					(i == now) ? "*" : "");
+			size += sysfs_emit_at(buf, size, "%d: %uMhz %s\n", i,
+					      mclk_table->dpm_levels[i].value /
+						      100,
+					      (i == now) ? "*" : "");
 		break;
 	case PP_PCIE:
 		pcie_speed = smu7_get_current_pcie_speed(hwmgr);
@@ -5121,48 +5112,68 @@ static int smu7_print_clock_levels(struct pp_hwmgr *hwmgr,
 		now = i;
 
 		for (i = 0; i < pcie_table->count; i++)
-			size += sprintf(buf + size, "%d: %s %s\n", i,
-					(pcie_table->dpm_levels[i].value == 0) ? "2.5GT/s, x8" :
-					(pcie_table->dpm_levels[i].value == 1) ? "5.0GT/s, x16" :
-					(pcie_table->dpm_levels[i].value == 2) ? "8.0GT/s, x16" : "",
-					(i == now) ? "*" : "");
+			size += sysfs_emit_at(
+				buf, size, "%d: %s %s\n", i,
+				(pcie_table->dpm_levels[i].value == 0) ?
+					"2.5GT/s, x8" :
+				(pcie_table->dpm_levels[i].value == 1) ?
+					"5.0GT/s, x16" :
+				(pcie_table->dpm_levels[i].value == 2) ?
+					"8.0GT/s, x16" :
+					"",
+				(i == now) ? "*" : "");
 		break;
 	case OD_SCLK:
 		if (hwmgr->od_enabled) {
-			size += sprintf(buf + size, "%s:\n", "OD_SCLK");
+			size += sysfs_emit_at(buf, size, "%s:\n", "OD_SCLK");
 			for (i = 0; i < odn_sclk_table->num_of_pl; i++)
-				size += sprintf(buf + size, "%d: %10uMHz %10umV\n",
-					i, odn_sclk_table->entries[i].clock/100,
+				size += sysfs_emit_at(
+					buf, size, "%d: %10uMHz %10umV\n", i,
+					odn_sclk_table->entries[i].clock / 100,
 					odn_sclk_table->entries[i].vddc);
 		}
 		break;
 	case OD_MCLK:
 		if (hwmgr->od_enabled) {
-			size += sprintf(buf + size, "%s:\n", "OD_MCLK");
+			size += sysfs_emit_at(buf, size, "%s:\n", "OD_MCLK");
 			for (i = 0; i < odn_mclk_table->num_of_pl; i++)
-				size += sprintf(buf + size, "%d: %10uMHz %10umV\n",
-					i, odn_mclk_table->entries[i].clock/100,
+				size += sysfs_emit_at(
+					buf, size, "%d: %10uMHz %10umV\n", i,
+					odn_mclk_table->entries[i].clock / 100,
 					odn_mclk_table->entries[i].vddc);
 		}
 		break;
 	case OD_RANGE:
 		if (hwmgr->od_enabled) {
-			size += sprintf(buf + size, "%s:\n", "OD_RANGE");
-			size += sprintf(buf + size, "SCLK: %7uMHz %10uMHz\n",
-				data->golden_dpm_table.sclk_table.dpm_levels[0].value/100,
-				hwmgr->platform_descriptor.overdriveLimit.engineClock/100);
-			size += sprintf(buf + size, "MCLK: %7uMHz %10uMHz\n",
-				data->golden_dpm_table.mclk_table.dpm_levels[0].value/100,
-				hwmgr->platform_descriptor.overdriveLimit.memoryClock/100);
-			size += sprintf(buf + size, "VDDC: %7umV %11umV\n",
-				data->odn_dpm_table.min_vddc,
-				data->odn_dpm_table.max_vddc);
+			size += sysfs_emit_at(buf, size, "%s:\n", "OD_RANGE");
+			size += sysfs_emit_at(
+				buf, size, "SCLK: %7uMHz %10uMHz\n",
+				data->golden_dpm_table.sclk_table.dpm_levels[0]
+						.value /
+					100,
+				hwmgr->platform_descriptor.overdriveLimit
+						.engineClock /
+					100);
+			size += sysfs_emit_at(
+				buf, size, "MCLK: %7uMHz %10uMHz\n",
+				data->golden_dpm_table.mclk_table.dpm_levels[0]
+						.value /
+					100,
+				hwmgr->platform_descriptor.overdriveLimit
+						.memoryClock /
+					100);
+			size += sysfs_emit_at(buf, size, "VDDC: %7umV %11umV\n",
+					      data->odn_dpm_table.min_vddc,
+					      data->odn_dpm_table.max_vddc);
 		}
 		break;
 	default:
 		break;
 	}
-	return size;
+
+	*offset = size;
+
+	return 0;
 }
 
 static void smu7_set_fan_control_mode(struct pp_hwmgr *hwmgr, uint32_t mode)
@@ -5857,7 +5868,6 @@ static const struct pp_hwmgr_func smu7_hwmgr_funcs = {
 	.patch_boot_state = smu7_dpm_patch_boot_state,
 	.get_pp_table_entry = smu7_get_pp_table_entry,
 	.get_num_of_pp_table_entries = smu7_get_number_of_powerplay_table_entries,
-	.powerdown_uvd = smu7_powerdown_uvd,
 	.powergate_uvd = smu7_powergate_uvd,
 	.powergate_vce = smu7_powergate_vce,
 	.disable_clock_power_gating = smu7_disable_clock_power_gating,
@@ -5880,7 +5890,7 @@ static const struct pp_hwmgr_func smu7_hwmgr_funcs = {
 	.set_fan_control_mode = smu7_set_fan_control_mode,
 	.get_fan_control_mode = smu7_get_fan_control_mode,
 	.force_clock_level = smu7_force_clock_level,
-	.print_clock_levels = smu7_print_clock_levels,
+	.emit_clock_levels = smu7_emit_clock_levels,
 	.powergate_gfx = smu7_powergate_gfx,
 	.get_sclk_od = smu7_get_sclk_od,
 	.set_sclk_od = smu7_set_sclk_od,

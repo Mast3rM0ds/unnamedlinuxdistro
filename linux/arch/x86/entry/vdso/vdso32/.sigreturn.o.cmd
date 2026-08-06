@@ -1,14 +1,29 @@
-savedcmd_arch/x86/entry/vdso/vdso32/sigreturn.o := gcc -Wp,-MMD,arch/x86/entry/vdso/vdso32/.sigreturn.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -D__KERNEL__ -fmacro-prefix-map=./= -Werror -D__ASSEMBLY__ -fno-PIE -DBUILD_VDSO -m32    -DKBUILD_MODFILE='"arch/x86/entry/vdso/sigreturn"' -DKBUILD_MODNAME='"sigreturn"' -D__KBUILD_MODNAME=kmod_sigreturn -c -o arch/x86/entry/vdso/vdso32/sigreturn.o arch/x86/entry/vdso/vdso32/sigreturn.S 
+savedcmd_arch/x86/entry/vdso/vdso32/sigreturn.o := gcc -Wp,-MMD,arch/x86/entry/vdso/vdso32/.sigreturn.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -D__KERNEL__ -Werror -D__ASSEMBLY__ -Wa,--fatal-warnings -DBUILD_VDSO32 -m32 -mregparm=0 -include ./arch/x86/entry/vdso/vdso32/fake_32bit_build.h -D__DISABLE_EXPORTS -DDISABLE_BRANCH_PROFILING -DBUILD_VDSO -I./arch/x86/entry/vdso/vdso32/.. -I. -O2 -fpic -fno-stack-protector -fno-omit-frame-pointer -foptimize-sibling-calls -fasynchronous-unwind-tables -fcf-protection=none -mindirect-branch=thunk-inline -mindirect-branch-register    -DKBUILD_MODFILE='"arch/x86/entry/vdso/vdso32/sigreturn"' -DKBUILD_MODNAME='"sigreturn"' -D__KBUILD_MODNAME=sigreturn -c -o arch/x86/entry/vdso/vdso32/sigreturn.o arch/x86/entry/vdso/vdso32/sigreturn.S 
 
 source_arch/x86/entry/vdso/vdso32/sigreturn.o := arch/x86/entry/vdso/vdso32/sigreturn.S
 
 deps_arch/x86/entry/vdso/vdso32/sigreturn.o := \
+    $(wildcard include/config/AS_IS_GNU) \
+    $(wildcard include/config/AS_IS_LLVM) \
+    $(wildcard include/config/AS_VERSION) \
   include/linux/compiler-version.h \
     $(wildcard include/config/CC_VERSION_TEXT) \
   include/linux/kconfig.h \
     $(wildcard include/config/CPU_BIG_ENDIAN) \
     $(wildcard include/config/BOOGER) \
     $(wildcard include/config/FOO) \
+  arch/x86/entry/vdso/vdso32/fake_32bit_build.h \
+    $(wildcard include/config/X86_64) \
+    $(wildcard include/config/64BIT) \
+    $(wildcard include/config/COMPAT) \
+    $(wildcard include/config/PGTABLE_LEVELS) \
+    $(wildcard include/config/ILLEGAL_POINTER_VALUE) \
+    $(wildcard include/config/SPARSEMEM_VMEMMAP) \
+    $(wildcard include/config/HUGETLB_PAGE_OPTIMIZE_VMEMMAP) \
+    $(wildcard include/config/NR_CPUS) \
+    $(wildcard include/config/PARAVIRT_XXL) \
+    $(wildcard include/config/X86_32) \
+    $(wildcard include/config/PAGE_OFFSET) \
   include/linux/linkage.h \
     $(wildcard include/config/FUNCTION_ALIGNMENT) \
     $(wildcard include/config/ARCH_USE_SYM_ANNOTATIONS) \
@@ -16,19 +31,25 @@ deps_arch/x86/entry/vdso/vdso32/sigreturn.o := \
     $(wildcard include/config/DEBUG_INFO_BTF) \
     $(wildcard include/config/PAHOLE_HAS_BTF_TAG) \
     $(wildcard include/config/CC_HAS_SANE_FUNCTION_ALIGNMENT) \
-    $(wildcard include/config/X86_64) \
     $(wildcard include/config/ARM64) \
     $(wildcard include/config/LD_DEAD_CODE_DATA_ELIMINATION) \
     $(wildcard include/config/LTO_CLANG) \
     $(wildcard include/config/HAVE_ARCH_COMPILER_H) \
     $(wildcard include/config/KCSAN) \
+    $(wildcard include/config/CC_HAS_ASSUME) \
     $(wildcard include/config/CC_HAS_COUNTED_BY) \
-    $(wildcard include/config/UBSAN_SIGNED_WRAP) \
+    $(wildcard include/config/FORTIFY_SOURCE) \
+    $(wildcard include/config/UBSAN_BOUNDS) \
+    $(wildcard include/config/CC_HAS_COUNTED_BY_PTR) \
+    $(wildcard include/config/CC_HAS_MULTIDIMENSIONAL_NONSTRING) \
+    $(wildcard include/config/CFI) \
+    $(wildcard include/config/ARCH_USES_CFI_GENERIC_LLVM_PASS) \
+    $(wildcard include/config/CC_HAS_BROKEN_COUNTED_BY_REF) \
     $(wildcard include/config/CC_HAS_ASM_INLINE) \
   include/linux/stringify.h \
   include/linux/export.h \
     $(wildcard include/config/MODVERSIONS) \
-    $(wildcard include/config/64BIT) \
+    $(wildcard include/config/GENDWARFKSYMS) \
   include/linux/compiler.h \
     $(wildcard include/config/TRACE_BRANCH_PROFILING) \
     $(wildcard include/config/PROFILE_ALL_BRANCHES) \
@@ -36,7 +57,6 @@ deps_arch/x86/entry/vdso/vdso32/sigreturn.o := \
   arch/x86/include/generated/asm/rwonce.h \
   include/asm-generic/rwonce.h \
   arch/x86/include/asm/linkage.h \
-    $(wildcard include/config/X86_32) \
     $(wildcard include/config/CALL_PADDING) \
     $(wildcard include/config/MITIGATION_RETHUNK) \
     $(wildcard include/config/MITIGATION_RETPOLINE) \
@@ -60,6 +80,7 @@ deps_arch/x86/entry/vdso/vdso32/sigreturn.o := \
   include/asm-generic/bitsperlong.h \
   include/uapi/asm-generic/bitsperlong.h \
   arch/x86/include/generated/uapi/asm/unistd_32.h \
+  arch/x86/include/asm/dwarf2.h \
   arch/x86/include/asm/asm-offsets.h \
   include/generated/asm-offsets.h \
 

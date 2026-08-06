@@ -1,4 +1,4 @@
-savedcmd_drivers/firmware/efi/libstub/skip_spaces.o := gcc -Wp,-MMD,drivers/firmware/efi/libstub/.skip_spaces.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -fmacro-prefix-map=./= -Werror -mcmodel=small -m64 -D__KERNEL__ -std=gnu11 -fPIC -fno-strict-aliasing -mno-red-zone -mno-mmx -mno-sse -fshort-wchar -Wno-pointer-sign -Wno-address-of-packed-member -fno-asynchronous-unwind-tables -Os -DDISABLE_BRANCH_PROFILING -include ./include/linux/hidden.h -D__NO_FORTIFY -ffreestanding -fno-stack-protector -D__DISABLE_EXPORTS    -DKBUILD_MODFILE='"drivers/firmware/efi/libstub/skip_spaces"' -DKBUILD_BASENAME='"skip_spaces"' -DKBUILD_MODNAME='"skip_spaces"' -D__KBUILD_MODNAME=kmod_skip_spaces -c -o drivers/firmware/efi/libstub/skip_spaces.o drivers/firmware/efi/libstub/skip_spaces.c  
+savedcmd_drivers/firmware/efi/libstub/skip_spaces.o := gcc -Wp,-MMD,drivers/firmware/efi/libstub/.skip_spaces.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -Werror -mcmodel=small -m64 -D__KERNEL__ -std=gnu11 -fms-extensions -fPIC -fno-strict-aliasing -mno-red-zone -mno-mmx -mno-sse -fshort-wchar -Wno-pointer-sign -Wno-address-of-packed-member -fno-asynchronous-unwind-tables -Os -DDISABLE_BRANCH_PROFILING -include ./include/linux/hidden.h -D__NO_FORTIFY -ffreestanding -fno-stack-protector -D__DISABLE_EXPORTS    -DKBUILD_MODFILE='"drivers/firmware/efi/libstub/skip_spaces"' -DKBUILD_BASENAME='"skip_spaces"' -DKBUILD_MODNAME='"skip_spaces"' -D__KBUILD_MODNAME=skip_spaces -c -o drivers/firmware/efi/libstub/skip_spaces.o drivers/firmware/efi/libstub/skip_spaces.c  
 
 source_drivers/firmware/efi/libstub/skip_spaces.o := drivers/firmware/efi/libstub/skip_spaces.c
 
@@ -20,22 +20,29 @@ deps_drivers/firmware/efi/libstub/skip_spaces.o := \
     $(wildcard include/config/LTO_CLANG) \
     $(wildcard include/config/HAVE_ARCH_COMPILER_H) \
     $(wildcard include/config/KCSAN) \
+    $(wildcard include/config/CC_HAS_ASSUME) \
     $(wildcard include/config/CC_HAS_COUNTED_BY) \
-    $(wildcard include/config/UBSAN_SIGNED_WRAP) \
+    $(wildcard include/config/FORTIFY_SOURCE) \
+    $(wildcard include/config/UBSAN_BOUNDS) \
+    $(wildcard include/config/CC_HAS_COUNTED_BY_PTR) \
+    $(wildcard include/config/CC_HAS_MULTIDIMENSIONAL_NONSTRING) \
+    $(wildcard include/config/CFI) \
+    $(wildcard include/config/ARCH_USES_CFI_GENERIC_LLVM_PASS) \
+    $(wildcard include/config/CC_HAS_BROKEN_COUNTED_BY_REF) \
     $(wildcard include/config/CC_HAS_ASM_INLINE) \
+  include/linux/compiler-context-analysis.h \
   include/linux/compiler_attributes.h \
   include/linux/compiler-gcc.h \
-    $(wildcard include/config/MITIGATION_RETPOLINE) \
     $(wildcard include/config/ARCH_USE_BUILTIN_BSWAP) \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
+    $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
   include/linux/hidden.h \
   include/linux/ctype.h \
   include/linux/compiler.h \
     $(wildcard include/config/TRACE_BRANCH_PROFILING) \
     $(wildcard include/config/PROFILE_ALL_BRANCHES) \
     $(wildcard include/config/OBJTOOL) \
-    $(wildcard include/config/64BIT) \
   arch/x86/include/generated/asm/rwonce.h \
   include/asm-generic/rwonce.h \
   include/linux/kasan-checks.h \
@@ -46,6 +53,7 @@ deps_drivers/firmware/efi/libstub/skip_spaces.o := \
     $(wildcard include/config/UID16) \
     $(wildcard include/config/ARCH_DMA_ADDR_T_64BIT) \
     $(wildcard include/config/PHYS_ADDR_T_64BIT) \
+    $(wildcard include/config/64BIT) \
     $(wildcard include/config/ARCH_32BIT_USTAT_F_TINODE) \
   include/uapi/linux/types.h \
   arch/x86/include/generated/uapi/asm/types.h \
@@ -67,9 +75,9 @@ deps_drivers/firmware/efi/libstub/skip_spaces.o := \
     $(wildcard include/config/KCSAN_IGNORE_ATOMICS) \
   include/linux/string.h \
     $(wildcard include/config/BINARY_PRINTF) \
-    $(wildcard include/config/FORTIFY_SOURCE) \
   include/linux/args.h \
   include/linux/array_size.h \
+  include/linux/cleanup.h \
   include/linux/err.h \
   arch/x86/include/generated/uapi/asm/errno.h \
   include/uapi/asm-generic/errno.h \
@@ -96,7 +104,11 @@ deps_drivers/firmware/efi/libstub/skip_spaces.o := \
     $(wildcard include/config/HAVE_JUMP_LABEL_HACK) \
   arch/x86/include/asm/asm.h \
     $(wildcard include/config/KPROBES) \
+  include/linux/annotate.h \
+  include/linux/objtool_types.h \
   include/linux/stringify.h \
+  arch/x86/include/asm/asm-offsets.h \
+  include/generated/asm-offsets.h \
   arch/x86/include/asm/extable_fixup_types.h \
   arch/x86/include/asm/nops.h \
 

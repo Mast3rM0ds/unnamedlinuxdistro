@@ -1,4 +1,4 @@
-savedcmd_certs/extract-cert := gcc -Wp,-MMD,certs/.extract-cert.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu11   -I ./scripts/include   -I./scripts   -o certs/extract-cert certs/extract-cert.c   -lcrypto
+savedcmd_certs/extract-cert := gcc -Wp,-MMD,certs/.extract-cert.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu11   -I ./scripts/include -Werror   -I./scripts   -Wl,--fatal-warnings -o certs/extract-cert certs/extract-cert.c   -lcrypto
 
 source_certs/extract-cert := certs/extract-cert.c
 

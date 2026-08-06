@@ -1,0 +1,1 @@
+savedcmd_drivers/platform/wmi/built-in.a := rm -f drivers/platform/wmi/built-in.a;  printf "drivers/platform/wmi/%s " core.o marshalling.o string.o tests/built-in.a | xargs ar cDPrST drivers/platform/wmi/built-in.a

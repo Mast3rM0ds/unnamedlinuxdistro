@@ -1025,7 +1025,7 @@ hfsc_change_class(struct Qdisc *sch, u32 classid, u32 parentid,
 	if (rsc == NULL && fsc == NULL)
 		return -EINVAL;
 
-	cl = kzalloc(sizeof(struct hfsc_class), GFP_KERNEL);
+	cl = kzalloc_obj(struct hfsc_class);
 	if (cl == NULL)
 		return -ENOBUFS;
 
@@ -1143,7 +1143,7 @@ hfsc_classify(struct sk_buff *skb, struct Qdisc *sch, int *qerr)
 	*qerr = NET_XMIT_SUCCESS | __NET_XMIT_BYPASS;
 	head = &q->root;
 	tcf = rcu_dereference_bh(q->root.filter_list);
-	while (tcf && (result = tcf_classify(skb, NULL, tcf, &res, false)) >= 0) {
+	while (tcf && (result = tcf_classify_qdisc(skb, tcf, &res, false)) >= 0) {
 #ifdef CONFIG_NET_CLS_ACT
 		switch (result) {
 		case TC_ACT_QUEUED:
@@ -1561,7 +1561,7 @@ hfsc_enqueue(struct sk_buff *skb, struct Qdisc *sch, struct sk_buff **to_free)
 	}
 
 	sch->qstats.backlog += len;
-	sch->q.qlen++;
+	qdisc_qlen_inc(sch);
 
 	if (first && !cl_in_el_or_vttree(cl)) {
 		if (cl->cl_flags & HFSC_RSC)
@@ -1650,7 +1650,7 @@ hfsc_dequeue(struct Qdisc *sch)
 
 	qdisc_bstats_update(sch, skb);
 	qdisc_qstats_backlog_dec(sch, skb);
-	sch->q.qlen--;
+	qdisc_qlen_dec(sch);
 
 	return skb;
 }

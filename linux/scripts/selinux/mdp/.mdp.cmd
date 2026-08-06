@@ -1,4 +1,4 @@
-savedcmd_scripts/selinux/mdp/mdp := gcc -Wp,-MMD,scripts/selinux/mdp/.mdp.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu11   -I ./scripts/include -I./include/uapi -I./include -I./security/selinux/include -I./include    -o scripts/selinux/mdp/mdp scripts/selinux/mdp/mdp.c   
+savedcmd_scripts/selinux/mdp/mdp := gcc -Wp,-MMD,scripts/selinux/mdp/.mdp.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu11   -I ./scripts/include -Werror -I./include -I./security/selinux/include -I./include    -Wl,--fatal-warnings -o scripts/selinux/mdp/mdp scripts/selinux/mdp/mdp.c   
 
 source_scripts/selinux/mdp/mdp := scripts/selinux/mdp/mdp.c
 
@@ -7,7 +7,6 @@ deps_scripts/selinux/mdp/mdp := \
     $(wildcard include/config/EXT4_FS_SECURITY) \
     $(wildcard include/config/EXT4_USE_FOR_EXT2) \
     $(wildcard include/config/JFS_SECURITY) \
-    $(wildcard include/config/REISERFS_FS_SECURITY) \
     $(wildcard include/config/JFFS2_FS_SECURITY) \
     $(wildcard include/config/XFS_FS) \
     $(wildcard include/config/GFS2_FS) \
@@ -32,25 +31,6 @@ deps_scripts/selinux/mdp/mdp := \
     $(wildcard include/config/BOOGER) \
     $(wildcard include/config/FOO) \
   security/selinux/include/classmap.h \
-  include/uapi/linux/capability.h \
-  include/uapi/linux/types.h \
-  include/uapi/linux/posix_types.h \
-  include/uapi/linux/stddef.h \
-  include/linux/compiler_types.h \
-    $(wildcard include/config/DEBUG_INFO_BTF) \
-    $(wildcard include/config/PAHOLE_HAS_BTF_TAG) \
-    $(wildcard include/config/FUNCTION_ALIGNMENT) \
-    $(wildcard include/config/CC_HAS_SANE_FUNCTION_ALIGNMENT) \
-    $(wildcard include/config/X86_64) \
-    $(wildcard include/config/ARM64) \
-    $(wildcard include/config/LD_DEAD_CODE_DATA_ELIMINATION) \
-    $(wildcard include/config/LTO_CLANG) \
-    $(wildcard include/config/HAVE_ARCH_COMPILER_H) \
-    $(wildcard include/config/KCSAN) \
-    $(wildcard include/config/CC_HAS_COUNTED_BY) \
-    $(wildcard include/config/UBSAN_SIGNED_WRAP) \
-    $(wildcard include/config/CC_HAS_ASM_INLINE) \
-  include/uapi/linux/socket.h \
   security/selinux/include/initial_sid_to_string.h \
   security/selinux/include/policycap_names.h \
   security/selinux/include/policycap.h \

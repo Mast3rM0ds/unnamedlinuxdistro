@@ -86,5 +86,11 @@ static inline ssize_t sized_strscpy(char *dest, const char *src, size_t count)
 #define sys_gettid() syscall(SYS_gettid)
 #endif
 
+/* and poison usage to ensure it does not creep back in. */
+#pragma GCC poison gettid
+
+#ifndef ENOTSUPP
+#define ENOTSUPP 524
+#endif
 
 #endif /* __BPF_UTIL__ */

@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: GPL-2.0
 
 #include <linux/blkdev.h>
+#include <linux/fscrypt.h>
 #include <linux/iversion.h>
 #include "ctree.h"
 #include "fs.h"
@@ -23,7 +24,7 @@ static int clone_finish_inode_update(struct btrfs_trans_handle *trans,
 				     u64 endoff,
 				     const u64 destoff,
 				     const u64 olen,
-				     int no_time_update)
+				     bool no_time_update)
 {
 	int ret;
 
@@ -43,14 +44,12 @@ static int clone_finish_inode_update(struct btrfs_trans_handle *trans,
 	}
 
 	ret = btrfs_update_inode(trans, BTRFS_I(inode));
-	if (ret) {
+	if (unlikely(ret)) {
 		btrfs_abort_transaction(trans, ret);
 		btrfs_end_transaction(trans);
-		goto out;
+		return ret;
 	}
-	ret = btrfs_end_transaction(trans);
-out:
-	return ret;
+	return btrfs_end_transaction(trans);
 }
 
 static int copy_inline_to_page(struct btrfs_inode *inode,
@@ -87,7 +86,7 @@ static int copy_inline_to_page(struct btrfs_inode *inode,
 					FGP_LOCK | FGP_ACCESSED | FGP_CREAT,
 					btrfs_alloc_write_mask(mapping));
 	if (IS_ERR(folio)) {
-		ret = -ENOMEM;
+		ret = PTR_ERR(folio);
 		goto out_unlock;
 	}
 
@@ -270,11 +269,15 @@ copy_inline_extent:
 	drop_args.end = aligned_end;
 	drop_args.drop_cache = true;
 	ret = btrfs_drop_extents(trans, root, inode, &drop_args);
-	if (ret)
+	if (unlikely(ret)) {
+		btrfs_abort_transaction(trans, ret);
 		goto out;
+	}
 	ret = btrfs_insert_empty_item(trans, root, path, new_key, size);
-	if (ret)
+	if (unlikely(ret)) {
+		btrfs_abort_transaction(trans, ret);
 		goto out;
+	}
 
 	write_extent_buffer(path->nodes[0], inline_data,
 			    btrfs_item_ptr_offset(path->nodes[0],
@@ -283,6 +286,8 @@ copy_inline_extent:
 	btrfs_update_inode_bytes(inode, datal, drop_args.bytes_found);
 	btrfs_set_inode_full_sync(inode);
 	ret = btrfs_inode_set_file_extent_range(inode, 0, aligned_end);
+	if (unlikely(ret))
+		btrfs_abort_transaction(trans, ret);
 out:
 	if (!ret && !trans) {
 		if (copied_inline_to_page &&
@@ -351,10 +356,8 @@ out:
 			trans = NULL;
 		}
 	}
-	if (ret && trans) {
-		btrfs_abort_transaction(trans, ret);
+	if (ret && trans)
 		btrfs_end_transaction(trans);
-	}
 	if (!ret)
 		*trans_out = trans;
 
@@ -391,13 +394,13 @@ copy_to_page:
  */
 static int btrfs_clone(struct inode *src, struct inode *inode,
 		       const u64 off, const u64 olen, const u64 olen_aligned,
-		       const u64 destoff, int no_time_update)
+		       const u64 destoff, bool no_time_update)
 {
 	struct btrfs_fs_info *fs_info = inode_to_fs_info(inode);
-	struct btrfs_path *path = NULL;
+	BTRFS_PATH_AUTO_FREE(path);
 	struct extent_buffer *leaf;
 	struct btrfs_trans_handle *trans;
-	char *buf = NULL;
+	char AUTO_KVFREE(buf);
 	struct btrfs_key key;
 	u32 nritems;
 	int slot;
@@ -412,10 +415,8 @@ static int btrfs_clone(struct inode *src, struct inode *inode,
 		return ret;
 
 	path = btrfs_alloc_path();
-	if (!path) {
-		kvfree(buf);
+	if (!path)
 		return ret;
-	}
 
 	path->reada = READA_FORWARD;
 	/* Clone data */
@@ -665,33 +666,31 @@ process_slot:
 	}
 
 out:
-	btrfs_free_path(path);
-	kvfree(buf);
 	clear_bit(BTRFS_INODE_NO_DELALLOC_FLUSH, &BTRFS_I(inode)->runtime_flags);
 
 	return ret;
 }
 
-static void btrfs_double_mmap_lock(struct inode *inode1, struct inode *inode2)
+static void btrfs_double_mmap_lock(struct btrfs_inode *inode1, struct btrfs_inode *inode2)
 {
 	if (inode1 < inode2)
 		swap(inode1, inode2);
-	down_write(&BTRFS_I(inode1)->i_mmap_lock);
-	down_write_nested(&BTRFS_I(inode2)->i_mmap_lock, SINGLE_DEPTH_NESTING);
+	down_write(&inode1->i_mmap_lock);
+	down_write_nested(&inode2->i_mmap_lock, SINGLE_DEPTH_NESTING);
 }
 
-static void btrfs_double_mmap_unlock(struct inode *inode1, struct inode *inode2)
+static void btrfs_double_mmap_unlock(struct btrfs_inode *inode1, struct btrfs_inode *inode2)
 {
-	up_write(&BTRFS_I(inode1)->i_mmap_lock);
-	up_write(&BTRFS_I(inode2)->i_mmap_lock);
+	up_write(&inode1->i_mmap_lock);
+	up_write(&inode2->i_mmap_lock);
 }
 
-static int btrfs_extent_same_range(struct inode *src, u64 loff, u64 len,
-				   struct inode *dst, u64 dst_loff)
+static int btrfs_extent_same_range(struct btrfs_inode *src, u64 loff, u64 len,
+				   struct btrfs_inode *dst, u64 dst_loff)
 {
 	const u64 end = dst_loff + len - 1;
 	struct extent_state *cached_state = NULL;
-	struct btrfs_fs_info *fs_info = BTRFS_I(src)->root->fs_info;
+	struct btrfs_fs_info *fs_info = src->root->fs_info;
 	const u64 bs = fs_info->sectorsize;
 	int ret;
 
@@ -701,9 +700,10 @@ static int btrfs_extent_same_range(struct inode *src, u64 loff, u64 len,
 	 * because we have already locked the inode's i_mmap_lock in exclusive
 	 * mode.
 	 */
-	lock_extent(&BTRFS_I(dst)->io_tree, dst_loff, end, &cached_state);
-	ret = btrfs_clone(src, dst, loff, len, ALIGN(len, bs), dst_loff, 1);
-	unlock_extent(&BTRFS_I(dst)->io_tree, dst_loff, end, &cached_state);
+	btrfs_lock_extent(&dst->io_tree, dst_loff, end, &cached_state);
+	ret = btrfs_clone(&src->vfs_inode, &dst->vfs_inode, loff, len,
+			  ALIGN(len, bs), dst_loff, true);
+	btrfs_unlock_extent(&dst->io_tree, dst_loff, end, &cached_state);
 
 	btrfs_btree_balance_dirty(fs_info);
 
@@ -733,8 +733,8 @@ static int btrfs_extent_same(struct inode *src, u64 loff, u64 olen,
 	chunk_count = div_u64(olen, BTRFS_MAX_DEDUPE_LEN);
 
 	for (i = 0; i < chunk_count; i++) {
-		ret = btrfs_extent_same_range(src, loff, BTRFS_MAX_DEDUPE_LEN,
-					      dst, dst_loff);
+		ret = btrfs_extent_same_range(BTRFS_I(src), loff, BTRFS_MAX_DEDUPE_LEN,
+					      BTRFS_I(dst), dst_loff);
 		if (ret)
 			goto out;
 
@@ -743,7 +743,8 @@ static int btrfs_extent_same(struct inode *src, u64 loff, u64 olen,
 	}
 
 	if (tail_len > 0)
-		ret = btrfs_extent_same_range(src, loff, tail_len, dst, dst_loff);
+		ret = btrfs_extent_same_range(BTRFS_I(src), loff, tail_len,
+					      BTRFS_I(dst), dst_loff);
 out:
 	spin_lock(&root_dst->root_item_lock);
 	root_dst->dedupe_in_progress--;
@@ -760,7 +761,6 @@ static noinline int btrfs_clone_files(struct file *file, struct file *file_src,
 	struct inode *src = file_inode(file_src);
 	struct btrfs_fs_info *fs_info = inode_to_fs_info(inode);
 	int ret;
-	int wb_ret;
 	u64 len = olen;
 	u64 bs = fs_info->sectorsize;
 	u64 end;
@@ -802,52 +802,65 @@ static noinline int btrfs_clone_files(struct file *file, struct file *file_src,
 	 * mode.
 	 */
 	end = destoff + len - 1;
-	lock_extent(&BTRFS_I(inode)->io_tree, destoff, end, &cached_state);
-	ret = btrfs_clone(src, inode, off, olen, len, destoff, 0);
-	unlock_extent(&BTRFS_I(inode)->io_tree, destoff, end, &cached_state);
+	btrfs_lock_extent(&BTRFS_I(inode)->io_tree, destoff, end, &cached_state);
+	ret = btrfs_clone(src, inode, off, olen, len, destoff, false);
+	btrfs_unlock_extent(&BTRFS_I(inode)->io_tree, destoff, end, &cached_state);
+	if (ret < 0)
+		return ret;
 
 	/*
 	 * We may have copied an inline extent into a page of the destination
-	 * range, so wait for writeback to complete before truncating pages
-	 * from the page cache. This is a rare case.
+	 * range. So flush delalloc and wait for ordered extent completion.
+	 * This is to ensure the invalidation below does not fail, as if for
+	 * example it finds a dirty folio, our folio release callback
+	 * (btrfs_release_folio()) returns false, which makes the invalidation
+	 * return an -EBUSY error. We can't ignore such failures since they
+	 * could come from some range other than the copied inline extent's
+	 * destination range and we have no way to know that.
 	 */
-	wb_ret = btrfs_wait_ordered_range(BTRFS_I(inode), destoff, len);
-	ret = ret ? ret : wb_ret;
+	ret = btrfs_wait_ordered_range(BTRFS_I(inode), destoff, len);
+	if (ret < 0)
+		return ret;
+
 	/*
-	 * Truncate page cache pages so that future reads will see the cloned
-	 * data immediately and not the previous data.
+	 * Invalidate page cache so that future reads will see the cloned data
+	 * immediately and not the previous data.
 	 */
-	truncate_inode_pages_range(&inode->i_data,
-				round_down(destoff, PAGE_SIZE),
-				round_up(destoff + len, PAGE_SIZE) - 1);
+	ret = filemap_invalidate_inode(inode, false, destoff, end);
+	if (ret < 0)
+		return ret;
 
 	btrfs_btree_balance_dirty(fs_info);
 
-	return ret;
+	return 0;
 }
 
 static int btrfs_remap_file_range_prep(struct file *file_in, loff_t pos_in,
 				       struct file *file_out, loff_t pos_out,
 				       loff_t *len, unsigned int remap_flags)
 {
-	struct inode *inode_in = file_inode(file_in);
-	struct inode *inode_out = file_inode(file_out);
-	u64 bs = BTRFS_I(inode_out)->root->fs_info->sectorsize;
+	struct btrfs_inode *inode_in = BTRFS_I(file_inode(file_in));
+	struct btrfs_inode *inode_out = BTRFS_I(file_inode(file_out));
+	u64 bs = inode_out->root->fs_info->sectorsize;
 	u64 wb_len;
 	int ret;
 
 	if (!(remap_flags & REMAP_FILE_DEDUP)) {
-		struct btrfs_root *root_out = BTRFS_I(inode_out)->root;
+		struct btrfs_root *root_out = inode_out->root;
 
 		if (btrfs_root_readonly(root_out))
 			return -EROFS;
 
-		ASSERT(inode_in->i_sb == inode_out->i_sb);
+		ASSERT(inode_in->vfs_inode.i_sb == inode_out->vfs_inode.i_sb);
 	}
 
+	/* Can only reflink encrypted files if both files are encrypted. */
+	if (IS_ENCRYPTED(&inode_in->vfs_inode) != IS_ENCRYPTED(&inode_out->vfs_inode))
+		return -EINVAL;
+
 	/* Don't make the dst file partly checksummed */
-	if ((BTRFS_I(inode_in)->flags & BTRFS_INODE_NODATASUM) !=
-	    (BTRFS_I(inode_out)->flags & BTRFS_INODE_NODATASUM)) {
+	if ((inode_in->flags & BTRFS_INODE_NODATASUM) !=
+	    (inode_out->flags & BTRFS_INODE_NODATASUM)) {
 		return -EINVAL;
 	}
 
@@ -866,7 +879,7 @@ static int btrfs_remap_file_range_prep(struct file *file_in, loff_t pos_in,
 	 *    to complete so that new file extent items are in the fs tree.
 	 */
 	if (*len == 0 && !(remap_flags & REMAP_FILE_DEDUP))
-		wb_len = ALIGN(inode_in->i_size, bs) - ALIGN_DOWN(pos_in, bs);
+		wb_len = ALIGN(inode_in->vfs_inode.i_size, bs) - ALIGN_DOWN(pos_in, bs);
 	else
 		wb_len = ALIGN(*len, bs);
 
@@ -887,16 +900,14 @@ static int btrfs_remap_file_range_prep(struct file *file_in, loff_t pos_in,
 	 * Also we don't need to check ASYNC_EXTENT, as async extent will be
 	 * CoWed anyway, not affecting nocow part.
 	 */
-	ret = filemap_flush(inode_in->i_mapping);
+	ret = filemap_flush(inode_in->vfs_inode.i_mapping);
 	if (ret < 0)
 		return ret;
 
-	ret = btrfs_wait_ordered_range(BTRFS_I(inode_in), ALIGN_DOWN(pos_in, bs),
-				       wb_len);
+	ret = btrfs_wait_ordered_range(inode_in, ALIGN_DOWN(pos_in, bs), wb_len);
 	if (ret < 0)
 		return ret;
-	ret = btrfs_wait_ordered_range(BTRFS_I(inode_out), ALIGN_DOWN(pos_out, bs),
-				       wb_len);
+	ret = btrfs_wait_ordered_range(inode_out, ALIGN_DOWN(pos_out, bs), wb_len);
 	if (ret < 0)
 		return ret;
 
@@ -918,18 +929,21 @@ loff_t btrfs_remap_file_range(struct file *src_file, loff_t off,
 		struct file *dst_file, loff_t destoff, loff_t len,
 		unsigned int remap_flags)
 {
-	struct inode *src_inode = file_inode(src_file);
-	struct inode *dst_inode = file_inode(dst_file);
+	struct btrfs_inode *src_inode = BTRFS_I(file_inode(src_file));
+	struct btrfs_inode *dst_inode = BTRFS_I(file_inode(dst_file));
 	bool same_inode = dst_inode == src_inode;
 	int ret;
+
+	if (btrfs_is_shutdown(inode_to_fs_info(file_inode(src_file))))
+		return -EIO;
 
 	if (remap_flags & ~(REMAP_FILE_DEDUP | REMAP_FILE_ADVISORY))
 		return -EINVAL;
 
 	if (same_inode) {
-		btrfs_inode_lock(BTRFS_I(src_inode), BTRFS_ILOCK_MMAP);
+		btrfs_inode_lock(src_inode, BTRFS_ILOCK_MMAP);
 	} else {
-		lock_two_nondirectories(src_inode, dst_inode);
+		lock_two_nondirectories(&src_inode->vfs_inode, &dst_inode->vfs_inode);
 		btrfs_double_mmap_lock(src_inode, dst_inode);
 	}
 
@@ -939,16 +953,18 @@ loff_t btrfs_remap_file_range(struct file *src_file, loff_t off,
 		goto out_unlock;
 
 	if (remap_flags & REMAP_FILE_DEDUP)
-		ret = btrfs_extent_same(src_inode, off, len, dst_inode, destoff);
+		ret = btrfs_extent_same(&src_inode->vfs_inode, off, len,
+					&dst_inode->vfs_inode, destoff);
 	else
 		ret = btrfs_clone_files(dst_file, src_file, off, len, destoff);
 
 out_unlock:
 	if (same_inode) {
-		btrfs_inode_unlock(BTRFS_I(src_inode), BTRFS_ILOCK_MMAP);
+		btrfs_inode_unlock(src_inode, BTRFS_ILOCK_MMAP);
 	} else {
 		btrfs_double_mmap_unlock(src_inode, dst_inode);
-		unlock_two_nondirectories(src_inode, dst_inode);
+		unlock_two_nondirectories(&src_inode->vfs_inode,
+					  &dst_inode->vfs_inode);
 	}
 
 	/*

@@ -55,6 +55,8 @@ static unsigned char *pep_get_sb(struct sk_buff *skb, u8 *ptype, u8 *plen,
 	ph = skb_header_pointer(skb, 0, 2, &h);
 	if (ph == NULL || ph->sb_len < 2 || !pskb_may_pull(skb, ph->sb_len))
 		return NULL;
+	/* pskb_may_pull() may have reallocated the head; refetch ph. */
+	ph = skb_header_pointer(skb, 0, 2, &h);
 	ph->sb_len -= 2;
 	*ptype = ph->sb_type;
 	*plen = ph->sb_len;
@@ -376,7 +378,7 @@ static int pipe_do_rcv(struct sock *sk, struct sk_buff *skb)
 
 	case PNS_PEP_CTRL_REQ:
 		if (skb_queue_len(&pn->ctrlreq_queue) >= PNPIPE_CTRLREQ_MAX) {
-			atomic_inc(&sk->sk_drops);
+			sk_drops_inc(sk);
 			break;
 		}
 		__skb_pull(skb, 4);
@@ -397,7 +399,7 @@ static int pipe_do_rcv(struct sock *sk, struct sk_buff *skb)
 		}
 
 		if (pn->rx_credits == 0) {
-			atomic_inc(&sk->sk_drops);
+			sk_drops_inc(sk);
 			err = -ENOBUFS;
 			break;
 		}
@@ -567,7 +569,7 @@ static int pipe_handler_do_rcv(struct sock *sk, struct sk_buff *skb)
 		}
 
 		if (pn->rx_credits == 0) {
-			atomic_inc(&sk->sk_drops);
+			sk_drops_inc(sk);
 			err = NET_RX_DROP;
 			break;
 		}
@@ -897,7 +899,8 @@ drop:
 	return newsk;
 }
 
-static int pep_sock_connect(struct sock *sk, struct sockaddr *addr, int len)
+static int pep_sock_connect(struct sock *sk, struct sockaddr_unsized *addr,
+			    int len)
 {
 	struct pep_sock *pn = pep_sk(sk);
 	int err;
@@ -1276,7 +1279,7 @@ struct sk_buff *pep_read(struct sock *sk)
 }
 
 static int pep_recvmsg(struct sock *sk, struct msghdr *msg, size_t len,
-		       int flags, int *addr_len)
+		       int flags)
 {
 	struct sk_buff *skb;
 	int err;

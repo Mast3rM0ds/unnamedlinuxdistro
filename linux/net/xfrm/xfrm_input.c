@@ -48,7 +48,7 @@ static DEFINE_SPINLOCK(xfrm_input_afinfo_lock);
 static struct xfrm_input_afinfo const __rcu *xfrm_input_afinfo[2][AF_INET6 + 1];
 
 static struct gro_cells gro_cells;
-static struct net_device xfrm_napi_dev;
+static struct net_device *xfrm_napi_dev;
 
 static DEFINE_PER_CPU(struct xfrm_trans_tasklet, xfrm_trans_tasklet);
 
@@ -75,7 +75,10 @@ int xfrm_input_unregister_afinfo(const struct xfrm_input_afinfo *afinfo)
 
 	spin_lock_bh(&xfrm_input_afinfo_lock);
 	if (likely(xfrm_input_afinfo[afinfo->is_ipip][afinfo->family])) {
-		if (unlikely(xfrm_input_afinfo[afinfo->is_ipip][afinfo->family] != afinfo))
+		const struct xfrm_input_afinfo *cur;
+
+		cur = rcu_access_pointer(xfrm_input_afinfo[afinfo->is_ipip][afinfo->family]);
+		if (unlikely(cur != afinfo))
 			err = -EINVAL;
 		else
 			RCU_INIT_POINTER(xfrm_input_afinfo[afinfo->is_ipip][afinfo->family], NULL);
@@ -446,6 +449,9 @@ static int xfrm_inner_mode_input(struct xfrm_state *x,
 		WARN_ON_ONCE(1);
 		break;
 	default:
+		if (x->mode_cbs && x->mode_cbs->input)
+			return x->mode_cbs->input(x, skb);
+
 		WARN_ON_ONCE(1);
 		break;
 	}
@@ -453,10 +459,15 @@ static int xfrm_inner_mode_input(struct xfrm_state *x,
 	return -EOPNOTSUPP;
 }
 
+/* NOTE: encap_type - In addition to the normal (non-negative) values for
+ * encap_type, a negative value of -1 or -2 can be used to resume/restart this
+ * function after a previous invocation early terminated for async operation.
+ */
 int xfrm_input(struct sk_buff *skb, int nexthdr, __be32 spi, int encap_type)
 {
 	const struct xfrm_state_afinfo *afinfo;
 	struct net *net = dev_net(skb->dev);
+	struct net_device *dev = skb->dev;
 	int err;
 	__be32 seq;
 	__be32 seq_hi;
@@ -483,16 +494,21 @@ int xfrm_input(struct sk_buff *skb, int nexthdr, __be32 spi, int encap_type)
 					       LINUX_MIB_XFRMINSTATEINVALID);
 
 			if (encap_type == -1)
-				dev_put(skb->dev);
+				dev_put(dev);
 			goto drop;
 		}
 
 		family = x->props.family;
 
+		/* An encap_type of -2 indicates reconstructed inner packet */
+		if (encap_type == -2)
+			goto resume_decapped;
+
 		/* An encap_type of -1 indicates async resumption. */
 		if (encap_type == -1) {
 			async = 1;
 			seq = XFRM_SKB_CB(skb)->seq.input.low;
+			spin_lock(&x->lock);
 			goto resume;
 		}
 		/* GRO call */
@@ -529,9 +545,11 @@ int xfrm_input(struct sk_buff *skb, int nexthdr, __be32 spi, int encap_type)
 				XFRM_INC_STATS(net, LINUX_MIB_XFRMINHDRERROR);
 				goto drop;
 			}
+
+			nexthdr = x->type_offload->input_tail(x, skb);
 		}
 
-		goto lock;
+		goto process;
 	}
 
 	family = XFRM_SPI_SKB_CB(skb)->family;
@@ -599,7 +617,12 @@ int xfrm_input(struct sk_buff *skb, int nexthdr, __be32 spi, int encap_type)
 			goto drop;
 		}
 
-lock:
+process:
+		seq_hi = htonl(xfrm_replay_seqhi(x, seq));
+
+		XFRM_SKB_CB(skb)->seq.input.low = seq;
+		XFRM_SKB_CB(skb)->seq.input.hi = seq_hi;
+
 		spin_lock(&x->lock);
 
 		if (unlikely(x->km.state != XFRM_STATE_VALID)) {
@@ -626,34 +649,26 @@ lock:
 			goto drop_unlock;
 		}
 
-		spin_unlock(&x->lock);
-
 		if (xfrm_tunnel_check(skb, x, family)) {
 			XFRM_INC_STATS(net, LINUX_MIB_XFRMINSTATEMODEERROR);
-			goto drop;
+			goto drop_unlock;
 		}
 
-		seq_hi = htonl(xfrm_replay_seqhi(x, seq));
-
-		XFRM_SKB_CB(skb)->seq.input.low = seq;
-		XFRM_SKB_CB(skb)->seq.input.hi = seq_hi;
-
-		if (crypto_done) {
-			nexthdr = x->type_offload->input_tail(x, skb);
-		} else {
-			dev_hold(skb->dev);
+		if (!crypto_done) {
+			spin_unlock(&x->lock);
+			dev_hold(dev);
 
 			nexthdr = x->type->input(x, skb);
 			if (nexthdr == -EINPROGRESS) {
 				if (async)
-					dev_put(skb->dev);
+					dev_put(dev);
 				return 0;
 			}
 
-			dev_put(skb->dev);
+			dev_put(dev);
+			spin_lock(&x->lock);
 		}
 resume:
-		spin_lock(&x->lock);
 		if (nexthdr < 0) {
 			if (nexthdr == -EBADMSG) {
 				xfrm_audit_state_icvfail(x, skb,
@@ -667,7 +682,7 @@ resume:
 		/* only the first xfrm gets the encap type */
 		encap_type = 0;
 
-		if (xfrm_replay_recheck(x, skb, seq)) {
+		if (!crypto_done && xfrm_replay_recheck(x, skb, seq)) {
 			XFRM_INC_STATS(net, LINUX_MIB_XFRMINSTATESEQERROR);
 			goto drop_unlock;
 		}
@@ -682,11 +697,16 @@ resume:
 
 		XFRM_MODE_SKB_CB(skb)->protocol = nexthdr;
 
-		if (xfrm_inner_mode_input(x, skb)) {
+		err = xfrm_inner_mode_input(x, skb);
+		if (err == -EINPROGRESS) {
+			if (async)
+				dev_put(dev);
+			return 0;
+		} else if (err) {
 			XFRM_INC_STATS(net, LINUX_MIB_XFRMINSTATEMODEERROR);
 			goto drop;
 		}
-
+resume_decapped:
 		if (x->outer_mode.flags & XFRM_MODE_FLAG_TUNNEL) {
 			decaps = 1;
 			break;
@@ -707,9 +727,12 @@ resume:
 		crypto_done = false;
 	} while (!err);
 
+	rcu_read_lock();
 	err = xfrm_rcv_cb(skb, family, x->type->proto, 0);
-	if (err)
+	if (err) {
+		rcu_read_unlock();
 		goto drop;
+	}
 
 	nf_reset_ct(skb);
 
@@ -720,8 +743,9 @@ resume:
 		if (skb_valid_dst(skb))
 			skb_dst_drop(skb);
 		if (async)
-			dev_put(skb->dev);
+			dev_put(dev);
 		gro_cells_receive(&gro_cells, skb);
+		rcu_read_unlock();
 		return 0;
 	} else {
 		xo = xfrm_offload(skb);
@@ -729,23 +753,21 @@ resume:
 			xfrm_gro = xo->flags & XFRM_GRO;
 
 		err = -EAFNOSUPPORT;
-		rcu_read_lock();
 		afinfo = xfrm_state_afinfo_get_rcu(x->props.family);
 		if (likely(afinfo))
 			err = afinfo->transport_finish(skb, xfrm_gro || async);
-		rcu_read_unlock();
 		if (xfrm_gro) {
 			sp = skb_sec_path(skb);
 			if (sp)
 				sp->olen = 0;
 			if (skb_valid_dst(skb))
 				skb_dst_drop(skb);
-			if (async)
-				dev_put(skb->dev);
 			gro_cells_receive(&gro_cells, skb);
-			return err;
 		}
 
+		if (async)
+			dev_put(dev);
+		rcu_read_unlock();
 		return err;
 	}
 
@@ -753,7 +775,7 @@ drop_unlock:
 	spin_unlock(&x->lock);
 drop:
 	if (async)
-		dev_put(skb->dev);
+		dev_put(dev);
 	xfrm_rcv_cb(skb, family, x && x->type ? x->type->proto : nexthdr, -1);
 	kfree_skb(skb);
 	return 0;
@@ -828,8 +850,11 @@ void __init xfrm_input_init(void)
 	int err;
 	int i;
 
-	init_dummy_netdev(&xfrm_napi_dev);
-	err = gro_cells_init(&gro_cells, &xfrm_napi_dev);
+	xfrm_napi_dev = alloc_netdev_dummy(0);
+	if (!xfrm_napi_dev)
+		panic("Failed to allocate XFRM dummy netdev\n");
+
+	err = gro_cells_init(&gro_cells, xfrm_napi_dev);
 	if (err)
 		gro_cells.cells = NULL;
 

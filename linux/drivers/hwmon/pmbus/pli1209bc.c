@@ -117,8 +117,8 @@ static int pli1209bc_probe(struct i2c_client *client)
 }
 
 static const struct i2c_device_id pli1209bc_id[] = {
-	{"pli1209bc"},
-	{}
+	{ .name = "pli1209bc" },
+	{ }
 };
 
 MODULE_DEVICE_TABLE(i2c, pli1209bc_id);
@@ -145,4 +145,4 @@ module_i2c_driver(pli1209bc_driver);
 MODULE_AUTHOR("Marcello Sylvester Bauer <sylv@sylv.io>");
 MODULE_DESCRIPTION("PMBus driver for Vicor PLI1209BC");
 MODULE_LICENSE("GPL");
-MODULE_IMPORT_NS(PMBUS);
+MODULE_IMPORT_NS("PMBUS");

@@ -319,7 +319,7 @@ static ssize_t admv1013_write(struct iio_dev *indio_dev,
 		return -EINVAL;
 	}
 
-	return ret ? ret : len;
+	return len;
 }
 
 static int admv1013_update_quad_filters(struct admv1013_state *st)
@@ -407,7 +407,7 @@ static int admv1013_freq_change(struct notifier_block *nb, unsigned long action,
 static const struct iio_chan_spec_ext_info admv1013_ext_info[] = {
 	_ADMV1013_EXT_INFO("i_calibphase", IIO_SEPARATE, ADMV1013_RFMOD_I_CALIBPHASE),
 	_ADMV1013_EXT_INFO("q_calibphase", IIO_SEPARATE, ADMV1013_RFMOD_Q_CALIBPHASE),
-	{ },
+	{ }
 };
 
 #define ADMV1013_CHAN_PHASE(_channel, _channel2, _admv1013_ext_info) {		\
@@ -441,7 +441,7 @@ static int admv1013_init(struct admv1013_state *st, int vcm_uv)
 {
 	int ret;
 	unsigned int data;
-	struct spi_device *spi = st->spi;
+	struct device *dev = &st->spi->dev;
 
 	/* Perform a software reset */
 	ret = __admv1013_spi_update_bits(st, ADMV1013_REG_SPI_CONTROL,
@@ -461,10 +461,8 @@ static int admv1013_init(struct admv1013_state *st, int vcm_uv)
 		return ret;
 
 	data = FIELD_GET(ADMV1013_CHIP_ID_MSK, data);
-	if (data != ADMV1013_CHIP_ID) {
-		dev_err(&spi->dev, "Invalid Chip ID.\n");
-		return -EINVAL;
-	}
+	if (data != ADMV1013_CHIP_ID)
+		return dev_err_probe(dev, -EINVAL, "Invalid Chip ID.\n");
 
 	ret = __admv1013_spi_write(st, ADMV1013_REG_VVA_TEMP_COMP, 0xE700);
 	if (ret)
@@ -611,10 +609,8 @@ static int admv1013_probe(struct spi_device *spi)
 	mutex_init(&st->lock);
 
 	ret = admv1013_init(st, vcm_uv);
-	if (ret) {
-		dev_err(&spi->dev, "admv1013 init failed\n");
-		return ret;
-	}
+	if (ret)
+		return dev_err_probe(dev, ret, "admv1013 init failed\n");
 
 	ret = devm_add_action_or_reset(dev, admv1013_powerdown, st);
 	if (ret)
@@ -625,13 +621,13 @@ static int admv1013_probe(struct spi_device *spi)
 
 static const struct spi_device_id admv1013_id[] = {
 	{ "admv1013", 0 },
-	{}
+	{ }
 };
 MODULE_DEVICE_TABLE(spi, admv1013_id);
 
 static const struct of_device_id admv1013_of_match[] = {
 	{ .compatible = "adi,admv1013" },
-	{},
+	{ }
 };
 MODULE_DEVICE_TABLE(of, admv1013_of_match);
 

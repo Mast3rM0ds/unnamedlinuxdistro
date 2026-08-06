@@ -648,8 +648,8 @@ static int orion_spi_probe(struct platform_device *pdev)
 	struct orion_spi *spi;
 	struct resource *r;
 	unsigned long tclk_hz;
-	int status = 0;
 	struct device_node *np;
+	int status;
 
 	host = spi_alloc_host(&pdev->dev, sizeof(*spi));
 	if (host == NULL) {
@@ -781,14 +781,13 @@ static int orion_spi_probe(struct platform_device *pdev)
 	if (status < 0)
 		goto out_rel_pm;
 
-	host->dev.of_node = pdev->dev.of_node;
 	status = spi_register_controller(host);
 	if (status < 0)
 		goto out_rel_pm;
 
 	pm_runtime_put_autosuspend(&pdev->dev);
 
-	return status;
+	return 0;
 
 out_rel_pm:
 	pm_runtime_disable(&pdev->dev);
@@ -860,7 +859,7 @@ static struct platform_driver orion_spi_driver = {
 		.of_match_table = of_match_ptr(orion_spi_of_match_table),
 	},
 	.probe		= orion_spi_probe,
-	.remove_new	= orion_spi_remove,
+	.remove		= orion_spi_remove,
 };
 
 module_platform_driver(orion_spi_driver);

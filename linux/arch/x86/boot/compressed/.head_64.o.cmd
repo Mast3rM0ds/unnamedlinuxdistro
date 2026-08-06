@@ -1,4 +1,4 @@
-savedcmd_arch/x86/boot/compressed/head_64.o := gcc -Wp,-MMD,arch/x86/boot/compressed/.head_64.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -D__KERNEL__ -fmacro-prefix-map=./= -Werror -m64 -O2 -std=gnu11 -fno-strict-aliasing -fPIE -Wundef -DDISABLE_BRANCH_PROFILING -mcmodel=small -mno-red-zone -mno-mmx -mno-sse -ffreestanding -fshort-wchar -fno-stack-protector -Wno-address-of-packed-member -Wno-pointer-sign -fmacro-prefix-map=./= -fno-asynchronous-unwind-tables -D__DISABLE_EXPORTS -Wa,-mrelax-relocations=no -include ./include/linux/hidden.h -D__ASSEMBLY__    -DKBUILD_MODFILE='"arch/x86/boot/compressed/head_64"' -DKBUILD_MODNAME='"head_64"' -D__KBUILD_MODNAME=kmod_head_64 -c -o arch/x86/boot/compressed/head_64.o arch/x86/boot/compressed/head_64.S 
+savedcmd_arch/x86/boot/compressed/head_64.o := gcc -Wp,-MMD,arch/x86/boot/compressed/.head_64.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -D__KERNEL__ -Werror -m64 -O2 -std=gnu11 -fms-extensions -fno-strict-aliasing -fPIE -fno-jump-tables -Wundef -DDISABLE_BRANCH_PROFILING -mcmodel=small -mno-red-zone -mno-mmx -mno-sse -ffreestanding -fshort-wchar -fno-stack-protector -Wno-address-of-packed-member -Wno-pointer-sign -fno-asynchronous-unwind-tables -D__DISABLE_EXPORTS -Wa,-mrelax-relocations=no -include ./include/linux/hidden.h -D__ASSEMBLY__    -DKBUILD_MODFILE='"arch/x86/boot/compressed/head_64"' -DKBUILD_MODNAME='"head_64"' -D__KBUILD_MODNAME=head_64 -c -o arch/x86/boot/compressed/head_64.o arch/x86/boot/compressed/head_64.S 
 
 source_arch/x86/boot/compressed/head_64.o := arch/x86/boot/compressed/head_64.S
 
@@ -6,7 +6,6 @@ deps_arch/x86/boot/compressed/head_64.o := \
     $(wildcard include/config/FUNCTION_ALIGNMENT) \
     $(wildcard include/config/AMD_MEM_ENCRYPT) \
     $(wildcard include/config/RELOCATABLE) \
-    $(wildcard include/config/EFI_MIXED) \
   include/linux/compiler-version.h \
     $(wildcard include/config/CC_VERSION_TEXT) \
   include/linux/kconfig.h \
@@ -23,7 +22,7 @@ deps_arch/x86/boot/compressed/head_64.o := \
     $(wildcard include/config/TRACE_BRANCH_PROFILING) \
     $(wildcard include/config/PROFILE_ALL_BRANCHES) \
     $(wildcard include/config/OBJTOOL) \
-    $(wildcard include/config/64BIT) \
+    $(wildcard include/config/CFI) \
   include/linux/compiler_types.h \
     $(wildcard include/config/DEBUG_INFO_BTF) \
     $(wildcard include/config/PAHOLE_HAS_BTF_TAG) \
@@ -33,8 +32,14 @@ deps_arch/x86/boot/compressed/head_64.o := \
     $(wildcard include/config/LD_DEAD_CODE_DATA_ELIMINATION) \
     $(wildcard include/config/HAVE_ARCH_COMPILER_H) \
     $(wildcard include/config/KCSAN) \
+    $(wildcard include/config/CC_HAS_ASSUME) \
     $(wildcard include/config/CC_HAS_COUNTED_BY) \
-    $(wildcard include/config/UBSAN_SIGNED_WRAP) \
+    $(wildcard include/config/FORTIFY_SOURCE) \
+    $(wildcard include/config/UBSAN_BOUNDS) \
+    $(wildcard include/config/CC_HAS_COUNTED_BY_PTR) \
+    $(wildcard include/config/CC_HAS_MULTIDIMENSIONAL_NONSTRING) \
+    $(wildcard include/config/ARCH_USES_CFI_GENERIC_LLVM_PASS) \
+    $(wildcard include/config/CC_HAS_BROKEN_COUNTED_BY_REF) \
     $(wildcard include/config/CC_HAS_ASM_INLINE) \
   arch/x86/include/generated/asm/rwonce.h \
   include/asm-generic/rwonce.h \
@@ -44,6 +49,7 @@ deps_arch/x86/boot/compressed/head_64.o := \
     $(wildcard include/config/UID16) \
     $(wildcard include/config/ARCH_DMA_ADDR_T_64BIT) \
     $(wildcard include/config/PHYS_ADDR_T_64BIT) \
+    $(wildcard include/config/64BIT) \
     $(wildcard include/config/ARCH_32BIT_USTAT_F_TINODE) \
   include/uapi/linux/types.h \
   arch/x86/include/generated/uapi/asm/types.h \
@@ -57,6 +63,7 @@ deps_arch/x86/boot/compressed/head_64.o := \
     $(wildcard include/config/ARCH_USE_SYM_ANNOTATIONS) \
   include/linux/export.h \
     $(wildcard include/config/MODVERSIONS) \
+    $(wildcard include/config/GENDWARFKSYMS) \
   arch/x86/include/asm/linkage.h \
     $(wildcard include/config/X86_32) \
     $(wildcard include/config/CALL_PADDING) \
@@ -76,19 +83,23 @@ deps_arch/x86/boot/compressed/head_64.o := \
   arch/x86/include/asm/alternative.h \
     $(wildcard include/config/CALL_THUNKS) \
     $(wildcard include/config/MITIGATION_ITS) \
+  include/linux/objtool.h \
+    $(wildcard include/config/FRAME_POINTER) \
+    $(wildcard include/config/NOINSTR_VALIDATION) \
+    $(wildcard include/config/MITIGATION_UNRET_ENTRY) \
+    $(wildcard include/config/MITIGATION_SRSO) \
+  include/linux/objtool_types.h \
+  include/linux/annotate.h \
   arch/x86/include/asm/asm.h \
     $(wildcard include/config/KPROBES) \
+  arch/x86/include/asm/asm-offsets.h \
+  include/generated/asm-offsets.h \
   arch/x86/include/asm/extable_fixup_types.h \
   arch/x86/include/asm/bug.h \
     $(wildcard include/config/GENERIC_BUG) \
     $(wildcard include/config/DEBUG_BUGVERBOSE) \
+    $(wildcard include/config/DEBUG_BUGVERBOSE_DETAILED) \
   include/linux/instrumentation.h \
-    $(wildcard include/config/NOINSTR_VALIDATION) \
-  include/linux/objtool.h \
-    $(wildcard include/config/FRAME_POINTER) \
-    $(wildcard include/config/MITIGATION_UNRET_ENTRY) \
-    $(wildcard include/config/MITIGATION_SRSO) \
-  include/linux/objtool_types.h \
   include/asm-generic/bug.h \
     $(wildcard include/config/BUG) \
     $(wildcard include/config/GENERIC_BUG_RELATIVE_POINTERS) \
@@ -111,13 +122,12 @@ deps_arch/x86/boot/compressed/head_64.o := \
   include/linux/mem_encrypt.h \
     $(wildcard include/config/ARCH_HAS_MEM_ENCRYPT) \
   arch/x86/include/asm/page_types.h \
-    $(wildcard include/config/PAGE_SHIFT) \
     $(wildcard include/config/PHYSICAL_START) \
     $(wildcard include/config/DYNAMIC_PHYSICAL_MASK) \
+  include/vdso/page.h \
+    $(wildcard include/config/PAGE_SHIFT) \
   arch/x86/include/asm/page_64_types.h \
     $(wildcard include/config/KASAN) \
-    $(wildcard include/config/DYNAMIC_MEMORY_LAYOUT) \
-    $(wildcard include/config/X86_5LEVEL) \
     $(wildcard include/config/RANDOMIZE_BASE) \
   arch/x86/include/asm/pgtable_64_types.h \
     $(wildcard include/config/RANDOMIZE_MEMORY) \
@@ -137,33 +147,14 @@ deps_arch/x86/boot/compressed/head_64.o := \
     $(wildcard include/config/VM86) \
     $(wildcard include/config/MITIGATION_PAGE_TABLE_ISOLATION) \
   arch/x86/include/uapi/asm/processor-flags.h \
-  arch/x86/include/asm/asm-offsets.h \
-  include/generated/asm-offsets.h \
   arch/x86/include/uapi/asm/bootparam.h \
   arch/x86/include/asm/setup_data.h \
   arch/x86/include/uapi/asm/setup_data.h \
   arch/x86/include/asm/desc_defs.h \
   arch/x86/include/asm/trapnr.h \
-  arch/x86/boot/compressed/pgtable.h \
   arch/x86/boot/compressed/../../kernel/verify_cpu.S \
   arch/x86/include/asm/cpufeatures.h \
-  arch/x86/include/asm/required-features.h \
-    $(wildcard include/config/X86_MINIMUM_CPU_FAMILY) \
-    $(wildcard include/config/MATH_EMULATION) \
-    $(wildcard include/config/X86_CMPXCHG64) \
-    $(wildcard include/config/X86_CMOV) \
-    $(wildcard include/config/X86_P6_NOP) \
-    $(wildcard include/config/MATOM) \
-  arch/x86/include/asm/disabled-features.h \
-    $(wildcard include/config/X86_UMIP) \
-    $(wildcard include/config/MITIGATION_CALL_DEPTH_TRACKING) \
-    $(wildcard include/config/ADDRESS_MASKING) \
-    $(wildcard include/config/INTEL_IOMMU_SVM) \
-    $(wildcard include/config/X86_SGX) \
-    $(wildcard include/config/INTEL_TDX_GUEST) \
-    $(wildcard include/config/X86_USER_SHADOW_STACK) \
-    $(wildcard include/config/X86_FRED) \
-    $(wildcard include/config/KVM_AMD_SEV) \
+  arch/x86/include/generated/asm/cpufeaturemasks.h \
 
 arch/x86/boot/compressed/head_64.o: $(deps_arch/x86/boot/compressed/head_64.o)
 

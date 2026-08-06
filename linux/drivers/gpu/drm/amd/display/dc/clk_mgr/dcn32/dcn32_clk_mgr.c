@@ -33,7 +33,7 @@
 #include "reg_helper.h"
 #include "core_types.h"
 #include "dm_helpers.h"
-#include "link.h"
+#include "link_service.h"
 #include "dc_state_priv.h"
 #include "atomfirmware.h"
 #include "dcn32_smu13_driver_if.h"
@@ -276,12 +276,19 @@ static void dcn32_update_clocks_update_dtb_dto(struct clk_mgr_internal *clk_mgr,
 		struct dtbclk_dto_params dto_params = {0};
 
 		/* use mask to program DTO once per tg */
-		if (pipe_ctx->stream_res.tg &&
+		if (pipe_ctx->stream && pipe_ctx->stream_res.tg &&
 				!(tg_mask & (1 << pipe_ctx->stream_res.tg->inst))) {
 			tg_mask |= (1 << pipe_ctx->stream_res.tg->inst);
 
 			dto_params.otg_inst = pipe_ctx->stream_res.tg->inst;
 			dto_params.ref_dtbclk_khz = ref_dtbclk_khz;
+
+			if (dccg->ctx->dc->link_srv->dp_is_128b_132b_signal(pipe_ctx))
+				dto_params.pixclk_khz = pipe_ctx->stream->timing.pix_clk_100hz / 10;
+
+			if (dc_is_hdmi_signal(pipe_ctx->stream->signal) ||
+					dc_is_dvi_signal(pipe_ctx->stream->signal))
+				dto_params.is_hdmi = true;
 
 			dccg->funcs->set_dtbclk_dto(clk_mgr->dccg, &dto_params);
 			//dccg->funcs->set_audio_dtbclk_dto(clk_mgr->dccg, &dto_params);
@@ -872,6 +879,7 @@ static uint32_t dcn32_get_vco_frequency_from_reg(struct clk_mgr_internal *clk_mg
 static void dcn32_dump_clk_registers(struct clk_state_registers_and_bypass *regs_and_bypass,
 		struct clk_mgr *clk_mgr_base, struct clk_log_info *log_info)
 {
+	(void)log_info;
 	struct clk_mgr_internal *clk_mgr = TO_CLK_MGR_INTERNAL(clk_mgr_base);
 	uint32_t dprefclk_did = 0;
 	uint32_t dcfclk_did = 0;
@@ -1047,11 +1055,8 @@ static void dcn32_get_memclk_states_from_smu(struct clk_mgr *clk_mgr_base)
 			&num_entries_per_clk->num_fclk_levels);
 	clk_mgr_base->bw_params->dc_mode_limit.fclk_mhz = dcn30_smu_get_dc_mode_max_dpm_freq(clk_mgr, PPCLK_FCLK);
 
-	if (num_entries_per_clk->num_memclk_levels >= num_entries_per_clk->num_fclk_levels) {
-		num_levels = num_entries_per_clk->num_memclk_levels;
-	} else {
-		num_levels = num_entries_per_clk->num_fclk_levels;
-	}
+	num_levels = max(num_entries_per_clk->num_memclk_levels, num_entries_per_clk->num_fclk_levels);
+
 	clk_mgr_base->bw_params->max_memclk_mhz =
 			clk_mgr_base->bw_params->clk_table.entries[num_entries_per_clk->num_memclk_levels - 1].memclk_mhz;
 	clk_mgr_base->bw_params->clk_table.num_entries = num_levels ? num_levels : 1;
@@ -1062,11 +1067,9 @@ static void dcn32_get_memclk_states_from_smu(struct clk_mgr *clk_mgr_base)
 	if (!clk_mgr->dpm_present)
 		dcn32_patch_dpm_table(clk_mgr_base->bw_params);
 
-	DC_FP_START();
 	/* Refresh bounding box */
 	clk_mgr_base->ctx->dc->res_pool->funcs->update_bw_bounding_box(
 			clk_mgr->base.ctx->dc, clk_mgr_base->bw_params);
-	DC_FP_END();
 }
 
 static bool dcn32_are_clock_states_equal(struct dc_clocks *a,
@@ -1150,6 +1153,7 @@ void dcn32_clk_mgr_construct(
 		struct pp_smu_funcs *pp_smu,
 		struct dccg *dccg)
 {
+	(void)pp_smu;
 	struct clk_log_info log_info = {0};
 
 	clk_mgr->base.ctx = ctx;
@@ -1209,7 +1213,7 @@ void dcn32_clk_mgr_construct(
 
 	clk_mgr->smu_present = false;
 
-	clk_mgr->base.bw_params = kzalloc(sizeof(*clk_mgr->base.bw_params), GFP_KERNEL);
+	clk_mgr->base.bw_params = kzalloc_obj(*clk_mgr->base.bw_params);
 	if (!clk_mgr->base.bw_params) {
 		BREAK_TO_DEBUGGER();
 		return;

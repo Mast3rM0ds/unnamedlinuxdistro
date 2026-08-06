@@ -222,18 +222,17 @@ static int scd30_read_raw(struct iio_dev *indio_dev, struct iio_chan_spec const 
 			return IIO_VAL_INT;
 		}
 
-		ret = iio_device_claim_direct_mode(indio_dev);
-		if (ret)
-			return ret;
+		if (!iio_device_claim_direct(indio_dev))
+			return -EBUSY;
 
 		ret = scd30_read(state);
 		if (ret) {
-			iio_device_release_direct_mode(indio_dev);
+			iio_device_release_direct(indio_dev);
 			return ret;
 		}
 
 		*val = state->meas[chan->address];
-		iio_device_release_direct_mode(indio_dev);
+		iio_device_release_direct(indio_dev);
 		return IIO_VAL_INT;
 	case IIO_CHAN_INFO_SCALE:
 		*val = 0;
@@ -598,8 +597,8 @@ static irqreturn_t scd30_trigger_handler(int irq, void *p)
 	struct scd30_state *state = iio_priv(indio_dev);
 	struct {
 		int data[SCD30_MEAS_COUNT];
-		s64 ts __aligned(8);
-	} scan;
+		aligned_s64 ts;
+	} scan = { };
 	int ret;
 
 	mutex_lock(&state->lock);
@@ -607,13 +606,13 @@ static irqreturn_t scd30_trigger_handler(int irq, void *p)
 		ret = scd30_read_poll(state);
 	else
 		ret = scd30_read_meas(state);
-	memset(&scan, 0, sizeof(scan));
 	memcpy(scan.data, state->meas, sizeof(state->meas));
 	mutex_unlock(&state->lock);
 	if (ret)
 		goto out;
 
-	iio_push_to_buffers_with_timestamp(indio_dev, &scan, iio_get_time_ns(indio_dev));
+	iio_push_to_buffers_with_ts(indio_dev, &scan, sizeof(scan),
+				    iio_get_time_ns(indio_dev));
 out:
 	iio_trigger_notify_done(indio_dev->trig);
 	return IRQ_HANDLED;
@@ -647,7 +646,7 @@ static int scd30_setup_trigger(struct iio_dev *indio_dev)
 	trig = devm_iio_trigger_alloc(dev, "%s-dev%d", indio_dev->name,
 				      iio_device_id(indio_dev));
 	if (!trig)
-		return dev_err_probe(dev, -ENOMEM, "failed to allocate trigger\n");
+		return -ENOMEM;
 
 	trig->ops = &scd30_trigger_ops;
 	iio_trigger_set_drvdata(trig, indio_dev);
@@ -751,7 +750,7 @@ int scd30_probe(struct device *dev, int irq, const char *name, void *priv,
 
 	return devm_iio_device_register(dev, indio_dev);
 }
-EXPORT_SYMBOL_NS(scd30_probe, IIO_SCD30);
+EXPORT_SYMBOL_NS(scd30_probe, "IIO_SCD30");
 
 MODULE_AUTHOR("Tomasz Duszynski <tomasz.duszynski@octakon.com>");
 MODULE_DESCRIPTION("Sensirion SCD30 carbon dioxide sensor core driver");

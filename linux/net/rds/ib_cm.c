@@ -810,6 +810,10 @@ int rds_ib_cm_handle_connect(struct rdma_cm_id *cm_id,
 	dp = event->param.conn.private_data;
 	if (isv6) {
 #if IS_ENABLED(CONFIG_IPV6)
+		if (!ipv6_mod_enabled()) {
+			err = -EOPNOTSUPP;
+			goto out;
+		}
 		dp_cmn = &dp->ricp_v6.dp_cmn;
 		saddr6 = &dp->ricp_v6.dp_saddr;
 		daddr6 = &dp->ricp_v6.dp_daddr;
@@ -1204,7 +1208,7 @@ int rds_ib_conn_alloc(struct rds_connection *conn, gfp_t gfp)
 	int ret;
 
 	/* XXX too lazy? */
-	ic = kzalloc(sizeof(struct rds_ib_connection), gfp);
+	ic = kzalloc_obj(struct rds_ib_connection, gfp);
 	if (!ic)
 		return -ENOMEM;
 

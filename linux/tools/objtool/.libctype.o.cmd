@@ -1,14 +1,15 @@
-cmd_/home/sonakrie/Work/unnamedlinuxdistro/linux/tools/objtool/libctype.o := gcc -Wp,-MD,/home/sonakrie/Work/unnamedlinuxdistro/linux/tools/objtool/.libctype.o.d -Wp,-MT,/home/sonakrie/Work/unnamedlinuxdistro/linux/tools/objtool/libctype.o -Werror -Wbad-function-cast -Wdeclaration-after-statement -Wformat-security -Wformat-y2k -Winit-self -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-system-headers -Wold-style-definition -Wpacked -Wredundant-decls -Wstrict-prototypes -Wswitch-default -Wswitch-enum -Wundef -Wwrite-strings -Wformat -Wno-type-limits -Wstrict-aliasing=3 -Wshadow -Wno-switch-default -Wno-switch-enum -Wno-packed -Wno-nested-externs -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu11 -I ./scripts/include -g -I/home/sonakrie/Work/unnamedlinuxdistro/linux/tools/include -I/home/sonakrie/Work/unnamedlinuxdistro/linux/tools/arch/x86/include/uapi -I/home/sonakrie/Work/unnamedlinuxdistro/linux/tools/arch/x86/include -I/home/sonakrie/Work/unnamedlinuxdistro/linux/tools/objtool/include -I/home/sonakrie/Work/unnamedlinuxdistro/linux/tools/objtool/arch/x86/include -I/home/sonakrie/Work/unnamedlinuxdistro/linux/tools/objtool/libsubcmd/include -D"BUILD_STR(s)=$(pound)s" -c -o /home/sonakrie/Work/unnamedlinuxdistro/linux/tools/objtool/libctype.o ../lib/ctype.c
+cmd_/home/sonakrie/Work/linux-7.1.7/tools/objtool/libctype.o := gcc -Wp,-MD,/home/sonakrie/Work/linux-7.1.7/tools/objtool/.libctype.o.d -Wp,-MT,/home/sonakrie/Work/linux-7.1.7/tools/objtool/libctype.o -std=gnu11 -fomit-frame-pointer -O2 -g -Werror -Wall -Wextra -Wmissing-prototypes -Wmissing-declarations -Wwrite-strings -Wno-implicit-fallthrough -Wno-sign-compare -Wno-unused-parameter -I/home/sonakrie/Work/linux-7.1.7/tools/include -I/home/sonakrie/Work/linux-7.1.7/tools/include/uapi -I/home/sonakrie/Work/linux-7.1.7/tools/arch/x86/include/uapi -I/home/sonakrie/Work/linux-7.1.7/tools/arch/x86/include -I/home/sonakrie/Work/linux-7.1.7/tools/objtool/include -I/home/sonakrie/Work/linux-7.1.7/tools/objtool/arch/x86/include -I/home/sonakrie/Work/linux-7.1.7/tools/objtool/libsubcmd/include -D"BUILD_STR(s)=$(pound)s" -c -o /home/sonakrie/Work/linux-7.1.7/tools/objtool/libctype.o ../lib/ctype.c
 
-source_/home/sonakrie/Work/unnamedlinuxdistro/linux/tools/objtool/libctype.o := ../lib/ctype.c
+source_/home/sonakrie/Work/linux-7.1.7/tools/objtool/libctype.o := ../lib/ctype.c
 
-deps_/home/sonakrie/Work/unnamedlinuxdistro/linux/tools/objtool/libctype.o := \
+deps_/home/sonakrie/Work/linux-7.1.7/tools/objtool/libctype.o := \
   /usr/include/stdc-predef.h \
-  /home/sonakrie/Work/unnamedlinuxdistro/linux/tools/include/linux/ctype.h \
-  /home/sonakrie/Work/unnamedlinuxdistro/linux/tools/include/linux/compiler.h \
-  /home/sonakrie/Work/unnamedlinuxdistro/linux/tools/include/linux/compiler_types.h \
-  /home/sonakrie/Work/unnamedlinuxdistro/linux/tools/include/linux/compiler-gcc.h \
-  /home/sonakrie/Work/unnamedlinuxdistro/linux/tools/include/linux/types.h \
+  /home/sonakrie/Work/linux-7.1.7/tools/include/linux/ctype.h \
+  /home/sonakrie/Work/linux-7.1.7/tools/include/linux/compiler.h \
+  /home/sonakrie/Work/linux-7.1.7/tools/include/linux/compiler_types.h \
+  /home/sonakrie/Work/linux-7.1.7/tools/include/linux/compiler-context-analysis.h \
+  /home/sonakrie/Work/linux-7.1.7/tools/include/linux/compiler-gcc.h \
+  /home/sonakrie/Work/linux-7.1.7/tools/include/linux/types.h \
   /usr/include/stdbool.h \
   /usr/include/stddef.h \
   /usr/include/bits/alltypes.h \
@@ -17,13 +18,14 @@ deps_/home/sonakrie/Work/unnamedlinuxdistro/linux/tools/objtool/libctype.o := \
   /usr/include/asm/types.h \
   /usr/include/asm-generic/types.h \
   /usr/include/asm-generic/int-ll64.h \
-  /home/sonakrie/Work/unnamedlinuxdistro/linux/tools/arch/x86/include/uapi/asm/bitsperlong.h \
-  /home/sonakrie/Work/unnamedlinuxdistro/linux/tools/include/asm-generic/bitsperlong.h \
-  /home/sonakrie/Work/unnamedlinuxdistro/linux/tools/include/uapi/asm-generic/bitsperlong.h \
+  /home/sonakrie/Work/linux-7.1.7/tools/include/uapi/asm/bitsperlong.h \
+  /home/sonakrie/Work/linux-7.1.7/tools/arch/x86/include/uapi/asm/bitsperlong.h \
+  /home/sonakrie/Work/linux-7.1.7/tools/include/asm-generic/bitsperlong.h \
+  /home/sonakrie/Work/linux-7.1.7/tools/include/uapi/asm-generic/bitsperlong.h \
   /usr/include/asm/posix_types.h \
   /usr/include/asm/posix_types_64.h \
   /usr/include/asm-generic/posix_types.h \
 
-/home/sonakrie/Work/unnamedlinuxdistro/linux/tools/objtool/libctype.o: $(deps_/home/sonakrie/Work/unnamedlinuxdistro/linux/tools/objtool/libctype.o)
+/home/sonakrie/Work/linux-7.1.7/tools/objtool/libctype.o: $(deps_/home/sonakrie/Work/linux-7.1.7/tools/objtool/libctype.o)
 
-$(deps_/home/sonakrie/Work/unnamedlinuxdistro/linux/tools/objtool/libctype.o):
+$(deps_/home/sonakrie/Work/linux-7.1.7/tools/objtool/libctype.o):

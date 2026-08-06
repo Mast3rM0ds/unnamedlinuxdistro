@@ -82,8 +82,7 @@ static int expkey_parse(struct cache_detail *cd, char *mesg, int mlen)
 	int len;
 	struct auth_domain *dom = NULL;
 	int err;
-	int fsidtype;
-	char *ep;
+	u8 fsidtype;
 	struct svc_expkey key;
 	struct svc_expkey *ek = NULL;
 
@@ -109,10 +108,9 @@ static int expkey_parse(struct cache_detail *cd, char *mesg, int mlen)
 	err = -EINVAL;
 	if (qword_get(&mesg, buf, PAGE_SIZE) <= 0)
 		goto out;
-	fsidtype = simple_strtoul(buf, &ep, 10);
-	if (*ep)
+	if (kstrtou8(buf, 10, &fsidtype))
 		goto out;
-	dprintk("found fsidtype %d\n", fsidtype);
+	dprintk("found fsidtype %u\n", fsidtype);
 	if (key_len(fsidtype)==0) /* invalid type */
 		goto out;
 	if ((len=qword_get(&mesg, buf, PAGE_SIZE)) <= 0)
@@ -236,7 +234,7 @@ static inline void expkey_update(struct cache_head *cnew,
 
 static struct cache_head *expkey_alloc(void)
 {
-	struct svc_expkey *i = kmalloc(sizeof(*i), GFP_KERNEL);
+	struct svc_expkey *i = kmalloc_obj(*i);
 	if (i)
 		return &i->h;
 	else
@@ -355,16 +353,25 @@ static void export_stats_destroy(struct export_stats *stats)
 					    EXP_STATS_COUNTERS_NUM);
 }
 
-static void svc_export_put(struct kref *ref)
+static void svc_export_release(struct rcu_head *rcu_head)
 {
-	struct svc_export *exp = container_of(ref, struct svc_export, h.ref);
-	path_put(&exp->ex_path);
-	auth_domain_put(exp->ex_client);
+	struct svc_export *exp = container_of(rcu_head, struct svc_export,
+			ex_rcu);
+
 	nfsd4_fslocs_free(&exp->ex_fslocs);
 	export_stats_destroy(exp->ex_stats);
 	kfree(exp->ex_stats);
 	kfree(exp->ex_uuid);
-	kfree_rcu(exp, ex_rcu);
+	kfree(exp);
+}
+
+static void svc_export_put(struct kref *ref)
+{
+	struct svc_export *exp = container_of(ref, struct svc_export, h.ref);
+
+	path_put(&exp->ex_path);
+	auth_domain_put(exp->ex_client);
+	call_rcu(&exp->ex_rcu, svc_export_release);
 }
 
 static int svc_export_upcall(struct cache_detail *cd, struct cache_head *h)
@@ -395,7 +402,7 @@ static struct svc_export *svc_export_update(struct svc_export *new,
 					    struct svc_export *old);
 static struct svc_export *svc_export_lookup(struct svc_export *);
 
-static int check_export(struct path *path, int *flags, unsigned char *uuid)
+static int check_export(const struct path *path, int *flags, unsigned char *uuid)
 {
 	struct inode *inode = d_inode(path->dentry);
 
@@ -420,7 +427,8 @@ static int check_export(struct path *path, int *flags, unsigned char *uuid)
 	 *       either a device number (so FS_REQUIRES_DEV needed)
 	 *       or an FSID number (so NFSEXP_FSID or ->uuid is needed).
 	 * 2:  We must be able to find an inode from a filehandle.
-	 *       This means that s_export_op must be set.
+	 *       This means that s_export_op must be set and comply with
+	 *       the requirements for remote filesystem export.
 	 * 3: We must not currently be on an idmapped mount.
 	 */
 	if (!(inode->i_sb->s_type->fs_flags & FS_REQUIRES_DEV) &&
@@ -430,8 +438,9 @@ static int check_export(struct path *path, int *flags, unsigned char *uuid)
 		return -EINVAL;
 	}
 
-	if (!exportfs_can_decode_fh(inode->i_sb->s_export_op)) {
-		dprintk("exp_export: export of invalid fs type.\n");
+	if (!exportfs_may_export(inode->i_sb->s_export_op)) {
+		dprintk("exp_export: export of invalid fs type (%s).\n",
+			inode->i_sb->s_type->name);
 		return -EINVAL;
 	}
 
@@ -470,9 +479,8 @@ fsloc_parse(char **mesg, char *buf, struct nfsd4_fs_locations *fsloc)
 	if (fsloc->locations_count == 0)
 		return 0;
 
-	fsloc->locations = kcalloc(fsloc->locations_count,
-				   sizeof(struct nfsd4_fs_location),
-				   GFP_KERNEL);
+	fsloc->locations = kzalloc_objs(struct nfsd4_fs_location,
+					fsloc->locations_count);
 	if (!fsloc->locations)
 		return -ENOMEM;
 	for (i=0; i < fsloc->locations_count; i++) {
@@ -862,11 +870,11 @@ static void export_update(struct cache_head *cnew, struct cache_head *citem)
 
 static struct cache_head *svc_export_alloc(void)
 {
-	struct svc_export *i = kmalloc(sizeof(*i), GFP_KERNEL);
+	struct svc_export *i = kmalloc_obj(*i);
 	if (!i)
 		return NULL;
 
-	i->ex_stats = kmalloc(sizeof(*(i->ex_stats)), GFP_KERNEL);
+	i->ex_stats = kmalloc_obj(*(i->ex_stats));
 	if (!i->ex_stats) {
 		kfree(i);
 		return NULL;
@@ -1031,7 +1039,7 @@ exp_rootfh(struct net *net, struct auth_domain *clp, char *name,
 	}
 	inode = d_inode(path.dentry);
 
-	dprintk("nfsd: exp_rootfh(%s [%p] %s:%s/%ld)\n",
+	dprintk("nfsd: exp_rootfh(%s [%p] %s:%s/%llu)\n",
 		 name, path.dentry, clp->name,
 		 inode->i_sb->s_id, inode->i_ino);
 	exp = exp_parent(cd, clp, &path);
@@ -1206,7 +1214,7 @@ __be32 check_nfsd_access(struct svc_export *exp, struct svc_rqst *rqstp,
  * use exp_get_by_name() or exp_find().
  */
 struct svc_export *
-rqst_exp_get_by_name(struct svc_rqst *rqstp, struct path *path)
+rqst_exp_get_by_name(struct svc_rqst *rqstp, const struct path *path)
 {
 	struct svc_export *gssexp, *exp = ERR_PTR(-ENOENT);
 	struct nfsd_net *nn = net_generic(SVC_NET(rqstp), nfsd_net_id);
@@ -1342,13 +1350,14 @@ static struct flags {
 	{ NFSEXP_ASYNC, {"async", "sync"}},
 	{ NFSEXP_GATHERED_WRITES, {"wdelay", "no_wdelay"}},
 	{ NFSEXP_NOREADDIRPLUS, {"nordirplus", ""}},
+	{ NFSEXP_SECURITY_LABEL, {"security_label", ""}},
+	{ NFSEXP_SIGN_FH, {"sign_fh", ""}},
 	{ NFSEXP_NOHIDE, {"nohide", ""}},
-	{ NFSEXP_CROSSMOUNT, {"crossmnt", ""}},
 	{ NFSEXP_NOSUBTREECHECK, {"no_subtree_check", ""}},
 	{ NFSEXP_NOAUTHNLM, {"insecure_locks", ""}},
+	{ NFSEXP_CROSSMOUNT, {"crossmnt", ""}},
 	{ NFSEXP_V4ROOT, {"v4root", ""}},
 	{ NFSEXP_PNFS, {"pnfs", ""}},
-	{ NFSEXP_SECURITY_LABEL, {"security_label", ""}},
 	{ 0, {"", ""}}
 };
 
@@ -1458,13 +1467,9 @@ static int e_show(struct seq_file *m, void *p)
 		return 0;
 	}
 
-	if (!cache_get_rcu(&exp->h))
+	if (cache_check_rcu(cd, &exp->h, NULL))
 		return 0;
 
-	if (cache_check(cd, &exp->h, NULL))
-		return 0;
-
-	exp_put(exp);
 	return svc_export_show(m, cd, cp);
 }
 

@@ -1,4 +1,4 @@
-savedcmd_arch/x86/lib/cmpxchg16b_emu.o := gcc -Wp,-MMD,arch/x86/lib/.cmpxchg16b_emu.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -D__KERNEL__ -fmacro-prefix-map=./= -Werror -D__ASSEMBLY__ -fno-PIE -m64    -DKBUILD_MODFILE='"arch/x86/lib/cmpxchg16b_emu"' -DKBUILD_MODNAME='"cmpxchg16b_emu"' -D__KBUILD_MODNAME=kmod_cmpxchg16b_emu -c -o arch/x86/lib/cmpxchg16b_emu.o arch/x86/lib/cmpxchg16b_emu.S 
+savedcmd_arch/x86/lib/cmpxchg16b_emu.o := gcc -Wp,-MMD,arch/x86/lib/.cmpxchg16b_emu.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -D__KERNEL__ -Werror -D__ASSEMBLY__ -fno-PIE -m64 -Wa,--fatal-warnings    -DKBUILD_MODFILE='"arch/x86/lib/cmpxchg16b_emu"' -DKBUILD_MODNAME='"cmpxchg16b_emu"' -D__KBUILD_MODNAME=cmpxchg16b_emu -c -o arch/x86/lib/cmpxchg16b_emu.o arch/x86/lib/cmpxchg16b_emu.S 
 
 source_arch/x86/lib/cmpxchg16b_emu.o := arch/x86/lib/cmpxchg16b_emu.S
 
@@ -22,13 +22,21 @@ deps_arch/x86/lib/cmpxchg16b_emu.o := \
     $(wildcard include/config/LTO_CLANG) \
     $(wildcard include/config/HAVE_ARCH_COMPILER_H) \
     $(wildcard include/config/KCSAN) \
+    $(wildcard include/config/CC_HAS_ASSUME) \
     $(wildcard include/config/CC_HAS_COUNTED_BY) \
-    $(wildcard include/config/UBSAN_SIGNED_WRAP) \
+    $(wildcard include/config/FORTIFY_SOURCE) \
+    $(wildcard include/config/UBSAN_BOUNDS) \
+    $(wildcard include/config/CC_HAS_COUNTED_BY_PTR) \
+    $(wildcard include/config/CC_HAS_MULTIDIMENSIONAL_NONSTRING) \
+    $(wildcard include/config/CFI) \
+    $(wildcard include/config/ARCH_USES_CFI_GENERIC_LLVM_PASS) \
+    $(wildcard include/config/CC_HAS_BROKEN_COUNTED_BY_REF) \
     $(wildcard include/config/CC_HAS_ASM_INLINE) \
   include/linux/stringify.h \
   include/linux/export.h \
     $(wildcard include/config/MODVERSIONS) \
     $(wildcard include/config/64BIT) \
+    $(wildcard include/config/GENDWARFKSYMS) \
   include/linux/compiler.h \
     $(wildcard include/config/TRACE_BRANCH_PROFILING) \
     $(wildcard include/config/PROFILE_ALL_BRANCHES) \
@@ -61,7 +69,6 @@ deps_arch/x86/lib/cmpxchg16b_emu.o := \
   include/uapi/asm-generic/bitsperlong.h \
   arch/x86/include/asm/percpu.h \
     $(wildcard include/config/SMP) \
-    $(wildcard include/config/X86_64_SMP) \
     $(wildcard include/config/CC_HAS_NAMED_AS) \
     $(wildcard include/config/USE_X86_SEG_SUPPORT) \
   arch/x86/include/asm/processor-flags.h \

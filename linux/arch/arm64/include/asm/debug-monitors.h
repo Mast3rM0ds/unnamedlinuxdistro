@@ -13,13 +13,7 @@
 #include <asm/ptrace.h>
 
 /* Low-level stepping controls. */
-#define DBG_MDSCR_SS		(1 << 0)
 #define DBG_SPSR_SS		(1 << 21)
-
-/* MDSCR_EL1 enabling bits */
-#define DBG_MDSCR_KDE		(1 << 13)
-#define DBG_MDSCR_MDE		(1 << 15)
-#define DBG_MDSCR_MASK		~(DBG_MDSCR_KDE | DBG_MDSCR_MDE)
 
 #define	DBG_ESR_EVT(x)		(((x) >> 27) & 0x7)
 
@@ -54,7 +48,7 @@
 #define AARCH32_BREAK_THUMB2_LO	0xf7f0
 #define AARCH32_BREAK_THUMB2_HI	0xa000
 
-#ifndef __ASSEMBLY__
+#ifndef __ASSEMBLER__
 struct task_struct;
 
 #define DBG_ARCH_ID_RESERVED	0	/* In case of ptrace ABI updates. */
@@ -81,6 +75,7 @@ void kernel_enable_single_step(struct pt_regs *regs);
 void kernel_disable_single_step(void);
 int kernel_active_single_step(void);
 void kernel_rewind_single_step(struct pt_regs *regs);
+void kernel_fastforward_single_step(struct pt_regs *regs);
 
 #ifdef CONFIG_HAVE_HW_BREAKPOINT
 bool try_step_suspended_breakpoints(struct pt_regs *regs);
@@ -93,5 +88,5 @@ static inline bool try_step_suspended_breakpoints(struct pt_regs *regs)
 
 bool try_handle_aarch32_break(struct pt_regs *regs);
 
-#endif	/* __ASSEMBLY */
+#endif	/* __ASSEMBLER__ */
 #endif	/* __ASM_DEBUG_MONITORS_H */

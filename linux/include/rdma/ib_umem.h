@@ -7,13 +7,9 @@
 #ifndef IB_UMEM_H
 #define IB_UMEM_H
 
-#include <linux/list.h>
 #include <linux/scatterlist.h>
-#include <linux/workqueue.h>
-#include <rdma/ib_verbs.h>
 
-struct ib_ucontext;
-struct ib_umem_odp;
+struct ib_device;
 struct dma_buf_attach_ops;
 
 struct ib_umem {
@@ -22,6 +18,7 @@ struct ib_umem {
 	u64 iova;
 	size_t			length;
 	unsigned long		address;
+	unsigned long		dma_attrs;
 	u32 writable : 1;
 	u32 is_odp : 1;
 	u32 is_dmabuf : 1;
@@ -36,6 +33,7 @@ struct ib_umem_dmabuf {
 	struct scatterlist *last_sg;
 	unsigned long first_sg_offset;
 	unsigned long last_sg_trim;
+	void (*pinned_revoke)(void *priv);
 	void *private;
 	u8 pinned : 1;
 	u8 revoked : 1;
@@ -52,11 +50,15 @@ static inline int ib_umem_offset(struct ib_umem *umem)
 	return umem->address & ~PAGE_MASK;
 }
 
+static inline dma_addr_t ib_umem_start_dma_addr(struct ib_umem *umem)
+{
+	return sg_dma_address(umem->sgt_append.sgt.sgl) + ib_umem_offset(umem);
+}
+
 static inline unsigned long ib_umem_dma_offset(struct ib_umem *umem,
 					       unsigned long pgsz)
 {
-	return (sg_dma_address(umem->sgt_append.sgt.sgl) + ib_umem_offset(umem)) &
-	       (pgsz - 1);
+	return ib_umem_start_dma_addr(umem) & (pgsz - 1);
 }
 
 static inline size_t ib_umem_num_dma_blocks(struct ib_umem *umem,
@@ -107,12 +109,25 @@ static inline unsigned long ib_umem_find_best_pgoff(struct ib_umem *umem,
 						    unsigned long pgsz_bitmap,
 						    u64 pgoff_bitmask)
 {
-	struct scatterlist *sg = umem->sgt_append.sgt.sgl;
 	dma_addr_t dma_addr;
 
-	dma_addr = sg_dma_address(sg) + (umem->address & ~PAGE_MASK);
+	dma_addr = ib_umem_start_dma_addr(umem);
 	return ib_umem_find_best_pgsz(umem, pgsz_bitmap,
 				      dma_addr & pgoff_bitmask);
+}
+
+static inline bool ib_umem_is_contiguous(struct ib_umem *umem)
+{
+	dma_addr_t dma_addr;
+	unsigned long pgsz;
+
+	/*
+	 * Select the smallest aligned page that can contain the whole umem if
+	 * it was contiguous.
+	 */
+	dma_addr = ib_umem_start_dma_addr(umem);
+	pgsz = roundup_pow_of_two((dma_addr ^ (umem->length - 1 + dma_addr)) + 1);
+	return !!ib_umem_find_best_pgoff(umem, pgsz, U64_MAX);
 }
 
 struct ib_umem_dmabuf *ib_umem_dmabuf_get(struct ib_device *device,
@@ -123,6 +138,12 @@ struct ib_umem_dmabuf *ib_umem_dmabuf_get_pinned(struct ib_device *device,
 						 unsigned long offset,
 						 size_t size, int fd,
 						 int access);
+struct ib_umem_dmabuf *
+ib_umem_dmabuf_get_pinned_revocable_and_lock(struct ib_device *device,
+					     unsigned long offset, size_t size,
+					     int fd, int access);
+void ib_umem_dmabuf_set_revoke_locked(struct ib_umem_dmabuf *umem_dmabuf,
+				      void (*revoke)(void *priv), void *priv);
 struct ib_umem_dmabuf *
 ib_umem_dmabuf_get_pinned_with_dma_device(struct ib_device *device,
 					  struct device *dma_device,
@@ -164,6 +185,10 @@ static inline unsigned long ib_umem_find_best_pgoff(struct ib_umem *umem,
 {
 	return 0;
 }
+static inline bool ib_umem_is_contiguous(struct ib_umem *umem)
+{
+	return false;
+}
 static inline
 struct ib_umem_dmabuf *ib_umem_dmabuf_get(struct ib_device *device,
 					  unsigned long offset,
@@ -179,6 +204,18 @@ ib_umem_dmabuf_get_pinned(struct ib_device *device, unsigned long offset,
 {
 	return ERR_PTR(-EOPNOTSUPP);
 }
+
+static inline struct ib_umem_dmabuf *
+ib_umem_dmabuf_get_pinned_revocable_and_lock(struct ib_device *device,
+					     unsigned long offset, size_t size,
+					     int fd, int access)
+{
+	return ERR_PTR(-EOPNOTSUPP);
+}
+
+static inline void
+ib_umem_dmabuf_set_revoke_locked(struct ib_umem_dmabuf *umem_dmabuf,
+				 void (*revoke)(void *priv), void *priv) {}
 
 static inline struct ib_umem_dmabuf *
 ib_umem_dmabuf_get_pinned_with_dma_device(struct ib_device *device,

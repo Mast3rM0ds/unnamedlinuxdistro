@@ -53,6 +53,8 @@ static inline int copy_from_sockptr_offset(void *dst, sockptr_t src,
 /* Deprecated.
  * This is unsafe, unless caller checked user provided optlen.
  * Prefer copy_safe_from_sockptr() instead.
+ *
+ * Returns 0 for success, or number of bytes not copied on error.
  */
 static inline int copy_from_sockptr(void *dst, sockptr_t src, size_t size)
 {
@@ -89,7 +91,7 @@ static inline int copy_struct_from_sockptr(void *dst, size_t ksize,
 	size_t rest = max(ksize, usize) - size;
 
 	if (!sockptr_is_kernel(src))
-		return copy_struct_from_user(dst, ksize, src.user, size);
+		return copy_struct_from_user(dst, ksize, src.user, usize);
 
 	if (usize < ksize) {
 		memset(dst + size, 0, rest);

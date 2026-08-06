@@ -3639,7 +3639,7 @@ static struct platform_driver talitos_driver = {
 		.of_match_table = talitos_match,
 	},
 	.probe = talitos_probe,
-	.remove_new = talitos_remove,
+	.remove = talitos_remove,
 };
 
 module_platform_driver(talitos_driver);

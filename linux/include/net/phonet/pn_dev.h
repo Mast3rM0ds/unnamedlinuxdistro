@@ -11,13 +11,13 @@
 #define PN_DEV_H
 
 #include <linux/list.h>
-#include <linux/mutex.h>
+#include <linux/spinlock.h>
 
 struct net;
 
 struct phonet_device_list {
 	struct list_head list;
-	struct mutex lock;
+	spinlock_t lock;
 };
 
 struct phonet_device_list *phonet_device_list(struct net *net);
@@ -42,7 +42,7 @@ void phonet_address_notify(struct net *net, int event, u32 ifindex, u8 addr);
 
 int phonet_route_add(struct net_device *dev, u8 daddr);
 int phonet_route_del(struct net_device *dev, u8 daddr);
-void rtm_phonet_notify(int event, struct net_device *dev, u8 dst);
+void rtm_phonet_notify(struct net *net, int event, u32 ifindex, u8 dst);
 struct net_device *phonet_route_get_rcu(struct net *net, u8 daddr);
 struct net_device *phonet_route_output(struct net *net, u8 daddr);
 

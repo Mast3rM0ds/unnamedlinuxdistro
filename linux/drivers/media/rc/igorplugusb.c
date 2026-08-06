@@ -131,7 +131,7 @@ static void igorplugusb_cmd(struct igorplugusb *ir, int cmd)
 
 static void igorplugusb_timer(struct timer_list *t)
 {
-	struct igorplugusb *ir = from_timer(ir, t, timer);
+	struct igorplugusb *ir = timer_container_of(ir, t, timer);
 
 	igorplugusb_cmd(ir, GET_INFRACODE);
 }
@@ -164,7 +164,7 @@ static int igorplugusb_probe(struct usb_interface *intf,
 	if (!ir)
 		return -ENOMEM;
 
-	ir->request = kzalloc(sizeof(*ir->request), GFP_KERNEL);
+	ir->request = kzalloc_obj(*ir->request, GFP_KERNEL);
 	if (!ir->request)
 		goto fail;
 
@@ -227,7 +227,7 @@ static int igorplugusb_probe(struct usb_interface *intf,
 	return 0;
 fail:
 	usb_poison_urb(ir->urb);
-	del_timer(&ir->timer);
+	timer_delete(&ir->timer);
 	usb_unpoison_urb(ir->urb);
 	usb_free_urb(ir->urb);
 	rc_free_device(ir->rc);
@@ -243,7 +243,7 @@ static void igorplugusb_disconnect(struct usb_interface *intf)
 
 	rc_unregister_device(ir->rc);
 	usb_poison_urb(ir->urb);
-	del_timer_sync(&ir->timer);
+	timer_delete_sync(&ir->timer);
 	usb_set_intfdata(intf, NULL);
 	usb_unpoison_urb(ir->urb);
 	usb_free_urb(ir->urb);

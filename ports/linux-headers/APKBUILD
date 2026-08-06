@@ -1,5 +1,5 @@
 pkgname=linux-headers
-pkgver=6.12.100
+pkgver=7.1.7
 _kernver=${pkgver%.*}
 pkgrel=0
 pkgdesc="Linux system headers"
@@ -34,5 +34,5 @@ package() {
 	find "$pkgdir"/usr/include/ ! -iname "*.h" -type f -exec rm -v {} \+
 }
 sha512sums="
-a37b1823df7b4f72542f689b65882634740ba0401a42fdcf6601d9efd2e132e5a7650e70450ba76f6cd1f13ca31180f2ccee9d54fe4df89bc0000ade4380a548  linux-6.12.tar.xz
+d4d9c45261813559341c67ea53d4a47f5a04d1ad15e3c2b8222a09b5483380d2bfd31b8c675e144db2eb91f560d6cb28f66187a5ea4f24f6dfb82a4ad48064cc  linux-7.1.tar.xz
 "

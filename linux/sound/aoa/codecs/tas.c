@@ -845,7 +845,7 @@ static int tas_i2c_probe(struct i2c_client *client)
 	struct device_node *node = client->dev.of_node;
 	struct tas *tas;
 
-	tas = kzalloc(sizeof(struct tas), GFP_KERNEL);
+	tas = kzalloc_obj(struct tas);
 
 	if (!tas)
 		return -ENOMEM;
@@ -857,7 +857,7 @@ static int tas_i2c_probe(struct i2c_client *client)
 	/* seems that half is a saner default */
 	tas->drc_range = TAS3004_DRC_MAX / 2;
 
-	strscpy(tas->codec.name, "tas", MAX_CODEC_NAME_LEN);
+	strscpy(tas->codec.name, "tas");
 	tas->codec.owner = THIS_MODULE;
 	tas->codec.init = tas_init_codec;
 	tas->codec.exit = tas_exit_codec;
@@ -872,6 +872,7 @@ static int tas_i2c_probe(struct i2c_client *client)
 	return 0;
  fail:
 	mutex_destroy(&tas->mtx);
+	of_node_put(tas->codec.node);
 	kfree(tas);
 	return -EINVAL;
 }

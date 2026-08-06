@@ -78,7 +78,7 @@ struct hid_ops {
 	const struct bus_type *bus_type;
 };
 
-extern struct hid_ops *hid_ops;
+extern const struct hid_ops *hid_ops;
 
 /**
  * struct hid_bpf_ops - A BPF struct_ops of callbacks allowing to attach HID-BPF
@@ -213,7 +213,7 @@ int hid_bpf_connect_device(struct hid_device *hdev);
 void hid_bpf_disconnect_device(struct hid_device *hdev);
 void hid_bpf_destroy_device(struct hid_device *hid);
 int hid_bpf_device_init(struct hid_device *hid);
-u8 *call_hid_bpf_rdesc_fixup(struct hid_device *hdev, const u8 *rdesc, unsigned int *size);
+const u8 *call_hid_bpf_rdesc_fixup(struct hid_device *hdev, const u8 *rdesc, unsigned int *size);
 #else /* CONFIG_HID_BPF */
 static inline u8 *dispatch_hid_bpf_device_event(struct hid_device *hid, enum hid_report_type type,
 						u8 *data, size_t *buf_size, u32 *size,
@@ -232,13 +232,8 @@ static inline int hid_bpf_connect_device(struct hid_device *hdev) { return 0; }
 static inline void hid_bpf_disconnect_device(struct hid_device *hdev) {}
 static inline void hid_bpf_destroy_device(struct hid_device *hid) {}
 static inline int hid_bpf_device_init(struct hid_device *hid) { return 0; }
-/*
- * This specialized allocator has to be a macro for its allocations to be
- * accounted separately (to have a separate alloc_tag). The typecast is
- * intentional to enforce typesafety.
- */
-#define call_hid_bpf_rdesc_fixup(_hdev, _rdesc, _size)	\
-		((u8 *)kmemdup(_rdesc, *(_size), GFP_KERNEL))
+static inline const u8 *call_hid_bpf_rdesc_fixup(struct hid_device *hdev, const u8 *rdesc,
+						 unsigned int *size) { return rdesc; }
 
 #endif /* CONFIG_HID_BPF */
 

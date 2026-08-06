@@ -1,0 +1,1 @@
+savedcmd_arch/x86/entry/vdso/vdso32/built-in.a := rm -f arch/x86/entry/vdso/vdso32/built-in.a;  printf "arch/x86/entry/vdso/vdso32/%s " vdso32-image.o | xargs ar cDPrST arch/x86/entry/vdso/vdso32/built-in.a

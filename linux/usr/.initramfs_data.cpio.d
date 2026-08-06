@@ -1,2 +1,2 @@
 deps_initramfs := \
-usr/default_cpio_list \
+./usr/default_cpio_list \

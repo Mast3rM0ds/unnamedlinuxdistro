@@ -3,16 +3,16 @@
 #	compiled by GNU C version 15.2.0, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.26-GMP
 
 # GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
-# options passed: -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -m64 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -mtune=generic -mno-red-zone -mcmodel=kernel -mindirect-branch=thunk-extern -mindirect-branch-register -mindirect-branch-cs-prefix -mfunction-return=thunk-extern -march=x86-64 -O2 -std=gnu11 -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -fcf-protection=branch -falign-jumps=1 -falign-loops=1 -fno-asynchronous-unwind-tables -fno-jump-tables -fpatchable-function-entry=16,16 -fno-delete-null-pointer-checks -fno-allow-store-data-races -fstack-protector-strong -fomit-frame-pointer -ftrivial-auto-var-init=zero -fno-stack-clash-protection -fmin-function-alignment=16 -fstrict-flex-arrays=3 -fno-strict-overflow -fstack-check=no -fconserve-stack -fno-builtin-wcslen -fno-builtin-wcslen -fzero-init-padding-bits=all
+# options passed: -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -mno-sse4a -m64 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -march=x86-64 -mtune=generic -mno-red-zone -mcmodel=kernel -mstack-protector-guard-reg=gs -mstack-protector-guard-symbol=__ref_stack_chk_guard -mindirect-branch=thunk-extern -mindirect-branch-register -mindirect-branch-cs-prefix -mfunction-return=thunk-extern -O2 -std=gnu11 -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -fms-extensions -fcf-protection=branch -falign-jumps=1 -falign-loops=1 -fno-asynchronous-unwind-tables -fno-jump-tables -fpatchable-function-entry=16,16 -fno-delete-null-pointer-checks -fno-allow-store-data-races -fstack-protector-strong -fomit-frame-pointer -ftrivial-auto-var-init=zero -fzero-init-padding-bits=all -fno-stack-clash-protection -fmin-function-alignment=16 -fstrict-flex-arrays=3 -fno-strict-overflow -fstack-check=no -fconserve-stack -fno-builtin-wcslen
 	.text
 	.section	.text.startup,"ax",@progbits
 	.align 16
 	.globl	main
-	.section	__patchable_function_entries,"awo",@progbits,.LPFE4905
+	.section	__patchable_function_entries,"awo",@progbits,.LPFE5456
 	.align 8
-	.quad	.LPFE4905
+	.quad	.LPFE5456
 	.section	.text.startup
-.LPFE4905:
+.LPFE5456:
 	nop	
 	nop	
 	nop	
@@ -163,33 +163,18 @@ main:
 	
 .ascii "->"
 # 0 "" 2
-# arch/x86/kernel/asm-offsets_64.c:57: 	BLANK();
-# 57 "arch/x86/kernel/asm-offsets_64.c" 1
-	
-.ascii "->"
-# 0 "" 2
-# arch/x86/kernel/asm-offsets_64.c:60: 	OFFSET(FIXED_stack_canary, fixed_percpu_data, stack_canary);
-# 60 "arch/x86/kernel/asm-offsets_64.c" 1
-	
-.ascii "->FIXED_stack_canary $40 offsetof(struct fixed_percpu_data, stack_canary)"	#
-# 0 "" 2
-# arch/x86/kernel/asm-offsets_64.c:61: 	BLANK();
-# 61 "arch/x86/kernel/asm-offsets_64.c" 1
-	
-.ascii "->"
-# 0 "" 2
-# arch/x86/kernel/asm-offsets_64.c:64: }
+# arch/x86/kernel/asm-offsets_64.c:58: }
 #NO_APP
 	xorl	%eax, %eax	#
 	jmp	__x86_return_thunk
 	.size	main, .-main
 	.text
 	.align 16
-	.section	__patchable_function_entries,"awo",@progbits,.LPFE4906
+	.section	__patchable_function_entries,"awo",@progbits,.LPFE5457
 	.align 8
-	.quad	.LPFE4906
+	.quad	.LPFE5457
 	.text
-.LPFE4906:
+.LPFE5457:
 	nop	
 	nop	
 	nop	
@@ -209,278 +194,348 @@ main:
 	.type	common, @function
 common:
 	endbr64	
-# arch/x86/kernel/asm-offsets.c:36: 	BLANK();
+# arch/x86/kernel/asm-offsets.c:36: 	OFFSET(CPUINFO_x86, cpuinfo_x86, x86);
 #APP
 # 36 "arch/x86/kernel/asm-offsets.c" 1
 	
-.ascii "->"
+.ascii "->CPUINFO_x86 $1 offsetof(struct cpuinfo_x86, x86)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:37: 	OFFSET(TASK_threadsp, task_struct, thread.sp);
+# arch/x86/kernel/asm-offsets.c:37: 	OFFSET(CPUINFO_x86_vendor, cpuinfo_x86, x86_vendor);
 # 37 "arch/x86/kernel/asm-offsets.c" 1
 	
-.ascii "->TASK_threadsp $2968 offsetof(struct task_struct, thread.sp)"	#
+.ascii "->CPUINFO_x86_vendor $2 offsetof(struct cpuinfo_x86, x86_vendor)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:39: 	OFFSET(TASK_stack_canary, task_struct, stack_canary);
+# arch/x86/kernel/asm-offsets.c:38: 	OFFSET(CPUINFO_x86_model, cpuinfo_x86, x86_model);
+# 38 "arch/x86/kernel/asm-offsets.c" 1
+	
+.ascii "->CPUINFO_x86_model $0 offsetof(struct cpuinfo_x86, x86_model)"	#
+# 0 "" 2
+# arch/x86/kernel/asm-offsets.c:39: 	OFFSET(CPUINFO_x86_stepping, cpuinfo_x86, x86_stepping);
 # 39 "arch/x86/kernel/asm-offsets.c" 1
 	
-.ascii "->TASK_stack_canary $1416 offsetof(struct task_struct, stack_canary)"	#
+.ascii "->CPUINFO_x86_stepping $4 offsetof(struct cpuinfo_x86, x86_stepping)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:42: 	BLANK();
+# arch/x86/kernel/asm-offsets.c:40: 	OFFSET(CPUINFO_cpuid_level, cpuinfo_x86, cpuid_level);
+# 40 "arch/x86/kernel/asm-offsets.c" 1
+	
+.ascii "->CPUINFO_cpuid_level $40 offsetof(struct cpuinfo_x86, cpuid_level)"	#
+# 0 "" 2
+# arch/x86/kernel/asm-offsets.c:41: 	OFFSET(CPUINFO_x86_capability, cpuinfo_x86, x86_capability);
+# 41 "arch/x86/kernel/asm-offsets.c" 1
+	
+.ascii "->CPUINFO_x86_capability $48 offsetof(struct cpuinfo_x86, x86_capability)"	#
+# 0 "" 2
+# arch/x86/kernel/asm-offsets.c:42: 	OFFSET(CPUINFO_x86_vendor_id, cpuinfo_x86, x86_vendor_id);
 # 42 "arch/x86/kernel/asm-offsets.c" 1
+	
+.ascii "->CPUINFO_x86_vendor_id $144 offsetof(struct cpuinfo_x86, x86_vendor_id)"	#
+# 0 "" 2
+# arch/x86/kernel/asm-offsets.c:44: 	BLANK();
+# 44 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->"
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:43: 	OFFSET(pbe_address, pbe, address);
-# 43 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:45: 	OFFSET(TASK_threadsp, task_struct, thread.sp);
+# 45 "arch/x86/kernel/asm-offsets.c" 1
+	
+.ascii "->TASK_threadsp $3088 offsetof(struct task_struct, thread.sp)"	#
+# 0 "" 2
+# arch/x86/kernel/asm-offsets.c:47: 	OFFSET(TASK_stack_canary, task_struct, stack_canary);
+# 47 "arch/x86/kernel/asm-offsets.c" 1
+	
+.ascii "->TASK_stack_canary $1528 offsetof(struct task_struct, stack_canary)"	#
+# 0 "" 2
+# arch/x86/kernel/asm-offsets.c:50: 	BLANK();
+# 50 "arch/x86/kernel/asm-offsets.c" 1
+	
+.ascii "->"
+# 0 "" 2
+# arch/x86/kernel/asm-offsets.c:51: 	OFFSET(pbe_address, pbe, address);
+# 51 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->pbe_address $0 offsetof(struct pbe, address)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:44: 	OFFSET(pbe_orig_address, pbe, orig_address);
-# 44 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:52: 	OFFSET(pbe_orig_address, pbe, orig_address);
+# 52 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->pbe_orig_address $8 offsetof(struct pbe, orig_address)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:45: 	OFFSET(pbe_next, pbe, next);
-# 45 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:53: 	OFFSET(pbe_next, pbe, next);
+# 53 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->pbe_next $16 offsetof(struct pbe, next)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:48: 	BLANK();
-# 48 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:56: 	BLANK();
+# 56 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->"
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:49: 	OFFSET(IA32_SIGCONTEXT_ax, sigcontext_32, ax);
-# 49 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:57: 	OFFSET(IA32_SIGCONTEXT_ax, sigcontext_32, ax);
+# 57 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->IA32_SIGCONTEXT_ax $44 offsetof(struct sigcontext_32, ax)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:50: 	OFFSET(IA32_SIGCONTEXT_bx, sigcontext_32, bx);
-# 50 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:58: 	OFFSET(IA32_SIGCONTEXT_bx, sigcontext_32, bx);
+# 58 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->IA32_SIGCONTEXT_bx $32 offsetof(struct sigcontext_32, bx)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:51: 	OFFSET(IA32_SIGCONTEXT_cx, sigcontext_32, cx);
-# 51 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:59: 	OFFSET(IA32_SIGCONTEXT_cx, sigcontext_32, cx);
+# 59 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->IA32_SIGCONTEXT_cx $40 offsetof(struct sigcontext_32, cx)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:52: 	OFFSET(IA32_SIGCONTEXT_dx, sigcontext_32, dx);
-# 52 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:60: 	OFFSET(IA32_SIGCONTEXT_dx, sigcontext_32, dx);
+# 60 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->IA32_SIGCONTEXT_dx $36 offsetof(struct sigcontext_32, dx)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:53: 	OFFSET(IA32_SIGCONTEXT_si, sigcontext_32, si);
-# 53 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:61: 	OFFSET(IA32_SIGCONTEXT_si, sigcontext_32, si);
+# 61 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->IA32_SIGCONTEXT_si $20 offsetof(struct sigcontext_32, si)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:54: 	OFFSET(IA32_SIGCONTEXT_di, sigcontext_32, di);
-# 54 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:62: 	OFFSET(IA32_SIGCONTEXT_di, sigcontext_32, di);
+# 62 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->IA32_SIGCONTEXT_di $16 offsetof(struct sigcontext_32, di)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:55: 	OFFSET(IA32_SIGCONTEXT_bp, sigcontext_32, bp);
-# 55 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:63: 	OFFSET(IA32_SIGCONTEXT_bp, sigcontext_32, bp);
+# 63 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->IA32_SIGCONTEXT_bp $24 offsetof(struct sigcontext_32, bp)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:56: 	OFFSET(IA32_SIGCONTEXT_sp, sigcontext_32, sp);
-# 56 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:64: 	OFFSET(IA32_SIGCONTEXT_sp, sigcontext_32, sp);
+# 64 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->IA32_SIGCONTEXT_sp $28 offsetof(struct sigcontext_32, sp)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:57: 	OFFSET(IA32_SIGCONTEXT_ip, sigcontext_32, ip);
-# 57 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:65: 	OFFSET(IA32_SIGCONTEXT_ip, sigcontext_32, ip);
+# 65 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->IA32_SIGCONTEXT_ip $56 offsetof(struct sigcontext_32, ip)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:59: 	BLANK();
-# 59 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:66: 	OFFSET(IA32_SIGCONTEXT_es, sigcontext_32, es);
+# 66 "arch/x86/kernel/asm-offsets.c" 1
+	
+.ascii "->IA32_SIGCONTEXT_es $8 offsetof(struct sigcontext_32, es)"	#
+# 0 "" 2
+# arch/x86/kernel/asm-offsets.c:67: 	OFFSET(IA32_SIGCONTEXT_cs, sigcontext_32, cs);
+# 67 "arch/x86/kernel/asm-offsets.c" 1
+	
+.ascii "->IA32_SIGCONTEXT_cs $60 offsetof(struct sigcontext_32, cs)"	#
+# 0 "" 2
+# arch/x86/kernel/asm-offsets.c:68: 	OFFSET(IA32_SIGCONTEXT_ss, sigcontext_32, ss);
+# 68 "arch/x86/kernel/asm-offsets.c" 1
+	
+.ascii "->IA32_SIGCONTEXT_ss $72 offsetof(struct sigcontext_32, ss)"	#
+# 0 "" 2
+# arch/x86/kernel/asm-offsets.c:69: 	OFFSET(IA32_SIGCONTEXT_ds, sigcontext_32, ds);
+# 69 "arch/x86/kernel/asm-offsets.c" 1
+	
+.ascii "->IA32_SIGCONTEXT_ds $12 offsetof(struct sigcontext_32, ds)"	#
+# 0 "" 2
+# arch/x86/kernel/asm-offsets.c:70: 	OFFSET(IA32_SIGCONTEXT_flags, sigcontext_32, flags);
+# 70 "arch/x86/kernel/asm-offsets.c" 1
+	
+.ascii "->IA32_SIGCONTEXT_flags $64 offsetof(struct sigcontext_32, flags)"	#
+# 0 "" 2
+# arch/x86/kernel/asm-offsets.c:72: 	BLANK();
+# 72 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->"
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:60: 	OFFSET(IA32_RT_SIGFRAME_sigcontext, rt_sigframe_ia32, uc.uc_mcontext);
-# 60 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:73: 	OFFSET(IA32_SIGFRAME_sigcontext,    sigframe_ia32,    sc);
+# 73 "arch/x86/kernel/asm-offsets.c" 1
+	
+.ascii "->IA32_SIGFRAME_sigcontext $8 offsetof(struct sigframe_ia32, sc)"	#
+# 0 "" 2
+# arch/x86/kernel/asm-offsets.c:74: 	OFFSET(IA32_RT_SIGFRAME_sigcontext, rt_sigframe_ia32, uc.uc_mcontext);
+# 74 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->IA32_RT_SIGFRAME_sigcontext $164 offsetof(struct rt_sigframe_ia32, uc.uc_mcontext)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:70: 	BLANK();
-# 70 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:84: 	BLANK();
+# 84 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->"
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:71: 	OFFSET(TDX_MODULE_rcx, tdx_module_args, rcx);
-# 71 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:85: 	OFFSET(TDX_MODULE_rcx, tdx_module_args, rcx);
+# 85 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->TDX_MODULE_rcx $0 offsetof(struct tdx_module_args, rcx)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:72: 	OFFSET(TDX_MODULE_rdx, tdx_module_args, rdx);
-# 72 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:86: 	OFFSET(TDX_MODULE_rdx, tdx_module_args, rdx);
+# 86 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->TDX_MODULE_rdx $8 offsetof(struct tdx_module_args, rdx)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:73: 	OFFSET(TDX_MODULE_r8,  tdx_module_args, r8);
-# 73 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:87: 	OFFSET(TDX_MODULE_r8,  tdx_module_args, r8);
+# 87 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->TDX_MODULE_r8 $16 offsetof(struct tdx_module_args, r8)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:74: 	OFFSET(TDX_MODULE_r9,  tdx_module_args, r9);
-# 74 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:88: 	OFFSET(TDX_MODULE_r9,  tdx_module_args, r9);
+# 88 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->TDX_MODULE_r9 $24 offsetof(struct tdx_module_args, r9)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:75: 	OFFSET(TDX_MODULE_r10, tdx_module_args, r10);
-# 75 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:89: 	OFFSET(TDX_MODULE_r10, tdx_module_args, r10);
+# 89 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->TDX_MODULE_r10 $32 offsetof(struct tdx_module_args, r10)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:76: 	OFFSET(TDX_MODULE_r11, tdx_module_args, r11);
-# 76 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:90: 	OFFSET(TDX_MODULE_r11, tdx_module_args, r11);
+# 90 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->TDX_MODULE_r11 $40 offsetof(struct tdx_module_args, r11)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:77: 	OFFSET(TDX_MODULE_r12, tdx_module_args, r12);
-# 77 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:91: 	OFFSET(TDX_MODULE_r12, tdx_module_args, r12);
+# 91 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->TDX_MODULE_r12 $48 offsetof(struct tdx_module_args, r12)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:78: 	OFFSET(TDX_MODULE_r13, tdx_module_args, r13);
-# 78 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:92: 	OFFSET(TDX_MODULE_r13, tdx_module_args, r13);
+# 92 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->TDX_MODULE_r13 $56 offsetof(struct tdx_module_args, r13)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:79: 	OFFSET(TDX_MODULE_r14, tdx_module_args, r14);
-# 79 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:93: 	OFFSET(TDX_MODULE_r14, tdx_module_args, r14);
+# 93 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->TDX_MODULE_r14 $64 offsetof(struct tdx_module_args, r14)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:80: 	OFFSET(TDX_MODULE_r15, tdx_module_args, r15);
-# 80 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:94: 	OFFSET(TDX_MODULE_r15, tdx_module_args, r15);
+# 94 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->TDX_MODULE_r15 $72 offsetof(struct tdx_module_args, r15)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:81: 	OFFSET(TDX_MODULE_rbx, tdx_module_args, rbx);
-# 81 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:95: 	OFFSET(TDX_MODULE_rbx, tdx_module_args, rbx);
+# 95 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->TDX_MODULE_rbx $80 offsetof(struct tdx_module_args, rbx)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:82: 	OFFSET(TDX_MODULE_rdi, tdx_module_args, rdi);
-# 82 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:96: 	OFFSET(TDX_MODULE_rdi, tdx_module_args, rdi);
+# 96 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->TDX_MODULE_rdi $88 offsetof(struct tdx_module_args, rdi)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:83: 	OFFSET(TDX_MODULE_rsi, tdx_module_args, rsi);
-# 83 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:97: 	OFFSET(TDX_MODULE_rsi, tdx_module_args, rsi);
+# 97 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->TDX_MODULE_rsi $96 offsetof(struct tdx_module_args, rsi)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:85: 	BLANK();
-# 85 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:99: 	BLANK();
+# 99 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->"
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:86: 	OFFSET(BP_scratch, boot_params, scratch);
-# 86 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:100: 	OFFSET(BP_scratch, boot_params, scratch);
+# 100 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->BP_scratch $484 offsetof(struct boot_params, scratch)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:87: 	OFFSET(BP_secure_boot, boot_params, secure_boot);
-# 87 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:101: 	OFFSET(BP_secure_boot, boot_params, secure_boot);
+# 101 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->BP_secure_boot $492 offsetof(struct boot_params, secure_boot)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:88: 	OFFSET(BP_loadflags, boot_params, hdr.loadflags);
-# 88 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:102: 	OFFSET(BP_loadflags, boot_params, hdr.loadflags);
+# 102 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->BP_loadflags $529 offsetof(struct boot_params, hdr.loadflags)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:89: 	OFFSET(BP_hardware_subarch, boot_params, hdr.hardware_subarch);
-# 89 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:103: 	OFFSET(BP_hardware_subarch, boot_params, hdr.hardware_subarch);
+# 103 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->BP_hardware_subarch $572 offsetof(struct boot_params, hdr.hardware_subarch)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:90: 	OFFSET(BP_version, boot_params, hdr.version);
-# 90 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:104: 	OFFSET(BP_version, boot_params, hdr.version);
+# 104 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->BP_version $518 offsetof(struct boot_params, hdr.version)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:91: 	OFFSET(BP_kernel_alignment, boot_params, hdr.kernel_alignment);
-# 91 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:105: 	OFFSET(BP_kernel_alignment, boot_params, hdr.kernel_alignment);
+# 105 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->BP_kernel_alignment $560 offsetof(struct boot_params, hdr.kernel_alignment)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:92: 	OFFSET(BP_init_size, boot_params, hdr.init_size);
-# 92 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:106: 	OFFSET(BP_init_size, boot_params, hdr.init_size);
+# 106 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->BP_init_size $608 offsetof(struct boot_params, hdr.init_size)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:93: 	OFFSET(BP_pref_address, boot_params, hdr.pref_address);
-# 93 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:107: 	OFFSET(BP_pref_address, boot_params, hdr.pref_address);
+# 107 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->BP_pref_address $600 offsetof(struct boot_params, hdr.pref_address)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:95: 	BLANK();
-# 95 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:109: 	BLANK();
+# 109 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->"
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:96: 	DEFINE(PTREGS_SIZE, sizeof(struct pt_regs));
-# 96 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:110: 	DEFINE(PTREGS_SIZE, sizeof(struct pt_regs));
+# 110 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->PTREGS_SIZE $168 sizeof(struct pt_regs)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:99: 	OFFSET(TLB_STATE_user_pcid_flush_mask, tlb_state, user_pcid_flush_mask);
-# 99 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:111: 	OFFSET(C_PTREGS_SIZE, pt_regs, orig_ax);
+# 111 "arch/x86/kernel/asm-offsets.c" 1
+	
+.ascii "->C_PTREGS_SIZE $120 offsetof(struct pt_regs, orig_ax)"	#
+# 0 "" 2
+# arch/x86/kernel/asm-offsets.c:114: 	OFFSET(TLB_STATE_user_pcid_flush_mask, tlb_state, user_pcid_flush_mask);
+# 114 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->TLB_STATE_user_pcid_flush_mask $22 offsetof(struct tlb_state, user_pcid_flush_mask)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:102: 	OFFSET(CPU_ENTRY_AREA_entry_stack, cpu_entry_area, entry_stack_page);
-# 102 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:117: 	OFFSET(CPU_ENTRY_AREA_entry_stack, cpu_entry_area, entry_stack_page);
+# 117 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->CPU_ENTRY_AREA_entry_stack $4096 offsetof(struct cpu_entry_area, entry_stack_page)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:103: 	DEFINE(SIZEOF_entry_stack, sizeof(struct entry_stack));
-# 103 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:118: 	DEFINE(SIZEOF_entry_stack, sizeof(struct entry_stack));
+# 118 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->SIZEOF_entry_stack $4096 sizeof(struct entry_stack)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:104: 	DEFINE(MASK_entry_stack, (~(sizeof(struct entry_stack) - 1)));
-# 104 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:119: 	DEFINE(MASK_entry_stack, (~(sizeof(struct entry_stack) - 1)));
+# 119 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->MASK_entry_stack $-4096 (~(sizeof(struct entry_stack) - 1))"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:107: 	OFFSET(TSS_sp0, tss_struct, x86_tss.sp0);
-# 107 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:122: 	OFFSET(TSS_sp0, tss_struct, x86_tss.sp0);
+# 122 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->TSS_sp0 $4 offsetof(struct tss_struct, x86_tss.sp0)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:108: 	OFFSET(TSS_sp1, tss_struct, x86_tss.sp1);
-# 108 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:123: 	OFFSET(TSS_sp1, tss_struct, x86_tss.sp1);
+# 123 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->TSS_sp1 $12 offsetof(struct tss_struct, x86_tss.sp1)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:109: 	OFFSET(TSS_sp2, tss_struct, x86_tss.sp2);
-# 109 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:124: 	OFFSET(TSS_sp2, tss_struct, x86_tss.sp2);
+# 124 "arch/x86/kernel/asm-offsets.c" 1
 	
 .ascii "->TSS_sp2 $20 offsetof(struct tss_struct, x86_tss.sp2)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:110: 	OFFSET(X86_top_of_stack, pcpu_hot, top_of_stack);
-# 110 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:133: 	BLANK();
+# 133 "arch/x86/kernel/asm-offsets.c" 1
 	
-.ascii "->X86_top_of_stack $24 offsetof(struct pcpu_hot, top_of_stack)"	#
+.ascii "->"
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:111: 	OFFSET(X86_current_task, pcpu_hot, current_task);
-# 111 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:134: 	DEFINE(ALT_INSTR_SIZE,	sizeof(struct alt_instr));
+# 134 "arch/x86/kernel/asm-offsets.c" 1
 	
-.ascii "->X86_current_task $0 offsetof(struct pcpu_hot, current_task)"	#
+.ascii "->ALT_INSTR_SIZE $14 sizeof(struct alt_instr)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:113: 	OFFSET(X86_call_depth, pcpu_hot, call_depth);
-# 113 "arch/x86/kernel/asm-offsets.c" 1
+# arch/x86/kernel/asm-offsets.c:135: 	DEFINE(EXTABLE_SIZE,	sizeof(struct exception_table_entry));
+# 135 "arch/x86/kernel/asm-offsets.c" 1
 	
-.ascii "->X86_call_depth $16 offsetof(struct pcpu_hot, call_depth)"	#
+.ascii "->EXTABLE_SIZE $12 sizeof(struct exception_table_entry)"	#
 # 0 "" 2
-# arch/x86/kernel/asm-offsets.c:123: }
+# arch/x86/kernel/asm-offsets.c:136: }
 #NO_APP
 	jmp	__x86_return_thunk
 	.size	common, .-common

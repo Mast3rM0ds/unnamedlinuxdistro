@@ -1,4 +1,4 @@
-savedcmd_drivers/gpu/drm/i915/i915_memcpy.o := gcc -Wp,-MMD,drivers/gpu/drm/i915/.i915_memcpy.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -fmacro-prefix-map=./= -Werror -std=gnu11 -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -fcf-protection=branch -fno-jump-tables -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -mtune=generic -mno-red-zone -mcmodel=kernel -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -mindirect-branch-cs-prefix -mfunction-return=thunk-extern -fno-jump-tables -fpatchable-function-entry=16,16 -fno-delete-null-pointer-checks -O2 -fno-allow-store-data-races -fstack-protector-strong -fomit-frame-pointer -ftrivial-auto-var-init=zero -fno-stack-clash-protection -fmin-function-alignment=16 -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -fno-builtin-wcslen -fno-builtin-wcslen -Wall -Wextra -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wmissing-declarations -Wmissing-prototypes -Wframe-larger-than=2048 -Wno-main -Wno-dangling-pointer -Wvla -Wno-pointer-sign -Wcast-function-type -Wno-unterminated-string-initialization -Wno-array-bounds -Wno-stringop-overflow -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -fzero-init-padding-bits=all -Wunused -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-truncation -Wno-override-init -Wno-missing-field-initializers -Wno-type-limits -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -Wno-unused-parameter -Wextra -Wunused -Wno-unused-parameter -Wrestrict -Wmissing-format-attribute -Wold-style-definition -Wmissing-include-dirs -Wunused-but-set-variable -Wunused-const-variable -Wpacked-not-aligned -Wformat-overflow -Wstringop-truncation -Wno-missing-field-initializers -Wno-type-limits -Wno-shift-negative-value -Wno-sign-compare -Wformat-truncation -DI915 -Idrivers/gpu/drm/i915    -DKBUILD_MODFILE='"drivers/gpu/drm/i915/i915"' -DKBUILD_BASENAME='"i915_memcpy"' -DKBUILD_MODNAME='"i915"' -D__KBUILD_MODNAME=kmod_i915 -c -o drivers/gpu/drm/i915/i915_memcpy.o drivers/gpu/drm/i915/i915_memcpy.c  
+savedcmd_drivers/gpu/drm/i915/i915_memcpy.o := gcc -Wp,-MMD,drivers/gpu/drm/i915/.i915_memcpy.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -Werror -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -std=gnu11 -fms-extensions -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -mno-sse4a -fcf-protection=branch -fno-jump-tables -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -march=x86-64 -mtune=generic -mno-red-zone -mcmodel=kernel -mstack-protector-guard-reg=gs -mstack-protector-guard-symbol=__ref_stack_chk_guard -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -mindirect-branch-cs-prefix -mfunction-return=thunk-extern -fno-jump-tables -fpatchable-function-entry=16,16 -fno-delete-null-pointer-checks -O2 -fno-allow-store-data-races -fstack-protector-strong -fomit-frame-pointer -ftrivial-auto-var-init=zero -fzero-init-padding-bits=all -fno-stack-clash-protection -fmin-function-alignment=16 -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -fno-builtin-wcslen -Wall -Wextra -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wmissing-declarations -Wmissing-prototypes -Wframe-larger-than=2048 -Wno-main -Wno-type-limits -Wno-dangling-pointer -Wvla-larger-than=1 -Wno-pointer-sign -Wcast-function-type -Wno-unterminated-string-initialization -Wno-array-bounds -Wno-stringop-overflow -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -Wunused -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-truncation -Wno-override-init -Wno-missing-field-initializers -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -Wno-unused-parameter -DGCC_PLUGINS -Wextra -Wunused -Wno-unused-parameter -Wrestrict -Wmissing-format-attribute -Wold-style-definition -Wmissing-include-dirs -Wunused-but-set-variable -Wunused-const-variable -Wpacked-not-aligned -Wformat-overflow -Wstringop-truncation -Wno-missing-field-initializers -Wno-shift-negative-value -Wno-sign-compare -Wformat-truncation -DI915 -I./drivers/gpu/drm/i915    -DKBUILD_MODFILE='"drivers/gpu/drm/i915/i915"' -DKBUILD_BASENAME='"i915_memcpy"' -DKBUILD_MODNAME='"i915"' -D__KBUILD_MODNAME=i915 -c -o drivers/gpu/drm/i915/i915_memcpy.o drivers/gpu/drm/i915/i915_memcpy.c  
 
 source_drivers/gpu/drm/i915/i915_memcpy.o := drivers/gpu/drm/i915/i915_memcpy.c
 
@@ -6,6 +6,7 @@ deps_drivers/gpu/drm/i915/i915_memcpy.o := \
     $(wildcard include/config/DRM_I915_DEBUG) \
   include/linux/compiler-version.h \
     $(wildcard include/config/CC_VERSION_TEXT) \
+  include/generated/gcc-plugins.h \
   include/linux/kconfig.h \
     $(wildcard include/config/CPU_BIG_ENDIAN) \
     $(wildcard include/config/BOOGER) \
@@ -21,15 +22,23 @@ deps_drivers/gpu/drm/i915/i915_memcpy.o := \
     $(wildcard include/config/LTO_CLANG) \
     $(wildcard include/config/HAVE_ARCH_COMPILER_H) \
     $(wildcard include/config/KCSAN) \
+    $(wildcard include/config/CC_HAS_ASSUME) \
     $(wildcard include/config/CC_HAS_COUNTED_BY) \
-    $(wildcard include/config/UBSAN_SIGNED_WRAP) \
+    $(wildcard include/config/FORTIFY_SOURCE) \
+    $(wildcard include/config/UBSAN_BOUNDS) \
+    $(wildcard include/config/CC_HAS_COUNTED_BY_PTR) \
+    $(wildcard include/config/CC_HAS_MULTIDIMENSIONAL_NONSTRING) \
+    $(wildcard include/config/CFI) \
+    $(wildcard include/config/ARCH_USES_CFI_GENERIC_LLVM_PASS) \
+    $(wildcard include/config/CC_HAS_BROKEN_COUNTED_BY_REF) \
     $(wildcard include/config/CC_HAS_ASM_INLINE) \
+  include/linux/compiler-context-analysis.h \
   include/linux/compiler_attributes.h \
   include/linux/compiler-gcc.h \
-    $(wildcard include/config/MITIGATION_RETPOLINE) \
     $(wildcard include/config/ARCH_USE_BUILTIN_BSWAP) \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
+    $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
   include/linux/kernel.h \
     $(wildcard include/config/PREEMPT_VOLUNTARY_BUILD) \
     $(wildcard include/config/PREEMPT_DYNAMIC) \
@@ -40,11 +49,10 @@ deps_drivers/gpu/drm/i915/i915_memcpy.o := \
     $(wildcard include/config/SMP) \
     $(wildcard include/config/MMU) \
     $(wildcard include/config/PROVE_LOCKING) \
-    $(wildcard include/config/TRACING) \
-    $(wildcard include/config/FTRACE_MCOUNT_RECORD) \
+    $(wildcard include/config/DYNAMIC_FTRACE) \
   include/linux/stdarg.h \
   include/linux/align.h \
-  include/linux/const.h \
+  include/vdso/align.h \
   include/vdso/const.h \
   include/uapi/linux/const.h \
   include/linux/array_size.h \
@@ -52,7 +60,6 @@ deps_drivers/gpu/drm/i915/i915_memcpy.o := \
     $(wildcard include/config/TRACE_BRANCH_PROFILING) \
     $(wildcard include/config/PROFILE_ALL_BRANCHES) \
     $(wildcard include/config/OBJTOOL) \
-    $(wildcard include/config/64BIT) \
   arch/x86/include/generated/asm/rwonce.h \
   include/asm-generic/rwonce.h \
   include/linux/kasan-checks.h \
@@ -63,6 +70,7 @@ deps_drivers/gpu/drm/i915/i915_memcpy.o := \
     $(wildcard include/config/UID16) \
     $(wildcard include/config/ARCH_DMA_ADDR_T_64BIT) \
     $(wildcard include/config/PHYS_ADDR_T_64BIT) \
+    $(wildcard include/config/64BIT) \
     $(wildcard include/config/ARCH_32BIT_USTAT_F_TINODE) \
   include/uapi/linux/types.h \
   arch/x86/include/generated/uapi/asm/types.h \
@@ -90,9 +98,11 @@ deps_drivers/gpu/drm/i915/i915_memcpy.o := \
   include/linux/stringify.h \
   include/linux/export.h \
     $(wildcard include/config/MODVERSIONS) \
+    $(wildcard include/config/GENDWARFKSYMS) \
   arch/x86/include/asm/linkage.h \
     $(wildcard include/config/CALL_PADDING) \
     $(wildcard include/config/MITIGATION_RETHUNK) \
+    $(wildcard include/config/MITIGATION_RETPOLINE) \
     $(wildcard include/config/MITIGATION_SLS) \
     $(wildcard include/config/FUNCTION_PADDING_BYTES) \
     $(wildcard include/config/UML) \
@@ -105,6 +115,7 @@ deps_drivers/gpu/drm/i915/i915_memcpy.o := \
   include/vdso/bits.h \
   include/uapi/linux/bits.h \
   include/linux/overflow.h \
+  include/linux/const.h \
   include/linux/typecheck.h \
   include/uapi/linux/kernel.h \
   include/uapi/linux/sysinfo.h \
@@ -113,19 +124,26 @@ deps_drivers/gpu/drm/i915/i915_memcpy.o := \
   arch/x86/include/asm/alternative.h \
     $(wildcard include/config/CALL_THUNKS) \
     $(wildcard include/config/MITIGATION_ITS) \
+  include/linux/objtool.h \
+    $(wildcard include/config/FRAME_POINTER) \
+    $(wildcard include/config/NOINSTR_VALIDATION) \
+    $(wildcard include/config/MITIGATION_UNRET_ENTRY) \
+    $(wildcard include/config/MITIGATION_SRSO) \
+  include/linux/objtool_types.h \
+  include/linux/annotate.h \
   arch/x86/include/asm/asm.h \
     $(wildcard include/config/KPROBES) \
+  arch/x86/include/asm/asm-offsets.h \
+  include/generated/asm-offsets.h \
   arch/x86/include/asm/extable_fixup_types.h \
   arch/x86/include/asm/bug.h \
     $(wildcard include/config/GENERIC_BUG) \
     $(wildcard include/config/DEBUG_BUGVERBOSE) \
+    $(wildcard include/config/DEBUG_BUGVERBOSE_DETAILED) \
   include/linux/instrumentation.h \
-    $(wildcard include/config/NOINSTR_VALIDATION) \
-  include/linux/objtool.h \
-    $(wildcard include/config/FRAME_POINTER) \
-    $(wildcard include/config/MITIGATION_UNRET_ENTRY) \
-    $(wildcard include/config/MITIGATION_SRSO) \
-  include/linux/objtool_types.h \
+  include/linux/static_call_types.h \
+    $(wildcard include/config/HAVE_STATIC_CALL) \
+    $(wildcard include/config/HAVE_STATIC_CALL_INLINE) \
   include/asm-generic/bug.h \
     $(wildcard include/config/BUG) \
     $(wildcard include/config/GENERIC_BUG_RELATIVE_POINTERS) \
@@ -178,31 +196,13 @@ deps_drivers/gpu/drm/i915/i915_memcpy.o := \
   include/asm-generic/bitops/sched.h \
   arch/x86/include/asm/arch_hweight.h \
   arch/x86/include/asm/cpufeatures.h \
-  arch/x86/include/asm/required-features.h \
-    $(wildcard include/config/X86_MINIMUM_CPU_FAMILY) \
-    $(wildcard include/config/MATH_EMULATION) \
-    $(wildcard include/config/X86_PAE) \
-    $(wildcard include/config/X86_CMPXCHG64) \
-    $(wildcard include/config/X86_P6_NOP) \
-    $(wildcard include/config/MATOM) \
-    $(wildcard include/config/PARAVIRT_XXL) \
-  arch/x86/include/asm/disabled-features.h \
-    $(wildcard include/config/X86_UMIP) \
-    $(wildcard include/config/X86_INTEL_MEMORY_PROTECTION_KEYS) \
-    $(wildcard include/config/X86_5LEVEL) \
-    $(wildcard include/config/MITIGATION_PAGE_TABLE_ISOLATION) \
-    $(wildcard include/config/MITIGATION_CALL_DEPTH_TRACKING) \
-    $(wildcard include/config/ADDRESS_MASKING) \
-    $(wildcard include/config/INTEL_IOMMU_SVM) \
-    $(wildcard include/config/X86_SGX) \
-    $(wildcard include/config/XEN_PV) \
-    $(wildcard include/config/INTEL_TDX_GUEST) \
-    $(wildcard include/config/X86_USER_SHADOW_STACK) \
-    $(wildcard include/config/X86_FRED) \
-    $(wildcard include/config/KVM_AMD_SEV) \
   include/asm-generic/bitops/const_hweight.h \
   include/asm-generic/bitops/instrumented-atomic.h \
   include/linux/instrumented.h \
+    $(wildcard include/config/DEBUG_ATOMIC) \
+    $(wildcard include/config/DEBUG_ATOMIC_LARGEST_ALIGN) \
+  include/linux/bug.h \
+    $(wildcard include/config/BUG_ON_DATA_CORRUPTION) \
   include/linux/kmsan-checks.h \
     $(wildcard include/config/KMSAN) \
   include/asm-generic/bitops/instrumented-non-atomic.h \
@@ -210,7 +210,6 @@ deps_drivers/gpu/drm/i915/i915_memcpy.o := \
   include/asm-generic/bitops/instrumented-lock.h \
   include/asm-generic/bitops/le.h \
   include/asm-generic/bitops/ext2-atomic-setbit.h \
-  include/linux/hex.h \
   include/linux/kstrtox.h \
   include/linux/log2.h \
     $(wildcard include/config/ARCH_HAS_ILOG2_U32) \
@@ -218,16 +217,18 @@ deps_drivers/gpu/drm/i915/i915_memcpy.o := \
   include/linux/math.h \
   arch/x86/include/asm/div64.h \
   include/asm-generic/div64.h \
+    $(wildcard include/config/CC_OPTIMIZE_FOR_PERFORMANCE) \
   include/linux/minmax.h \
   include/linux/sprintf.h \
-  include/linux/static_call_types.h \
-    $(wildcard include/config/HAVE_STATIC_CALL) \
-    $(wildcard include/config/HAVE_STATIC_CALL_INLINE) \
+  include/linux/trace_printk.h \
+    $(wildcard include/config/TRACING) \
   include/linux/instruction_pointer.h \
+  include/linux/util_macros.h \
+    $(wildcard include/config/FOO_SUSPEND) \
   include/linux/wordpart.h \
   include/linux/string.h \
     $(wildcard include/config/BINARY_PRINTF) \
-    $(wildcard include/config/FORTIFY_SOURCE) \
+  include/linux/cleanup.h \
   include/linux/err.h \
   arch/x86/include/generated/uapi/asm/errno.h \
   include/uapi/asm-generic/errno.h \
@@ -254,12 +255,15 @@ deps_drivers/gpu/drm/i915/i915_memcpy.o := \
     $(wildcard include/config/X86_VSMP) \
     $(wildcard include/config/X86_VMX_FEATURE_NAMES) \
     $(wildcard include/config/X86_IOPL_IOPERM) \
-    $(wildcard include/config/STACKPROTECTOR) \
     $(wildcard include/config/VM86) \
+    $(wildcard include/config/X86_USER_SHADOW_STACK) \
+    $(wildcard include/config/X86_DEBUG_FPU) \
     $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+    $(wildcard include/config/PARAVIRT_XXL) \
     $(wildcard include/config/CPU_SUP_AMD) \
     $(wildcard include/config/XEN) \
   arch/x86/include/asm/processor-flags.h \
+    $(wildcard include/config/MITIGATION_PAGE_TABLE_ISOLATION) \
   arch/x86/include/uapi/asm/processor-flags.h \
   include/linux/mem_encrypt.h \
     $(wildcard include/config/ARCH_HAS_MEM_ENCRYPT) \
@@ -274,45 +278,33 @@ deps_drivers/gpu/drm/i915/i915_memcpy.o := \
     $(wildcard include/config/IA32_EMULATION) \
     $(wildcard include/config/X86_DEBUGCTLMSR) \
   arch/x86/include/asm/segment.h \
+    $(wildcard include/config/XEN_PV) \
   arch/x86/include/asm/cache.h \
     $(wildcard include/config/X86_L1_CACHE_SHIFT) \
     $(wildcard include/config/X86_INTERNODE_CACHE_SHIFT) \
   arch/x86/include/asm/page_types.h \
-    $(wildcard include/config/PAGE_SHIFT) \
     $(wildcard include/config/PHYSICAL_START) \
     $(wildcard include/config/PHYSICAL_ALIGN) \
     $(wildcard include/config/DYNAMIC_PHYSICAL_MASK) \
+  include/vdso/page.h \
+    $(wildcard include/config/PAGE_SHIFT) \
   arch/x86/include/asm/page_64_types.h \
     $(wildcard include/config/KASAN) \
-    $(wildcard include/config/DYNAMIC_MEMORY_LAYOUT) \
     $(wildcard include/config/RANDOMIZE_BASE) \
   arch/x86/include/asm/kaslr.h \
     $(wildcard include/config/RANDOMIZE_MEMORY) \
   arch/x86/include/uapi/asm/ptrace.h \
   arch/x86/include/uapi/asm/ptrace-abi.h \
-  arch/x86/include/asm/paravirt_types.h \
-    $(wildcard include/config/PGTABLE_LEVELS) \
-    $(wildcard include/config/ZERO_CALL_USED_REGS) \
-    $(wildcard include/config/PARAVIRT_DEBUG) \
-  arch/x86/include/asm/desc_defs.h \
-  arch/x86/include/asm/pgtable_types.h \
-    $(wildcard include/config/MEM_SOFT_DIRTY) \
-    $(wildcard include/config/HAVE_ARCH_USERFAULTFD_WP) \
-    $(wildcard include/config/PROC_FS) \
-  arch/x86/include/asm/pgtable_64_types.h \
-    $(wildcard include/config/DEBUG_KMAP_LOCAL_FORCE_MAP) \
-  arch/x86/include/asm/sparsemem.h \
-    $(wildcard include/config/SPARSEMEM) \
-  arch/x86/include/asm/nospec-branch.h \
-    $(wildcard include/config/CALL_THUNKS_DEBUG) \
-    $(wildcard include/config/MITIGATION_IBPB_ENTRY) \
-    $(wildcard include/config/BPF_JIT) \
-  include/linux/static_key.h \
-  arch/x86/include/asm/msr-index.h \
-  arch/x86/include/asm/unwind_hints.h \
-  arch/x86/include/asm/orc_types.h \
+  arch/x86/include/asm/paravirt-base.h \
+    $(wildcard include/config/PARAVIRT_SPINLOCKS) \
+  arch/x86/include/asm/proto.h \
+  arch/x86/include/uapi/asm/ldt.h \
+  arch/x86/include/uapi/asm/sigcontext.h \
+  arch/x86/include/asm/current.h \
+  include/linux/cache.h \
+    $(wildcard include/config/ARCH_HAS_CACHE_LINE_SIZE) \
+  include/vdso/cache.h \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/X86_64_SMP) \
     $(wildcard include/config/CC_HAS_NAMED_AS) \
   include/asm-generic/percpu.h \
     $(wildcard include/config/DEBUG_PREEMPT) \
@@ -320,27 +312,36 @@ deps_drivers/gpu/drm/i915/i915_memcpy.o := \
   include/linux/threads.h \
     $(wildcard include/config/BASE_SMALL) \
   include/linux/percpu-defs.h \
+    $(wildcard include/config/ARCH_MODULE_NEEDS_WEAK_PER_CPU) \
     $(wildcard include/config/DEBUG_FORCE_WEAK_PER_CPU) \
-  arch/x86/include/asm/current.h \
-  include/linux/cache.h \
-    $(wildcard include/config/ARCH_HAS_CACHE_LINE_SIZE) \
-  arch/x86/include/asm/asm-offsets.h \
-  include/generated/asm-offsets.h \
-  arch/x86/include/asm/GEN-for-each-reg.h \
-  arch/x86/include/asm/proto.h \
-  arch/x86/include/uapi/asm/ldt.h \
-  arch/x86/include/uapi/asm/sigcontext.h \
-  arch/x86/include/asm/cpuid.h \
+  arch/x86/include/asm/cpuid/api.h \
+  arch/x86/include/asm/cpuid/types.h \
   arch/x86/include/asm/page.h \
   arch/x86/include/asm/page_64.h \
     $(wildcard include/config/DEBUG_VIRTUAL) \
     $(wildcard include/config/X86_VSYSCALL_EMULATION) \
+  include/linux/mmdebug.h \
+    $(wildcard include/config/DEBUG_VM) \
+    $(wildcard include/config/DEBUG_VM_IRQSOFF) \
+    $(wildcard include/config/DEBUG_VM_PGFLAGS) \
   include/linux/range.h \
   include/asm-generic/memory_model.h \
     $(wildcard include/config/FLATMEM) \
     $(wildcard include/config/SPARSEMEM_VMEMMAP) \
+    $(wildcard include/config/SPARSEMEM) \
   include/linux/pfn.h \
   include/asm-generic/getorder.h \
+  arch/x86/include/asm/pgtable_types.h \
+    $(wildcard include/config/X86_INTEL_MEMORY_PROTECTION_KEYS) \
+    $(wildcard include/config/X86_PAE) \
+    $(wildcard include/config/MEM_SOFT_DIRTY) \
+    $(wildcard include/config/HAVE_ARCH_USERFAULTFD_WP) \
+    $(wildcard include/config/PGTABLE_LEVELS) \
+    $(wildcard include/config/PROC_FS) \
+  arch/x86/include/asm/pgtable_64_types.h \
+    $(wildcard include/config/DEBUG_KMAP_LOCAL_FORCE_MAP) \
+  arch/x86/include/asm/sparsemem.h \
+  arch/x86/include/asm/desc_defs.h \
   arch/x86/include/asm/special_insns.h \
   include/linux/irqflags.h \
     $(wildcard include/config/TRACE_IRQFLAGS) \
@@ -350,9 +351,64 @@ deps_drivers/gpu/drm/i915/i915_memcpy.o := \
     $(wildcard include/config/DEBUG_IRQFLAGS) \
     $(wildcard include/config/TRACE_IRQFLAGS_SUPPORT) \
   include/linux/irqflags_types.h \
-  include/linux/cleanup.h \
   arch/x86/include/asm/irqflags.h \
     $(wildcard include/config/DEBUG_ENTRY) \
+  arch/x86/include/asm/nospec-branch.h \
+    $(wildcard include/config/CALL_THUNKS_DEBUG) \
+    $(wildcard include/config/MITIGATION_CALL_DEPTH_TRACKING) \
+    $(wildcard include/config/MITIGATION_IBPB_ENTRY) \
+    $(wildcard include/config/BPF_JIT) \
+  include/linux/static_key.h \
+  arch/x86/include/asm/msr-index.h \
+  arch/x86/include/asm/unwind_hints.h \
+  arch/x86/include/asm/orc_types.h \
+  arch/x86/include/asm/GEN-for-each-reg.h \
+  arch/x86/include/asm/paravirt.h \
+  arch/x86/include/asm/paravirt_types.h \
+    $(wildcard include/config/ZERO_CALL_USED_REGS) \
+  include/linux/cpumask.h \
+    $(wildcard include/config/FORCE_NR_CPUS) \
+    $(wildcard include/config/HOTPLUG_CPU) \
+    $(wildcard include/config/DEBUG_PER_CPU_MAPS) \
+    $(wildcard include/config/CPUMASK_OFFSTACK) \
+  include/linux/atomic.h \
+  arch/x86/include/asm/atomic.h \
+  arch/x86/include/asm/cmpxchg.h \
+  arch/x86/include/asm/cmpxchg_64.h \
+  arch/x86/include/asm/atomic64_64.h \
+  include/linux/atomic/atomic-arch-fallback.h \
+    $(wildcard include/config/GENERIC_ATOMIC64) \
+  include/linux/atomic/atomic-long.h \
+  include/linux/atomic/atomic-instrumented.h \
+  include/linux/bitmap.h \
+  include/linux/find.h \
+  include/linux/bitmap-str.h \
+  include/linux/cpumask_types.h \
+  include/linux/gfp_types.h \
+    $(wildcard include/config/KASAN_HW_TAGS) \
+  include/linux/numa.h \
+    $(wildcard include/config/NUMA_KEEP_MEMINFO) \
+    $(wildcard include/config/NUMA) \
+    $(wildcard include/config/HAVE_ARCH_NODE_DEV_GROUP) \
+  include/linux/nodemask.h \
+    $(wildcard include/config/HIGHMEM) \
+  include/linux/nodemask_types.h \
+    $(wildcard include/config/NODES_SHIFT) \
+  include/linux/random.h \
+    $(wildcard include/config/VMGENID) \
+  include/linux/list.h \
+    $(wildcard include/config/LIST_HARDENED) \
+    $(wildcard include/config/DEBUG_LIST) \
+  include/linux/poison.h \
+    $(wildcard include/config/ILLEGAL_POINTER_VALUE) \
+  include/uapi/linux/random.h \
+  include/uapi/linux/ioctl.h \
+  arch/x86/include/generated/uapi/asm/ioctl.h \
+  include/asm-generic/ioctl.h \
+  include/uapi/asm-generic/ioctl.h \
+  include/linux/irqnr.h \
+  include/uapi/linux/irqnr.h \
+  arch/x86/include/asm/frame.h \
   arch/x86/include/asm/fpu/types.h \
   arch/x86/include/asm/vmxfeatures.h \
   arch/x86/include/asm/vdso/processor.h \
@@ -362,10 +418,9 @@ deps_drivers/gpu/drm/i915/i915_memcpy.o := \
   include/linux/math64.h \
     $(wildcard include/config/ARCH_SUPPORTS_INT128) \
   include/vdso/math64.h \
-  include/linux/bug.h \
-    $(wildcard include/config/BUG_ON_DATA_CORRUPTION) \
+  arch/x86/include/generated/asm/cpufeaturemasks.h \
   arch/x86/include/asm/fpu/api.h \
-    $(wildcard include/config/X86_DEBUG_FPU) \
+    $(wildcard include/config/MATH_EMULATION) \
   include/linux/bottom_half.h \
   include/linux/preempt.h \
     $(wildcard include/config/PREEMPT_COUNT) \
@@ -375,6 +430,7 @@ deps_drivers/gpu/drm/i915/i915_memcpy.o := \
     $(wildcard include/config/PREEMPT_NONE) \
     $(wildcard include/config/PREEMPT_VOLUNTARY) \
     $(wildcard include/config/PREEMPT) \
+    $(wildcard include/config/PREEMPT_LAZY) \
   arch/x86/include/asm/preempt.h \
   drivers/gpu/drm/i915/i915_memcpy.h \
 

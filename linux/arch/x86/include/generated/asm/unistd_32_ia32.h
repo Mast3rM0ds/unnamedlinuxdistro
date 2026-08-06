@@ -453,9 +453,18 @@
 #define __NR_ia32_lsm_set_self_attr 460
 #define __NR_ia32_lsm_list_modules 461
 #define __NR_ia32_mseal 462
+#define __NR_ia32_setxattrat 463
+#define __NR_ia32_getxattrat 464
+#define __NR_ia32_listxattrat 465
+#define __NR_ia32_removexattrat 466
+#define __NR_ia32_open_tree_attr 467
+#define __NR_ia32_file_getattr 468
+#define __NR_ia32_file_setattr 469
+#define __NR_ia32_listns 470
+#define __NR_ia32_rseq_slice_yield 471
 
 #ifdef __KERNEL__
-#define __NR_ia32_syscalls 463
+#define __NR_ia32_syscalls 472
 #endif
 
 #endif /* _UAPI_ASM_UNISTD_32_IA32_H */

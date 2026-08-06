@@ -393,5 +393,5 @@ struct platform_driver tegra_gr2d_driver = {
 		.pm = &tegra_gr2d_pm,
 	},
 	.probe = gr2d_probe,
-	.remove_new = gr2d_remove,
+	.remove = gr2d_remove,
 };

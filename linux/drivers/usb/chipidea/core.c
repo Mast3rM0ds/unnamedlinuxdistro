@@ -27,6 +27,7 @@
 #include <linux/kernel.h>
 #include <linux/slab.h>
 #include <linux/pm_runtime.h>
+#include <linux/pm_domain.h>
 #include <linux/pinctrl/consumer.h>
 #include <linux/usb/ch9.h>
 #include <linux/usb/gadget.h>
@@ -618,28 +619,13 @@ static int ci_usb_role_switch_set(struct usb_role_switch *sw,
 	struct ci_hdrc *ci = usb_role_switch_get_drvdata(sw);
 	struct ci_hdrc_cable *cable;
 
-	if (role == USB_ROLE_HOST) {
-		cable = &ci->platdata->id_extcon;
-		cable->changed = true;
-		cable->connected = true;
-		cable = &ci->platdata->vbus_extcon;
-		cable->changed = true;
-		cable->connected = false;
-	} else if (role == USB_ROLE_DEVICE) {
-		cable = &ci->platdata->id_extcon;
-		cable->changed = true;
-		cable->connected = false;
-		cable = &ci->platdata->vbus_extcon;
-		cable->changed = true;
-		cable->connected = true;
-	} else {
-		cable = &ci->platdata->id_extcon;
-		cable->changed = true;
-		cable->connected = false;
-		cable = &ci->platdata->vbus_extcon;
-		cable->changed = true;
-		cable->connected = false;
-	}
+	cable = &ci->platdata->id_extcon;
+	cable->changed = true;
+	cable->connected = (role == USB_ROLE_HOST);
+
+	cable = &ci->platdata->vbus_extcon;
+	cable->changed = true;
+	cable->connected = (role == USB_ROLE_DEVICE);
 
 	ci_irq(ci);
 	return 0;
@@ -760,7 +746,7 @@ static int ci_get_platdata(struct device *dev,
 
 	ext_id = ERR_PTR(-ENODEV);
 	ext_vbus = ERR_PTR(-ENODEV);
-	if (of_property_read_bool(dev->of_node, "extcon")) {
+	if (of_property_present(dev->of_node, "extcon")) {
 		/* Each one of them is not mandatory */
 		ext_vbus = extcon_get_edev_by_phandle(dev, 0);
 		if (IS_ERR(ext_vbus) && PTR_ERR(ext_vbus) != -ENODEV)
@@ -906,6 +892,8 @@ struct platform_device *ci_hdrc_add_device(struct device *dev,
 	ret = platform_device_add(pdev);
 	if (ret)
 		goto err;
+
+	dev_pm_domain_detach(&pdev->dev, false);
 
 	return pdev;
 
@@ -1265,6 +1253,7 @@ static void ci_hdrc_remove(struct platform_device *pdev)
 		usb_role_switch_unregister(ci->role_switch);
 
 	if (ci->supports_runtime_pm) {
+		pm_runtime_dont_use_autosuspend(&pdev->dev);
 		pm_runtime_get_sync(&pdev->dev);
 		pm_runtime_disable(&pdev->dev);
 		pm_runtime_put_noidle(&pdev->dev);
@@ -1369,7 +1358,6 @@ static int ci_controller_resume(struct device *dev)
 	ci->in_lpm = false;
 	if (ci->wakeup_int) {
 		ci->wakeup_int = false;
-		pm_runtime_mark_last_busy(ci->dev);
 		pm_runtime_put_autosuspend(ci->dev);
 		enable_irq(ci->irq);
 		if (ci_otg_is_fsm_mode(ci))
@@ -1494,7 +1482,7 @@ static const struct dev_pm_ops ci_pm_ops = {
 
 static struct platform_driver ci_hdrc_driver = {
 	.probe	= ci_hdrc_probe,
-	.remove_new = ci_hdrc_remove,
+	.remove = ci_hdrc_remove,
 	.driver	= {
 		.name	= "ci_hdrc",
 		.pm	= &ci_pm_ops,

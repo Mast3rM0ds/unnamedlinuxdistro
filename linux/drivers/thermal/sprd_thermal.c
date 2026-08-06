@@ -201,7 +201,7 @@ static int sprd_thm_temp_to_rawdata(int temp, struct sprd_thermal_sensor *sen)
 	 */
 	val = (temp + sen->cal_offset) / sen->cal_slope;
 
-	return clamp(val, val, (u32)(SPRD_THM_RAW_DATA_HIGH - 1));
+	return min(val, SPRD_THM_RAW_DATA_HIGH - 1);
 }
 
 static int sprd_thm_read_temp(struct thermal_zone_device *tz, int *temp)
@@ -534,7 +534,7 @@ static const struct dev_pm_ops sprd_thermal_pm_ops = {
 
 static struct platform_driver sprd_thermal_driver = {
 	.probe = sprd_thm_probe,
-	.remove_new = sprd_thm_remove,
+	.remove = sprd_thm_remove,
 	.driver = {
 		.name = "sprd-thermal",
 		.pm = &sprd_thermal_pm_ops,

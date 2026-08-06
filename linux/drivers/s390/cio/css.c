@@ -8,8 +8,7 @@
  *	      Cornelia Huck (cornelia.huck@de.ibm.com)
  */
 
-#define KMSG_COMPONENT "cio"
-#define pr_fmt(fmt) KMSG_COMPONENT ": " fmt
+#define pr_fmt(fmt) "cio: " fmt
 
 #include <linux/export.h>
 #include <linux/init.h>
@@ -203,7 +202,7 @@ struct subchannel *css_alloc_subchannel(struct subchannel_id schid,
 	if (ret < 0)
 		return ERR_PTR(ret);
 
-	sch = kzalloc(sizeof(*sch), GFP_KERNEL | GFP_DMA);
+	sch = kzalloc_obj(*sch, GFP_KERNEL | GFP_DMA);
 	if (!sch)
 		return ERR_PTR(-ENOMEM);
 
@@ -351,11 +350,11 @@ static ssize_t chpids_show(struct device *dev,
 	for (chp = 0; chp < 8; chp++) {
 		mask = 0x80 >> chp;
 		if (ssd->path_mask & mask)
-			ret += sprintf(buf + ret, "%02x ", ssd->chpid[chp].id);
+			ret += sysfs_emit_at(buf, ret, "%02x ", ssd->chpid[chp].id);
 		else
-			ret += sprintf(buf + ret, "00 ");
+			ret += sysfs_emit_at(buf, ret, "00 ");
 	}
-	ret += sprintf(buf + ret, "\n");
+	ret += sysfs_emit_at(buf, ret, "\n");
 	return ret;
 }
 static DEVICE_ATTR_RO(chpids);
@@ -943,7 +942,7 @@ static int __init setup_css(int nr)
 	struct channel_subsystem *css;
 	int ret;
 
-	css = kzalloc(sizeof(*css), GFP_KERNEL);
+	css = kzalloc_obj(*css);
 	if (!css)
 		return -ENOMEM;
 
@@ -977,8 +976,7 @@ static int __init setup_css(int nr)
 		goto out_err;
 	}
 
-	css->pseudo_subchannel = kzalloc(sizeof(*css->pseudo_subchannel),
-					 GFP_KERNEL);
+	css->pseudo_subchannel = kzalloc_obj(*css->pseudo_subchannel);
 	if (!css->pseudo_subchannel) {
 		device_unregister(&css->device);
 		ret = -ENOMEM;

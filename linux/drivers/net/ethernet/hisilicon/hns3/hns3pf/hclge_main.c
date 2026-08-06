@@ -490,9 +490,9 @@ static int hclge_mac_update_stats_complete(struct hclge_dev *hdev)
 	desc_num = reg_num / HCLGE_REG_NUM_PER_DESC + 1;
 
 	/* This may be called inside atomic sections,
-	 * so GFP_ATOMIC is more suitalbe here
+	 * so GFP_ATOMIC is more suitable here
 	 */
-	desc = kcalloc(desc_num, sizeof(struct hclge_desc), GFP_ATOMIC);
+	desc = kzalloc_objs(struct hclge_desc, desc_num, GFP_ATOMIC);
 	if (!desc)
 		return -ENOMEM;
 
@@ -2187,8 +2187,8 @@ static bool hclge_drop_pfc_buf_till_fit(struct hclge_dev *hdev,
 	return hclge_is_rx_buf_ok(hdev, buf_alloc, rx_all);
 }
 
-static int hclge_only_alloc_priv_buff(struct hclge_dev *hdev,
-				      struct hclge_pkt_buf_alloc *buf_alloc)
+static bool hclge_only_alloc_priv_buff(struct hclge_dev *hdev,
+				       struct hclge_pkt_buf_alloc *buf_alloc)
 {
 #define COMPENSATE_BUFFER	0x3C00
 #define COMPENSATE_HALF_MPS_NUM	5
@@ -2363,7 +2363,7 @@ static int hclge_common_thrd_config(struct hclge_dev *hdev,
 	for (i = 0; i < 2; i++) {
 		hclge_cmd_setup_basic_desc(&desc[i],
 					   HCLGE_OPC_RX_COM_THRD_ALLOC, false);
-		req = (struct hclge_rx_com_thrd *)&desc[i].data;
+		req = (struct hclge_rx_com_thrd *)desc[i].data;
 
 		/* The first descriptor set the NEXT bit to 1 */
 		if (i == 0)
@@ -2423,7 +2423,7 @@ int hclge_buffer_alloc(struct hclge_dev *hdev)
 	struct hclge_pkt_buf_alloc *pkt_buf;
 	int ret;
 
-	pkt_buf = kzalloc(sizeof(*pkt_buf), GFP_KERNEL);
+	pkt_buf = kzalloc_obj(*pkt_buf);
 	if (!pkt_buf)
 		return -ENOMEM;
 
@@ -4525,7 +4525,7 @@ static void hclge_set_def_reset_request(struct hnae3_ae_dev *ae_dev,
 
 static void hclge_reset_timer(struct timer_list *t)
 {
-	struct hclge_dev *hdev = from_timer(hdev, t, reset_timer);
+	struct hclge_dev *hdev = timer_container_of(hdev, t, reset_timer);
 
 	/* if default_reset_request has no value, it means that this reset
 	 * request has already be handled, so just return here
@@ -4894,7 +4894,7 @@ static int hclge_set_rss(struct hnae3_handle *handle, const u32 *indir,
 }
 
 static int hclge_set_rss_tuple(struct hnae3_handle *handle,
-			       struct ethtool_rxnfc *nfc)
+			       const struct ethtool_rxfh_fields *nfc)
 {
 	struct hclge_vport *vport = hclge_get_vport(handle);
 	struct hclge_dev *hdev = vport->back;
@@ -4912,7 +4912,7 @@ static int hclge_set_rss_tuple(struct hnae3_handle *handle,
 }
 
 static int hclge_get_rss_tuple(struct hnae3_handle *handle,
-			       struct ethtool_rxnfc *nfc)
+			       struct ethtool_rxfh_fields *nfc)
 {
 	struct hclge_vport *vport = hclge_get_vport(handle);
 	u8 tuple_sets;
@@ -5703,6 +5703,9 @@ static int hclge_fd_ad_config(struct hclge_dev *hdev, u8 stage, int loc,
 	}
 	hnae3_set_bit(ad_data, HCLGE_FD_AD_QID_H_B,
 		      action->queue_id >= HCLGE_TQP_MAX_SIZE_DEV_V2 ? 1 : 0);
+	hnae3_set_bit(ad_data, HCLGE_FD_AD_COUNTER_NUM_H_B,
+		      action->counter_id >= HCLGE_FD_COUNTER_MAX_SIZE_DEV_V2 ?
+		      1 : 0);
 	ad_data <<= 32;
 	hnae3_set_bit(ad_data, HCLGE_FD_AD_DROP_B, action->drop_packet);
 	hnae3_set_bit(ad_data, HCLGE_FD_AD_DIRECT_QID_B,
@@ -5710,8 +5713,8 @@ static int hclge_fd_ad_config(struct hclge_dev *hdev, u8 stage, int loc,
 	hnae3_set_field(ad_data, HCLGE_FD_AD_QID_L_M, HCLGE_FD_AD_QID_L_S,
 			action->queue_id);
 	hnae3_set_bit(ad_data, HCLGE_FD_AD_USE_COUNTER_B, action->use_counter);
-	hnae3_set_field(ad_data, HCLGE_FD_AD_COUNTER_NUM_M,
-			HCLGE_FD_AD_COUNTER_NUM_S, action->counter_id);
+	hnae3_set_field(ad_data, HCLGE_FD_AD_COUNTER_NUM_L_M,
+			HCLGE_FD_AD_COUNTER_NUM_L_S, action->counter_id);
 	hnae3_set_bit(ad_data, HCLGE_FD_AD_NXT_STEP_B, action->use_next_stage);
 	hnae3_set_field(ad_data, HCLGE_FD_AD_NXT_KEY_M, HCLGE_FD_AD_NXT_KEY_S,
 			action->next_input_key);
@@ -6601,7 +6604,7 @@ static int hclge_add_fd_entry(struct hnae3_handle *handle,
 	if (ret)
 		return ret;
 
-	rule = kzalloc(sizeof(*rule), GFP_KERNEL);
+	rule = kzalloc_obj(*rule);
 	if (!rule)
 		return -ENOMEM;
 
@@ -7143,7 +7146,7 @@ static int hclge_add_fd_entry_by_arfs(struct hnae3_handle *handle, u16 queue_id,
 			return -ENOSPC;
 		}
 
-		rule = kzalloc(sizeof(*rule), GFP_ATOMIC);
+		rule = kzalloc_obj(*rule, GFP_ATOMIC);
 		if (!rule) {
 			spin_unlock_bh(&hdev->fd_rule_lock);
 			return -ENOMEM;
@@ -7429,7 +7432,7 @@ static int hclge_add_cls_flower(struct hnae3_handle *handle,
 		return ret;
 	}
 
-	rule = kzalloc(sizeof(*rule), GFP_KERNEL);
+	rule = kzalloc_obj(*rule);
 	if (!rule)
 		return -ENOMEM;
 
@@ -7899,7 +7902,7 @@ static int hclge_enable_phy_loopback(struct hclge_dev *hdev,
 	if (ret)
 		return ret;
 
-	return phy_loopback(phydev, true);
+	return phy_loopback(phydev, true, 0);
 }
 
 static int hclge_disable_phy_loopback(struct hclge_dev *hdev,
@@ -7907,7 +7910,7 @@ static int hclge_disable_phy_loopback(struct hclge_dev *hdev,
 {
 	int ret;
 
-	ret = phy_loopback(phydev, false);
+	ret = phy_loopback(phydev, false, 0);
 	if (ret)
 		return ret;
 
@@ -8597,7 +8600,7 @@ int hclge_update_mac_list(struct hclge_vport *vport,
 		return -ENOENT;
 	}
 
-	mac_node = kzalloc(sizeof(*mac_node), GFP_ATOMIC);
+	mac_node = kzalloc_obj(*mac_node, GFP_ATOMIC);
 	if (!mac_node) {
 		spin_unlock_bh(&vport->mac_list_lock);
 		return -ENOMEM;
@@ -9005,7 +9008,7 @@ static void hclge_sync_vport_mac_table(struct hclge_vport *vport,
 			list_move_tail(&mac_node->node, &tmp_del_list);
 			break;
 		case HCLGE_MAC_TO_ADD:
-			new_node = kzalloc(sizeof(*new_node), GFP_ATOMIC);
+			new_node = kzalloc_obj(*new_node, GFP_ATOMIC);
 			if (!new_node)
 				goto stop_traverse;
 			ether_addr_copy(new_node->mac_addr, mac_node->mac_addr);
@@ -9347,7 +9350,7 @@ int hclge_update_mac_node_for_dev_addr(struct hclge_vport *vport,
 
 	new_node = hclge_find_mac_node(list, new_addr);
 	if (!new_node) {
-		new_node = kzalloc(sizeof(*new_node), GFP_ATOMIC);
+		new_node = kzalloc_obj(*new_node, GFP_ATOMIC);
 		if (!new_node)
 			return -ENOMEM;
 
@@ -9468,15 +9471,8 @@ static int hclge_do_ioctl(struct hnae3_handle *handle, struct ifreq *ifr,
 	struct hclge_vport *vport = hclge_get_vport(handle);
 	struct hclge_dev *hdev = vport->back;
 
-	switch (cmd) {
-	case SIOCGHWTSTAMP:
-		return hclge_ptp_get_cfg(hdev, ifr);
-	case SIOCSHWTSTAMP:
-		return hclge_ptp_set_cfg(hdev, ifr);
-	default:
-		if (!hdev->hw.mac.phydev)
-			return hclge_mii_ioctl(hdev, ifr, cmd);
-	}
+	if (!hdev->hw.mac.phydev)
+		return hclge_mii_ioctl(hdev, ifr, cmd);
 
 	return phy_mii_ioctl(hdev->hw.mac.phydev, ifr, cmd);
 }
@@ -10119,7 +10115,7 @@ static void hclge_add_vport_vlan_table(struct hclge_vport *vport, u16 vlan_id,
 		}
 	}
 
-	vlan = kzalloc(sizeof(*vlan), GFP_KERNEL);
+	vlan = kzalloc_obj(*vlan);
 	if (!vlan) {
 		mutex_unlock(&hdev->vport_lock);
 		return;
@@ -11455,7 +11451,7 @@ static int hclge_pci_init(struct hclge_dev *hdev)
 		ret = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(32));
 		if (ret) {
 			dev_err(&pdev->dev,
-				"can't set consistent PCI DMA");
+				"can't set consistent PCI DMA\n");
 			goto err_disable_device;
 		}
 		dev_warn(&pdev->dev, "set DMA mask to 32 bits\n");
@@ -11524,7 +11520,7 @@ static void hclge_state_uninit(struct hclge_dev *hdev)
 	set_bit(HCLGE_STATE_REMOVING, &hdev->state);
 
 	if (hdev->reset_timer.function)
-		del_timer_sync(&hdev->reset_timer);
+		timer_delete_sync(&hdev->reset_timer);
 	if (hdev->service_task.work.func)
 		cancel_delayed_work_sync(&hdev->service_task);
 }
@@ -12938,7 +12934,7 @@ static const struct hnae3_ae_ops hclge_ops = {
 	.get_fd_all_rules = hclge_get_all_rules,
 	.enable_fd = hclge_enable_fd,
 	.add_arfs_entry = hclge_add_fd_entry_by_arfs,
-	.dbg_read_cmd = hclge_dbg_read_cmd,
+	.dbg_get_read_func = hclge_dbg_get_read_func,
 	.handle_hw_ras_error = hclge_handle_hw_ras_error,
 	.get_hw_reset_stat = hclge_get_hw_reset_stat,
 	.ae_dev_resetting = hclge_ae_dev_resetting,
@@ -12969,6 +12965,8 @@ static const struct hnae3_ae_ops hclge_ops = {
 	.get_dscp_prio = hclge_get_dscp_prio,
 	.get_wol = hclge_get_wol,
 	.set_wol = hclge_set_wol,
+	.hwtstamp_get = hclge_ptp_get_cfg,
+	.hwtstamp_set = hclge_ptp_set_cfg,
 };
 
 static struct hnae3_ae_algo ae_algo = {
@@ -12978,9 +12976,10 @@ static struct hnae3_ae_algo ae_algo = {
 
 static int __init hclge_init(void)
 {
-	pr_info("%s is initializing\n", HCLGE_NAME);
+	pr_debug("%s is initializing\n", HCLGE_NAME);
 
-	hclge_wq = alloc_workqueue("%s", WQ_UNBOUND, 0, HCLGE_NAME);
+	hclge_wq = alloc_workqueue("%s", WQ_UNBOUND, 0,
+				   HCLGE_NAME);
 	if (!hclge_wq) {
 		pr_err("%s: failed to create workqueue\n", HCLGE_NAME);
 		return -ENOMEM;

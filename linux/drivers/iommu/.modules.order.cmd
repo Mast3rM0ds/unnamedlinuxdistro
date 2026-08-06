@@ -1,1 +1,1 @@
-savedcmd_drivers/iommu/modules.order := {   cat drivers/iommu/amd/modules.order;   cat drivers/iommu/intel/modules.order;   cat drivers/iommu/arm/modules.order;   cat drivers/iommu/iommufd/modules.order; :; } > drivers/iommu/modules.order
+savedcmd_drivers/iommu/modules.order := {   cat drivers/iommu/arm/modules.order;   cat drivers/iommu/iommufd/modules.order;   cat drivers/iommu/amd/modules.order;   cat drivers/iommu/intel/modules.order;   cat drivers/iommu/generic_pt/fmt/modules.order; :; } > drivers/iommu/modules.order

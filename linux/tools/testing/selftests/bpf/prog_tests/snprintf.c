@@ -117,6 +117,8 @@ static void test_snprintf_negative(void)
 	ASSERT_OK(load_single_snprintf("\x80"), "non ascii plain text");
 	ASSERT_ERR(load_single_snprintf("%\x80"), "non ascii in specifier");
 	ASSERT_ERR(load_single_snprintf("\x1"), "non printable character");
+	ASSERT_ERR(load_single_snprintf("%p%"), "invalid specifier 8");
+	ASSERT_ERR(load_single_snprintf("%s%"), "invalid specifier 9");
 }
 
 void test_snprintf(void)

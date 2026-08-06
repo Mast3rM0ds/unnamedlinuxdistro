@@ -49,8 +49,8 @@ static void acbel_fsg032_init_debugfs(struct i2c_client *client)
 }
 
 static const struct i2c_device_id acbel_fsg032_id[] = {
-	{ "acbel_fsg032" },
-	{}
+	{ .name = "acbel_fsg032" },
+	{ }
 };
 
 static struct pmbus_driver_info acbel_fsg032_info = {
@@ -120,4 +120,4 @@ module_i2c_driver(acbel_fsg032_driver);
 MODULE_AUTHOR("Lakshmi Yadlapati");
 MODULE_DESCRIPTION("PMBus driver for AcBel Power System power supplies");
 MODULE_LICENSE("GPL");
-MODULE_IMPORT_NS(PMBUS);
+MODULE_IMPORT_NS("PMBUS");

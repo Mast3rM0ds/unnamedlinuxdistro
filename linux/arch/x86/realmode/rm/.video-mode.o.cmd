@@ -1,4 +1,4 @@
-savedcmd_arch/x86/realmode/rm/video-mode.o := gcc -Wp,-MMD,arch/x86/realmode/rm/.video-mode.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -fmacro-prefix-map=./= -Werror -std=gnu11 -m16 -g -Os -DDISABLE_BRANCH_PROFILING -D__DISABLE_EXPORTS -Wall -Wstrict-prototypes -march=i386 -mregparm=3 -fno-strict-aliasing -fomit-frame-pointer -fno-pic -mno-mmx -mno-sse -fcf-protection=none -ffreestanding -fno-stack-protector -Wno-address-of-packed-member -mpreferred-stack-boundary=2 -D_SETUP -D_WAKEUP -I./arch/x86/boot -fno-asynchronous-unwind-tables    -DKBUILD_MODFILE='"arch/x86/realmode/rm/video-mode"' -DKBUILD_BASENAME='"video_mode"' -DKBUILD_MODNAME='"video_mode"' -D__KBUILD_MODNAME=kmod_video_mode -c -o arch/x86/realmode/rm/video-mode.o arch/x86/realmode/rm/video-mode.c  
+savedcmd_arch/x86/realmode/rm/video-mode.o := gcc -Wp,-MMD,arch/x86/realmode/rm/.video-mode.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -Werror -std=gnu11 -fms-extensions -m16 -g -Os -DDISABLE_BRANCH_PROFILING -D__DISABLE_EXPORTS -Wall -Wstrict-prototypes -march=i386 -mregparm=3 -fno-strict-aliasing -fomit-frame-pointer -fno-pic -mno-mmx -mno-sse -fcf-protection=none -ffreestanding -fno-stack-protector -Wno-address-of-packed-member -mpreferred-stack-boundary=2 -D_SETUP -D_WAKEUP -I./arch/x86/boot -fno-asynchronous-unwind-tables    -DKBUILD_MODFILE='"arch/x86/realmode/rm/video-mode"' -DKBUILD_BASENAME='"video_mode"' -DKBUILD_MODNAME='"video_mode"' -D__KBUILD_MODNAME=video_mode -c -o arch/x86/realmode/rm/video-mode.o arch/x86/realmode/rm/video-mode.c  
 
 source_arch/x86/realmode/rm/video-mode.o := arch/x86/realmode/rm/video-mode.c
 
@@ -20,15 +20,23 @@ deps_arch/x86/realmode/rm/video-mode.o := \
     $(wildcard include/config/LTO_CLANG) \
     $(wildcard include/config/HAVE_ARCH_COMPILER_H) \
     $(wildcard include/config/KCSAN) \
+    $(wildcard include/config/CC_HAS_ASSUME) \
     $(wildcard include/config/CC_HAS_COUNTED_BY) \
-    $(wildcard include/config/UBSAN_SIGNED_WRAP) \
+    $(wildcard include/config/FORTIFY_SOURCE) \
+    $(wildcard include/config/UBSAN_BOUNDS) \
+    $(wildcard include/config/CC_HAS_COUNTED_BY_PTR) \
+    $(wildcard include/config/CC_HAS_MULTIDIMENSIONAL_NONSTRING) \
+    $(wildcard include/config/CFI) \
+    $(wildcard include/config/ARCH_USES_CFI_GENERIC_LLVM_PASS) \
+    $(wildcard include/config/CC_HAS_BROKEN_COUNTED_BY_REF) \
     $(wildcard include/config/CC_HAS_ASM_INLINE) \
+  include/linux/compiler-context-analysis.h \
   include/linux/compiler_attributes.h \
   include/linux/compiler-gcc.h \
-    $(wildcard include/config/MITIGATION_RETPOLINE) \
     $(wildcard include/config/ARCH_USE_BUILTIN_BSWAP) \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
+    $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
   arch/x86/realmode/rm/../../boot/video-mode.c \
   arch/x86/realmode/rm/../../boot/boot.h \
   include/linux/stdarg.h \
@@ -68,6 +76,7 @@ deps_arch/x86/realmode/rm/video-mode.o := \
   include/linux/stringify.h \
   include/linux/export.h \
     $(wildcard include/config/MODVERSIONS) \
+    $(wildcard include/config/GENDWARFKSYMS) \
   include/linux/compiler.h \
     $(wildcard include/config/TRACE_BRANCH_PROFILING) \
     $(wildcard include/config/PROFILE_ALL_BRANCHES) \
@@ -83,13 +92,13 @@ deps_arch/x86/realmode/rm/video-mode.o := \
   arch/x86/include/asm/linkage.h \
     $(wildcard include/config/CALL_PADDING) \
     $(wildcard include/config/MITIGATION_RETHUNK) \
+    $(wildcard include/config/MITIGATION_RETPOLINE) \
     $(wildcard include/config/MITIGATION_SLS) \
     $(wildcard include/config/FUNCTION_PADDING_BYTES) \
     $(wildcard include/config/UML) \
   arch/x86/include/asm/ibt.h \
     $(wildcard include/config/X86_KERNEL_IBT) \
   arch/x86/include/asm/page_types.h \
-    $(wildcard include/config/PAGE_SHIFT) \
     $(wildcard include/config/PHYSICAL_START) \
     $(wildcard include/config/PHYSICAL_ALIGN) \
     $(wildcard include/config/DYNAMIC_PHYSICAL_MASK) \
@@ -109,10 +118,14 @@ deps_arch/x86/realmode/rm/video-mode.o := \
     $(wildcard include/config/ARCH_HAS_CC_PLATFORM) \
   arch/x86/include/asm/asm.h \
     $(wildcard include/config/KPROBES) \
+  include/linux/annotate.h \
+  include/linux/objtool_types.h \
+  arch/x86/include/asm/asm-offsets.h \
+  include/generated/asm-offsets.h \
   arch/x86/include/asm/extable_fixup_types.h \
+  include/vdso/page.h \
+    $(wildcard include/config/PAGE_SHIFT) \
   arch/x86/include/asm/page_64_types.h \
-    $(wildcard include/config/DYNAMIC_MEMORY_LAYOUT) \
-    $(wildcard include/config/X86_5LEVEL) \
     $(wildcard include/config/RANDOMIZE_BASE) \
   arch/x86/include/asm/kaslr.h \
   include/linux/pfn.h \
@@ -121,6 +134,7 @@ deps_arch/x86/realmode/rm/video-mode.o := \
     $(wildcard include/config/ARCH_HAS_CACHE_LINE_SIZE) \
   include/uapi/linux/kernel.h \
   include/uapi/linux/sysinfo.h \
+  include/vdso/cache.h \
   arch/x86/include/asm/cache.h \
     $(wildcard include/config/X86_L1_CACHE_SHIFT) \
     $(wildcard include/config/X86_INTERNODE_CACHE_SHIFT) \
@@ -147,38 +161,23 @@ deps_arch/x86/realmode/rm/video-mode.o := \
   arch/x86/include/asm/ist.h \
   arch/x86/include/uapi/asm/ist.h \
   include/video/edid.h \
-    $(wildcard include/config/X86) \
   include/uapi/video/edid.h \
   arch/x86/include/asm/x86_init.h \
+  include/linux/kexec_handover.h \
+    $(wildcard include/config/KEXEC_HANDOVER) \
+  include/linux/err.h \
+  arch/x86/include/generated/uapi/asm/errno.h \
+  include/uapi/asm-generic/errno.h \
+  include/uapi/asm-generic/errno-base.h \
+  include/linux/errno.h \
+  include/uapi/linux/errno.h \
   arch/x86/realmode/rm/../../boot/bitops.h \
   arch/x86/realmode/rm/../../boot/ctype.h \
   arch/x86/realmode/rm/../../boot/cpuflags.h \
   arch/x86/include/asm/cpufeatures.h \
-  arch/x86/include/asm/required-features.h \
-    $(wildcard include/config/X86_MINIMUM_CPU_FAMILY) \
-    $(wildcard include/config/MATH_EMULATION) \
-    $(wildcard include/config/X86_PAE) \
-    $(wildcard include/config/X86_CMPXCHG64) \
-    $(wildcard include/config/X86_CMOV) \
-    $(wildcard include/config/X86_P6_NOP) \
-    $(wildcard include/config/MATOM) \
-    $(wildcard include/config/PARAVIRT_XXL) \
-  arch/x86/include/asm/disabled-features.h \
-    $(wildcard include/config/X86_UMIP) \
-    $(wildcard include/config/X86_INTEL_MEMORY_PROTECTION_KEYS) \
-    $(wildcard include/config/MITIGATION_PAGE_TABLE_ISOLATION) \
-    $(wildcard include/config/MITIGATION_UNRET_ENTRY) \
-    $(wildcard include/config/MITIGATION_CALL_DEPTH_TRACKING) \
-    $(wildcard include/config/ADDRESS_MASKING) \
-    $(wildcard include/config/INTEL_IOMMU_SVM) \
-    $(wildcard include/config/X86_SGX) \
-    $(wildcard include/config/XEN_PV) \
-    $(wildcard include/config/INTEL_TDX_GUEST) \
-    $(wildcard include/config/X86_USER_SHADOW_STACK) \
-    $(wildcard include/config/X86_FRED) \
-    $(wildcard include/config/KVM_AMD_SEV) \
   arch/x86/include/asm/processor-flags.h \
     $(wildcard include/config/VM86) \
+    $(wildcard include/config/MITIGATION_PAGE_TABLE_ISOLATION) \
   arch/x86/include/uapi/asm/processor-flags.h \
   arch/x86/realmode/rm/../../boot/io.h \
   arch/x86/include/asm/shared/io.h \

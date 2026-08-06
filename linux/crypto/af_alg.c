@@ -70,7 +70,7 @@ int af_alg_register_type(const struct af_alg_type *type)
 			goto unlock;
 	}
 
-	node = kmalloc(sizeof(*node), GFP_KERNEL);
+	node = kmalloc_obj(*node);
 	err = -ENOMEM;
 	if (!node)
 		goto unlock;
@@ -145,7 +145,7 @@ void af_alg_release_parent(struct sock *sk)
 }
 EXPORT_SYMBOL_GPL(af_alg_release_parent);
 
-static int alg_bind(struct socket *sock, struct sockaddr *uaddr, int addr_len)
+static int alg_bind(struct socket *sock, struct sockaddr_unsized *uaddr, int addr_len)
 {
 	const u32 allowed = CRYPTO_ALG_KERN_DRIVER_ONLY;
 	struct sock *sk = sock->sk;
@@ -324,14 +324,12 @@ static int alg_setkey_by_key_serial(struct alg_sock *ask, sockptr_t optval,
 		return PTR_ERR(ret);
 	}
 
-	key_data = sock_kmalloc(&ask->sk, key_datalen, GFP_KERNEL);
+	key_data = sock_kmemdup(&ask->sk, ret, key_datalen, GFP_KERNEL);
 	if (!key_data) {
 		up_read(&key->sem);
 		key_put(key);
 		return -ENOMEM;
 	}
-
-	memcpy(key_data, ret, key_datalen);
 
 	up_read(&key->sem);
 	key_put(key);

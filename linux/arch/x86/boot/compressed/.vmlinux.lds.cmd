@@ -1,10 +1,11 @@
-savedcmd_arch/x86/boot/compressed/vmlinux.lds := gcc -E -Wp,-MMD,arch/x86/boot/compressed/.vmlinux.lds.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -D__KERNEL__ -fmacro-prefix-map=./= -Werror   -P -Ux86 -D__ASSEMBLY__ -DLINKER_SCRIPT -o arch/x86/boot/compressed/vmlinux.lds arch/x86/boot/compressed/vmlinux.lds.S
+savedcmd_arch/x86/boot/compressed/vmlinux.lds := gcc -E -Wp,-MMD,arch/x86/boot/compressed/.vmlinux.lds.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -D__KERNEL__ -Werror   -P -Ux86 -D__ASSEMBLY__ -DLINKER_SCRIPT -o arch/x86/boot/compressed/vmlinux.lds arch/x86/boot/compressed/vmlinux.lds.S
 
 source_arch/x86/boot/compressed/vmlinux.lds := arch/x86/boot/compressed/vmlinux.lds.S
 
 deps_arch/x86/boot/compressed/vmlinux.lds := \
     $(wildcard include/config/OUTPUT_FORMAT) \
     $(wildcard include/config/X86_64) \
+    $(wildcard include/config/EFI_SBAT) \
   include/linux/compiler-version.h \
     $(wildcard include/config/CC_VERSION_TEXT) \
   include/linux/kconfig.h \
@@ -13,11 +14,9 @@ deps_arch/x86/boot/compressed/vmlinux.lds := \
     $(wildcard include/config/FOO) \
   include/asm-generic/vmlinux.lds.h \
     $(wildcard include/config/FUNCTION_ALIGNMENT) \
-    $(wildcard include/config/LD_DEAD_CODE_DATA_ELIMINATION) \
-    $(wildcard include/config/LTO_CLANG) \
     $(wildcard include/config/HAVE_DYNAMIC_FTRACE_NO_PATCHABLE) \
-    $(wildcard include/config/ARCH_SUPPORTS_CFI_CLANG) \
-    $(wildcard include/config/FTRACE_MCOUNT_RECORD) \
+    $(wildcard include/config/ARCH_SUPPORTS_CFI) \
+    $(wildcard include/config/DYNAMIC_FTRACE) \
     $(wildcard include/config/FUNCTION_TRACER) \
     $(wildcard include/config/TRACE_BRANCH_PROFILING) \
     $(wildcard include/config/PROFILE_ALL_BRANCHES) \
@@ -53,6 +52,7 @@ deps_arch/x86/boot/compressed/vmlinux.lds := \
     $(wildcard include/config/KASAN_GENERIC) \
     $(wildcard include/config/KCSAN) \
   include/asm-generic/codetag.lds.h \
+    $(wildcard include/config/MEM_ALLOC_PROFILING) \
   arch/x86/include/asm/cache.h \
     $(wildcard include/config/X86_L1_CACHE_SHIFT) \
     $(wildcard include/config/X86_INTERNODE_CACHE_SHIFT) \
@@ -63,14 +63,24 @@ deps_arch/x86/boot/compressed/vmlinux.lds := \
     $(wildcard include/config/PAHOLE_HAS_BTF_TAG) \
     $(wildcard include/config/CC_HAS_SANE_FUNCTION_ALIGNMENT) \
     $(wildcard include/config/ARM64) \
+    $(wildcard include/config/LD_DEAD_CODE_DATA_ELIMINATION) \
+    $(wildcard include/config/LTO_CLANG) \
     $(wildcard include/config/HAVE_ARCH_COMPILER_H) \
+    $(wildcard include/config/CC_HAS_ASSUME) \
     $(wildcard include/config/CC_HAS_COUNTED_BY) \
-    $(wildcard include/config/UBSAN_SIGNED_WRAP) \
+    $(wildcard include/config/FORTIFY_SOURCE) \
+    $(wildcard include/config/UBSAN_BOUNDS) \
+    $(wildcard include/config/CC_HAS_COUNTED_BY_PTR) \
+    $(wildcard include/config/CC_HAS_MULTIDIMENSIONAL_NONSTRING) \
+    $(wildcard include/config/CFI) \
+    $(wildcard include/config/ARCH_USES_CFI_GENERIC_LLVM_PASS) \
+    $(wildcard include/config/CC_HAS_BROKEN_COUNTED_BY_REF) \
     $(wildcard include/config/CC_HAS_ASM_INLINE) \
   include/linux/stringify.h \
   include/linux/export.h \
     $(wildcard include/config/MODVERSIONS) \
     $(wildcard include/config/64BIT) \
+    $(wildcard include/config/GENDWARFKSYMS) \
   include/linux/compiler.h \
     $(wildcard include/config/OBJTOOL) \
   arch/x86/include/generated/asm/rwonce.h \
@@ -100,7 +110,6 @@ deps_arch/x86/boot/compressed/vmlinux.lds := \
   include/asm-generic/bitsperlong.h \
   include/uapi/asm-generic/bitsperlong.h \
   arch/x86/include/asm/page_types.h \
-    $(wildcard include/config/PAGE_SHIFT) \
     $(wildcard include/config/PHYSICAL_START) \
     $(wildcard include/config/PHYSICAL_ALIGN) \
     $(wildcard include/config/DYNAMIC_PHYSICAL_MASK) \
@@ -109,10 +118,10 @@ deps_arch/x86/boot/compressed/vmlinux.lds := \
   include/uapi/linux/const.h \
   include/linux/mem_encrypt.h \
     $(wildcard include/config/ARCH_HAS_MEM_ENCRYPT) \
+  include/vdso/page.h \
+    $(wildcard include/config/PAGE_SHIFT) \
   arch/x86/include/asm/page_64_types.h \
     $(wildcard include/config/KASAN) \
-    $(wildcard include/config/DYNAMIC_MEMORY_LAYOUT) \
-    $(wildcard include/config/X86_5LEVEL) \
     $(wildcard include/config/RANDOMIZE_BASE) \
 
 arch/x86/boot/compressed/vmlinux.lds: $(deps_arch/x86/boot/compressed/vmlinux.lds)

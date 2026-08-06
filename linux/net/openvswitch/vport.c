@@ -34,8 +34,7 @@ static struct hlist_head *dev_table;
  */
 int ovs_vport_init(void)
 {
-	dev_table = kcalloc(VPORT_HASH_BUCKETS, sizeof(struct hlist_head),
-			    GFP_KERNEL);
+	dev_table = kzalloc_objs(struct hlist_head, VPORT_HASH_BUCKETS);
 	if (!dev_table)
 		return -ENOMEM;
 
@@ -503,8 +502,9 @@ int ovs_vport_receive(struct vport *vport, struct sk_buff *skb,
 
 	OVS_CB(skb)->input_vport = vport;
 	OVS_CB(skb)->mru = 0;
-	OVS_CB(skb)->cutlen = 0;
+	OVS_CB(skb)->cutlen = U32_MAX;
 	OVS_CB(skb)->probability = 0;
+	OVS_CB(skb)->upcall_pid = 0;
 	if (unlikely(dev_net(skb->dev) != ovs_dp_get_net(vport->dp))) {
 		u32 mark;
 

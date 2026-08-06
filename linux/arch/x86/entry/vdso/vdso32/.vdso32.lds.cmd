@@ -1,4 +1,4 @@
-savedcmd_arch/x86/entry/vdso/vdso32/vdso32.lds := gcc -E -Wp,-MMD,arch/x86/entry/vdso/vdso32/.vdso32.lds.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -D__KERNEL__ -fmacro-prefix-map=./= -Werror  -P -C -P -Ux86 -D__ASSEMBLY__ -DLINKER_SCRIPT -o arch/x86/entry/vdso/vdso32/vdso32.lds arch/x86/entry/vdso/vdso32/vdso32.lds.S
+savedcmd_arch/x86/entry/vdso/vdso32/vdso32.lds := gcc -E -Wp,-MMD,arch/x86/entry/vdso/vdso32/.vdso32.lds.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -D__KERNEL__ -Werror -P -C -I./arch/x86/entry/vdso/vdso32/..   -P -Ux86 -D__ASSEMBLY__ -DLINKER_SCRIPT -o arch/x86/entry/vdso/vdso32/vdso32.lds arch/x86/entry/vdso/vdso32/vdso32.lds.S
 
 source_arch/x86/entry/vdso/vdso32/vdso32.lds := arch/x86/entry/vdso/vdso32/vdso32.lds.S
 
@@ -27,7 +27,6 @@ deps_arch/x86/entry/vdso/vdso32/vdso32.lds := \
   include/asm-generic/bitsperlong.h \
   include/uapi/asm-generic/bitsperlong.h \
   arch/x86/include/asm/page_types.h \
-    $(wildcard include/config/PAGE_SHIFT) \
     $(wildcard include/config/PHYSICAL_START) \
     $(wildcard include/config/PHYSICAL_ALIGN) \
     $(wildcard include/config/DYNAMIC_PHYSICAL_MASK) \
@@ -37,10 +36,10 @@ deps_arch/x86/entry/vdso/vdso32/vdso32.lds := \
   include/linux/mem_encrypt.h \
     $(wildcard include/config/ARCH_HAS_MEM_ENCRYPT) \
     $(wildcard include/config/AMD_MEM_ENCRYPT) \
+  include/vdso/page.h \
+    $(wildcard include/config/PAGE_SHIFT) \
   arch/x86/include/asm/page_64_types.h \
     $(wildcard include/config/KASAN) \
-    $(wildcard include/config/DYNAMIC_MEMORY_LAYOUT) \
-    $(wildcard include/config/X86_5LEVEL) \
     $(wildcard include/config/RANDOMIZE_BASE) \
   arch/x86/include/asm/page_64.h \
     $(wildcard include/config/DEBUG_VIRTUAL) \
@@ -51,11 +50,8 @@ deps_arch/x86/entry/vdso/vdso32/vdso32.lds := \
     $(wildcard include/config/SPARSEMEM) \
   include/linux/pfn.h \
   include/asm-generic/getorder.h \
-  arch/x86/entry/vdso/vdso32/../vdso-layout.lds.S \
+  arch/x86/entry/vdso/vdso32/../common/vdso-layout.lds.S \
   arch/x86/include/asm/vdso.h \
-    $(wildcard include/config/X86_X32_ABI) \
-    $(wildcard include/config/X86_32) \
-    $(wildcard include/config/COMPAT) \
   include/linux/linkage.h \
     $(wildcard include/config/FUNCTION_ALIGNMENT) \
     $(wildcard include/config/ARCH_USE_SYM_ANNOTATIONS) \
@@ -68,12 +64,20 @@ deps_arch/x86/entry/vdso/vdso32/vdso32.lds := \
     $(wildcard include/config/LTO_CLANG) \
     $(wildcard include/config/HAVE_ARCH_COMPILER_H) \
     $(wildcard include/config/KCSAN) \
+    $(wildcard include/config/CC_HAS_ASSUME) \
     $(wildcard include/config/CC_HAS_COUNTED_BY) \
-    $(wildcard include/config/UBSAN_SIGNED_WRAP) \
+    $(wildcard include/config/FORTIFY_SOURCE) \
+    $(wildcard include/config/UBSAN_BOUNDS) \
+    $(wildcard include/config/CC_HAS_COUNTED_BY_PTR) \
+    $(wildcard include/config/CC_HAS_MULTIDIMENSIONAL_NONSTRING) \
+    $(wildcard include/config/CFI) \
+    $(wildcard include/config/ARCH_USES_CFI_GENERIC_LLVM_PASS) \
+    $(wildcard include/config/CC_HAS_BROKEN_COUNTED_BY_REF) \
     $(wildcard include/config/CC_HAS_ASM_INLINE) \
   include/linux/stringify.h \
   include/linux/export.h \
     $(wildcard include/config/MODVERSIONS) \
+    $(wildcard include/config/GENDWARFKSYMS) \
   include/linux/compiler.h \
     $(wildcard include/config/TRACE_BRANCH_PROFILING) \
     $(wildcard include/config/PROFILE_ALL_BRANCHES) \
@@ -81,6 +85,7 @@ deps_arch/x86/entry/vdso/vdso32/vdso32.lds := \
   arch/x86/include/generated/asm/rwonce.h \
   include/asm-generic/rwonce.h \
   arch/x86/include/asm/linkage.h \
+    $(wildcard include/config/X86_32) \
     $(wildcard include/config/CALL_PADDING) \
     $(wildcard include/config/MITIGATION_RETHUNK) \
     $(wildcard include/config/MITIGATION_RETPOLINE) \
@@ -93,7 +98,12 @@ deps_arch/x86/entry/vdso/vdso32/vdso32.lds := \
     $(wildcard include/config/MEMORY_HOTPLUG) \
     $(wildcard include/config/HAVE_ARCH_PREL32_RELOCATIONS) \
   include/linux/build_bug.h \
-  arch/x86/include/asm/vvar.h \
+  arch/x86/include/asm/vdso/vsyscall.h \
+  include/vdso/datapage.h \
+    $(wildcard include/config/ARCH_HAS_VDSO_TIME_DATA) \
+    $(wildcard include/config/ARCH_HAS_VDSO_ARCH_DATA) \
+    $(wildcard include/config/GENERIC_VDSO_OVERFLOW_PROTECT) \
+    $(wildcard include/config/VDSO_GETRANDOM) \
 
 arch/x86/entry/vdso/vdso32/vdso32.lds: $(deps_arch/x86/entry/vdso/vdso32/vdso32.lds)
 

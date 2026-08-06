@@ -50,7 +50,7 @@ void amd_iommu_enable_ppr_log(struct amd_iommu *iommu)
 
 void __init amd_iommu_free_ppr_log(struct amd_iommu *iommu)
 {
-	iommu_free_pages(iommu->ppr_log, get_order(amd_iommu_pprlog_size));
+	iommu_free_pages(iommu->ppr_log);
 }
 
 /*

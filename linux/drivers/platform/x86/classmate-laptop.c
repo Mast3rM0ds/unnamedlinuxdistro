@@ -12,6 +12,7 @@
 #include <linux/backlight.h>
 #include <linux/input.h>
 #include <linux/rfkill.h>
+#include <linux/sysfs.h>
 
 struct cmpc_accel {
 	int sensitivity;
@@ -213,7 +214,7 @@ static ssize_t cmpc_accel_sensitivity_show_v4(struct device *dev,
 	if (!accel)
 		return -ENXIO;
 
-	return sprintf(buf, "%d\n", accel->sensitivity);
+	return sysfs_emit(buf, "%d\n", accel->sensitivity);
 }
 
 static ssize_t cmpc_accel_sensitivity_store_v4(struct device *dev,
@@ -272,7 +273,7 @@ static ssize_t cmpc_accel_g_select_show_v4(struct device *dev,
 	if (!accel)
 		return -ENXIO;
 
-	return sprintf(buf, "%d\n", accel->g_select);
+	return sysfs_emit(buf, "%d\n", accel->g_select);
 }
 
 static ssize_t cmpc_accel_g_select_store_v4(struct device *dev,
@@ -399,7 +400,7 @@ static int cmpc_accel_add_v4(struct acpi_device *acpi)
 	struct input_dev *inputdev;
 	struct cmpc_accel *accel;
 
-	accel = kmalloc(sizeof(*accel), GFP_KERNEL);
+	accel = devm_kzalloc(&acpi->dev, sizeof(*accel), GFP_KERNEL);
 	if (!accel)
 		return -ENOMEM;
 
@@ -410,7 +411,7 @@ static int cmpc_accel_add_v4(struct acpi_device *acpi)
 
 	error = device_create_file(&acpi->dev, &cmpc_accel_sensitivity_attr_v4);
 	if (error)
-		goto failed_sensitivity;
+		return error;
 
 	accel->g_select = CMPC_ACCEL_G_SELECT_DEFAULT;
 	cmpc_accel_set_g_select_v4(acpi->handle, accel->g_select);
@@ -433,8 +434,6 @@ failed_input:
 	device_remove_file(&acpi->dev, &cmpc_accel_g_select_attr_v4);
 failed_g_select:
 	device_remove_file(&acpi->dev, &cmpc_accel_sensitivity_attr_v4);
-failed_sensitivity:
-	kfree(accel);
 	return error;
 }
 
@@ -577,7 +576,7 @@ static ssize_t cmpc_accel_sensitivity_show(struct device *dev,
 	if (!accel)
 		return -ENXIO;
 
-	return sprintf(buf, "%d\n", accel->sensitivity);
+	return sysfs_emit(buf, "%d\n", accel->sensitivity);
 }
 
 static ssize_t cmpc_accel_sensitivity_store(struct device *dev,
@@ -649,7 +648,7 @@ static int cmpc_accel_add(struct acpi_device *acpi)
 	struct input_dev *inputdev;
 	struct cmpc_accel *accel;
 
-	accel = kmalloc(sizeof(*accel), GFP_KERNEL);
+	accel = devm_kzalloc(&acpi->dev, sizeof(*accel), GFP_KERNEL);
 	if (!accel)
 		return -ENOMEM;
 
@@ -658,7 +657,7 @@ static int cmpc_accel_add(struct acpi_device *acpi)
 
 	error = device_create_file(&acpi->dev, &cmpc_accel_sensitivity_attr);
 	if (error)
-		goto failed_file;
+		return error;
 
 	error = cmpc_add_acpi_notify_device(acpi, "cmpc_accel",
 					    cmpc_accel_idev_init);
@@ -672,8 +671,6 @@ static int cmpc_accel_add(struct acpi_device *acpi)
 
 failed_input:
 	device_remove_file(&acpi->dev, &cmpc_accel_sensitivity_attr);
-failed_file:
-	kfree(accel);
 	return error;
 }
 
@@ -963,7 +960,7 @@ static int cmpc_ipml_add(struct acpi_device *acpi)
 	struct ipml200_dev *ipml;
 	struct backlight_properties props;
 
-	ipml = kmalloc(sizeof(*ipml), GFP_KERNEL);
+	ipml = kmalloc_obj(*ipml);
 	if (ipml == NULL)
 		return -ENOMEM;
 

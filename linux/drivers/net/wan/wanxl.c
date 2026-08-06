@@ -514,7 +514,8 @@ static void wanxl_pci_remove_one(struct pci_dev *pdev)
 	if (card->irq)
 		free_irq(card->irq, card);
 
-	wanxl_reset(card);
+	if (card->plx)
+		wanxl_reset(card);
 
 	for (i = 0; i < RX_QUEUE_LENGTH; i++)
 		if (card->rx_skbs[i]) {
@@ -598,7 +599,7 @@ static int wanxl_pci_init_one(struct pci_dev *pdev,
 		ports = 4;
 	}
 
-	card = kzalloc(struct_size(card, ports, ports), GFP_KERNEL);
+	card = kzalloc_flex(*card, ports, ports);
 	if (!card) {
 		pci_release_regions(pdev);
 		pci_disable_device(pdev);

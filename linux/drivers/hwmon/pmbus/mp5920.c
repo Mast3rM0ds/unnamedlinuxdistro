@@ -66,7 +66,7 @@ static const struct of_device_id mp5920_of_match[] = {
 MODULE_DEVICE_TABLE(of, mp5920_of_match);
 
 static const struct i2c_device_id mp5920_id[] = {
-	{ "mp5920" },
+	{ .name = "mp5920" },
 	{ }
 };
 
@@ -87,4 +87,4 @@ MODULE_AUTHOR("Tony Ao <tony_ao@wiwynn.com>");
 MODULE_AUTHOR("Alex Vdovydchenko <xzeol@yahoo.com>");
 MODULE_DESCRIPTION("PMBus driver for MP5920 HSC");
 MODULE_LICENSE("GPL");
-MODULE_IMPORT_NS(PMBUS);
+MODULE_IMPORT_NS("PMBUS");

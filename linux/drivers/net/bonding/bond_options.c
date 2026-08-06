@@ -6,6 +6,7 @@
  */
 
 #include <linux/errno.h>
+#include <linux/hex.h>
 #include <linux/if.h>
 #include <linux/netdevice.h>
 #include <linux/spinlock.h>
@@ -67,6 +68,8 @@ static int bond_option_lacp_active_set(struct bonding *bond,
 				       const struct bond_opt_value *newval);
 static int bond_option_lacp_rate_set(struct bonding *bond,
 				     const struct bond_opt_value *newval);
+static int bond_option_lacp_strict_set(struct bonding *bond,
+				       const struct bond_opt_value *newval);
 static int bond_option_ad_select_set(struct bonding *bond,
 				     const struct bond_opt_value *newval);
 static int bond_option_queue_id_set(struct bonding *bond,
@@ -161,11 +164,18 @@ static const struct bond_opt_value bond_lacp_rate_tbl[] = {
 	{ NULL,   -1,           0},
 };
 
+static const struct bond_opt_value bond_lacp_strict_tbl[] = {
+	{ "off", 0, BOND_VALFLAG_DEFAULT},
+	{ "on",  1, 0},
+	{ NULL, -1, 0 }
+};
+
 static const struct bond_opt_value bond_ad_select_tbl[] = {
-	{ "stable",    BOND_AD_STABLE,    BOND_VALFLAG_DEFAULT},
-	{ "bandwidth", BOND_AD_BANDWIDTH, 0},
-	{ "count",     BOND_AD_COUNT,     0},
-	{ NULL,        -1,                0},
+	{ "stable",          BOND_AD_STABLE,    BOND_VALFLAG_DEFAULT},
+	{ "bandwidth",       BOND_AD_BANDWIDTH, 0},
+	{ "count",           BOND_AD_COUNT,     0},
+	{ "actor_port_prio", BOND_AD_PRIO,      0},
+	{ NULL,              -1,                0},
 };
 
 static const struct bond_opt_value bond_num_peer_notif_tbl[] = {
@@ -189,7 +199,6 @@ static const struct bond_opt_value bond_primary_reselect_tbl[] = {
 };
 
 static const struct bond_opt_value bond_use_carrier_tbl[] = {
-	{ "off", 0,  0},
 	{ "on",  1,  BOND_VALFLAG_DEFAULT},
 	{ NULL,  -1, 0}
 };
@@ -362,6 +371,14 @@ static const struct bond_option bond_opts[BOND_OPT_LAST] = {
 		.values = bond_lacp_rate_tbl,
 		.set = bond_option_lacp_rate_set
 	},
+	[BOND_OPT_LACP_STRICT] = {
+		.id = BOND_OPT_LACP_STRICT,
+		.name = "lacp_strict",
+		.desc = "Define the LACP fallback mode when no slaves have negotiated",
+		.unsuppmodes = BOND_MODE_ALL_EX(BIT(BOND_MODE_8023AD)),
+		.values = bond_lacp_strict_tbl,
+		.set = bond_option_lacp_strict_set
+	},
 	[BOND_OPT_MINLINKS] = {
 		.id = BOND_OPT_MINLINKS,
 		.name = "min_links",
@@ -372,7 +389,7 @@ static const struct bond_option bond_opts[BOND_OPT_LAST] = {
 	[BOND_OPT_AD_SELECT] = {
 		.id = BOND_OPT_AD_SELECT,
 		.name = "ad_select",
-		.desc = "803.ad aggregation selection logic",
+		.desc = "802.3ad aggregation selection logic",
 		.flags = BOND_OPTFLAG_IFDOWN,
 		.values = bond_ad_select_tbl,
 		.set = bond_option_ad_select_set
@@ -421,7 +438,7 @@ static const struct bond_option bond_opts[BOND_OPT_LAST] = {
 	[BOND_OPT_USE_CARRIER] = {
 		.id = BOND_OPT_USE_CARRIER,
 		.name = "use_carrier",
-		.desc = "Use netif_carrier_ok (vs MII ioctls) in miimon",
+		.desc = "option obsolete, use_carrier cannot be disabled",
 		.values = bond_use_carrier_tbl,
 		.set = bond_option_use_carrier_set
 	},
@@ -1100,10 +1117,6 @@ static int bond_option_peer_notif_delay_set(struct bonding *bond,
 static int bond_option_use_carrier_set(struct bonding *bond,
 				       const struct bond_opt_value *newval)
 {
-	netdev_dbg(bond->dev, "Setting use_carrier to %llu\n",
-		   newval->value);
-	bond->params.use_carrier = newval->value;
-
 	return 0;
 }
 
@@ -1683,6 +1696,17 @@ static int bond_option_lacp_rate_set(struct bonding *bond,
 		   newval->string, newval->value);
 	bond->params.lacp_fast = newval->value;
 	bond_3ad_update_lacp_rate(bond);
+
+	return 0;
+}
+
+static int bond_option_lacp_strict_set(struct bonding *bond,
+				       const struct bond_opt_value *newval)
+{
+	netdev_dbg(bond->dev, "Setting LACP fallback to %s (%llu)\n",
+		   newval->string, newval->value);
+	bond->params.lacp_strict = newval->value;
+	bond_3ad_set_carrier(bond);
 
 	return 0;
 }

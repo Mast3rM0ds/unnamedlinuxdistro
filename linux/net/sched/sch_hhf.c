@@ -231,7 +231,7 @@ static struct hh_flow_state *alloc_new_hh(struct list_head *head,
 		return NULL;
 	}
 	/* Create new entry. */
-	flow = kzalloc(sizeof(struct hh_flow_state), GFP_ATOMIC);
+	flow = kzalloc_obj(struct hh_flow_state, GFP_ATOMIC);
 	if (!flow)
 		return NULL;
 
@@ -360,7 +360,7 @@ static unsigned int hhf_drop(struct Qdisc *sch, struct sk_buff **to_free)
 	if (bucket->head) {
 		struct sk_buff *skb = dequeue_head(bucket);
 
-		sch->q.qlen--;
+		qdisc_qlen_dec(sch);
 		qdisc_qstats_backlog_dec(sch, skb);
 		qdisc_drop(skb, sch, to_free);
 	}
@@ -400,7 +400,8 @@ static int hhf_enqueue(struct sk_buff *skb, struct Qdisc *sch,
 		}
 		bucket->deficit = weight * q->quantum;
 	}
-	if (++sch->q.qlen <= sch->limit)
+	qdisc_qlen_inc(sch);
+	if (sch->q.qlen <= sch->limit)
 		return NET_XMIT_SUCCESS;
 
 	prev_backlog = sch->qstats.backlog;
@@ -443,7 +444,7 @@ begin:
 
 	if (bucket->head) {
 		skb = dequeue_head(bucket);
-		sch->q.qlen--;
+		qdisc_qlen_dec(sch);
 		qdisc_qstats_backlog_dec(sch, skb);
 	}
 
@@ -536,9 +537,9 @@ static const struct nla_policy hhf_policy[TCA_HHF_MAX + 1] = {
 static int hhf_change(struct Qdisc *sch, struct nlattr *opt,
 		      struct netlink_ext_ack *extack)
 {
+	unsigned int dropped_pkts = 0, dropped_bytes = 0;
 	struct hhf_sched_data *q = qdisc_priv(sch);
 	struct nlattr *tb[TCA_HHF_MAX + 1];
-	unsigned int qlen, prev_backlog;
 	int err;
 	u64 non_hh_quantum;
 	u32 new_quantum = q->quantum;
@@ -589,15 +590,17 @@ static int hhf_change(struct Qdisc *sch, struct nlattr *opt,
 			   usecs_to_jiffies(us));
 	}
 
-	qlen = sch->q.qlen;
-	prev_backlog = sch->qstats.backlog;
 	while (sch->q.qlen > sch->limit) {
 		struct sk_buff *skb = qdisc_dequeue_internal(sch, false);
 
+		if (!skb)
+			break;
+
+		dropped_pkts++;
+		dropped_bytes += qdisc_pkt_len(skb);
 		rtnl_kfree_skbs(skb, skb);
 	}
-	qdisc_tree_reduce_backlog(sch, qlen - sch->q.qlen,
-				  prev_backlog - sch->qstats.backlog);
+	qdisc_tree_reduce_backlog(sch, dropped_pkts, dropped_bytes);
 
 	sch_tree_unlock(sch);
 	return 0;
@@ -630,8 +633,7 @@ static int hhf_init(struct Qdisc *sch, struct nlattr *opt,
 
 	if (!q->hh_flows) {
 		/* Initialize heavy-hitter flow table. */
-		q->hh_flows = kvcalloc(HH_FLOWS_CNT, sizeof(struct list_head),
-				       GFP_KERNEL);
+		q->hh_flows = kvzalloc_objs(struct list_head, HH_FLOWS_CNT);
 		if (!q->hh_flows)
 			return -ENOMEM;
 		for (i = 0; i < HH_FLOWS_CNT; i++)

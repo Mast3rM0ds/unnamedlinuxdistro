@@ -63,6 +63,7 @@
 #include <linux/stat.h>
 #include <linux/init.h>
 
+#include <net/flow.h>
 #include <net/snmp.h>
 #include <net/ip.h>
 #include <net/protocol.h>
@@ -75,7 +76,6 @@
 #include <net/checksum.h>
 #include <net/gso.h>
 #include <net/inetpeer.h>
-#include <net/inet_ecn.h>
 #include <net/lwtunnel.h>
 #include <net/inet_dscp.h>
 #include <linux/bpf-cgroup.h>
@@ -84,6 +84,7 @@
 #include <linux/netfilter_bridge.h>
 #include <linux/netlink.h>
 #include <linux/tcp.h>
+#include <net/psp.h>
 
 static int
 ip_fragment(struct net *net, struct sock *sk, struct sk_buff *skb,
@@ -483,24 +484,16 @@ int __ip_queue_xmit(struct sock *sk, struct sk_buff *skb, struct flowi *fl,
 	/* Make sure we can route this packet. */
 	rt = dst_rtable(__sk_dst_check(sk, 0));
 	if (!rt) {
-		__be32 daddr;
+		inet_sk_init_flowi4(inet, fl4);
 
-		/* Use correct destination address if we have options. */
-		daddr = inet->inet_daddr;
-		if (inet_opt && inet_opt->opt.srr)
-			daddr = inet_opt->opt.faddr;
+		/* sctp_v4_xmit() uses its own DSCP value */
+		fl4->flowi4_dscp = inet_dsfield_to_dscp(tos);
 
 		/* If this fails, retransmit mechanism of transport layer will
 		 * keep trying until route appears or the connection times
 		 * itself out.
 		 */
-		rt = ip_route_output_ports(net, fl4, sk,
-					   daddr, inet->inet_saddr,
-					   inet->inet_dport,
-					   inet->inet_sport,
-					   sk->sk_protocol,
-					   tos & INET_DSCP_MASK,
-					   sk->sk_bound_dev_if);
+		rt = ip_route_output_flow(net, fl4, sk);
 		if (IS_ERR(rt))
 			goto no_route;
 		sk_setup_caps(sk, &rt->dst);
@@ -978,7 +971,7 @@ static int __ip_append_data(struct sock *sk,
 	unsigned int maxfraglen, fragheaderlen, maxnonfragsize;
 	int csummode = CHECKSUM_NONE;
 	struct rtable *rt = dst_rtable(cork->dst);
-	bool paged, hold_tskey, extra_uref = false;
+	bool paged, hold_tskey = false, extra_uref = false;
 	unsigned int wmem_alloc_delta = 0;
 	u32 tskey = 0;
 
@@ -1028,7 +1021,8 @@ static int __ip_append_data(struct sock *sk,
 				uarg = msg->msg_ubuf;
 			}
 		} else if (sock_flag(sk, SOCK_ZEROCOPY)) {
-			uarg = msg_zerocopy_realloc(sk, length, skb_zcopy(skb));
+			uarg = msg_zerocopy_realloc(sk, length, skb_zcopy(skb),
+						    false);
 			if (!uarg)
 				return -ENOBUFS;
 			extra_uref = !skb_zcopy(skb);	/* only ref on new uarg */
@@ -1054,10 +1048,15 @@ static int __ip_append_data(struct sock *sk,
 
 	cork->length += length;
 
-	hold_tskey = cork->tx_flags & SKBTX_ANY_TSTAMP &&
-		     READ_ONCE(sk->sk_tsflags) & SOF_TIMESTAMPING_OPT_ID;
-	if (hold_tskey)
-		tskey = atomic_inc_return(&sk->sk_tskey) - 1;
+	if (cork->tx_flags & SKBTX_ANY_TSTAMP &&
+	    READ_ONCE(sk->sk_tsflags) & SOF_TIMESTAMPING_OPT_ID) {
+		if (cork->flags & IPCORK_TS_OPT_ID) {
+			tskey = cork->ts_opt_id;
+		} else {
+			tskey = atomic_inc_return(&sk->sk_tskey) - 1;
+			hold_tskey = true;
+		}
+	}
 
 	/* So, what's going on in the loop below?
 	 *
@@ -1227,8 +1226,7 @@ alloc_new_skb:
 			if (WARN_ON_ONCE(copy > msg->msg_iter.count))
 				goto error;
 
-			err = skb_splice_from_iter(skb, &msg->msg_iter, copy,
-						   sk->sk_allocation);
+			err = skb_splice_from_iter(skb, &msg->msg_iter, copy);
 			if (err < 0)
 				goto error;
 			copy = err;
@@ -1301,7 +1299,7 @@ static int ip_setup_cork(struct sock *sk, struct inet_cork *cork,
 		return -EFAULT;
 
 	cork->fragsize = ip_sk_use_pmtu(sk) ?
-			 dst_mtu(&rt->dst) : READ_ONCE(rt->dst.dev->mtu);
+			 dst4_mtu(&rt->dst) : READ_ONCE(rt->dst.dev->mtu);
 
 	if (!inetdev_valid_mtu(cork->fragsize))
 		return -ENETUNREACH;
@@ -1332,10 +1330,14 @@ static int ip_setup_cork(struct sock *sk, struct inet_cork *cork,
 	cork->ttl = ipc->ttl;
 	cork->tos = ipc->tos;
 	cork->mark = ipc->sockc.mark;
-	cork->priority = ipc->priority;
+	cork->priority = ipc->sockc.priority;
 	cork->transmit_time = ipc->sockc.transmit_time;
 	cork->tx_flags = 0;
-	sock_tx_timestamp(sk, ipc->sockc.tsflags, &cork->tx_flags);
+	sock_tx_timestamp(sk, &ipc->sockc, &cork->tx_flags);
+	if (ipc->sockc.tsflags & SOCKCM_FLAG_TS_OPT_ID) {
+		cork->flags |= IPCORK_TS_OPT_ID;
+		cork->ts_opt_id = ipc->sockc.ts_opt_id;
+	}
 
 	return 0;
 }
@@ -1436,7 +1438,7 @@ struct sk_buff *__ip_make_skb(struct sock *sk,
 	pmtudisc = READ_ONCE(inet->pmtudisc);
 	if (pmtudisc == IP_PMTUDISC_DO ||
 	    pmtudisc == IP_PMTUDISC_PROBE ||
-	    (skb->len <= dst_mtu(&rt->dst) &&
+	    (skb->len <= dst4_mtu(&rt->dst) &&
 	     ip_dont_fragment(sk, &rt->dst)))
 		df = htons(IP_DF);
 
@@ -1465,7 +1467,7 @@ struct sk_buff *__ip_make_skb(struct sock *sk,
 		ip_options_build(skb, opt, cork->addr, rt);
 	}
 
-	skb->priority = (cork->tos != -1) ? cork->priority: READ_ONCE(sk->sk_priority);
+	skb->priority = cork->priority;
 	skb->mark = cork->mark;
 	if (sk_is_tcp(sk))
 		skb_set_delivery_time(skb, cork->transmit_time, SKB_CLOCK_MONOTONIC);
@@ -1596,13 +1598,15 @@ static int ip_reply_glue_bits(void *dptr, char *to, int offset,
  *	Generic function to send a packet as reply to another packet.
  *	Used to send some TCP resets/acks so far.
  */
-void ip_send_unicast_reply(struct sock *sk, struct sk_buff *skb,
+void ip_send_unicast_reply(struct sock *sk, const struct sock *orig_sk,
+			   struct sk_buff *skb,
 			   const struct ip_options *sopt,
 			   __be32 daddr, __be32 saddr,
 			   const struct ip_reply_arg *arg,
 			   unsigned int len, u64 transmit_time, u32 txhash)
 {
-	struct ip_options_data replyopts;
+	DEFINE_RAW_FLEX(struct ip_options_rcu, replyopts, opt.__data,
+			IP_OPTIONS_DATA_FIXED_SIZE);
 	struct ipcm_cookie ipc;
 	struct flowi4 fl4;
 	struct rtable *rt = skb_rtable(skb);
@@ -1611,18 +1615,18 @@ void ip_send_unicast_reply(struct sock *sk, struct sk_buff *skb,
 	int err;
 	int oif;
 
-	if (__ip_options_echo(net, &replyopts.opt.opt, skb, sopt))
+	if (__ip_options_echo(net, &replyopts->opt, skb, sopt))
 		return;
 
 	ipcm_init(&ipc);
 	ipc.addr = daddr;
 	ipc.sockc.transmit_time = transmit_time;
 
-	if (replyopts.opt.opt.optlen) {
-		ipc.opt = &replyopts.opt;
+	if (replyopts->opt.optlen) {
+		ipc.opt = replyopts;
 
-		if (replyopts.opt.opt.srr)
-			daddr = replyopts.opt.opt.faddr;
+		if (replyopts->opt.srr)
+			daddr = replyopts->opt.faddr;
 	}
 
 	oif = arg->bound_dev_if;
@@ -1642,7 +1646,7 @@ void ip_send_unicast_reply(struct sock *sk, struct sk_buff *skb,
 	if (IS_ERR(rt))
 		return;
 
-	inet_sk(sk)->tos = arg->tos & ~INET_ECN_MASK;
+	inet_sk(sk)->tos = arg->tos;
 
 	sk->sk_protocol = ip_hdr(skb)->protocol;
 	sk->sk_bound_dev_if = arg->bound_dev_if;
@@ -1662,6 +1666,10 @@ void ip_send_unicast_reply(struct sock *sk, struct sk_buff *skb,
 			  arg->csumoffset) = csum_fold(csum_add(nskb->csum,
 								arg->csum));
 		nskb->ip_summed = CHECKSUM_NONE;
+		if (orig_sk) {
+			skb_set_owner_edemux(nskb, (struct sock *)orig_sk);
+			psp_reply_set_decrypted(orig_sk, nskb);
+		}
 		if (transmit_time)
 			nskb->tstamp_type = SKB_CLOCK_MONOTONIC;
 		if (txhash)

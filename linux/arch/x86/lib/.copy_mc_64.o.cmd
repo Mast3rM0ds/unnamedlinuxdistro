@@ -1,4 +1,4 @@
-savedcmd_arch/x86/lib/copy_mc_64.o := gcc -Wp,-MMD,arch/x86/lib/.copy_mc_64.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -D__KERNEL__ -fmacro-prefix-map=./= -Werror -D__ASSEMBLY__ -fno-PIE -m64    -DKBUILD_MODFILE='"arch/x86/lib/copy_mc_64"' -DKBUILD_MODNAME='"copy_mc_64"' -D__KBUILD_MODNAME=kmod_copy_mc_64 -c -o arch/x86/lib/copy_mc_64.o arch/x86/lib/copy_mc_64.S 
+savedcmd_arch/x86/lib/copy_mc_64.o := gcc -Wp,-MMD,arch/x86/lib/.copy_mc_64.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -D__KERNEL__ -Werror -D__ASSEMBLY__ -fno-PIE -m64 -Wa,--fatal-warnings    -DKBUILD_MODFILE='"arch/x86/lib/copy_mc_64"' -DKBUILD_MODNAME='"copy_mc_64"' -D__KBUILD_MODNAME=copy_mc_64 -c -o arch/x86/lib/copy_mc_64.o arch/x86/lib/copy_mc_64.S 
 
 source_arch/x86/lib/copy_mc_64.o := arch/x86/lib/copy_mc_64.S
 
@@ -24,13 +24,21 @@ deps_arch/x86/lib/copy_mc_64.o := \
     $(wildcard include/config/LTO_CLANG) \
     $(wildcard include/config/HAVE_ARCH_COMPILER_H) \
     $(wildcard include/config/KCSAN) \
+    $(wildcard include/config/CC_HAS_ASSUME) \
     $(wildcard include/config/CC_HAS_COUNTED_BY) \
-    $(wildcard include/config/UBSAN_SIGNED_WRAP) \
+    $(wildcard include/config/FORTIFY_SOURCE) \
+    $(wildcard include/config/UBSAN_BOUNDS) \
+    $(wildcard include/config/CC_HAS_COUNTED_BY_PTR) \
+    $(wildcard include/config/CC_HAS_MULTIDIMENSIONAL_NONSTRING) \
+    $(wildcard include/config/CFI) \
+    $(wildcard include/config/ARCH_USES_CFI_GENERIC_LLVM_PASS) \
+    $(wildcard include/config/CC_HAS_BROKEN_COUNTED_BY_REF) \
     $(wildcard include/config/CC_HAS_ASM_INLINE) \
   include/linux/stringify.h \
   include/linux/export.h \
     $(wildcard include/config/MODVERSIONS) \
     $(wildcard include/config/64BIT) \
+    $(wildcard include/config/GENDWARFKSYMS) \
   include/linux/compiler.h \
     $(wildcard include/config/TRACE_BRANCH_PROFILING) \
     $(wildcard include/config/PROFILE_ALL_BRANCHES) \
@@ -62,6 +70,10 @@ deps_arch/x86/lib/copy_mc_64.o := \
   include/uapi/asm-generic/bitsperlong.h \
   arch/x86/include/asm/asm.h \
     $(wildcard include/config/KPROBES) \
+  include/linux/annotate.h \
+  include/linux/objtool_types.h \
+  arch/x86/include/asm/asm-offsets.h \
+  include/generated/asm-offsets.h \
   arch/x86/include/asm/extable_fixup_types.h \
 
 arch/x86/lib/copy_mc_64.o: $(deps_arch/x86/lib/copy_mc_64.o)

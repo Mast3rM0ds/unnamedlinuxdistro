@@ -216,7 +216,7 @@ static void batadv_tp_update_rto(struct batadv_tp_vars *tp_vars,
  * batadv_tp_batctl_notify() - send client status result to client
  * @reason: reason for tp meter session stop
  * @dst: destination of tp_meter session
- * @bat_priv: the bat priv with all the soft interface information
+ * @bat_priv: the bat priv with all the mesh interface information
  * @start_time: start of transmission in jiffies
  * @total_sent: bytes acked to the receiver
  * @cookie: cookie of tp_meter session
@@ -248,7 +248,7 @@ static void batadv_tp_batctl_notify(enum batadv_tp_meter_reason reason,
  * batadv_tp_batctl_error_notify() - send client error result to client
  * @reason: reason for tp meter session stop
  * @dst: destination of tp_meter session
- * @bat_priv: the bat priv with all the soft interface information
+ * @bat_priv: the bat priv with all the mesh interface information
  * @cookie: cookie of tp_meter session
  */
 static void batadv_tp_batctl_error_notify(enum batadv_tp_meter_reason reason,
@@ -261,7 +261,7 @@ static void batadv_tp_batctl_error_notify(enum batadv_tp_meter_reason reason,
 
 /**
  * batadv_tp_list_find() - find a tp_vars object in the global list
- * @bat_priv: the bat priv with all the soft interface information
+ * @bat_priv: the bat priv with all the mesh interface information
  * @dst: the other endpoint MAC address to look for
  * @role: role of the session
  *
@@ -322,7 +322,7 @@ static bool batadv_tp_list_active(struct batadv_priv *bat_priv, const u8 *dst)
 /**
  * batadv_tp_list_find_session() - find tp_vars session object in the global
  *  list
- * @bat_priv: the bat priv with all the soft interface information
+ * @bat_priv: the bat priv with all the mesh interface information
  * @dst: the other endpoint MAC address to look for
  * @session: session identifier
  * @role: role of the session
@@ -444,7 +444,7 @@ static void batadv_tp_sender_cleanup(struct batadv_tp_vars *tp_vars)
 
 /**
  * batadv_tp_sender_end() - print info about ended session and inform client
- * @bat_priv: the bat priv with all the soft interface information
+ * @bat_priv: the bat priv with all the mesh interface information
  * @tp_vars: the private data of the current TP meter session
  */
 static void batadv_tp_sender_end(struct batadv_priv *bat_priv,
@@ -544,7 +544,7 @@ static void batadv_tp_reset_sender_timer(struct batadv_tp_vars *tp_vars)
  */
 static void batadv_tp_sender_timeout(struct timer_list *t)
 {
-	struct batadv_tp_vars *tp_vars = from_timer(tp_vars, t, timer);
+	struct batadv_tp_vars *tp_vars = timer_container_of(tp_vars, t, timer);
 	struct batadv_priv *bat_priv = tp_vars->bat_priv;
 
 	if (batadv_tp_sender_stopped(tp_vars))
@@ -678,7 +678,7 @@ static int batadv_tp_send_msg(struct batadv_tp_vars *tp_vars, const u8 *src,
 
 /**
  * batadv_tp_recv_ack() - ACK receiving function
- * @bat_priv: the bat priv with all the soft interface information
+ * @bat_priv: the bat priv with all the mesh interface information
  * @skb: the buffer containing the received packet
  *
  * Process a received TP ACK packet
@@ -896,7 +896,7 @@ static int batadv_tp_send(void *arg)
 	}
 
 	/* assume that all the hard_interfaces have a correctly
-	 * configured MTU, so use the soft_iface MTU as MSS.
+	 * configured MTU, so use the mesh_iface MTU as MSS.
 	 * This might not be true and in that case the fragmentation
 	 * should be used.
 	 * Now, try to send the packet as it is
@@ -992,7 +992,7 @@ static void batadv_tp_start_kthread(struct batadv_tp_vars *tp_vars)
 
 /**
  * batadv_tp_start() - start a new tp meter session
- * @bat_priv: the bat priv with all the soft interface information
+ * @bat_priv: the bat priv with all the mesh interface information
  * @dst: the receiver MAC address
  * @test_length: test length in milliseconds
  * @cookie: session cookie
@@ -1037,7 +1037,7 @@ void batadv_tp_start(struct batadv_priv *bat_priv, const u8 *dst,
 		return;
 	}
 
-	tp_vars = kmalloc(sizeof(*tp_vars), GFP_ATOMIC);
+	tp_vars = kmalloc_obj(*tp_vars, GFP_ATOMIC);
 	if (!tp_vars) {
 		atomic_dec(&bat_priv->tp_num);
 		spin_unlock_bh(&bat_priv->tp_list_lock);
@@ -1065,7 +1065,7 @@ void batadv_tp_start(struct batadv_priv *bat_priv, const u8 *dst,
 
 	/* initialise the CWND to 3*MSS (Section 3.1 in RFC5681).
 	 * For batman-adv the MSS is the size of the payload received by the
-	 * soft_interface, hence its MTU
+	 * mesh_interface, hence its MTU
 	 */
 	tp_vars->cwnd = BATADV_TP_PLEN * 3;
 	tp_vars->dec_cwnd = 0;
@@ -1127,7 +1127,7 @@ void batadv_tp_start(struct batadv_priv *bat_priv, const u8 *dst,
 
 /**
  * batadv_tp_stop() - stop currently running tp meter session
- * @bat_priv: the bat priv with all the soft interface information
+ * @bat_priv: the bat priv with all the mesh interface information
  * @dst: the receiver MAC address
  * @return_value: reason for tp meter session stop
  */
@@ -1176,7 +1176,7 @@ static void batadv_tp_reset_receiver_timer(struct batadv_tp_vars *tp_vars)
  */
 static void batadv_tp_receiver_shutdown(struct timer_list *t)
 {
-	struct batadv_tp_vars *tp_vars = from_timer(tp_vars, t, timer);
+	struct batadv_tp_vars *tp_vars = timer_container_of(tp_vars, t, timer);
 	struct batadv_tp_unacked *un, *safe;
 	struct batadv_priv *bat_priv;
 
@@ -1213,7 +1213,7 @@ static void batadv_tp_receiver_shutdown(struct timer_list *t)
 
 /**
  * batadv_tp_send_ack() - send an ACK packet
- * @bat_priv: the bat priv with all the soft interface information
+ * @bat_priv: the bat priv with all the mesh interface information
  * @dst: the mac address of the destination originator
  * @seq: the sequence number to ACK
  * @timestamp: the timestamp to echo back in the ACK
@@ -1300,7 +1300,7 @@ static bool batadv_tp_handle_out_of_order(struct batadv_tp_vars *tp_vars,
 	struct batadv_tp_unacked *un, *new;
 	bool added = false;
 
-	new = kmalloc(sizeof(*new), GFP_ATOMIC);
+	new = kmalloc_obj(*new, GFP_ATOMIC);
 	if (unlikely(!new))
 		return false;
 
@@ -1398,7 +1398,7 @@ static void batadv_tp_ack_unordered(struct batadv_tp_vars *tp_vars)
 
 /**
  * batadv_tp_init_recv() - return matching or create new receiver tp_vars
- * @bat_priv: the bat priv with all the soft interface information
+ * @bat_priv: the bat priv with all the mesh interface information
  * @icmp: received icmp tp msg
  *
  * Return: corresponding tp_vars or NULL on errors
@@ -1426,7 +1426,7 @@ batadv_tp_init_recv(struct batadv_priv *bat_priv,
 		goto out_unlock;
 	}
 
-	tp_vars = kmalloc(sizeof(*tp_vars), GFP_ATOMIC);
+	tp_vars = kmalloc_obj(*tp_vars, GFP_ATOMIC);
 	if (!tp_vars) {
 		atomic_dec(&bat_priv->tp_num);
 		goto out_unlock;
@@ -1462,7 +1462,7 @@ out_unlock:
 
 /**
  * batadv_tp_recv_msg() - process a single data message
- * @bat_priv: the bat priv with all the soft interface information
+ * @bat_priv: the bat priv with all the mesh interface information
  * @skb: the buffer containing the received packet
  *
  * Process a received TP MSG packet
@@ -1548,7 +1548,7 @@ out:
 
 /**
  * batadv_tp_meter_recv() - main TP Meter receiving function
- * @bat_priv: the bat priv with all the soft interface information
+ * @bat_priv: the bat priv with all the mesh interface information
  * @skb: the buffer containing the received packet
  */
 void batadv_tp_meter_recv(struct batadv_priv *bat_priv, struct sk_buff *skb)

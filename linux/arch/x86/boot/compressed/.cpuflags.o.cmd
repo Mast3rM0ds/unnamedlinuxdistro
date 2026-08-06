@@ -1,4 +1,4 @@
-savedcmd_arch/x86/boot/compressed/cpuflags.o := gcc -Wp,-MMD,arch/x86/boot/compressed/.cpuflags.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -fmacro-prefix-map=./= -Werror -m64 -O2 -std=gnu11 -fno-strict-aliasing -fPIE -Wundef -DDISABLE_BRANCH_PROFILING -mcmodel=small -mno-red-zone -mno-mmx -mno-sse -ffreestanding -fshort-wchar -fno-stack-protector -Wno-address-of-packed-member -Wno-pointer-sign -fmacro-prefix-map=./= -fno-asynchronous-unwind-tables -D__DISABLE_EXPORTS -Wa,-mrelax-relocations=no -include ./include/linux/hidden.h    -DKBUILD_MODFILE='"arch/x86/boot/compressed/cpuflags"' -DKBUILD_BASENAME='"cpuflags"' -DKBUILD_MODNAME='"cpuflags"' -D__KBUILD_MODNAME=kmod_cpuflags -c -o arch/x86/boot/compressed/cpuflags.o arch/x86/boot/compressed/cpuflags.c  
+savedcmd_arch/x86/boot/compressed/cpuflags.o := gcc -Wp,-MMD,arch/x86/boot/compressed/.cpuflags.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -Werror -m64 -O2 -std=gnu11 -fms-extensions -fno-strict-aliasing -fPIE -fno-jump-tables -Wundef -DDISABLE_BRANCH_PROFILING -mcmodel=small -mno-red-zone -mno-mmx -mno-sse -ffreestanding -fshort-wchar -fno-stack-protector -Wno-address-of-packed-member -Wno-pointer-sign -fno-asynchronous-unwind-tables -D__DISABLE_EXPORTS -Wa,-mrelax-relocations=no -include ./include/linux/hidden.h    -DKBUILD_MODFILE='"arch/x86/boot/compressed/cpuflags"' -DKBUILD_BASENAME='"cpuflags"' -DKBUILD_MODNAME='"cpuflags"' -D__KBUILD_MODNAME=cpuflags -c -o arch/x86/boot/compressed/cpuflags.o arch/x86/boot/compressed/cpuflags.c  
 
 source_arch/x86/boot/compressed/cpuflags.o := arch/x86/boot/compressed/cpuflags.c
 
@@ -20,17 +20,26 @@ deps_arch/x86/boot/compressed/cpuflags.o := \
     $(wildcard include/config/LTO_CLANG) \
     $(wildcard include/config/HAVE_ARCH_COMPILER_H) \
     $(wildcard include/config/KCSAN) \
+    $(wildcard include/config/CC_HAS_ASSUME) \
     $(wildcard include/config/CC_HAS_COUNTED_BY) \
-    $(wildcard include/config/UBSAN_SIGNED_WRAP) \
+    $(wildcard include/config/FORTIFY_SOURCE) \
+    $(wildcard include/config/UBSAN_BOUNDS) \
+    $(wildcard include/config/CC_HAS_COUNTED_BY_PTR) \
+    $(wildcard include/config/CC_HAS_MULTIDIMENSIONAL_NONSTRING) \
+    $(wildcard include/config/CFI) \
+    $(wildcard include/config/ARCH_USES_CFI_GENERIC_LLVM_PASS) \
+    $(wildcard include/config/CC_HAS_BROKEN_COUNTED_BY_REF) \
     $(wildcard include/config/CC_HAS_ASM_INLINE) \
+  include/linux/compiler-context-analysis.h \
   include/linux/compiler_attributes.h \
   include/linux/compiler-gcc.h \
-    $(wildcard include/config/MITIGATION_RETPOLINE) \
     $(wildcard include/config/ARCH_USE_BUILTIN_BSWAP) \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
+    $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
   include/linux/hidden.h \
   arch/x86/boot/compressed/../cpuflags.c \
+    $(wildcard include/config/X86_32) \
   include/linux/types.h \
     $(wildcard include/config/HAVE_UID16) \
     $(wildcard include/config/UID16) \
@@ -50,13 +59,17 @@ deps_arch/x86/boot/compressed/cpuflags.o := \
   include/linux/stddef.h \
   include/uapi/linux/stddef.h \
   arch/x86/include/asm/posix_types.h \
-    $(wildcard include/config/X86_32) \
   arch/x86/include/uapi/asm/posix_types_64.h \
   include/uapi/asm-generic/posix_types.h \
   arch/x86/boot/compressed/../bitops.h \
   arch/x86/include/asm/asm.h \
     $(wildcard include/config/KPROBES) \
+  include/linux/annotate.h \
+    $(wildcard include/config/OBJTOOL) \
+  include/linux/objtool_types.h \
   include/linux/stringify.h \
+  arch/x86/include/asm/asm-offsets.h \
+  include/generated/asm-offsets.h \
   arch/x86/include/asm/extable_fixup_types.h \
   arch/x86/include/asm/processor-flags.h \
     $(wildcard include/config/VM86) \
@@ -77,7 +90,6 @@ deps_arch/x86/boot/compressed/cpuflags.o := \
   include/linux/compiler.h \
     $(wildcard include/config/TRACE_BRANCH_PROFILING) \
     $(wildcard include/config/PROFILE_ALL_BRANCHES) \
-    $(wildcard include/config/OBJTOOL) \
   arch/x86/include/generated/asm/rwonce.h \
   include/asm-generic/rwonce.h \
   include/linux/kasan-checks.h \
@@ -88,15 +100,6 @@ deps_arch/x86/boot/compressed/cpuflags.o := \
     $(wildcard include/config/KCSAN_IGNORE_ATOMICS) \
   include/linux/cc_platform.h \
     $(wildcard include/config/ARCH_HAS_CC_PLATFORM) \
-  arch/x86/include/asm/required-features.h \
-    $(wildcard include/config/X86_MINIMUM_CPU_FAMILY) \
-    $(wildcard include/config/MATH_EMULATION) \
-    $(wildcard include/config/X86_PAE) \
-    $(wildcard include/config/X86_CMPXCHG64) \
-    $(wildcard include/config/X86_CMOV) \
-    $(wildcard include/config/X86_P6_NOP) \
-    $(wildcard include/config/MATOM) \
-    $(wildcard include/config/PARAVIRT_XXL) \
   arch/x86/include/asm/msr-index.h \
   include/linux/bits.h \
   include/vdso/bits.h \
@@ -107,22 +110,6 @@ deps_arch/x86/boot/compressed/cpuflags.o := \
   include/vdso/limits.h \
   arch/x86/boot/compressed/../cpuflags.h \
   arch/x86/include/asm/cpufeatures.h \
-  arch/x86/include/asm/disabled-features.h \
-    $(wildcard include/config/X86_UMIP) \
-    $(wildcard include/config/X86_INTEL_MEMORY_PROTECTION_KEYS) \
-    $(wildcard include/config/X86_5LEVEL) \
-    $(wildcard include/config/MITIGATION_RETHUNK) \
-    $(wildcard include/config/MITIGATION_UNRET_ENTRY) \
-    $(wildcard include/config/MITIGATION_CALL_DEPTH_TRACKING) \
-    $(wildcard include/config/ADDRESS_MASKING) \
-    $(wildcard include/config/INTEL_IOMMU_SVM) \
-    $(wildcard include/config/X86_SGX) \
-    $(wildcard include/config/XEN_PV) \
-    $(wildcard include/config/INTEL_TDX_GUEST) \
-    $(wildcard include/config/X86_USER_SHADOW_STACK) \
-    $(wildcard include/config/X86_KERNEL_IBT) \
-    $(wildcard include/config/X86_FRED) \
-    $(wildcard include/config/KVM_AMD_SEV) \
 
 arch/x86/boot/compressed/cpuflags.o: $(deps_arch/x86/boot/compressed/cpuflags.o)
 

@@ -69,7 +69,7 @@ static inline int crypto4xx_crypt(struct skcipher_request *req,
 {
 	struct crypto_skcipher *cipher = crypto_skcipher_reqtfm(req);
 	struct crypto4xx_ctx *ctx = crypto_skcipher_ctx(cipher);
-	__le32 iv[AES_IV_SIZE];
+	__le32 iv[AES_IV_SIZE / 4];
 
 	if (check_blocksize && !IS_ALIGNED(req->cryptlen, AES_BLOCK_SIZE))
 		return -EINVAL;
@@ -426,7 +426,7 @@ static int crypto4xx_crypt_aes_ccm(struct aead_request *req, bool decrypt)
 	struct crypto4xx_ctx *ctx  = crypto_tfm_ctx(req->base.tfm);
 	struct crypto4xx_aead_reqctx *rctx = aead_request_ctx(req);
 	struct crypto_aead *aead = crypto_aead_reqtfm(req);
-	__le32 iv[16];
+	__le32 iv[4];
 	u32 tmp_sa[SA_AES128_CCM_LEN + 4];
 	struct dynamic_sa_ctl *sa = (struct dynamic_sa_ctl *)tmp_sa;
 	unsigned int len = req->cryptlen;
@@ -491,19 +491,19 @@ static int crypto4xx_aes_gcm_validate_keylen(unsigned int keylen)
 static int crypto4xx_compute_gcm_hash_key_sw(__le32 *hash_start, const u8 *key,
 					     unsigned int keylen)
 {
-	struct crypto_aes_ctx ctx;
+	struct aes_enckey aes;
 	uint8_t src[16] = { 0 };
 	int rc;
 
-	rc = aes_expandkey(&ctx, key, keylen);
+	rc = aes_prepareenckey(&aes, key, keylen);
 	if (rc) {
-		pr_err("aes_expandkey() failed: %d\n", rc);
+		pr_err("aes_prepareenckey() failed: %d\n", rc);
 		return rc;
 	}
 
-	aes_encrypt(&ctx, src, src);
+	aes_encrypt(&aes, src, src);
 	crypto4xx_memcpy_to_le32(hash_start, src, 16);
-	memzero_explicit(&ctx, sizeof(ctx));
+	memzero_explicit(&aes, sizeof(aes));
 	return 0;
 }
 

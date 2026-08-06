@@ -1,33 +1,51 @@
 !<thin>
-//                                              222       `
-hda_bus_type.o/
-hdac_bus.o/
-hdac_device.o/
-hdac_sysfs.o/
-hdac_regmap.o/
-hdac_controller.o/
-hdac_stream.o/
-array.o/
-hdmi_chmap.o/
-trace.o/
-hdac_component.o/
-hdac_i915.o/
-intel-dsp-config.o/
-intel-nhlt.o/
-intel-sdw-acpi.o/
+//                                              414       `
+core/hda_bus_type.o/
+core/bus.o/
+core/device.o/
+core/sysfs.o/
+core/regmap.o/
+core/controller.o/
+core/stream.o/
+core/array.o/
+core/hdmi_chmap.o/
+core/trace.o/
+core/component.o/
+core/i915.o/
+core/intel-dsp-config.o/
+core/intel-nhlt.o/
+core/intel-sdw-acpi.o/
+common/bind.o/
+common/codec.o/
+common/jack.o/
+common/auto_parser.o/
+common/sysfs.o/
+common/controller.o/
+common/proc.o/
+common/hwdep.o/
+controllers/intel.o/
 
-/0              0           0     0     644     5632      `
-/16             0           0     0     644     12456     `
-/28             0           0     0     644     28992     `
-/43             0           0     0     644     19584     `
-/57             0           0     0     644     13184     `
-/72             0           0     0     644     17312     `
-/91             0           0     0     644     23272     `
-/106            0           0     0     644     2744      `
-/115            0           0     0     644     21064     `
-/129            0           0     0     644     22408     `
-/138            0           0     0     644     11328     `
-/156            0           0     0     644     6160      `
-/169            0           0     0     644     4776      `
-/189            0           0     0     644     8112      `
-/203            0           0     0     644     7304      `
+/0              0           0     0     644     5736      `
+/21             0           0     0     644     12792     `
+/33             0           0     0     644     29376     `
+/48             0           0     0     644     20232     `
+/62             0           0     0     644     13440     `
+/77             0           0     0     644     17528     `
+/96             0           0     0     644     22872     `
+/111            0           0     0     644     2768      `
+/125            0           0     0     644     21232     `
+/144            0           0     0     644     24344     `
+/158            0           0     0     644     11728     `
+/176            0           0     0     644     6240      `
+/189            0           0     0     644     7376      `
+/214            0           0     0     644     8936      `
+/233            0           0     0     644     7608      `
+/256            0           0     0     644     10352     `
+/271            0           0     0     644     100432    `
+/287            0           0     0     644     19784     `
+/302            0           0     0     644     21360     `
+/324            0           0     0     644     9112      `
+/340            0           0     0     644     52168     `
+/361            0           0     0     644     28672     `
+/376            0           0     0     644     3592      `
+/392            0           0     0     644     73192     `

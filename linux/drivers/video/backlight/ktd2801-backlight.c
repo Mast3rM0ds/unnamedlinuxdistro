@@ -6,6 +6,7 @@
 #include <linux/backlight.h>
 #include <linux/gpio/consumer.h>
 #include <linux/leds-expresswire.h>
+#include <linux/mod_devicetable.h>
 #include <linux/platform_device.h>
 #include <linux/property.h>
 
@@ -52,6 +53,7 @@ static int ktd2801_update_status(struct backlight_device *bd)
 }
 
 static const struct backlight_ops ktd2801_backlight_ops = {
+	.options = BL_CORE_SUSPENDRESUME,
 	.update_status = ktd2801_update_status,
 };
 
@@ -122,7 +124,7 @@ static struct platform_driver ktd2801_backlight_driver = {
 };
 module_platform_driver(ktd2801_backlight_driver);
 
-MODULE_IMPORT_NS(EXPRESSWIRE);
+MODULE_IMPORT_NS("EXPRESSWIRE");
 MODULE_AUTHOR("Duje Mihanović <duje.mihanovic@skole.hr>");
 MODULE_DESCRIPTION("Kinetic KTD2801 Backlight Driver");
 MODULE_LICENSE("GPL");

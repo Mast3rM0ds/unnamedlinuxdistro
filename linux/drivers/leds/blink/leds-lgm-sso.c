@@ -25,7 +25,7 @@
 #define LED_BLINK_H8_0			0x0
 #define LED_BLINK_H8_1			0x4
 #define GET_FREQ_OFFSET(pin, src)	(((pin) * 6) + ((src) * 2))
-#define GET_SRC_OFFSET(pinc)		(((pin) * 6) + 4)
+#define GET_SRC_OFFSET(pin) 		(((pin) * 6) + 4)
 
 #define DUTY_CYCLE(x)			(0x8 + ((x) * 4))
 #define SSO_CON0			0x2B0
@@ -450,7 +450,7 @@ static int sso_gpio_get(struct gpio_chip *chip, unsigned int offset)
 	return !!(reg_val & BIT(offset));
 }
 
-static void sso_gpio_set(struct gpio_chip *chip, unsigned int offset, int value)
+static int sso_gpio_set(struct gpio_chip *chip, unsigned int offset, int value)
 {
 	struct sso_led_priv *priv = gpiochip_get_data(chip);
 
@@ -458,6 +458,8 @@ static void sso_gpio_set(struct gpio_chip *chip, unsigned int offset, int value)
 	if (!priv->gpio.freq)
 		regmap_update_bits(priv->mmap, SSO_CON0, SSO_CON0_SWU,
 				   SSO_CON0_SWU);
+
+	return 0;
 }
 
 static int sso_gpio_gc_init(struct device *dev, struct sso_led_priv *priv)
@@ -859,7 +861,7 @@ MODULE_DEVICE_TABLE(of, of_sso_led_match);
 
 static struct platform_driver intel_sso_led_driver = {
 	.probe		= intel_sso_led_probe,
-	.remove_new	= intel_sso_led_remove,
+	.remove		= intel_sso_led_remove,
 	.driver		= {
 			.name = "lgm-ssoled",
 			.of_match_table = of_sso_led_match,

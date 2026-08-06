@@ -1,4 +1,4 @@
-savedcmd_arch/x86/tools/relocs_64.o := gcc -Wp,-MMD,arch/x86/tools/.relocs_64.o.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu11   -I ./scripts/include -I./tools/include  -c -o arch/x86/tools/relocs_64.o arch/x86/tools/relocs_64.c
+savedcmd_arch/x86/tools/relocs_64.o := gcc -Wp,-MMD,arch/x86/tools/.relocs_64.o.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu11   -I ./scripts/include -Werror -I./tools/include -I./include/uapi -I./arch//include/uapi  -c -o arch/x86/tools/relocs_64.o arch/x86/tools/relocs_64.c
 
 source_arch/x86/tools/relocs_64.o := arch/x86/tools/relocs_64.c
 

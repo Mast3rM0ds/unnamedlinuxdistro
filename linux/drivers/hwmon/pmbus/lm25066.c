@@ -437,16 +437,16 @@ static int lm25066_write_word_data(struct i2c_client *client, int page, int reg,
 
 #if IS_ENABLED(CONFIG_SENSORS_LM25066_REGULATOR)
 static const struct regulator_desc lm25066_reg_desc[] = {
-	PMBUS_REGULATOR_ONE("vout"),
+	PMBUS_REGULATOR_ONE_NODE("vout"),
 };
 #endif
 
 static const struct i2c_device_id lm25066_id[] = {
-	{"lm25056", lm25056},
-	{"lm25066", lm25066},
-	{"lm5064", lm5064},
-	{"lm5066", lm5066},
-	{"lm5066i", lm5066i},
+	{ .name = "lm25056", .driver_data = lm25056 },
+	{ .name = "lm25066", .driver_data = lm25066 },
+	{ .name = "lm5064", .driver_data = lm5064 },
+	{ .name = "lm5066", .driver_data = lm5066 },
+	{ .name = "lm5066i", .driver_data = lm5066i },
 	{ }
 };
 MODULE_DEVICE_TABLE(i2c, lm25066_id);
@@ -569,4 +569,4 @@ module_i2c_driver(lm25066_driver);
 MODULE_AUTHOR("Guenter Roeck");
 MODULE_DESCRIPTION("PMBus driver for LM25066 and compatible chips");
 MODULE_LICENSE("GPL");
-MODULE_IMPORT_NS(PMBUS);
+MODULE_IMPORT_NS("PMBUS");

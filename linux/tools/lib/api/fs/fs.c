@@ -297,7 +297,7 @@ int filename__read_int(const char *filename, int *value)
 	ssize_t n;
 
 	if (fd < 0)
-		return -1;
+		return -errno;
 
 	n = read(fd, line, sizeof(line) - 1);
 	if (n > 0) {
@@ -318,7 +318,7 @@ static int filename__read_ull_base(const char *filename,
 	ssize_t n;
 
 	if (fd < 0)
-		return -1;
+		return -errno;
 
 	n = read(fd, line, sizeof(line) - 1);
 	if (n > 0) {
@@ -379,7 +379,7 @@ int filename__write_int(const char *filename, int value)
 	int len;
 
 	if (fd < 0)
-		return err;
+		return -errno;
 
 	len = sprintf(buf, "%d", value);
 	if (write(fd, buf, len) == len)

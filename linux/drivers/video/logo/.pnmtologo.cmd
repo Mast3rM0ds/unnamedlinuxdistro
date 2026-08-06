@@ -1,4 +1,4 @@
-savedcmd_drivers/video/logo/pnmtologo := gcc -Wp,-MMD,drivers/video/logo/.pnmtologo.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu11   -I ./scripts/include     -o drivers/video/logo/pnmtologo drivers/video/logo/pnmtologo.c   
+savedcmd_drivers/video/logo/pnmtologo := gcc -Wp,-MMD,drivers/video/logo/.pnmtologo.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu11   -I ./scripts/include -Werror     -Wl,--fatal-warnings -o drivers/video/logo/pnmtologo drivers/video/logo/pnmtologo.c   
 
 source_drivers/video/logo/pnmtologo := drivers/video/logo/pnmtologo.c
 

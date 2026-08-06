@@ -1,4 +1,4 @@
-savedcmd_scripts/kallsyms := gcc -Wp,-MMD,scripts/.kallsyms.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu11   -I ./scripts/include     -o scripts/kallsyms scripts/kallsyms.c   
+savedcmd_scripts/kallsyms := gcc -Wp,-MMD,scripts/.kallsyms.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu11   -I ./scripts/include -Werror     -Wl,--fatal-warnings -o scripts/kallsyms scripts/kallsyms.c   
 
 source_scripts/kallsyms := scripts/kallsyms.c
 

@@ -1,4 +1,4 @@
-savedcmd_arch/x86/boot/compressed/mkpiggy := gcc -Wp,-MMD,arch/x86/boot/compressed/.mkpiggy.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu11   -I ./scripts/include -I./tools/include    -o arch/x86/boot/compressed/mkpiggy arch/x86/boot/compressed/mkpiggy.c   
+savedcmd_arch/x86/boot/compressed/mkpiggy := gcc -Wp,-MMD,arch/x86/boot/compressed/.mkpiggy.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu11   -I ./scripts/include -Werror -I./tools/include    -Wl,--fatal-warnings -o arch/x86/boot/compressed/mkpiggy arch/x86/boot/compressed/mkpiggy.c   
 
 source_arch/x86/boot/compressed/mkpiggy := arch/x86/boot/compressed/mkpiggy.c
 

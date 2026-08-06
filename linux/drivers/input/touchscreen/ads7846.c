@@ -289,7 +289,7 @@ static void __ads7846_enable(struct ads7846 *ts)
 
 static void ads7846_disable(struct ads7846 *ts)
 {
-	mutex_lock(&ts->lock);
+	guard(mutex)(&ts->lock);
 
 	if (!ts->disabled) {
 
@@ -298,13 +298,11 @@ static void ads7846_disable(struct ads7846 *ts)
 
 		ts->disabled = true;
 	}
-
-	mutex_unlock(&ts->lock);
 }
 
 static void ads7846_enable(struct ads7846 *ts)
 {
-	mutex_lock(&ts->lock);
+	guard(mutex)(&ts->lock);
 
 	if (ts->disabled) {
 
@@ -313,8 +311,6 @@ static void ads7846_enable(struct ads7846 *ts)
 		if (!ts->suspended)
 			__ads7846_enable(ts);
 	}
-
-	mutex_unlock(&ts->lock);
 }
 
 /*--------------------------------------------------------------------------*/
@@ -329,14 +325,14 @@ struct ser_req {
 	u8			ref_on;
 	u8			command;
 	u8			ref_off;
-	u16			scratch;
 	struct spi_message	msg;
-	struct spi_transfer	xfer[6];
+	struct spi_transfer	xfer[8];
 	/*
 	 * DMA (thus cache coherency maintenance) requires the
 	 * transfer buffers to live in their own cache lines.
 	 */
 	__be16 sample ____cacheline_aligned;
+	u16			scratch;
 };
 
 struct ads7845_ser_req {
@@ -354,10 +350,9 @@ static int ads7846_read12_ser(struct device *dev, unsigned command)
 {
 	struct spi_device *spi = to_spi_device(dev);
 	struct ads7846 *ts = dev_get_drvdata(dev);
-	struct ser_req *req;
 	int status;
 
-	req = kzalloc(sizeof *req, GFP_KERNEL);
+	struct ser_req *req __free(kfree) = kzalloc_obj(*req);
 	if (!req)
 		return -ENOMEM;
 
@@ -405,14 +400,23 @@ static int ads7846_read12_ser(struct device *dev, unsigned command)
 
 	req->xfer[5].rx_buf = &req->scratch;
 	req->xfer[5].len = 2;
-	CS_CHANGE(req->xfer[5]);
 	spi_message_add_tail(&req->xfer[5], &req->msg);
 
-	mutex_lock(&ts->lock);
-	ads7846_stop(ts);
-	status = spi_sync(spi, &req->msg);
-	ads7846_restart(ts);
-	mutex_unlock(&ts->lock);
+	/* clear the command register */
+	req->xfer[6].rx_buf = &req->scratch;
+	req->xfer[6].len = 1;
+	spi_message_add_tail(&req->xfer[6], &req->msg);
+
+	req->xfer[7].rx_buf = &req->scratch;
+	req->xfer[7].len = 2;
+	CS_CHANGE(req->xfer[7]);
+	spi_message_add_tail(&req->xfer[7], &req->msg);
+
+	scoped_guard(mutex, &ts->lock) {
+		ads7846_stop(ts);
+		status = spi_sync(spi, &req->msg);
+		ads7846_restart(ts);
+	}
 
 	if (status == 0) {
 		/* on-wire is a must-ignore bit, a BE12 value, then padding */
@@ -421,7 +425,6 @@ static int ads7846_read12_ser(struct device *dev, unsigned command)
 		status &= 0x0fff;
 	}
 
-	kfree(req);
 	return status;
 }
 
@@ -429,10 +432,9 @@ static int ads7845_read12_ser(struct device *dev, unsigned command)
 {
 	struct spi_device *spi = to_spi_device(dev);
 	struct ads7846 *ts = dev_get_drvdata(dev);
-	struct ads7845_ser_req *req;
 	int status;
 
-	req = kzalloc(sizeof *req, GFP_KERNEL);
+	struct ads7845_ser_req *req __free(kfree) = kzalloc_obj(*req);
 	if (!req)
 		return -ENOMEM;
 
@@ -444,11 +446,11 @@ static int ads7845_read12_ser(struct device *dev, unsigned command)
 	req->xfer[0].len = 3;
 	spi_message_add_tail(&req->xfer[0], &req->msg);
 
-	mutex_lock(&ts->lock);
-	ads7846_stop(ts);
-	status = spi_sync(spi, &req->msg);
-	ads7846_restart(ts);
-	mutex_unlock(&ts->lock);
+	scoped_guard(mutex, &ts->lock) {
+		ads7846_stop(ts);
+		status = spi_sync(spi, &req->msg);
+		ads7846_restart(ts);
+	}
 
 	if (status == 0) {
 		/* BE12 value, then padding */
@@ -457,7 +459,6 @@ static int ads7845_read12_ser(struct device *dev, unsigned command)
 		status &= 0x0fff;
 	}
 
-	kfree(req);
 	return status;
 }
 
@@ -956,7 +957,7 @@ static int ads7846_suspend(struct device *dev)
 {
 	struct ads7846 *ts = dev_get_drvdata(dev);
 
-	mutex_lock(&ts->lock);
+	guard(mutex)(&ts->lock);
 
 	if (!ts->suspended) {
 
@@ -969,8 +970,6 @@ static int ads7846_suspend(struct device *dev)
 		ts->suspended = true;
 	}
 
-	mutex_unlock(&ts->lock);
-
 	return 0;
 }
 
@@ -978,7 +977,7 @@ static int ads7846_resume(struct device *dev)
 {
 	struct ads7846 *ts = dev_get_drvdata(dev);
 
-	mutex_lock(&ts->lock);
+	guard(mutex)(&ts->lock);
 
 	if (ts->suspended) {
 
@@ -990,8 +989,6 @@ static int ads7846_resume(struct device *dev)
 		if (!ts->disabled)
 			__ads7846_enable(ts);
 	}
-
-	mutex_unlock(&ts->lock);
 
 	return 0;
 }

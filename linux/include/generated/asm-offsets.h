@@ -32,12 +32,16 @@
 #define saved_context_cr4 224 /* offsetof(struct saved_context, cr4) */
 #define saved_context_gdt_desc 266 /* offsetof(struct saved_context, gdt_desc) */
 
+#define CPUINFO_x86 1 /* offsetof(struct cpuinfo_x86, x86) */
+#define CPUINFO_x86_vendor 2 /* offsetof(struct cpuinfo_x86, x86_vendor) */
+#define CPUINFO_x86_model 0 /* offsetof(struct cpuinfo_x86, x86_model) */
+#define CPUINFO_x86_stepping 4 /* offsetof(struct cpuinfo_x86, x86_stepping) */
+#define CPUINFO_cpuid_level 40 /* offsetof(struct cpuinfo_x86, cpuid_level) */
+#define CPUINFO_x86_capability 48 /* offsetof(struct cpuinfo_x86, x86_capability) */
+#define CPUINFO_x86_vendor_id 144 /* offsetof(struct cpuinfo_x86, x86_vendor_id) */
 
-#define FIXED_stack_canary 40 /* offsetof(struct fixed_percpu_data, stack_canary) */
-
-
-#define TASK_threadsp 2968 /* offsetof(struct task_struct, thread.sp) */
-#define TASK_stack_canary 1416 /* offsetof(struct task_struct, stack_canary) */
+#define TASK_threadsp 3088 /* offsetof(struct task_struct, thread.sp) */
+#define TASK_stack_canary 1528 /* offsetof(struct task_struct, stack_canary) */
 
 #define pbe_address 0 /* offsetof(struct pbe, address) */
 #define pbe_orig_address 8 /* offsetof(struct pbe, orig_address) */
@@ -52,7 +56,13 @@
 #define IA32_SIGCONTEXT_bp 24 /* offsetof(struct sigcontext_32, bp) */
 #define IA32_SIGCONTEXT_sp 28 /* offsetof(struct sigcontext_32, sp) */
 #define IA32_SIGCONTEXT_ip 56 /* offsetof(struct sigcontext_32, ip) */
+#define IA32_SIGCONTEXT_es 8 /* offsetof(struct sigcontext_32, es) */
+#define IA32_SIGCONTEXT_cs 60 /* offsetof(struct sigcontext_32, cs) */
+#define IA32_SIGCONTEXT_ss 72 /* offsetof(struct sigcontext_32, ss) */
+#define IA32_SIGCONTEXT_ds 12 /* offsetof(struct sigcontext_32, ds) */
+#define IA32_SIGCONTEXT_flags 64 /* offsetof(struct sigcontext_32, flags) */
 
+#define IA32_SIGFRAME_sigcontext 8 /* offsetof(struct sigframe_ia32, sc) */
 #define IA32_RT_SIGFRAME_sigcontext 164 /* offsetof(struct rt_sigframe_ia32, uc.uc_mcontext) */
 
 #define TDX_MODULE_rcx 0 /* offsetof(struct tdx_module_args, rcx) */
@@ -79,6 +89,7 @@
 #define BP_pref_address 600 /* offsetof(struct boot_params, hdr.pref_address) */
 
 #define PTREGS_SIZE 168 /* sizeof(struct pt_regs) */
+#define C_PTREGS_SIZE 120 /* offsetof(struct pt_regs, orig_ax) */
 #define TLB_STATE_user_pcid_flush_mask 22 /* offsetof(struct tlb_state, user_pcid_flush_mask) */
 #define CPU_ENTRY_AREA_entry_stack 4096 /* offsetof(struct cpu_entry_area, entry_stack_page) */
 #define SIZEOF_entry_stack 4096 /* sizeof(struct entry_stack) */
@@ -86,8 +97,8 @@
 #define TSS_sp0 4 /* offsetof(struct tss_struct, x86_tss.sp0) */
 #define TSS_sp1 12 /* offsetof(struct tss_struct, x86_tss.sp1) */
 #define TSS_sp2 20 /* offsetof(struct tss_struct, x86_tss.sp2) */
-#define X86_top_of_stack 24 /* offsetof(struct pcpu_hot, top_of_stack) */
-#define X86_current_task 0 /* offsetof(struct pcpu_hot, current_task) */
-#define X86_call_depth 16 /* offsetof(struct pcpu_hot, call_depth) */
+
+#define ALT_INSTR_SIZE 14 /* sizeof(struct alt_instr) */
+#define EXTABLE_SIZE 12 /* sizeof(struct exception_table_entry) */
 
 #endif

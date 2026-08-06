@@ -17,6 +17,7 @@
 #include <linux/errno.h>
 #include <linux/skbuff.h>
 #include <linux/vmalloc.h>
+#include <linux/prandom.h>
 #include <linux/rtnetlink.h>
 #include <linux/reciprocal_div.h>
 #include <linux/rbtree.h>
@@ -415,7 +416,7 @@ static void tfifo_enqueue(struct sk_buff *nskb, struct Qdisc *sch)
 		rb_insert_color(&nskb->rbnode, &q->t_root);
 	}
 	q->t_len++;
-	sch->q.qlen++;
+	qdisc_qlen_inc(sch);
 }
 
 /* netem can't properly corrupt a megapacket (like we get from GSO), so instead
@@ -428,6 +429,7 @@ static struct sk_buff *netem_segment(struct sk_buff *skb, struct Qdisc *sch,
 	struct sk_buff *segs;
 	netdev_features_t features = netif_skb_features(skb);
 
+	qdisc_skb_cb(skb)->pkt_segs = 1;
 	segs = skb_gso_segment(skb, features & ~NETIF_F_GSO_MASK);
 
 	if (IS_ERR_OR_NULL(segs)) {
@@ -748,19 +750,19 @@ deliver:
 					if (net_xmit_drop_count(err))
 						qdisc_qstats_drop(sch);
 					sch->qstats.backlog -= pkt_len;
-					sch->q.qlen--;
+					qdisc_qlen_dec(sch);
 					qdisc_tree_reduce_backlog(sch, 1, pkt_len);
 				}
 				goto tfifo_dequeue;
 			}
-			sch->q.qlen--;
+			qdisc_qlen_dec(sch);
 			goto deliver;
 		}
 
 		if (q->qdisc) {
 			skb = q->qdisc->ops->dequeue(q->qdisc);
 			if (skb) {
-				sch->q.qlen--;
+				qdisc_qlen_dec(sch);
 				goto deliver;
 			}
 		}
@@ -773,7 +775,7 @@ deliver:
 	if (q->qdisc) {
 		skb = q->qdisc->ops->dequeue(q->qdisc);
 		if (skb) {
-			sch->q.qlen--;
+			qdisc_qlen_dec(sch);
 			goto deliver;
 		}
 	}
@@ -811,7 +813,7 @@ static int get_dist_table(struct disttable **tbl, const struct nlattr *attr)
 	if (!n || n > NETEM_DIST_MAX)
 		return -EINVAL;
 
-	d = kvmalloc(struct_size(d, table, n), GFP_KERNEL);
+	d = kvmalloc_flex(*d, table, n);
 	if (!d)
 		return -ENOMEM;
 

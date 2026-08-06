@@ -221,6 +221,7 @@ static int tbf_segment(struct sk_buff *skb, struct Qdisc *sch,
 		skb_mark_not_on_list(segs);
 		seg_len = segs->len;
 		qdisc_skb_cb(segs)->pkt_len = seg_len;
+		qdisc_skb_cb(segs)->pkt_segs = 1;
 		ret = qdisc_enqueue(segs, q->qdisc, to_free);
 		if (ret != NET_XMIT_SUCCESS) {
 			if (net_xmit_drop_count(ret))
@@ -230,7 +231,7 @@ static int tbf_segment(struct sk_buff *skb, struct Qdisc *sch,
 			len += seg_len;
 		}
 	}
-	sch->q.qlen += nb;
+	WRITE_ONCE(sch->q.qlen, sch->q.qlen + nb);
 	sch->qstats.backlog += len;
 	if (nb > 0) {
 		qdisc_tree_reduce_backlog(sch, 1 - nb, prev_len - len);
@@ -263,7 +264,7 @@ static int tbf_enqueue(struct sk_buff *skb, struct Qdisc *sch,
 	}
 
 	sch->qstats.backlog += len;
-	sch->q.qlen++;
+	qdisc_qlen_inc(sch);
 	return NET_XMIT_SUCCESS;
 }
 
@@ -308,7 +309,7 @@ static struct sk_buff *tbf_dequeue(struct Qdisc *sch)
 			q->tokens = toks;
 			q->ptokens = ptoks;
 			qdisc_qstats_backlog_dec(sch, skb);
-			sch->q.qlen--;
+			qdisc_qlen_dec(sch);
 			qdisc_bstats_update(sch, skb);
 			return skb;
 		}

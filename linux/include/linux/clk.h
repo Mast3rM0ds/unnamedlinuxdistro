@@ -245,7 +245,7 @@ int clk_save_context(void);
  */
 void clk_restore_context(void);
 
-#else
+#else /* !CONFIG_COMMON_CLK */
 
 static inline int clk_notifier_register(struct clk *clk,
 					struct notifier_block *nb)
@@ -317,7 +317,7 @@ static inline int clk_save_context(void)
 
 static inline void clk_restore_context(void) {}
 
-#endif
+#endif /* !CONFIG_COMMON_CLK */
 
 #ifdef CONFIG_HAVE_CLK_PREPARE
 /**
@@ -329,8 +329,21 @@ static inline void clk_restore_context(void) {}
  * Must not be called from within atomic context.
  */
 int clk_prepare(struct clk *clk);
+
+/**
+ * clk_unprepare - undo preparation of a clock source
+ * @clk: clock source
+ *
+ * This undoes a previously prepared clock.  The caller must balance
+ * the number of prepare and unprepare calls.
+ *
+ * Must not be called from within atomic context.
+ */
+void clk_unprepare(struct clk *clk);
+
 int __must_check clk_bulk_prepare(int num_clks,
 				  const struct clk_bulk_data *clks);
+void clk_bulk_unprepare(int num_clks, const struct clk_bulk_data *clks);
 
 /**
  * clk_is_enabled_when_prepared - indicate if preparing a clock also enables it.
@@ -348,11 +361,16 @@ int __must_check clk_bulk_prepare(int num_clks,
  * to be right.
  */
 bool clk_is_enabled_when_prepared(struct clk *clk);
-#else
+#else /* !CONFIG_HAVE_CLK_PREPARE */
 static inline int clk_prepare(struct clk *clk)
 {
 	might_sleep();
 	return 0;
+}
+
+static inline void clk_unprepare(struct clk *clk)
+{
+	might_sleep();
 }
 
 static inline int __must_check
@@ -362,35 +380,17 @@ clk_bulk_prepare(int num_clks, const struct clk_bulk_data *clks)
 	return 0;
 }
 
-static inline bool clk_is_enabled_when_prepared(struct clk *clk)
-{
-	return false;
-}
-#endif
-
-/**
- * clk_unprepare - undo preparation of a clock source
- * @clk: clock source
- *
- * This undoes a previously prepared clock.  The caller must balance
- * the number of prepare and unprepare calls.
- *
- * Must not be called from within atomic context.
- */
-#ifdef CONFIG_HAVE_CLK_PREPARE
-void clk_unprepare(struct clk *clk);
-void clk_bulk_unprepare(int num_clks, const struct clk_bulk_data *clks);
-#else
-static inline void clk_unprepare(struct clk *clk)
-{
-	might_sleep();
-}
 static inline void clk_bulk_unprepare(int num_clks,
 				      const struct clk_bulk_data *clks)
 {
 	might_sleep();
 }
-#endif
+
+static inline bool clk_is_enabled_when_prepared(struct clk *clk)
+{
+	return false;
+}
+#endif /* !CONFIG_HAVE_CLK_PREPARE */
 
 #ifdef CONFIG_HAVE_CLK
 /**
@@ -503,6 +503,22 @@ int __must_check devm_clk_bulk_get(struct device *dev, int num_clks,
 int __must_check devm_clk_bulk_get_optional(struct device *dev, int num_clks,
 					    struct clk_bulk_data *clks);
 /**
+ * devm_clk_bulk_get_optional_enable - Get and enable optional bulk clocks (managed)
+ * @dev: device for clock "consumer"
+ * @num_clks: the number of clk_bulk_data
+ * @clks: pointer to the clk_bulk_data table of consumer
+ *
+ * Behaves the same as devm_clk_bulk_get_optional() but also prepares and enables
+ * the clocks in one operation with management. The clks will automatically be
+ * disabled, unprepared and freed when the device is unbound.
+ *
+ * Return: 0 if all clocks specified in clk_bulk_data table are obtained
+ * and enabled successfully, or for any clk there was no clk provider available.
+ * Otherwise returns valid IS_ERR() condition containing errno.
+ */
+int __must_check devm_clk_bulk_get_optional_enable(struct device *dev, int num_clks,
+						   struct clk_bulk_data *clks);
+/**
  * devm_clk_bulk_get_all - managed get multiple clk consumers
  * @dev: device for clock "consumer"
  * @clks: pointer to the clk_bulk_data table of consumer
@@ -520,11 +536,13 @@ int __must_check devm_clk_bulk_get_all(struct device *dev,
 				       struct clk_bulk_data **clks);
 
 /**
- * devm_clk_bulk_get_all_enable - Get and enable all clocks of the consumer (managed)
+ * devm_clk_bulk_get_all_enabled - Get and enable all clocks of the consumer (managed)
  * @dev: device for clock "consumer"
  * @clks: pointer to the clk_bulk_data table of consumer
  *
- * Returns success (0) or negative errno.
+ * Returns a positive value for the number of clocks obtained while the
+ * clock references are stored in the clk_bulk_data table in @clks field.
+ * Returns 0 if there're none and a negative value if something failed.
  *
  * This helper function allows drivers to get all clocks of the
  * consumer and enables them in one operation with management.
@@ -532,8 +550,8 @@ int __must_check devm_clk_bulk_get_all(struct device *dev,
  * is unbound.
  */
 
-int __must_check devm_clk_bulk_get_all_enable(struct device *dev,
-					      struct clk_bulk_data **clks);
+int __must_check devm_clk_bulk_get_all_enabled(struct device *dev,
+					       struct clk_bulk_data **clks);
 
 /**
  * devm_clk_get - lookup and obtain a managed reference to a clock producer.
@@ -1034,6 +1052,13 @@ static inline int __must_check devm_clk_bulk_get_optional(struct device *dev,
 	return 0;
 }
 
+static inline int __must_check devm_clk_bulk_get_optional_enable(struct device *dev,
+								 int num_clks,
+								 struct clk_bulk_data *clks)
+{
+	return 0;
+}
+
 static inline int __must_check devm_clk_bulk_get_all(struct device *dev,
 						     struct clk_bulk_data **clks)
 {
@@ -1041,7 +1066,7 @@ static inline int __must_check devm_clk_bulk_get_all(struct device *dev,
 	return 0;
 }
 
-static inline int __must_check devm_clk_bulk_get_all_enable(struct device *dev,
+static inline int __must_check devm_clk_bulk_get_all_enabled(struct device *dev,
 						struct clk_bulk_data **clks)
 {
 	return 0;
@@ -1134,7 +1159,7 @@ static inline struct clk *clk_get_sys(const char *dev_id, const char *con_id)
 	return NULL;
 }
 
-#endif
+#endif /* !CONFIG_HAVE_CLK */
 
 /* clk_prepare_enable helps cases using clk_enable in non-atomic context. */
 static inline int clk_prepare_enable(struct clk *clk)

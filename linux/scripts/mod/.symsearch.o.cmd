@@ -1,4 +1,4 @@
-savedcmd_scripts/mod/symsearch.o := gcc -Wp,-MMD,scripts/mod/.symsearch.o.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu11   -I ./scripts/include   -c -o scripts/mod/symsearch.o scripts/mod/symsearch.c
+savedcmd_scripts/mod/symsearch.o := gcc -Wp,-MMD,scripts/mod/.symsearch.o.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu11   -I ./scripts/include -Werror   -c -o scripts/mod/symsearch.o scripts/mod/symsearch.c
 
 source_scripts/mod/symsearch.o := scripts/mod/symsearch.c
 

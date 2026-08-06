@@ -242,7 +242,7 @@ static struct htb_class *htb_classify(struct sk_buff *skb, struct Qdisc *sch,
 	}
 
 	*qerr = NET_XMIT_SUCCESS | __NET_XMIT_BYPASS;
-	while (tcf && (result = tcf_classify(skb, NULL, tcf, &res, false)) >= 0) {
+	while (tcf && (result = tcf_classify_qdisc(skb, tcf, &res, false)) >= 0) {
 #ifdef CONFIG_NET_CLS_ACT
 		switch (result) {
 		case TC_ACT_QUEUED:
@@ -651,7 +651,7 @@ static int htb_enqueue(struct sk_buff *skb, struct Qdisc *sch,
 	}
 
 	sch->qstats.backlog += len;
-	sch->q.qlen++;
+	qdisc_qlen_inc(sch);
 	return NET_XMIT_SUCCESS;
 }
 
@@ -951,7 +951,7 @@ static struct sk_buff *htb_dequeue(struct Qdisc *sch)
 ok:
 		qdisc_bstats_update(sch, skb);
 		qdisc_qstats_backlog_dec(sch, skb);
-		sch->q.qlen--;
+		qdisc_qlen_dec(sch);
 		return skb;
 	}
 
@@ -1095,9 +1095,8 @@ static int htb_init(struct Qdisc *sch, struct nlattr *opt,
 		}
 
 		q->num_direct_qdiscs = dev->real_num_tx_queues;
-		q->direct_qdiscs = kcalloc(q->num_direct_qdiscs,
-					   sizeof(*q->direct_qdiscs),
-					   GFP_KERNEL);
+		q->direct_qdiscs = kzalloc_objs(*q->direct_qdiscs,
+						q->num_direct_qdiscs);
 		if (!q->direct_qdiscs)
 			return -ENOMEM;
 	}
@@ -1384,7 +1383,7 @@ htb_graft_helper(struct netdev_queue *dev_queue, struct Qdisc *new_q)
 	struct Qdisc *old_q;
 
 	if (dev->flags & IFF_UP)
-		dev_deactivate(dev);
+		dev_deactivate(dev, false);
 	old_q = dev_graft_qdisc(dev_queue, new_q);
 	if (new_q)
 		new_q->flags |= TCQ_F_ONETXQUEUE | TCQ_F_NOPARENT;
@@ -1418,7 +1417,7 @@ static void htb_offload_move_qdisc(struct Qdisc *sch, struct htb_class *cl_old,
 		struct Qdisc *qdisc;
 
 		if (dev->flags & IFF_UP)
-			dev_deactivate(dev);
+			dev_deactivate(dev, false);
 		qdisc = dev_graft_qdisc(queue_old, NULL);
 		WARN_ON(qdisc != cl_old->leaf.q);
 	}
@@ -1808,8 +1807,8 @@ static int htb_change_class(struct Qdisc *sch, u32 classid,
 		qdisc_put_rtab(qdisc_get_rtab(&hopt->ceil, tb[TCA_HTB_CTAB],
 					      NULL));
 
-	rate64 = tb[TCA_HTB_RATE64] ? nla_get_u64(tb[TCA_HTB_RATE64]) : 0;
-	ceil64 = tb[TCA_HTB_CEIL64] ? nla_get_u64(tb[TCA_HTB_CEIL64]) : 0;
+	rate64 = nla_get_u64_default(tb[TCA_HTB_RATE64], 0);
+	ceil64 = nla_get_u64_default(tb[TCA_HTB_CEIL64], 0);
 
 	if (!cl) {		/* new class */
 		struct net_device *dev = qdisc_dev(sch);
@@ -1841,7 +1840,7 @@ static int htb_change_class(struct Qdisc *sch, u32 classid,
 			goto failure;
 		}
 		err = -ENOBUFS;
-		cl = kzalloc(sizeof(*cl), GFP_KERNEL);
+		cl = kzalloc_obj(*cl);
 		if (!cl)
 			goto failure;
 

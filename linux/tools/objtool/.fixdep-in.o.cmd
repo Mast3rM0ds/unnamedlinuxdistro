@@ -1,0 +1,1 @@
+cmd_/home/sonakrie/Work/linux-7.1.7/tools/objtool/fixdep-in.o :=  printf "/home/sonakrie/Work/linux-7.1.7/tools/objtool/%s " fixdep.o | xargs ld -r -o /home/sonakrie/Work/linux-7.1.7/tools/objtool/fixdep-in.o

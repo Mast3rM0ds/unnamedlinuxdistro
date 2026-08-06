@@ -276,13 +276,6 @@ struct epitem {
 	/* The file descriptor information this item refers to */
 	struct epoll_filefd ffd;
 
-	/*
-	 * Protected by file->f_lock, true for to-be-released epitem already
-	 * removed from the "struct file" items list; together with
-	 * eventpoll->refcount orchestrates "struct eventpoll" disposal
-	 */
-	bool dying;
-
 	/* List containing poll wait queues */
 	struct eppoll_entry *pwqlist;
 
@@ -351,10 +344,7 @@ struct eventpoll {
 	struct hlist_head refs;
 	u8 loop_check_depth;
 
-	/*
-	 * usage count, used together with epitem->dying to
-	 * orchestrate the disposal of this struct
-	 */
+	/* usage count, orchestrates "struct eventpoll" disposal */
 	refcount_t refcount;
 
 	/* used to defer freeing past ep_get_upwards_depth_proc() RCU walk */
@@ -453,7 +443,7 @@ static void unlist_file(struct epitems_head *head)
 static long long_zero;
 static long long_max = LONG_MAX;
 
-static struct ctl_table epoll_table[] = {
+static const struct ctl_table epoll_table[] = {
 	{
 		.procname	= "max_user_watches",
 		.data		= &max_user_watches,
@@ -594,7 +584,9 @@ static bool busy_loop_ep_timeout(unsigned long start_time,
 
 static bool ep_busy_loop_on(struct eventpoll *ep)
 {
-	return !!READ_ONCE(ep->busy_poll_usecs) || net_busy_loop_on();
+	return !!READ_ONCE(ep->busy_poll_usecs) ||
+	       READ_ONCE(ep->prefer_busy_poll) ||
+	       net_busy_loop_on();
 }
 
 static bool ep_busy_loop_end(void *p, unsigned long start_time)
@@ -610,7 +602,7 @@ static bool ep_busy_loop_end(void *p, unsigned long start_time)
  *
  * we must do our busy polling with irqs enabled
  */
-static bool ep_busy_loop(struct eventpoll *ep, int nonblock)
+static bool ep_busy_loop(struct eventpoll *ep)
 {
 	unsigned int napi_id = READ_ONCE(ep->napi_id);
 	u16 budget = READ_ONCE(ep->busy_poll_budget);
@@ -619,8 +611,8 @@ static bool ep_busy_loop(struct eventpoll *ep, int nonblock)
 	if (!budget)
 		budget = BUSY_POLL_BUDGET;
 
-	if (napi_id >= MIN_NAPI_ID && ep_busy_loop_on(ep)) {
-		napi_busy_loop(napi_id, nonblock ? NULL : ep_busy_loop_end,
+	if (napi_id_valid(napi_id) && ep_busy_loop_on(ep)) {
+		napi_busy_loop(napi_id, ep_busy_loop_end,
 			       ep, prefer_busy_poll, budget);
 		if (ep_events_available(ep))
 			return true;
@@ -629,6 +621,8 @@ static bool ep_busy_loop(struct eventpoll *ep, int nonblock)
 		 * it back in when we have moved a socket with a valid NAPI
 		 * ID onto the ready list.
 		 */
+		if (prefer_busy_poll)
+			napi_resume_irqs(napi_id);
 		ep->napi_id = 0;
 		return false;
 	}
@@ -662,7 +656,7 @@ static inline void ep_set_busy_poll_napi_id(struct epitem *epi)
 	 *	or
 	 * Nothing to do if we already have this ID
 	 */
-	if (napi_id < MIN_NAPI_ID || napi_id == ep->napi_id)
+	if (!napi_id_valid(napi_id) || napi_id == ep->napi_id)
 		return;
 
 	/* record NAPI ID for use in next busy poll */
@@ -712,9 +706,25 @@ static long ep_eventpoll_bp_ioctl(struct file *file, unsigned int cmd,
 	}
 }
 
+static void ep_suspend_napi_irqs(struct eventpoll *ep)
+{
+	unsigned int napi_id = READ_ONCE(ep->napi_id);
+
+	if (napi_id_valid(napi_id) && READ_ONCE(ep->prefer_busy_poll))
+		napi_suspend_irqs(napi_id);
+}
+
+static void ep_resume_napi_irqs(struct eventpoll *ep)
+{
+	unsigned int napi_id = READ_ONCE(ep->napi_id);
+
+	if (napi_id_valid(napi_id) && READ_ONCE(ep->prefer_busy_poll))
+		napi_resume_irqs(napi_id);
+}
+
 #else
 
-static inline bool ep_busy_loop(struct eventpoll *ep, int nonblock)
+static inline bool ep_busy_loop(struct eventpoll *ep)
 {
 	return false;
 }
@@ -727,6 +737,14 @@ static long ep_eventpoll_bp_ioctl(struct file *file, unsigned int cmd,
 				  unsigned long arg)
 {
 	return -EOPNOTSUPP;
+}
+
+static void ep_suspend_napi_irqs(struct eventpoll *ep)
+{
+}
+
+static void ep_resume_napi_irqs(struct eventpoll *ep)
+{
 }
 
 #endif /* CONFIG_NET_RX_BUSY_POLL */
@@ -965,6 +983,7 @@ static bool ep_refcount_dec_and_test(struct eventpoll *ep)
 
 static void ep_free(struct eventpoll *ep)
 {
+	ep_resume_napi_irqs(ep);
 	mutex_destroy(&ep->mtx);
 	free_uid(ep->user);
 	wakeup_source_unregister(ep->ws);
@@ -995,24 +1014,24 @@ static struct file *epi_fget(const struct epitem *epi)
 	struct file *file;
 
 	file = epi->ffd.file;
-	if (!atomic_long_inc_not_zero(&file->f_count))
+	if (!file_ref_get(&file->f_ref))
 		file = NULL;
 	return file;
 }
 
 /*
- * Called with &file->f_lock held,
- * returns with it released
+ * Takes &file->f_lock; returns with it released.
  */
 static void ep_remove_file(struct eventpoll *ep, struct epitem *epi,
 			     struct file *file)
 {
 	struct epitems_head *to_free = NULL;
-	struct hlist_head *head = file->f_ep;
+	struct hlist_head *head;
 
 	lockdep_assert_held(&ep->mtx);
-	lockdep_assert_held(&file->f_lock);
 
+	spin_lock(&file->f_lock);
+	head = file->f_ep;
 	if (hlist_is_singular_node(&epi->fllink, head)) {
 		/* See eventpoll_release() for details. */
 		WRITE_ONCE(file->f_ep, NULL);
@@ -1028,7 +1047,7 @@ static void ep_remove_file(struct eventpoll *ep, struct epitem *epi,
 	free_ephead(to_free);
 }
 
-static bool ep_remove_epi(struct eventpoll *ep, struct epitem *epi)
+static void ep_remove_epi(struct eventpoll *ep, struct epitem *epi)
 {
 	lockdep_assert_held(&ep->mtx);
 
@@ -1050,7 +1069,6 @@ static bool ep_remove_epi(struct eventpoll *ep, struct epitem *epi)
 	kfree_rcu(epi, rcu);
 
 	percpu_counter_dec(&ep->user->epoll_watches);
-	return true;
 }
 
 /*
@@ -1065,23 +1083,18 @@ static void ep_remove(struct eventpoll *ep, struct epitem *epi)
 
 	ep_unregister_pollwait(ep, epi);
 
-	/* cheap sync with eventpoll_release_file() */
-	if (unlikely(READ_ONCE(epi->dying)))
-		return;
-
 	/*
 	 * If we manage to grab a reference it means we're not in
-	 * eventpoll_release_file() and aren't going to be.
+	 * eventpoll_release_file() and aren't going to be: once @file's
+	 * refcount has reached zero, file_ref_get() cannot bring it back.
 	 */
 	file = epi_fget(epi);
 	if (!file)
 		return;
 
-	spin_lock(&file->f_lock);
 	ep_remove_file(ep, epi, file);
-
-	if (ep_remove_epi(ep, epi))
-		WARN_ON_ONCE(ep_refcount_dec_and_test(ep));
+	ep_remove_epi(ep, epi);
+	WARN_ON_ONCE(ep_refcount_dec_and_test(ep));
 }
 
 static void ep_clear_and_put(struct eventpoll *ep)
@@ -1240,7 +1253,7 @@ static void ep_show_fdinfo(struct seq_file *m, struct file *f)
 		struct inode *inode = file_inode(epi->ffd.file);
 
 		seq_printf(m, "tfd: %8d events: %8x data: %16llx "
-			   " pos:%lli ino:%lx sdev:%x\n",
+			   " pos:%lli ino:%llx sdev:%x\n",
 			   epi->ffd.fd, epi->event.events,
 			   (long long)epi->event.data,
 			   (long long)epi->ffd.file->f_pos,
@@ -1273,18 +1286,17 @@ void eventpoll_release_file(struct file *file)
 {
 	struct eventpoll *ep;
 	struct epitem *epi;
-	bool dispose;
 
 	/*
-	 * Use the 'dying' flag to prevent a concurrent ep_clear_and_put() from
-	 * touching the epitems list before eventpoll_release_file() can access
-	 * the ep->mtx.
+	 * A concurrent ep_remove() cannot outrace us: it pins @file via
+	 * epi_fget(), which fails once __fput() has dropped the refcount
+	 * to zero -- the path we're on. So any racing ep_remove() bails
+	 * and leaves the epi for us to clean up here.
 	 */
 again:
 	spin_lock(&file->f_lock);
 	if (file->f_ep && file->f_ep->first) {
 		epi = hlist_entry(file->f_ep->first, struct epitem, fllink);
-		WRITE_ONCE(epi->dying, true);
 		spin_unlock(&file->f_lock);
 
 		/*
@@ -1296,13 +1308,12 @@ again:
 
 		ep_unregister_pollwait(ep, epi);
 
-		spin_lock(&file->f_lock);
 		ep_remove_file(ep, epi, file);
-		dispose = ep_remove_epi(ep, epi);
+		ep_remove_epi(ep, epi);
 
 		mutex_unlock(&ep->mtx);
 
-		if (dispose && ep_refcount_dec_and_test(ep))
+		if (ep_refcount_dec_and_test(ep))
 			ep_free(ep);
 		goto again;
 	}
@@ -1313,7 +1324,7 @@ static int ep_alloc(struct eventpoll **pep)
 {
 	struct eventpoll *ep;
 
-	ep = kzalloc(sizeof(*ep), GFP_KERNEL);
+	ep = kzalloc_obj(*ep);
 	if (unlikely(!ep))
 		return -ENOMEM;
 
@@ -2126,6 +2137,30 @@ static int ep_autoremove_wake_function(struct wait_queue_entry *wq_entry,
 	return ret;
 }
 
+static int ep_try_send_events(struct eventpoll *ep,
+			      struct epoll_event __user *events, int maxevents)
+{
+	int res;
+
+	/*
+	 * Try to transfer events to user space. In case we get 0 events and
+	 * there's still timeout left over, we go trying again in search of
+	 * more luck.
+	 */
+	res = ep_send_events(ep, events, maxevents);
+	if (res > 0)
+		ep_suspend_napi_irqs(ep);
+	return res;
+}
+
+static int ep_schedule_timeout(ktime_t *to)
+{
+	if (to)
+		return ktime_after(*to, ktime_get());
+	else
+		return 1;
+}
+
 /**
  * ep_poll - Retrieves ready events, and delivers them to the caller-supplied
  *           event buffer.
@@ -2177,12 +2212,7 @@ static int ep_poll(struct eventpoll *ep, struct epoll_event __user *events,
 
 	while (1) {
 		if (eavail) {
-			/*
-			 * Try to transfer events to user space. In case we get
-			 * 0 events and there's still timeout left over, we go
-			 * trying again in search of more luck.
-			 */
-			res = ep_send_events(ep, events, maxevents);
+			res = ep_try_send_events(ep, events, maxevents);
 			if (res)
 				return res;
 		}
@@ -2190,7 +2220,7 @@ static int ep_poll(struct eventpoll *ep, struct epoll_event __user *events,
 		if (timed_out)
 			return 0;
 
-		eavail = ep_busy_loop(ep, timed_out);
+		eavail = ep_busy_loop(ep);
 		if (eavail)
 			continue;
 
@@ -2239,8 +2269,9 @@ static int ep_poll(struct eventpoll *ep, struct epoll_event __user *events,
 		spin_unlock_irq(&ep->lock);
 
 		if (!eavail)
-			timed_out = !schedule_hrtimeout_range(to, slack,
-							      HRTIMER_MODE_ABS);
+			timed_out = !ep_schedule_timeout(to) ||
+				!schedule_hrtimeout_range(to, slack,
+							  HRTIMER_MODE_ABS);
 		__set_current_state(TASK_RUNNING);
 
 		/*
@@ -2318,9 +2349,7 @@ static int ep_loop_check_proc(struct eventpoll *ep, int depth)
 	return result;
 }
 
-/**
- * ep_get_upwards_depth_proc - determine depth of @ep when traversed upwards
- */
+/* ep_get_upwards_depth_proc - determine depth of @ep when traversed upwards */
 static int ep_get_upwards_depth_proc(struct eventpoll *ep, int depth)
 {
 	int result = 0;
@@ -2382,9 +2411,8 @@ static void clear_tfile_check_list(void)
  */
 static int do_epoll_create(int flags)
 {
-	int error, fd;
-	struct eventpoll *ep = NULL;
-	struct file *file;
+	int error;
+	struct eventpoll *ep;
 
 	/* Check the EPOLL_* constant for consistency.  */
 	BUILD_BUG_ON(EPOLL_CLOEXEC != O_CLOEXEC);
@@ -2401,26 +2429,15 @@ static int do_epoll_create(int flags)
 	 * Creates all the items needed to setup an eventpoll file. That is,
 	 * a file structure and a free file descriptor.
 	 */
-	fd = get_unused_fd_flags(O_RDWR | (flags & O_CLOEXEC));
-	if (fd < 0) {
-		error = fd;
-		goto out_free_ep;
+	FD_PREPARE(fdf, O_RDWR | (flags & O_CLOEXEC),
+		   anon_inode_getfile("[eventpoll]", &eventpoll_fops, ep,
+				      O_RDWR | (flags & O_CLOEXEC)));
+	if (fdf.err) {
+		ep_clear_and_put(ep);
+		return fdf.err;
 	}
-	file = anon_inode_getfile("[eventpoll]", &eventpoll_fops, ep,
-				 O_RDWR | (flags & O_CLOEXEC));
-	if (IS_ERR(file)) {
-		error = PTR_ERR(file);
-		goto out_free_fd;
-	}
-	ep->file = file;
-	fd_install(fd, file);
-	return fd;
-
-out_free_fd:
-	put_unused_fd(fd);
-out_free_ep:
-	ep_clear_and_put(ep);
-	return error;
+	ep->file = fd_prepare_file(fdf);
+	return fd_publish(fdf);
 }
 
 SYSCALL_DEFINE1(epoll_create1, int, flags)
@@ -2620,6 +2637,47 @@ SYSCALL_DEFINE4(epoll_ctl, int, epfd, int, op, int, fd,
 	return do_epoll_ctl(epfd, op, fd, &epds, false);
 }
 
+static int ep_check_params(struct file *file, struct epoll_event __user *evs,
+			   int maxevents)
+{
+	/* The maximum number of event must be greater than zero */
+	if (maxevents <= 0 || maxevents > EP_MAX_EVENTS)
+		return -EINVAL;
+
+	/* Verify that the area passed by the user is writeable */
+	if (!access_ok(evs, maxevents * sizeof(struct epoll_event)))
+		return -EFAULT;
+
+	/*
+	 * We have to check that the file structure underneath the fd
+	 * the user passed to us _is_ an eventpoll file.
+	 */
+	if (!is_file_epoll(file))
+		return -EINVAL;
+
+	return 0;
+}
+
+int epoll_sendevents(struct file *file, struct epoll_event __user *events,
+		     int maxevents)
+{
+	struct eventpoll *ep;
+	int ret;
+
+	ret = ep_check_params(file, events, maxevents);
+	if (unlikely(ret))
+		return ret;
+
+	ep = file->private_data;
+	/*
+	 * Racy call, but that's ok - it should get retried based on
+	 * poll readiness anyway.
+	 */
+	if (ep_events_available(ep))
+		return ep_try_send_events(ep, events, maxevents);
+	return 0;
+}
+
 /*
  * Implement the event wait interface for the eventpoll file. It is the kernel
  * part of the user space epoll_wait(2).
@@ -2627,30 +2685,17 @@ SYSCALL_DEFINE4(epoll_ctl, int, epfd, int, op, int, fd,
 static int do_epoll_wait(int epfd, struct epoll_event __user *events,
 			 int maxevents, struct timespec64 *to)
 {
-	int error;
-	struct fd f;
 	struct eventpoll *ep;
-
-	/* The maximum number of event must be greater than zero */
-	if (maxevents <= 0 || maxevents > EP_MAX_EVENTS)
-		return -EINVAL;
-
-	/* Verify that the area passed by the user is writeable */
-	if (!access_ok(events, maxevents * sizeof(struct epoll_event)))
-		return -EFAULT;
+	int ret;
 
 	/* Get the "struct file *" for the eventpoll file */
-	f = fdget(epfd);
-	if (!fd_file(f))
+	CLASS(fd, f)(epfd);
+	if (fd_empty(f))
 		return -EBADF;
 
-	/*
-	 * We have to check that the file structure underneath the fd
-	 * the user passed to us _is_ an eventpoll file.
-	 */
-	error = -EINVAL;
-	if (!is_file_epoll(fd_file(f)))
-		goto error_fput;
+	ret = ep_check_params(fd_file(f), events, maxevents);
+	if (unlikely(ret))
+		return ret;
 
 	/*
 	 * At this point it is safe to assume that the "private_data" contains
@@ -2659,11 +2704,7 @@ static int do_epoll_wait(int epfd, struct epoll_event __user *events,
 	ep = fd_file(f)->private_data;
 
 	/* Time to fish for events ... */
-	error = ep_poll(ep, events, maxevents, to);
-
-error_fput:
-	fdput(f);
-	return error;
+	return ep_poll(ep, events, maxevents, to);
 }
 
 SYSCALL_DEFINE4(epoll_wait, int, epfd, struct epoll_event __user *, events,

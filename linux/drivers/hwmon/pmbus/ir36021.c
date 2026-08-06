@@ -51,8 +51,8 @@ static int ir36021_probe(struct i2c_client *client)
 }
 
 static const struct i2c_device_id ir36021_id[] = {
-	{ "ir36021" },
-	{},
+	{ .name = "ir36021" },
+	{ }
 };
 MODULE_DEVICE_TABLE(i2c, ir36021_id);
 
@@ -76,4 +76,4 @@ module_i2c_driver(ir36021_driver);
 MODULE_AUTHOR("Chris Packham <chris.packham@alliedtelesis.co.nz>");
 MODULE_DESCRIPTION("PMBus driver for Infineon IR36021");
 MODULE_LICENSE("GPL");
-MODULE_IMPORT_NS(PMBUS);
+MODULE_IMPORT_NS("PMBUS");

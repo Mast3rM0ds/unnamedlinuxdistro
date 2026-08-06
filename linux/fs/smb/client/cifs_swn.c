@@ -127,10 +127,8 @@ static int cifs_swn_send_register_message(struct cifs_swn_reg_info *swnreg,
 	int ret;
 
 	skb = genlmsg_new(NLMSG_DEFAULT_SIZE, GFP_KERNEL);
-	if (skb == NULL) {
-		ret = -ENOMEM;
-		goto fail;
-	}
+	if (!skb)
+		return -ENOMEM;
 
 	hdr = genlmsg_put(skb, 0, 0, &cifs_genl_family, 0, CIFS_GENL_CMD_SWN_REGISTER);
 	if (hdr == NULL) {
@@ -217,7 +215,6 @@ static int cifs_swn_send_register_message(struct cifs_swn_reg_info *swnreg,
 nlmsg_fail:
 	genlmsg_cancel(skb, hdr);
 	nlmsg_free(skb);
-fail:
 	return ret;
 }
 
@@ -446,7 +443,7 @@ static struct cifs_swn_reg *cifs_get_swn_reg(struct cifs_tcon *tcon)
 		goto unlock;
 	}
 
-	reg = kmalloc(sizeof(struct cifs_swn_reg), GFP_ATOMIC);
+	reg = kmalloc_obj(struct cifs_swn_reg, GFP_ATOMIC);
 	if (reg == NULL) {
 		ret = -ENOMEM;
 		goto fail_unlock;

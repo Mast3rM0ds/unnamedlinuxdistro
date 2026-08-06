@@ -81,6 +81,8 @@ struct hid_item {
 #define HID_MAIN_ITEM_TAG_FEATURE		11
 #define HID_MAIN_ITEM_TAG_BEGIN_COLLECTION	10
 #define HID_MAIN_ITEM_TAG_END_COLLECTION	12
+#define HID_MAIN_ITEM_TAG_RESERVED_MIN		13
+#define HID_MAIN_ITEM_TAG_RESERVED_MAX		15
 
 /*
  * HID report descriptor main item contents
@@ -378,12 +380,14 @@ struct hid_item {
  * | @HID_QUIRK_INPUT_PER_APP:
  * | @HID_QUIRK_X_INVERT:
  * | @HID_QUIRK_Y_INVERT:
+ * | @HID_QUIRK_IGNORE_MOUSE:
  * | @HID_QUIRK_SKIP_OUTPUT_REPORTS:
  * | @HID_QUIRK_SKIP_OUTPUT_REPORT_ID:
  * | @HID_QUIRK_NO_OUTPUT_REPORTS_ON_INTR_EP:
  * | @HID_QUIRK_HAVE_SPECIAL_DRIVER:
  * | @HID_QUIRK_INCREMENT_USAGE_ON_DUPLICATE:
  * | @HID_QUIRK_IGNORE_SPECIAL_DRIVER
+ * | @HID_QUIRK_POWER_ON_AFTER_BACKLIGHT
  * | @HID_QUIRK_FULLSPEED_INTERVAL:
  * | @HID_QUIRK_NO_INIT_REPORTS:
  * | @HID_QUIRK_NO_IGNORE:
@@ -403,6 +407,7 @@ struct hid_item {
 #define HID_QUIRK_INPUT_PER_APP			BIT(11)
 #define HID_QUIRK_X_INVERT			BIT(12)
 #define HID_QUIRK_Y_INVERT			BIT(13)
+#define HID_QUIRK_IGNORE_MOUSE			BIT(14)
 #define HID_QUIRK_SKIP_OUTPUT_REPORTS		BIT(16)
 #define HID_QUIRK_SKIP_OUTPUT_REPORT_ID		BIT(17)
 #define HID_QUIRK_NO_OUTPUT_REPORTS_ON_INTR_EP	BIT(18)
@@ -410,6 +415,7 @@ struct hid_item {
 #define HID_QUIRK_INCREMENT_USAGE_ON_DUPLICATE	BIT(20)
 #define HID_QUIRK_NOINVERT			BIT(21)
 #define HID_QUIRK_IGNORE_SPECIAL_DRIVER		BIT(22)
+#define HID_QUIRK_POWER_ON_AFTER_BACKLIGHT	BIT(23)
 #define HID_QUIRK_FULLSPEED_INTERVAL		BIT(28)
 #define HID_QUIRK_NO_INIT_REPORTS		BIT(29)
 #define HID_QUIRK_NO_IGNORE			BIT(30)
@@ -628,18 +634,52 @@ enum hid_battery_status {
 	HID_BATTERY_REPORTED,		/* Device sent unsolicited battery strength report */
 };
 
+/**
+ * struct hid_battery - represents a single battery power supply
+ * @dev: pointer to the parent hid_device
+ * @ps: the power supply instance
+ * @min: minimum battery value from HID descriptor
+ * @max: maximum battery value from HID descriptor
+ * @report_type: HID report type (input/feature)
+ * @report_id: HID report ID for this battery
+ * @charge_status: current charging status
+ * @status: battery reporting status
+ * @capacity: current battery capacity (0-100)
+ * @avoid_query: if true, avoid querying battery (e.g., for stylus)
+ * @present: if true, battery is present (may be dynamic)
+ * @ratelimit_time: rate limiting for battery reports
+ * @list: list node for linking into hid_device's battery list
+ */
+struct hid_battery {
+	struct hid_device *dev;
+	struct power_supply *ps;
+	__s32 min;
+	__s32 max;
+	__s32 report_type;
+	__s32 report_id;
+	__s32 charge_status;
+	enum hid_battery_status status;
+	__s32 capacity;
+	bool avoid_query;
+	bool present;
+	ktime_t ratelimit_time;
+	struct list_head list;
+};
+
 struct hid_driver;
 struct hid_ll_driver;
 
-struct hid_device {							/* device report descriptor */
-	const __u8 *dev_rdesc;
-	unsigned dev_rsize;
-	const __u8 *rdesc;
-	unsigned rsize;
+struct hid_device {
+	const __u8 *dev_rdesc;						/* device report descriptor */
+	const __u8 *bpf_rdesc;						/* bpf modified report descriptor, if any */
+	const __u8 *rdesc;						/* currently used report descriptor */
+	unsigned int dev_rsize;
+	unsigned int bpf_rsize;
+	unsigned int rsize;
+	unsigned int collection_size;					/* Number of allocated hid_collections */
 	struct hid_collection *collection;				/* List of HID collections */
-	unsigned collection_size;					/* Number of allocated hid_collections */
-	unsigned maxcollection;						/* Number of parsed collections */
-	unsigned maxapplication;					/* Number of applications */
+	unsigned int maxcollection;						/* Number of parsed collections */
+	unsigned int maxapplication;					/* Number of applications */
 	__u16 bus;							/* BUS ID */
 	__u16 group;							/* Report group */
 	__u32 vendor;							/* Vendor ID */
@@ -662,19 +702,10 @@ struct hid_device {							/* device report descriptor */
 #ifdef CONFIG_HID_BATTERY_STRENGTH
 	/*
 	 * Power supply information for HID devices which report
-	 * battery strength. power_supply was successfully registered if
-	 * battery is non-NULL.
+	 * battery strength. Each battery is tracked separately in the
+	 * batteries list.
 	 */
-	struct power_supply *battery;
-	__s32 battery_capacity;
-	__s32 battery_min;
-	__s32 battery_max;
-	__s32 battery_report_type;
-	__s32 battery_report_id;
-	__s32 battery_charge_status;
-	enum hid_battery_status battery_status;
-	bool battery_avoid_query;
-	ktime_t battery_ratelimit_time;
+	struct list_head batteries;
 #endif
 
 	unsigned long status;						/* see STAT flags above */
@@ -690,6 +721,7 @@ struct hid_device {							/* device report descriptor */
 	char name[128];							/* Device name */
 	char phys[64];							/* Device physical location */
 	char uniq[64];							/* Device unique identifier (serial #) */
+	u64 firmware_version;						/* Firmware version */
 
 	void *driver_data;
 
@@ -734,6 +766,15 @@ static inline void hid_set_drvdata(struct hid_device *hdev, void *data)
 {
 	dev_set_drvdata(&hdev->dev, data);
 }
+
+#ifdef CONFIG_HID_BATTERY_STRENGTH
+static inline struct hid_battery *hid_get_battery(struct hid_device *hdev)
+{
+	if (list_empty(&hdev->batteries))
+		return NULL;
+	return list_first_entry(&hdev->batteries, struct hid_battery, list);
+}
+#endif
 
 #define HID_GLOBAL_STACK_SIZE 4
 #define HID_COLLECTION_STACK_SIZE 4
@@ -818,6 +859,8 @@ struct hid_usage_id {
  * @suspend: invoked on suspend (NULL means nop)
  * @resume: invoked on resume if device was not reset (NULL means nop)
  * @reset_resume: invoked on resume if device was reset (NULL means nop)
+ * @on_hid_hw_open: invoked when hid core opens first instance (NULL means nop)
+ * @on_hid_hw_close: invoked when hid core closes last instance (NULL means nop)
  *
  * probe should return -errno on error, or 0 on success. During probe,
  * input will not be passed to raw_event unless hid_device_io_start is
@@ -825,6 +868,12 @@ struct hid_usage_id {
  *
  * raw_event and event should return negative on error, any other value will
  * pass the event on to .event() typically return 0 for success.
+ *
+ * report_fixup must return a report descriptor pointer whose lifetime is at
+ * least that of the input rdesc.  This is usually done by mutating the input
+ * rdesc and returning it or a sub-portion of it.  In case a new buffer is
+ * allocated and returned, the implementation of report_fixup is responsible for
+ * freeing it later.
  *
  * input_mapping shall return a negative value to completely ignore this usage
  * (e.g. doubled or invalid usage), zero to continue with parsing of this
@@ -837,7 +886,7 @@ struct hid_usage_id {
  * zero from them.
  */
 struct hid_driver {
-	char *name;
+	const char *name;
 	const struct hid_device_id *id_table;
 
 	struct list_head dyn_list;
@@ -873,6 +922,8 @@ struct hid_driver {
 	int (*suspend)(struct hid_device *hdev, pm_message_t message);
 	int (*resume)(struct hid_device *hdev);
 	int (*reset_resume)(struct hid_device *hdev);
+	void (*on_hid_hw_open)(struct hid_device *hdev);
+	void (*on_hid_hw_close)(struct hid_device *hdev);
 
 /* private: */
 	struct device_driver driver;
@@ -972,6 +1023,7 @@ extern void hidinput_hid_event(struct hid_device *, struct hid_field *, struct h
 extern void hidinput_report_event(struct hid_device *hid, struct hid_report *report);
 extern int hidinput_connect(struct hid_device *hid, unsigned int force);
 extern void hidinput_disconnect(struct hid_device *);
+void hidinput_reset_resume(struct hid_device *hid);
 
 struct hid_field *hid_find_field(struct hid_device *hdev, unsigned int report_type,
 				 unsigned int application, unsigned int usage);
@@ -1237,7 +1289,11 @@ static inline void hid_hw_wait(struct hid_device *hdev)
 /**
  * hid_report_len - calculate the report length
  *
- * @report: the report we want to know the length
+ * @report: the report whose length we want to know
+ *
+ * The length counts the report ID byte, but only if the ID is nonzero
+ * and therefore is included in the report.  Reports whose ID is zero
+ * never include an ID byte.
  */
 static inline u32 hid_report_len(struct hid_report *report)
 {

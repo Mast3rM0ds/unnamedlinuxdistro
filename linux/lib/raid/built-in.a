@@ -1,0 +1,16 @@
+!<thin>
+//                                              142       `
+xor/xor-core.o/
+xor/xor-8regs.o/
+xor/xor-32regs.o/
+xor/xor-8regs-prefetch.o/
+xor/xor-32regs-prefetch.o/
+xor/x86/xor-avx.o/
+xor/x86/xor-sse.o/
+/0              0           0     0     644     9560      `
+/16             0           0     0     644     2640      `
+/33             0           0     0     644     2648      `
+/51             0           0     0     644     4120      `
+/77             0           0     0     644     4120      `
+/104            0           0     0     644     4168      `
+/123            0           0     0     644     7392      `

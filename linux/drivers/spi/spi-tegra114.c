@@ -920,7 +920,7 @@ static struct tegra_spi_client_data
 		return NULL;
 	}
 
-	cdata = kzalloc(sizeof(*cdata), GFP_KERNEL);
+	cdata = kzalloc_obj(*cdata);
 	if (!cdata)
 		return NULL;
 
@@ -1415,7 +1415,6 @@ static int tegra_spi_probe(struct platform_device *pdev)
 		goto exit_pm_disable;
 	}
 
-	host->dev.of_node = pdev->dev.of_node;
 	ret = spi_register_controller(host);
 	if (ret < 0) {
 		dev_err(&pdev->dev, "can not register to host err %d\n", ret);
@@ -1527,7 +1526,7 @@ static struct platform_driver tegra_spi_driver = {
 		.of_match_table	= tegra_spi_of_match,
 	},
 	.probe =	tegra_spi_probe,
-	.remove_new =	tegra_spi_remove,
+	.remove =	tegra_spi_remove,
 };
 module_platform_driver(tegra_spi_driver);
 
