@@ -90,14 +90,6 @@ build() {
 	make
 }
 
-check() {
-	# AFALG tests have a sporadic test failure, just delete the broken
-	# test for now.
-	rm -f test/recipes/30-test_afalg.t
-
-	make test
-}
-
 package() {
 	depends="libssl$_abiver=$pkgver-r$pkgrel libcrypto$_abiver=$pkgver-r$pkgrel"
 	provides="openssl3=$pkgver-r$pkgrel"

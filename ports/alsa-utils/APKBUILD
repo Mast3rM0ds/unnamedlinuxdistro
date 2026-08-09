@@ -1,0 +1,25 @@
+pkgname=alsa-utils
+pkgver=1.2.16
+pkgrel=0
+pkgdesc="the utilities for alsa(advanced linux sound architecture)"
+url="www.alsa-project.org/"
+arch="all"
+license="GPL-2.0-or-later"
+depends="musl"
+makedepends="make gcc alsa-lib-dev ncurses-dev"
+subpackages="$pkgname-doc"
+source="https://www.alsa-project.org/files/pub/utils/alsa-utils-$pkgver.tar.bz2"
+builddir="$srcdir/alsa-utils-$pkgver"
+
+build() {
+	./configure --prefix=/usr
+	make
+}
+
+package() {
+	make DESTDIR="$pkgdir" install
+}
+
+sha512sums="
+288c042f5acb8a7cf1b0a0c25327c74e0bce126124253bdb2d0dc2630b8bc80b5e5d694de97738d031377fd82d887db32af1c4b27c6d940357b318d0a3ef02cf  alsa-utils-1.2.16.tar.bz2
+"

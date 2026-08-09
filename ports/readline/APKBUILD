@@ -1,0 +1,26 @@
+pkgname=readline
+pkgver=8.2
+pkgrel=0
+pkgdesc="history for bash"
+url="https://tiswww.case.edu/php/chet/readline/rltop.html"
+arch="all"
+license="GPL-3.0-or-later"
+depends="musl ncurses"
+makedepends="ncurses-dev"
+subpackages="$pkgname-dev $pkgname-doc"
+provides="so:libreadline.so.8=8.2 so:libhistory.so.8=8.2"
+source="https://ftp.gnu.org/gnu/readline/readline-$pkgver.tar.gz"
+builddir="$srcdir/readline-$pkgver"
+
+build() {
+	./configure \
+		--prefix=/usr
+	make
+}
+
+package() {
+	make DESTDIR="$pkgdir" install
+}
+sha512sums="
+0a451d459146bfdeecc9cdd94bda6a6416d3e93abd80885a40b334312f16eb890f8618a27ca26868cebbddf1224983e631b1cbc002c1a4d1cd0d65fba9fea49a  readline-8.2.tar.gz
+"

@@ -1,5 +1,5 @@
 !<thin>
-//                                              414       `
+//                                              932       `
 core/hda_bus_type.o/
 core/bus.o/
 core/device.o/
@@ -23,15 +23,37 @@ common/sysfs.o/
 common/controller.o/
 common/proc.o/
 common/hwdep.o/
+codecs/cirrus/cs420x.o/
+codecs/cirrus/cs421x.o/
+codecs/realtek/realtek.o/
+codecs/realtek/alc260.o/
+codecs/realtek/alc262.o/
+codecs/realtek/alc268.o/
+codecs/realtek/alc269.o/
+codecs/realtek/alc662.o/
+codecs/realtek/alc680.o/
+codecs/realtek/alc861.o/
+codecs/realtek/alc861vd.o/
+codecs/realtek/alc880.o/
+codecs/realtek/alc882.o/
+codecs/side-codecs/hda_component.o/
+codecs/generic.o/
+codecs/cmedia.o/
+codecs/cm9825.o/
+codecs/ca0110.o/
+codecs/ca0132.o/
+codecs/conexant.o/
+codecs/senarytech.o/
+codecs/si3054.o/
+codecs/via.o/
 controllers/intel.o/
-
 /0              0           0     0     644     5736      `
 /21             0           0     0     644     12792     `
 /33             0           0     0     644     29376     `
 /48             0           0     0     644     20232     `
 /62             0           0     0     644     13440     `
 /77             0           0     0     644     17528     `
-/96             0           0     0     644     22872     `
+/96             0           0     0     644     25920     `
 /111            0           0     0     644     2768      `
 /125            0           0     0     644     21232     `
 /144            0           0     0     644     24344     `
@@ -40,12 +62,35 @@ controllers/intel.o/
 /189            0           0     0     644     7376      `
 /214            0           0     0     644     8936      `
 /233            0           0     0     644     7608      `
-/256            0           0     0     644     10352     `
+/256            0           0     0     644     10480     `
 /271            0           0     0     644     100432    `
 /287            0           0     0     644     19784     `
 /302            0           0     0     644     21360     `
 /324            0           0     0     644     9112      `
-/340            0           0     0     644     52168     `
+/340            0           0     0     644     54952     `
 /361            0           0     0     644     28672     `
 /376            0           0     0     644     3592      `
-/392            0           0     0     644     73192     `
+/392            0           0     0     644     15368     `
+/416            0           0     0     644     12856     `
+/440            0           0     0     644     58880     `
+/466            0           0     0     644     9824      `
+/491            0           0     0     644     8200      `
+/516            0           0     0     644     8840      `
+/541            0           0     0     644     194352    `
+/566            0           0     0     644     25736     `
+/591            0           0     0     644     5544      `
+/616            0           0     0     644     7376      `
+/641            0           0     0     644     7280      `
+/668            0           0     0     644     11504     `
+/693            0           0     0     644     21576     `
+/718            0           0     0     644     10568     `
+/754            0           0     0     644     118464    `
+/772            0           0     0     644     6520      `
+/789            0           0     0     644     14640     `
+/806            0           0     0     644     5664      `
+/823            0           0     0     644     140096    `
+/840            0           0     0     644     33416     `
+/859            0           0     0     644     9768      `
+/880            0           0     0     644     10672     `
+/897            0           0     0     644     26464     `
+/911            0           0     0     644     73224     `

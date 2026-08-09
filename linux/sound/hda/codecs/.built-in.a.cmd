@@ -1,1 +1,1 @@
-savedcmd_sound/hda/codecs/built-in.a := rm -f sound/hda/codecs/built-in.a;  printf "sound/hda/codecs/%s " cirrus/built-in.a hdmi/built-in.a realtek/built-in.a side-codecs/built-in.a | xargs ar cDPrST sound/hda/codecs/built-in.a
+savedcmd_sound/hda/codecs/built-in.a := rm -f sound/hda/codecs/built-in.a;  printf "sound/hda/codecs/%s " cirrus/built-in.a hdmi/built-in.a realtek/built-in.a side-codecs/built-in.a generic.o cmedia.o cm9825.o ca0110.o ca0132.o conexant.o senarytech.o si3054.o via.o | xargs ar cDPrST sound/hda/codecs/built-in.a

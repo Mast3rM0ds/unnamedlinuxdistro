@@ -1,0 +1,113 @@
+pkgname=python3-tkinter
+pkgver=3.14.5
+_basever="${pkgver%.*}"
+pkgrel=0
+pkgdesc="A graphical user interface for the Python programming language"
+url="https://wiki.python.org/moin/TkInter"
+arch="all"
+license="PSF-2.0"
+options="!check"
+replaces="python3"
+subpackages="$pkgname-tests::noarch python3-idle:_idle:noarch $pkgname-pyc"
+makedepends="
+	bzip2-dev
+	expat-dev
+	gdbm-dev
+	libffi-dev
+	linux-headers
+	ncurses-dev
+	openssl-dev>3
+	python3
+	readline-dev
+	sqlite-dev
+	tcl-dev
+	tk-dev
+	xz-dev
+	zlib-dev
+	"
+source="https://www.python.org/ftp/python/$pkgver/Python-$pkgver.tar.xz
+	musl-find_library.patch
+	idle.desktop
+	"
+builddir="$srcdir/Python-$pkgver"
+
+prepare() {
+	default_prepare
+	rm -r Modules/expat
+}
+
+build() {
+	export CFLAGS="${CFLAGS/-Os/} -fno-semantic-interposition"
+	export LDFLAGS="$LDFLAGS -fno-semantic-interposition"
+
+	./configure \
+		--build=$CBUILD \
+		--host=$CHOST \
+		--prefix=/usr \
+		--enable-ipv6 \
+		--enable-loadable-sqlite-extensions \
+		--enable-shared \
+		--with-lto \
+		--with-computed-gotos \
+		--with-dbmliborder=gdbm:ndbm \
+		--with-system-expat
+
+	make EXTRA_CFLAGS="$CFLAGS -DTHREAD_STACK_SIZE=0x100000"
+}
+
+package() {
+	make DESTDIR="$builddir"/tmpinstall sharedinstall libinstall
+
+	mkdir -p "$pkgdir"/usr/lib/python$_basever/lib-dynload \
+		"$pkgdir"/usr/bin
+
+	for lib in idlelib tkinter; do
+		mv "$builddir"/tmpinstall/usr/lib/python$_basever/$lib \
+			"$pkgdir"/usr/lib/python$_basever/
+	done
+
+	mv "$builddir"/tmpinstall/usr/lib/python$_basever/lib-dynload/_tkinter*.so \
+		"$pkgdir"/usr/lib/python$_basever/lib-dynload/
+
+	mv "$builddir"/tmpinstall/usr/lib/python$_basever/test/test_tkinter \
+		"$pkgdir"/usr/lib/python$_basever/tkinter/test/
+	mv "$builddir"/tmpinstall/usr/lib/python$_basever/test/test_ttk \
+		"$pkgdir"/usr/lib/python$_basever/tkinter/test/
+
+	mv "$builddir"/build/scripts-*/idle* \
+		"$pkgdir"/usr/bin/
+
+	ln -s idle$_basever "$pkgdir"/usr/bin/idle
+}
+
+tests() {
+	pkgdesc="The test modules from the main python package for tkinter"
+	replaces="python3-tests"
+
+	amove usr/lib/python*/*/*_test \
+		usr/lib/python${pkgver%.*}/tkinter/test
+}
+
+_idle() {
+	pkgdesc="IDE for Python3 using Tkinter"
+	depends="$pkgname=$pkgver-r$pkgrel python3 python3-tests"
+	replaces="python3"
+
+	amove usr/bin \
+		usr/lib/python*/idlelib
+
+	install -Dm644 "$srcdir"/idle.desktop \
+		-t "$subpkgdir"/usr/share/applications
+
+	local size
+	for size in 16 32 48 256; do
+		install -Dm644 "$builddir"/Lib/idlelib/Icons/idle_"$size".png \
+			"$subpkgdir"/usr/share/icons/hicolor/"$size"x"$size"/apps/idle.png
+	done
+}
+
+sha512sums="
+efbaf629703cd004f6b7bc75fb16df794185589adaf8807cd45928f212271045a399df3cd9573e47c8708fb5c5002f9d4efe4e41dde4313b81a3e9d73158769f  Python-3.14.5.tar.xz
+fe9349ed49205cd974bea903e35ec9a308d3d489ec807da7c6178b05c8b47230cf6f7a0107a5818fa875e93bf49503ab1cd6ddea53788c7be73363794c22ef2c  musl-find_library.patch
+f1ecb004871dc7e0c794eebe94ca1084b211924ecc97edc57f32a7c8df5d572e9ca6cdc45d6fc08009e480eb9a2c9f3d359d46989dc72c03679eb94ad97a2916  idle.desktop
+"

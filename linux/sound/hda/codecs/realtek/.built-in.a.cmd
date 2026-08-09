@@ -1,1 +1,1 @@
-savedcmd_sound/hda/codecs/realtek/built-in.a := rm -f sound/hda/codecs/realtek/built-in.a;  ar cDPrST sound/hda/codecs/realtek/built-in.a
+savedcmd_sound/hda/codecs/realtek/built-in.a := rm -f sound/hda/codecs/realtek/built-in.a;  printf "sound/hda/codecs/realtek/%s " realtek.o alc260.o alc262.o alc268.o alc269.o alc662.o alc680.o alc861.o alc861vd.o alc880.o alc882.o | xargs ar cDPrST sound/hda/codecs/realtek/built-in.a

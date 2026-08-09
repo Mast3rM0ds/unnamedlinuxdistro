@@ -24,10 +24,6 @@ build() {
 	make
 }
 
-check() {
-	make check
-}
-
 package() {
 	make DESTDIR="$pkgdir" install
 	ln -s pkgconf "$pkgdir"/usr/bin/pkg-config

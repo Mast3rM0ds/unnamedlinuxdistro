@@ -8,12 +8,6 @@ arch="all"
 options="!check" # "tests" are actual demo programs, not a test suite.
 license="X11"
 makedepends_build="ncurses"
-subpackages="
-	$pkgname-static
-	$pkgname-dev
-	$pkgname-doc
-	$pkgname-libs:compat:noarch
-	"
 source="https://invisible-mirror.net/archives/ncurses/current/ncurses-$_pkgver.tgz"
 builddir="$srcdir/$pkgname-$_pkgver"
 
@@ -25,7 +19,7 @@ build() {
 		--with-pkg-config-libdir=/usr/lib/pkgconfig \
 		--with-cxx-shared \
 		--enable-pc-files \
-		--with-shared \
+		--with-shared 
 	make
 }
 
@@ -48,26 +42,6 @@ package() {
 		ln -s ncurses.pc usr/lib/pkgconfig/${lib}.pc
 	done
 	ln -s libncursesw.so usr/lib/libcursesw.so
-}
-
-compat() {
-	pkgdesc="Ncurses libraries (old compat to pull sublibs)"
-	provides="ncurses-widec-libs=$pkgver-r$pkgrel"
-	depends="
-		libformw=$pkgver-r$pkgrel
-		libmenuw=$pkgver-r$pkgrel
-		libncursesw=$pkgver-r$pkgrel
-		libpanelw=$pkgver-r$pkgrel
-		"
-
-	mkdir -p "$subpkgdir"
-}
-
-base() {
-	pkgdesc="Descriptions of common terminals"
-	depends=""
-
-	amove etc/terminfo
 }
 
 sha512sums="

@@ -1,0 +1,32 @@
+pkgname=tcl-lib
+pkgver=1.21
+pkgrel=1
+pkgdesc="Tcl standard library"
+url="https://www.tcl-lang.org/software/tcllib/"
+arch="noarch"
+license="BSD-2-Clause"
+depends="tcl"
+makedepends="tcl-dev"
+subpackages="$pkgname-doc"
+source="$pkgname-$pkgver.tar.gz::https://core.tcl-lang.org/tcllib/uv/tcllib-$pkgver.tar.gz"
+builddir="$srcdir/tcllib-$pkgver"
+
+build() {
+	./configure \
+		--build=$CBUILD \
+		--host=$CHOST \
+		--prefix=/usr \
+		--sysconfdir=/etc \
+		--mandir=/usr/share/man \
+		--infodir=/usr/share/info \
+		--localstatedir=/var
+	make
+}
+
+package() {
+	make DESTDIR="$pkgdir" install
+}
+
+sha512sums="
+58ddbf392dbc8c8935a7f28be974a4ba895e934046ff1ffe8c5ab65e3db7e68b9450d420bd1d547245e7f699ea11edf698047cfe0a305a09449779037db059ab  tcl-lib-1.21.tar.gz
+"

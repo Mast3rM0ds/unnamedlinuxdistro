@@ -1,4 +1,4 @@
-/home/sonakrie/Work/linux-7.1.7/tools/objtool/fixdep.o: fixdep.c \
+/home/sonakrie/Work/dumbasslinux/linux/tools/objtool/fixdep.o: fixdep.c \
  /usr/include/stdc-predef.h /usr/include/sys/types.h \
  /usr/include/features.h /usr/include/bits/alltypes.h \
  /usr/include/endian.h /usr/include/sys/select.h /usr/include/sys/stat.h \
