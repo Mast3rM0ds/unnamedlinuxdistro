@@ -38,6 +38,11 @@ deps_lib/debug_locks.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/linux/rwsem.h \
     $(wildcard include/config/DEBUG_LOCK_ALLOC) \
     $(wildcard include/config/PREEMPT_RT) \
@@ -106,7 +111,6 @@ deps_lib/debug_locks.o := \
   include/uapi/linux/const.h \
   arch/x86/include/asm/barrier.h \
   arch/x86/include/asm/alternative.h \
-    $(wildcard include/config/SMP) \
     $(wildcard include/config/CALL_THUNKS) \
     $(wildcard include/config/MITIGATION_ITS) \
   include/linux/objtool.h \
@@ -202,8 +206,6 @@ deps_lib/debug_locks.o := \
   arch/x86/include/asm/preempt.h \
   arch/x86/include/asm/rmwcc.h \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/CC_HAS_NAMED_AS) \
-    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
   include/asm-generic/percpu.h \
     $(wildcard include/config/HAVE_SETUP_PER_CPU_AREA) \
   include/linux/threads.h \
@@ -431,8 +433,8 @@ deps_lib/debug_locks.o := \
   arch/x86/include/asm/proto.h \
   arch/x86/include/uapi/asm/ldt.h \
   arch/x86/include/uapi/asm/sigcontext.h \
-  arch/x86/include/asm/cpuid/api.h \
   arch/x86/include/asm/cpuid/types.h \
+  arch/x86/include/asm/cpuid/leaf_types.h \
   arch/x86/include/asm/special_insns.h \
   arch/x86/include/asm/fpu/types.h \
   arch/x86/include/asm/vmxfeatures.h \

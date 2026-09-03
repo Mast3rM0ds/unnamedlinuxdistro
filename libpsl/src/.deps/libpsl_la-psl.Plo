@@ -1,0 +1,47 @@
+libpsl_la-psl.lo: psl.c \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h \
+ ../config.h /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/types.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/features.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/endian.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/select.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/stat.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/stat.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdio.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/alloca.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/string.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/strings.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/ctype.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/time.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/errno.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/errno.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/limits.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/limits.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/langinfo.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/nl_types.h \
+ ../include/libpsl.h suffixes_dafsa.h
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h:
+../config.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/types.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/features.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/endian.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/select.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/stat.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/stat.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdio.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/alloca.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/string.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/strings.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/ctype.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/time.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/errno.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/errno.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/limits.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/limits.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/langinfo.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/nl_types.h:
+../include/libpsl.h:
+suffixes_dafsa.h:

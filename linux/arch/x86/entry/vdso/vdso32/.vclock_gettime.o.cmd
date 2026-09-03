@@ -37,6 +37,11 @@ deps_arch/x86/entry/vdso/vdso32/vclock_gettime.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   arch/x86/entry/vdso/vdso32/fake_32bit_build.h \
     $(wildcard include/config/64BIT) \
     $(wildcard include/config/COMPAT) \
@@ -52,7 +57,6 @@ deps_arch/x86/entry/vdso/vdso32/vclock_gettime.o := \
   include/linux/time.h \
     $(wildcard include/config/POSIX_TIMERS) \
   include/linux/cache.h \
-    $(wildcard include/config/SMP) \
     $(wildcard include/config/ARCH_HAS_CACHE_LINE_SIZE) \
   include/uapi/linux/kernel.h \
   include/uapi/linux/sysinfo.h \
@@ -226,14 +230,12 @@ deps_arch/x86/entry/vdso/vdso32/vclock_gettime.o := \
   include/linux/timex.h \
   include/uapi/linux/timex.h \
   arch/x86/include/asm/timex.h \
-    $(wildcard include/config/X86_TSC) \
   arch/x86/include/asm/processor.h \
     $(wildcard include/config/X86_VMX_FEATURE_NAMES) \
     $(wildcard include/config/X86_IOPL_IOPERM) \
     $(wildcard include/config/VM86) \
     $(wildcard include/config/X86_USER_SHADOW_STACK) \
     $(wildcard include/config/X86_DEBUG_FPU) \
-    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
     $(wildcard include/config/CPU_SUP_AMD) \
     $(wildcard include/config/XEN) \
   arch/x86/include/asm/processor-flags.h \
@@ -272,7 +274,6 @@ deps_arch/x86/entry/vdso/vdso32/vclock_gettime.o := \
   arch/x86/include/uapi/asm/sigcontext.h \
   arch/x86/include/asm/current.h \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/CC_HAS_NAMED_AS) \
   include/asm-generic/percpu.h \
     $(wildcard include/config/DEBUG_PREEMPT) \
     $(wildcard include/config/HAVE_SETUP_PER_CPU_AREA) \
@@ -281,10 +282,8 @@ deps_arch/x86/entry/vdso/vdso32/vclock_gettime.o := \
   include/linux/percpu-defs.h \
     $(wildcard include/config/ARCH_MODULE_NEEDS_WEAK_PER_CPU) \
     $(wildcard include/config/DEBUG_FORCE_WEAK_PER_CPU) \
-  arch/x86/include/asm/cpuid/api.h \
   arch/x86/include/asm/cpuid/types.h \
-  arch/x86/include/asm/string.h \
-  arch/x86/include/asm/string_32.h \
+  arch/x86/include/asm/cpuid/leaf_types.h \
   arch/x86/include/asm/page.h \
   arch/x86/include/asm/page_32.h \
     $(wildcard include/config/DEBUG_VIRTUAL) \
@@ -299,6 +298,8 @@ deps_arch/x86/entry/vdso/vdso32/vclock_gettime.o := \
   include/linux/errno.h \
   include/uapi/linux/errno.h \
   include/uapi/linux/string.h \
+  arch/x86/include/asm/string.h \
+  arch/x86/include/asm/string_32.h \
   include/linux/range.h \
   include/asm-generic/memory_model.h \
     $(wildcard include/config/FLATMEM) \
@@ -430,7 +431,7 @@ deps_arch/x86/entry/vdso/vdso32/vclock_gettime.o := \
   arch/x86/include/asm/shared/msr.h \
   include/linux/percpu.h \
     $(wildcard include/config/MODULES) \
-    $(wildcard include/config/RANDOM_KMALLOC_CACHES) \
+    $(wildcard include/config/KMALLOC_PARTITION_CACHES) \
     $(wildcard include/config/PAGE_SIZE_4KB) \
     $(wildcard include/config/NEED_PER_CPU_PAGE_FIRST_CHUNK) \
   include/linux/alloc_tag.h \
@@ -520,9 +521,9 @@ deps_arch/x86/entry/vdso/vdso32/vclock_gettime.o := \
     $(wildcard include/config/TASK_XACCT) \
     $(wildcard include/config/CPUSETS) \
     $(wildcard include/config/X86_CPU_RESCTRL) \
-    $(wildcard include/config/FUTEX) \
     $(wildcard include/config/PERF_EVENTS) \
     $(wildcard include/config/NUMA_BALANCING) \
+    $(wildcard include/config/SCHED_CACHE) \
     $(wildcard include/config/ARCH_HAS_LAZY_MMU_MODE) \
     $(wildcard include/config/FAULT_INJECTION) \
     $(wildcard include/config/LATENCYTOP) \
@@ -548,17 +549,21 @@ deps_arch/x86/entry/vdso/vdso32/vclock_gettime.o := \
     $(wildcard include/config/SCHED_PROXY_EXEC) \
     $(wildcard include/config/SCHED_MM_CID) \
   include/uapi/linux/sched.h \
-  include/linux/pid_types.h \
-  include/linux/sem_types.h \
-  include/linux/shm.h \
-  arch/x86/include/asm/shmparam.h \
-  include/linux/kmsan_types.h \
+  include/linux/futex_types.h \
+    $(wildcard include/config/FUTEX) \
+    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
+    $(wildcard include/config/FUTEX_ROBUST_UNLOCK) \
   include/linux/mutex_types.h \
     $(wildcard include/config/MUTEX_SPIN_ON_OWNER) \
     $(wildcard include/config/DEBUG_MUTEXES) \
   include/linux/osq_lock.h \
   include/linux/spinlock_types.h \
   include/linux/rwlock_types.h \
+  include/linux/pid_types.h \
+  include/linux/sem_types.h \
+  include/linux/shm.h \
+  arch/x86/include/asm/shmparam.h \
+  include/linux/kmsan_types.h \
   include/linux/plist_types.h \
   include/linux/hrtimer_types.h \
   include/linux/timerqueue_types.h \
@@ -789,7 +794,6 @@ deps_arch/x86/entry/vdso/vdso32/vclock_gettime.o := \
     $(wildcard include/config/PER_VMA_LOCK) \
     $(wildcard include/config/HAVE_ARCH_COMPAT_MMAP_BASES) \
     $(wildcard include/config/MEMBARRIER) \
-    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
     $(wildcard include/config/ARCH_HAS_ELF_CORE_EFLAGS) \
     $(wildcard include/config/AIO) \
     $(wildcard include/config/MMU_NOTIFIER) \
@@ -882,10 +886,7 @@ deps_arch/x86/entry/vdso/vdso32/vclock_gettime.o := \
   include/linux/stat.h \
   arch/x86/include/uapi/asm/stat.h \
   include/uapi/linux/stat.h \
-  include/linux/mod_devicetable.h \
-  include/uapi/linux/mei.h \
-  include/uapi/linux/mei_uuid.h \
-  include/linux/uuid.h \
+  include/linux/device-id/of.h \
   include/linux/property.h \
   include/linux/fwnode.h \
   arch/x86/include/asm/io.h \

@@ -1,0 +1,37 @@
+libgnu_la-getopt1.lo: getopt1.c \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h \
+ ../config.h getopt.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/getopt.h getopt-cdefs.h \
+ getopt-pfx-core.h unistd.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/unistd.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/features.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h stddef.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h stdlib.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h alloca.h \
+ sys/types.h /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/types.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/endian.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/select.h \
+ getopt-core.h getopt-pfx-ext.h getopt-ext.h getopt_int.h
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h:
+../config.h:
+getopt.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/getopt.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+unistd.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unistd.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/features.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h:
+stddef.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h:
+stdlib.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h:
+alloca.h:
+sys/types.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/types.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/endian.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/select.h:
+getopt-core.h:
+getopt-pfx-ext.h:
+getopt-ext.h:
+getopt_int.h:

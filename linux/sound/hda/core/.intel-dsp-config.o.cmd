@@ -61,6 +61,11 @@ deps_sound/hda/core/intel-dsp-config.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/linux/acpi.h \
     $(wildcard include/config/ACPI) \
     $(wildcard include/config/ACPI_TABLE_LIB) \
@@ -163,7 +168,6 @@ deps_sound/hda/core/intel-dsp-config.o := \
     $(wildcard include/config/ILLEGAL_POINTER_VALUE) \
   arch/x86/include/asm/barrier.h \
   arch/x86/include/asm/alternative.h \
-    $(wildcard include/config/SMP) \
     $(wildcard include/config/CALL_THUNKS) \
     $(wildcard include/config/MITIGATION_ITS) \
     $(wildcard include/config/MITIGATION_RETHUNK) \
@@ -253,7 +257,9 @@ deps_sound/hda/core/intel-dsp-config.o := \
     $(wildcard include/config/SLUB_TINY) \
     $(wildcard include/config/SLAB_OBJ_EXT) \
     $(wildcard include/config/SLUB_DEBUG) \
-    $(wildcard include/config/RANDOM_KMALLOC_CACHES) \
+    $(wildcard include/config/KMALLOC_PARTITION_CACHES) \
+    $(wildcard include/config/KMALLOC_PARTITION_RANDOM) \
+    $(wildcard include/config/KMALLOC_PARTITION_TYPED) \
     $(wildcard include/config/ZONE_DMA) \
     $(wildcard include/config/SLAB_BUCKETS) \
     $(wildcard include/config/KVFREE_RCU_BATCHED) \
@@ -321,8 +327,6 @@ deps_sound/hda/core/intel-dsp-config.o := \
   arch/x86/include/asm/preempt.h \
   arch/x86/include/asm/rmwcc.h \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/CC_HAS_NAMED_AS) \
-    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
   include/asm-generic/percpu.h \
     $(wildcard include/config/HAVE_SETUP_PER_CPU_AREA) \
   include/linux/threads.h \
@@ -529,8 +533,8 @@ deps_sound/hda/core/intel-dsp-config.o := \
   arch/x86/include/asm/proto.h \
   arch/x86/include/uapi/asm/ldt.h \
   arch/x86/include/uapi/asm/sigcontext.h \
-  arch/x86/include/asm/cpuid/api.h \
   arch/x86/include/asm/cpuid/types.h \
+  arch/x86/include/asm/cpuid/leaf_types.h \
   arch/x86/include/asm/special_insns.h \
   arch/x86/include/asm/fpu/types.h \
   arch/x86/include/asm/vmxfeatures.h \
@@ -621,7 +625,6 @@ deps_sound/hda/core/intel-dsp-config.o := \
     $(wildcard include/config/PER_VMA_LOCK) \
     $(wildcard include/config/HAVE_ARCH_COMPAT_MMAP_BASES) \
     $(wildcard include/config/MEMBARRIER) \
-    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
     $(wildcard include/config/ARCH_HAS_ELF_CORE_EFLAGS) \
     $(wildcard include/config/AIO) \
     $(wildcard include/config/MMU_NOTIFIER) \
@@ -631,6 +634,7 @@ deps_sound/hda/core/intel-dsp-config.o := \
     $(wildcard include/config/KSM) \
     $(wildcard include/config/MM_ID) \
     $(wildcard include/config/SCHED_MM_CID) \
+    $(wildcard include/config/SCHED_CACHE) \
     $(wildcard include/config/CORE_DUMP_DEFAULT_ELF_HEADERS) \
   include/linux/mm_types_task.h \
   arch/x86/include/asm/tlbbatch.h \
@@ -703,7 +707,6 @@ deps_sound/hda/core/intel-dsp-config.o := \
     $(wildcard include/config/TASK_XACCT) \
     $(wildcard include/config/CPUSETS) \
     $(wildcard include/config/X86_CPU_RESCTRL) \
-    $(wildcard include/config/FUTEX) \
     $(wildcard include/config/PERF_EVENTS) \
     $(wildcard include/config/ARCH_HAS_LAZY_MMU_MODE) \
     $(wildcard include/config/FAULT_INJECTION) \
@@ -729,6 +732,10 @@ deps_sound/hda/core/intel-dsp-config.o := \
     $(wildcard include/config/SCHED_PROXY_EXEC) \
     $(wildcard include/config/MEM_ALLOC_PROFILING_DEBUG) \
   include/uapi/linux/sched.h \
+  include/linux/futex_types.h \
+    $(wildcard include/config/FUTEX) \
+    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
+    $(wildcard include/config/FUTEX_ROBUST_UNLOCK) \
   include/linux/pid_types.h \
   include/linux/sem_types.h \
   include/linux/shm.h \
@@ -807,7 +814,6 @@ deps_sound/hda/core/intel-dsp-config.o := \
   include/linux/timex.h \
   include/uapi/linux/timex.h \
   arch/x86/include/asm/timex.h \
-    $(wildcard include/config/X86_TSC) \
   arch/x86/include/asm/tsc.h \
   arch/x86/include/asm/msr.h \
   arch/x86/include/uapi/asm/msr.h \
@@ -901,12 +907,6 @@ deps_sound/hda/core/intel-dsp-config.o := \
     $(wildcard include/config/DMA_CMA) \
     $(wildcard include/config/SWIOTLB) \
     $(wildcard include/config/SWIOTLB_DYNAMIC) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_DEVICE) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU_ALL) \
-    $(wildcard include/config/DMA_OPS_BYPASS) \
-    $(wildcard include/config/DMA_NEED_SYNC) \
-    $(wildcard include/config/IOMMU_DMA) \
     $(wildcard include/config/OF) \
     $(wildcard include/config/DEVTMPFS) \
   include/linux/dev_printk.h \
@@ -1013,7 +1013,6 @@ deps_sound/hda/core/intel-dsp-config.o := \
   include/uapi/linux/hdlc/ioctl.h \
   include/linux/fs.h \
     $(wildcard include/config/FANOTIFY_ACCESS_PERMISSIONS) \
-    $(wildcard include/config/READ_ONLY_THP_FOR_FS) \
     $(wildcard include/config/FS_POSIX_ACL) \
     $(wildcard include/config/CGROUP_WRITEBACK) \
     $(wildcard include/config/IMA) \
@@ -1054,6 +1053,7 @@ deps_sound/hda/core/intel-dsp-config.o := \
     $(wildcard include/config/HAVE_ARCH_THREAD_STRUCT_WHITELIST) \
   include/linux/uaccess.h \
     $(wildcard include/config/ARCH_HAS_SUBPAGE_FAULTS) \
+    $(wildcard include/config/ARCH_MEMORY_ORDER_TSO) \
   include/linux/fault-inject-usercopy.h \
     $(wildcard include/config/FAULT_INJECTION_USERCOPY) \
   include/linux/nospec.h \
@@ -1080,7 +1080,6 @@ deps_sound/hda/core/intel-dsp-config.o := \
     $(wildcard include/config/X86_SGX) \
   arch/x86/include/asm/pkru.h \
   arch/x86/include/asm/fpu/api.h \
-    $(wildcard include/config/MATH_EMULATION) \
   arch/x86/include/asm/coco.h \
   include/asm-generic/pgtable_uffd.h \
     $(wildcard include/config/PTE_MARKER_UFFD_WP) \
@@ -1196,11 +1195,11 @@ deps_sound/hda/core/intel-dsp-config.o := \
     $(wildcard include/config/UNWINDER_ORC) \
   include/asm-generic/module.h \
     $(wildcard include/config/HAVE_MOD_ARCH_SPECIFIC) \
-  arch/x86/include/asm/device.h \
+  include/linux/device-id/acpi.h \
+  include/linux/device-id/of.h \
+  arch/x86/include/generated/asm/device.h \
+  include/asm-generic/device.h \
   include/linux/pm_wakeup.h \
-  include/linux/mod_devicetable.h \
-  include/uapi/linux/mei.h \
-  include/uapi/linux/mei_uuid.h \
   include/linux/property.h \
   include/linux/fwnode.h \
   include/linux/node.h \
@@ -1271,6 +1270,7 @@ deps_sound/hda/core/intel-dsp-config.o := \
     $(wildcard include/config/XEN_PV_DOM0) \
     $(wildcard include/config/PVH) \
     $(wildcard include/config/XEN_DOM0) \
+  arch/x86/include/asm/cpuid/api.h \
   include/xen/xen.h \
     $(wildcard include/config/XEN_PVH) \
     $(wildcard include/config/XEN_BALLOON) \
@@ -1279,6 +1279,7 @@ deps_sound/hda/core/intel-dsp-config.o := \
   include/xen/balloon.h \
   include/linux/dmi.h \
     $(wildcard include/config/DMI) \
+  include/linux/device-id/dmi.h \
   include/linux/pci.h \
     $(wildcard include/config/PCI_IOV) \
     $(wildcard include/config/PCIEAER) \
@@ -1305,6 +1306,7 @@ deps_sound/hda/core/intel-dsp-config.o := \
     $(wildcard include/config/ACPI_MCFG) \
     $(wildcard include/config/EEH) \
     $(wildcard include/config/S390) \
+  include/linux/device-id/pci.h \
   include/linux/interrupt.h \
     $(wildcard include/config/IRQ_FORCED_THREADING) \
     $(wildcard include/config/GENERIC_IRQ_PROBE) \
@@ -1319,17 +1321,18 @@ deps_sound/hda/core/intel-dsp-config.o := \
     $(wildcard include/config/OSNOISE_TRACER) \
   include/linux/vtime.h \
     $(wildcard include/config/VIRT_CPU_ACCOUNTING) \
+    $(wildcard include/config/HAVE_VIRT_CPU_ACCOUNTING_IDLE) \
     $(wildcard include/config/IRQ_TIME_ACCOUNTING) \
   arch/x86/include/asm/hardirq.h \
-    $(wildcard include/config/CPU_MITIGATIONS) \
-    $(wildcard include/config/KVM_INTEL) \
-    $(wildcard include/config/KVM) \
-    $(wildcard include/config/GUEST_PERF_EVENTS) \
     $(wildcard include/config/X86_THERMAL_VECTOR) \
     $(wildcard include/config/X86_MCE_THRESHOLD) \
     $(wildcard include/config/X86_MCE_AMD) \
     $(wildcard include/config/X86_HV_CALLBACK_VECTOR) \
+    $(wildcard include/config/KVM) \
+    $(wildcard include/config/GUEST_PERF_EVENTS) \
     $(wildcard include/config/X86_POSTED_MSI) \
+    $(wildcard include/config/CPU_MITIGATIONS) \
+    $(wildcard include/config/KVM_INTEL) \
   arch/x86/include/asm/irq.h \
   arch/x86/include/asm/sections.h \
   include/asm-generic/sections.h \
@@ -1413,6 +1416,8 @@ deps_sound/hda/core/intel-dsp-config.o := \
   arch/x86/include/asm/memtype.h \
   include/linux/dma-mapping.h \
     $(wildcard include/config/DMA_API_DEBUG) \
+    $(wildcard include/config/IOMMU_DMA) \
+    $(wildcard include/config/DMA_NEED_SYNC) \
     $(wildcard include/config/NEED_DMA_MAP_STATE) \
   include/linux/dma-direction.h \
   include/linux/soundwire/sdw.h \
@@ -1452,6 +1457,7 @@ deps_sound/hda/core/intel-dsp-config.o := \
     $(wildcard include/config/OF_KOBJ) \
     $(wildcard include/config/OF_NUMA) \
     $(wildcard include/config/OF_OVERLAY) \
+  include/linux/device-id/sdw.h \
   include/sound/sdca.h \
     $(wildcard include/config/SND_SOC_SDCA) \
   include/linux/soundwire/sdw_intel.h \
@@ -1472,6 +1478,59 @@ deps_sound/hda/core/intel-dsp-config.o := \
   include/sound/intel-nhlt.h \
     $(wildcard include/config/SND_INTEL_NHLT) \
   include/sound/soc-acpi.h \
+  include/linux/mod_devicetable.h \
+  include/linux/device-id/amba.h \
+  include/linux/device-id/ap.h \
+  include/linux/device-id/apr.h \
+  include/linux/device-id/auxiliary.h \
+  include/linux/device-id/bcma.h \
+  include/linux/device-id/ccw.h \
+  include/linux/device-id/cdx.h \
+  include/linux/device-id/coreboot.h \
+  include/linux/device-id/css.h \
+  include/linux/device-id/dfl.h \
+  include/linux/device-id/eisa.h \
+  include/linux/device-id/fsl_mc.h \
+  include/linux/device-id/hda.h \
+  include/linux/device-id/hid.h \
+  include/linux/device-id/hv_vmbus.h \
+  include/linux/device-id/i2c.h \
+  include/linux/device-id/i3c.h \
+  include/linux/device-id/ieee1394.h \
+  include/linux/device-id/input.h \
+  include/linux/device-id/ipack.h \
+  include/linux/device-id/isapnp.h \
+  include/linux/device-id/ishtp.h \
+  include/linux/device-id/mcb.h \
+  include/linux/device-id/mdio.h \
+  include/linux/device-id/mei_cl.h \
+  include/uapi/linux/mei_uuid.h \
+  include/linux/device-id/mhi.h \
+  include/linux/device-id/mips_cdmm.h \
+  include/linux/device-id/parisc.h \
+  include/linux/device-id/pcmcia.h \
+  include/linux/device-id/platform.h \
+  include/linux/device-id/pnp.h \
+  include/linux/device-id/rio.h \
+  include/linux/device-id/rpmsg.h \
+  include/linux/device-id/sdio.h \
+  include/linux/device-id/serio.h \
+  include/linux/device-id/slim.h \
+  include/linux/device-id/spi.h \
+  include/linux/device-id/spmi.h \
+  include/linux/device-id/ssam.h \
+  include/linux/device-id/ssb.h \
+  include/linux/device-id/tb.h \
+  include/linux/device-id/tee_client.h \
+  include/linux/device-id/typec.h \
+  include/linux/device-id/ulpi.h \
+  include/linux/device-id/usb.h \
+  include/linux/device-id/vchiq.h \
+  include/linux/device-id/vio.h \
+  include/linux/device-id/virtio.h \
+  include/linux/device-id/wmi.h \
+  include/linux/device-id/x86_cpu.h \
+  include/linux/device-id/zorro.h \
   include/sound/soc.h \
     $(wildcard include/config/SND_SOC_COMPRESS) \
     $(wildcard include/config/SND_SOC_AC97_BUS) \

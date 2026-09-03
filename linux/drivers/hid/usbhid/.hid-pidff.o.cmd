@@ -38,6 +38,11 @@ deps_drivers/hid/usbhid/hid-pidff.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   drivers/hid/usbhid/hid-pidff.h \
     $(wildcard include/config/HID_PID) \
   include/linux/hid.h \
@@ -96,7 +101,6 @@ deps_drivers/hid/usbhid/hid-pidff.o := \
   include/asm-generic/bitops/generic-non-atomic.h \
   arch/x86/include/asm/barrier.h \
   arch/x86/include/asm/alternative.h \
-    $(wildcard include/config/SMP) \
     $(wildcard include/config/CALL_THUNKS) \
     $(wildcard include/config/MITIGATION_ITS) \
     $(wildcard include/config/MITIGATION_RETHUNK) \
@@ -209,7 +213,9 @@ deps_drivers/hid/usbhid/hid-pidff.o := \
     $(wildcard include/config/SLUB_TINY) \
     $(wildcard include/config/SLAB_OBJ_EXT) \
     $(wildcard include/config/SLUB_DEBUG) \
-    $(wildcard include/config/RANDOM_KMALLOC_CACHES) \
+    $(wildcard include/config/KMALLOC_PARTITION_CACHES) \
+    $(wildcard include/config/KMALLOC_PARTITION_RANDOM) \
+    $(wildcard include/config/KMALLOC_PARTITION_TYPED) \
     $(wildcard include/config/ZONE_DMA) \
     $(wildcard include/config/SLAB_BUCKETS) \
     $(wildcard include/config/KVFREE_RCU_BATCHED) \
@@ -276,8 +282,6 @@ deps_drivers/hid/usbhid/hid-pidff.o := \
   include/uapi/asm-generic/errno-base.h \
   arch/x86/include/asm/preempt.h \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/CC_HAS_NAMED_AS) \
-    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
   include/asm-generic/percpu.h \
     $(wildcard include/config/HAVE_SETUP_PER_CPU_AREA) \
   include/linux/threads.h \
@@ -474,8 +478,8 @@ deps_drivers/hid/usbhid/hid-pidff.o := \
   arch/x86/include/asm/proto.h \
   arch/x86/include/uapi/asm/ldt.h \
   arch/x86/include/uapi/asm/sigcontext.h \
-  arch/x86/include/asm/cpuid/api.h \
   arch/x86/include/asm/cpuid/types.h \
+  arch/x86/include/asm/cpuid/leaf_types.h \
   arch/x86/include/asm/special_insns.h \
   arch/x86/include/asm/fpu/types.h \
   arch/x86/include/asm/vmxfeatures.h \
@@ -566,7 +570,6 @@ deps_drivers/hid/usbhid/hid-pidff.o := \
     $(wildcard include/config/PER_VMA_LOCK) \
     $(wildcard include/config/HAVE_ARCH_COMPAT_MMAP_BASES) \
     $(wildcard include/config/MEMBARRIER) \
-    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
     $(wildcard include/config/ARCH_HAS_ELF_CORE_EFLAGS) \
     $(wildcard include/config/AIO) \
     $(wildcard include/config/MMU_NOTIFIER) \
@@ -576,6 +579,7 @@ deps_drivers/hid/usbhid/hid-pidff.o := \
     $(wildcard include/config/KSM) \
     $(wildcard include/config/MM_ID) \
     $(wildcard include/config/SCHED_MM_CID) \
+    $(wildcard include/config/SCHED_CACHE) \
     $(wildcard include/config/CORE_DUMP_DEFAULT_ELF_HEADERS) \
   include/linux/mm_types_task.h \
   arch/x86/include/asm/tlbbatch.h \
@@ -648,7 +652,6 @@ deps_drivers/hid/usbhid/hid-pidff.o := \
     $(wildcard include/config/TASK_XACCT) \
     $(wildcard include/config/CPUSETS) \
     $(wildcard include/config/X86_CPU_RESCTRL) \
-    $(wildcard include/config/FUTEX) \
     $(wildcard include/config/PERF_EVENTS) \
     $(wildcard include/config/ARCH_HAS_LAZY_MMU_MODE) \
     $(wildcard include/config/FAULT_INJECTION) \
@@ -674,6 +677,10 @@ deps_drivers/hid/usbhid/hid-pidff.o := \
     $(wildcard include/config/SCHED_PROXY_EXEC) \
     $(wildcard include/config/MEM_ALLOC_PROFILING_DEBUG) \
   include/uapi/linux/sched.h \
+  include/linux/futex_types.h \
+    $(wildcard include/config/FUTEX) \
+    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
+    $(wildcard include/config/FUTEX_ROBUST_UNLOCK) \
   include/linux/pid_types.h \
   include/linux/sem_types.h \
   include/linux/shm.h \
@@ -752,7 +759,6 @@ deps_drivers/hid/usbhid/hid-pidff.o := \
   include/linux/timex.h \
   include/uapi/linux/timex.h \
   arch/x86/include/asm/timex.h \
-    $(wildcard include/config/X86_TSC) \
   arch/x86/include/asm/tsc.h \
   arch/x86/include/asm/msr.h \
   arch/x86/include/uapi/asm/msr.h \
@@ -838,10 +844,7 @@ deps_drivers/hid/usbhid/hid-pidff.o := \
   include/linux/kasan-enabled.h \
     $(wildcard include/config/ARCH_DEFER_KASAN) \
   include/linux/kasan-tags.h \
-  include/linux/mod_devicetable.h \
-  include/uapi/linux/mei.h \
-  include/uapi/linux/mei_uuid.h \
-  include/linux/uuid.h \
+  include/linux/device-id/hid.h \
   include/linux/input.h \
   include/uapi/linux/input.h \
   include/uapi/linux/input-event-codes.h \
@@ -854,12 +857,6 @@ deps_drivers/hid/usbhid/hid-pidff.o := \
     $(wildcard include/config/DMA_CMA) \
     $(wildcard include/config/SWIOTLB) \
     $(wildcard include/config/SWIOTLB_DYNAMIC) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_DEVICE) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU_ALL) \
-    $(wildcard include/config/DMA_OPS_BYPASS) \
-    $(wildcard include/config/DMA_NEED_SYNC) \
-    $(wildcard include/config/IOMMU_DMA) \
     $(wildcard include/config/PM_SLEEP) \
     $(wildcard include/config/OF) \
     $(wildcard include/config/DEVTMPFS) \
@@ -969,7 +966,6 @@ deps_drivers/hid/usbhid/hid-pidff.o := \
   include/uapi/linux/hdlc/ioctl.h \
   include/linux/fs.h \
     $(wildcard include/config/FANOTIFY_ACCESS_PERMISSIONS) \
-    $(wildcard include/config/READ_ONLY_THP_FOR_FS) \
     $(wildcard include/config/FS_POSIX_ACL) \
     $(wildcard include/config/CGROUP_WRITEBACK) \
     $(wildcard include/config/IMA) \
@@ -991,6 +987,7 @@ deps_drivers/hid/usbhid/hid-pidff.o := \
     $(wildcard include/config/SHRINKER_DEBUG) \
   include/linux/list_bl.h \
   include/linux/bit_spinlock.h \
+  include/linux/uuid.h \
   include/linux/percpu-rwsem.h \
   include/linux/rcuwait.h \
   include/linux/sched/signal.h \
@@ -1009,6 +1006,7 @@ deps_drivers/hid/usbhid/hid-pidff.o := \
     $(wildcard include/config/HAVE_ARCH_THREAD_STRUCT_WHITELIST) \
   include/linux/uaccess.h \
     $(wildcard include/config/ARCH_HAS_SUBPAGE_FAULTS) \
+    $(wildcard include/config/ARCH_MEMORY_ORDER_TSO) \
   include/linux/fault-inject-usercopy.h \
     $(wildcard include/config/FAULT_INJECTION_USERCOPY) \
   include/linux/nospec.h \
@@ -1035,7 +1033,6 @@ deps_drivers/hid/usbhid/hid-pidff.o := \
     $(wildcard include/config/X86_SGX) \
   arch/x86/include/asm/pkru.h \
   arch/x86/include/asm/fpu/api.h \
-    $(wildcard include/config/MATH_EMULATION) \
   arch/x86/include/asm/coco.h \
   include/asm-generic/pgtable_uffd.h \
     $(wildcard include/config/PTE_MARKER_UFFD_WP) \
@@ -1152,8 +1149,12 @@ deps_drivers/hid/usbhid/hid-pidff.o := \
     $(wildcard include/config/UNWINDER_ORC) \
   include/asm-generic/module.h \
     $(wildcard include/config/HAVE_MOD_ARCH_SPECIFIC) \
-  arch/x86/include/asm/device.h \
+  include/linux/device-id/acpi.h \
+  include/linux/device-id/of.h \
+  arch/x86/include/generated/asm/device.h \
+  include/asm-generic/device.h \
   include/linux/pm_wakeup.h \
+  include/linux/device-id/input.h \
   include/linux/power_supply.h \
     $(wildcard include/config/THERMAL) \
     $(wildcard include/config/LEDS_TRIGGERS) \
@@ -1188,6 +1189,7 @@ deps_drivers/hid/usbhid/hid-pidff.o := \
     $(wildcard include/config/IPV6) \
   include/uapi/linux/bpf_common.h \
   include/uapi/linux/filter.h \
+  include/linux/bpf_defs.h \
   include/crypto/sha2.h \
   include/linux/file.h \
   include/linux/kallsyms.h \
@@ -1311,6 +1313,7 @@ deps_drivers/hid/usbhid/hid-pidff.o := \
   include/linux/rculist_nulls.h \
   include/linux/kernel_stat.h \
     $(wildcard include/config/GENERIC_IRQ_STAT_SNAPSHOT) \
+    $(wildcard include/config/HAVE_VIRT_CPU_ACCOUNTING_IDLE) \
   include/linux/interrupt.h \
     $(wildcard include/config/IRQ_FORCED_THREADING) \
     $(wildcard include/config/GENERIC_IRQ_PROBE) \
@@ -1327,15 +1330,15 @@ deps_drivers/hid/usbhid/hid-pidff.o := \
     $(wildcard include/config/VIRT_CPU_ACCOUNTING) \
     $(wildcard include/config/IRQ_TIME_ACCOUNTING) \
   arch/x86/include/asm/hardirq.h \
-    $(wildcard include/config/KVM_INTEL) \
-    $(wildcard include/config/KVM) \
-    $(wildcard include/config/GUEST_PERF_EVENTS) \
     $(wildcard include/config/X86_THERMAL_VECTOR) \
     $(wildcard include/config/X86_MCE_THRESHOLD) \
     $(wildcard include/config/X86_MCE_AMD) \
     $(wildcard include/config/X86_HV_CALLBACK_VECTOR) \
     $(wildcard include/config/HYPERV) \
+    $(wildcard include/config/KVM) \
+    $(wildcard include/config/GUEST_PERF_EVENTS) \
     $(wildcard include/config/X86_POSTED_MSI) \
+    $(wildcard include/config/KVM_INTEL) \
   arch/x86/include/asm/irq.h \
   arch/x86/include/asm/irq_vectors.h \
     $(wildcard include/config/PCI_MSI) \
@@ -1387,6 +1390,41 @@ deps_drivers/hid/usbhid/hid-pidff.o := \
   arch/x86/include/asm/cfi.h \
     $(wildcard include/config/FINEIBT_BHI) \
     $(wildcard include/config/FUNCTION_PADDING_CFI) \
+  include/linux/xattr.h \
+  include/uapi/linux/xattr.h \
+  include/linux/ftrace.h \
+    $(wildcard include/config/TRACER_SNAPSHOT) \
+    $(wildcard include/config/HAVE_FUNCTION_GRAPH_FREGS) \
+    $(wildcard include/config/FUNCTION_TRACER) \
+    $(wildcard include/config/HAVE_DYNAMIC_FTRACE_WITH_ARGS) \
+    $(wildcard include/config/HAVE_FTRACE_REGS_HAVING_PT_REGS) \
+    $(wildcard include/config/HAVE_REGS_AND_STACK_ACCESS_API) \
+    $(wildcard include/config/DYNAMIC_FTRACE_WITH_REGS) \
+    $(wildcard include/config/DYNAMIC_FTRACE_WITH_ARGS) \
+    $(wildcard include/config/DYNAMIC_FTRACE_WITH_DIRECT_CALLS) \
+    $(wildcard include/config/STACK_TRACER) \
+    $(wildcard include/config/DYNAMIC_FTRACE_WITH_CALL_OPS) \
+    $(wildcard include/config/FUNCTION_GRAPH_RETVAL) \
+    $(wildcard include/config/FTRACE_SYSCALLS) \
+  include/linux/trace_recursion.h \
+    $(wildcard include/config/FTRACE_RECORD_RECURSION) \
+    $(wildcard include/config/FTRACE_VALIDATE_RCU_IS_WATCHING) \
+  include/linux/trace_clock.h \
+  arch/x86/include/asm/trace_clock.h \
+  include/linux/ptrace.h \
+  include/linux/pid_namespace.h \
+    $(wildcard include/config/MEMFD_CREATE) \
+  include/uapi/linux/ptrace.h \
+  include/linux/seccomp.h \
+    $(wildcard include/config/HAVE_ARCH_SECCOMP_FILTER) \
+    $(wildcard include/config/SECCOMP_FILTER) \
+    $(wildcard include/config/CHECKPOINT_RESTORE) \
+    $(wildcard include/config/SECCOMP_CACHE_DEBUG) \
+  include/uapi/linux/seccomp.h \
+  arch/x86/include/asm/seccomp.h \
+  include/asm-generic/seccomp.h \
+  arch/x86/include/asm/ftrace.h \
+    $(wildcard include/config/HAVE_FENTRY) \
   arch/x86/include/asm/rqspinlock.h \
     $(wildcard include/config/QUEUED_SPINLOCKS) \
   include/asm-generic/rqspinlock.h \
@@ -1394,6 +1432,7 @@ deps_drivers/hid/usbhid/hid-pidff.o := \
     $(wildcard include/config/USB_MON) \
     $(wildcard include/config/USB_XHCI_SIDEBAND) \
     $(wildcard include/config/USB_LED_TRIG) \
+  include/linux/device-id/usb.h \
   include/linux/usb/ch9.h \
   include/uapi/linux/usb/ch9.h \
   include/linux/delay.h \

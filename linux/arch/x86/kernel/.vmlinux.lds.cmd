@@ -13,7 +13,6 @@ deps_arch/x86/kernel/vmlinux.lds := \
     $(wildcard include/config/X86_INTEL_MID) \
     $(wildcard include/config/X86_KERNEL_IBT) \
     $(wildcard include/config/FINEIBT) \
-    $(wildcard include/config/PROPELLER_CLANG) \
     $(wildcard include/config/KASAN) \
     $(wildcard include/config/COMPILE_TEST) \
     $(wildcard include/config/MITIGATION_UNRET_ENTRY) \
@@ -61,6 +60,7 @@ deps_arch/x86/kernel/vmlinux.lds := \
     $(wildcard include/config/PM_TRACE) \
     $(wildcard include/config/PRINTK_INDEX) \
     $(wildcard include/config/BLK_DEV_INITRD) \
+    $(wildcard include/config/PROPELLER_CLANG) \
     $(wildcard include/config/UNWIND_TABLES) \
     $(wildcard include/config/GCOV_KERNEL) \
     $(wildcard include/config/KASAN_GENERIC) \
@@ -105,6 +105,7 @@ deps_arch/x86/kernel/vmlinux.lds := \
     $(wildcard include/config/PHYS_ADDR_T_64BIT) \
     $(wildcard include/config/64BIT) \
     $(wildcard include/config/ARCH_32BIT_USTAT_F_TINODE) \
+    $(wildcard include/config/KCOV) \
   include/uapi/linux/types.h \
   arch/x86/include/generated/uapi/asm/types.h \
   include/uapi/asm-generic/types.h \

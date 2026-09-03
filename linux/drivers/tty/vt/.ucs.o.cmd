@@ -38,6 +38,11 @@ deps_drivers/tty/vt/ucs.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/linux/array_size.h \
   include/linux/compiler.h \
     $(wildcard include/config/TRACE_BRANCH_PROFILING) \
@@ -73,11 +78,16 @@ deps_drivers/tty/vt/ucs.o := \
   include/linux/kcsan-checks.h \
     $(wildcard include/config/KCSAN_WEAK_MEMORY) \
     $(wildcard include/config/KCSAN_IGNORE_ATOMICS) \
+  include/linux/build_bug.h \
   include/linux/bsearch.h \
   include/linux/consolemap.h \
     $(wildcard include/config/CONSOLE_TRANSLATIONS) \
-  include/linux/minmax.h \
-  include/linux/build_bug.h \
+  include/linux/math.h \
+  arch/x86/include/asm/div64.h \
+  include/asm-generic/div64.h \
+    $(wildcard include/config/CC_OPTIMIZE_FOR_PERFORMANCE) \
+  include/uapi/linux/kernel.h \
+  include/uapi/linux/sysinfo.h \
   include/linux/const.h \
   include/vdso/const.h \
   include/uapi/linux/const.h \

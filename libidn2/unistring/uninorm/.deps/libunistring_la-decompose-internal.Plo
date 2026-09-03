@@ -1,0 +1,32 @@
+uninorm/libunistring_la-decompose-internal.lo: \
+ uninorm/decompose-internal.c \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h \
+ ../config.h uninorm/decompose-internal.h stddef.h ../gl/stddef.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/unitypes.h \
+ ../unistring/stdint.h ../gl/stdint.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdint.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/stdint.h limits.h \
+ ../gl/limits.h /home/bloink/Work/unnamedlinuxdistro/fs/include/limits.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/features.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/limits.h \
+ array-mergesort.h
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h:
+../config.h:
+uninorm/decompose-internal.h:
+stddef.h:
+../gl/stddef.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unitypes.h:
+../unistring/stdint.h:
+../gl/stdint.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdint.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/stdint.h:
+limits.h:
+../gl/limits.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/limits.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/features.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/limits.h:
+array-mergesort.h:

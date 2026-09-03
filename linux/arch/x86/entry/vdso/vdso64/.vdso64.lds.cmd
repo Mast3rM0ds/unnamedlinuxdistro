@@ -4,6 +4,8 @@ source_arch/x86/entry/vdso/vdso64/vdso64.lds := arch/x86/entry/vdso/vdso64/vdso6
 
 deps_arch/x86/entry/vdso/vdso64/vdso64.lds := \
     $(wildcard include/config/X86_SGX) \
+    $(wildcard include/config/FUTEX_ROBUST_UNLOCK) \
+    $(wildcard include/config/COMPAT) \
   include/linux/compiler-version.h \
     $(wildcard include/config/CC_VERSION_TEXT) \
   include/linux/kconfig.h \
@@ -27,6 +29,7 @@ deps_arch/x86/entry/vdso/vdso64/vdso64.lds := \
     $(wildcard include/config/PHYS_ADDR_T_64BIT) \
     $(wildcard include/config/64BIT) \
     $(wildcard include/config/ARCH_32BIT_USTAT_F_TINODE) \
+    $(wildcard include/config/KCOV) \
   include/uapi/linux/types.h \
   arch/x86/include/generated/uapi/asm/types.h \
   include/uapi/asm-generic/types.h \

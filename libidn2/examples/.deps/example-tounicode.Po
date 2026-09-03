@@ -1,0 +1,22 @@
+example-tounicode.o: example-tounicode.c \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdio.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/features.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/alloca.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/string.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/strings.h ../lib/idn2.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdint.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/stdint.h
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdio.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/features.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/alloca.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/string.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/strings.h:
+../lib/idn2.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdint.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/stdint.h:

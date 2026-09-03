@@ -37,6 +37,11 @@ deps_arch/x86/entry/vdso/vdso64/vgetcpu.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   arch/x86/entry/vdso/vdso64/../common/vgetcpu.c \
   include/linux/kernel.h \
     $(wildcard include/config/PREEMPT_VOLUNTARY_BUILD) \
@@ -45,7 +50,6 @@ deps_arch/x86/entry/vdso/vdso64/vgetcpu.o := \
     $(wildcard include/config/HAVE_PREEMPT_DYNAMIC_KEY) \
     $(wildcard include/config/PREEMPT_) \
     $(wildcard include/config/DEBUG_ATOMIC_SLEEP) \
-    $(wildcard include/config/SMP) \
     $(wildcard include/config/MMU) \
     $(wildcard include/config/PROVE_LOCKING) \
     $(wildcard include/config/DYNAMIC_FTRACE) \

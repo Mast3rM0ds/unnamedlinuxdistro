@@ -45,6 +45,11 @@ deps_lib/decompress.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/linux/decompress/generic.h \
   include/linux/decompress/bunzip2.h \
   include/linux/decompress/unlzma.h \
@@ -135,7 +140,6 @@ deps_lib/decompress.o := \
     $(wildcard include/config/CONSOLE_LOGLEVEL_QUIET) \
     $(wildcard include/config/EARLY_PRINTK) \
     $(wildcard include/config/PRINTK) \
-    $(wildcard include/config/SMP) \
     $(wildcard include/config/PRINTK_INDEX) \
     $(wildcard include/config/DYNAMIC_DEBUG) \
     $(wildcard include/config/DYNAMIC_DEBUG_CORE) \

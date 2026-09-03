@@ -1,0 +1,28 @@
+src/prep_cif.lo: ../src/prep_cif.c /usr/include/stdc-predef.h \
+ include/ffi.h include/ffitarget.h /usr/include/stddef.h \
+ /usr/include/bits/alltypes.h /usr/include/limits.h \
+ /usr/include/features.h /usr/include/bits/limits.h \
+ ../include/ffi_common.h fficonfig.h /usr/include/alloca.h \
+ /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/fortify/stdlib.h \
+ /usr/include/stdlib.h /usr/include/limits.h
+/usr/include/stdc-predef.h:
+include/ffi.h:
+include/ffitarget.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:
+../include/ffi_common.h:
+fficonfig.h:
+/usr/include/alloca.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/limits.h:

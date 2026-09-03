@@ -38,6 +38,11 @@ deps_net/ethtool/phy.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/linux/phy.h \
     $(wildcard include/config/PHY_PACKAGE) \
     $(wildcard include/config/LED_TRIGGER_PHY) \
@@ -78,7 +83,6 @@ deps_net/ethtool/phy.o := \
     $(wildcard include/config/KCSAN_WEAK_MEMORY) \
     $(wildcard include/config/KCSAN_IGNORE_ATOMICS) \
   include/linux/spinlock.h \
-    $(wildcard include/config/SMP) \
     $(wildcard include/config/DEBUG_SPINLOCK) \
     $(wildcard include/config/PREEMPTION) \
     $(wildcard include/config/DEBUG_LOCK_ALLOC) \
@@ -118,8 +122,6 @@ deps_net/ethtool/phy.o := \
   arch/x86/include/asm/preempt.h \
   arch/x86/include/asm/rmwcc.h \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/CC_HAS_NAMED_AS) \
-    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
   include/linux/bits.h \
   include/vdso/bits.h \
   include/vdso/const.h \
@@ -432,8 +434,8 @@ deps_net/ethtool/phy.o := \
   arch/x86/include/asm/proto.h \
   arch/x86/include/uapi/asm/ldt.h \
   arch/x86/include/uapi/asm/sigcontext.h \
-  arch/x86/include/asm/cpuid/api.h \
   arch/x86/include/asm/cpuid/types.h \
+  arch/x86/include/asm/cpuid/leaf_types.h \
   arch/x86/include/asm/special_insns.h \
   arch/x86/include/asm/fpu/types.h \
   arch/x86/include/asm/vmxfeatures.h \
@@ -511,7 +513,6 @@ deps_net/ethtool/phy.o := \
   include/linux/timex.h \
   include/uapi/linux/timex.h \
   arch/x86/include/asm/timex.h \
-    $(wildcard include/config/X86_TSC) \
   arch/x86/include/asm/tsc.h \
   arch/x86/include/asm/msr.h \
     $(wildcard include/config/TRACEPOINTS) \
@@ -519,7 +520,7 @@ deps_net/ethtool/phy.o := \
   arch/x86/include/asm/shared/msr.h \
   include/linux/percpu.h \
     $(wildcard include/config/MODULES) \
-    $(wildcard include/config/RANDOM_KMALLOC_CACHES) \
+    $(wildcard include/config/KMALLOC_PARTITION_CACHES) \
     $(wildcard include/config/PAGE_SIZE_4KB) \
     $(wildcard include/config/NEED_PER_CPU_PAGE_FIRST_CHUNK) \
   include/linux/alloc_tag.h \
@@ -577,9 +578,9 @@ deps_net/ethtool/phy.o := \
     $(wildcard include/config/TASK_XACCT) \
     $(wildcard include/config/CPUSETS) \
     $(wildcard include/config/X86_CPU_RESCTRL) \
-    $(wildcard include/config/FUTEX) \
     $(wildcard include/config/PERF_EVENTS) \
     $(wildcard include/config/NUMA_BALANCING) \
+    $(wildcard include/config/SCHED_CACHE) \
     $(wildcard include/config/ARCH_HAS_LAZY_MMU_MODE) \
     $(wildcard include/config/FAULT_INJECTION) \
     $(wildcard include/config/LATENCYTOP) \
@@ -605,15 +606,19 @@ deps_net/ethtool/phy.o := \
     $(wildcard include/config/SCHED_PROXY_EXEC) \
     $(wildcard include/config/SCHED_MM_CID) \
   include/uapi/linux/sched.h \
+  include/linux/futex_types.h \
+    $(wildcard include/config/FUTEX) \
+    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
+    $(wildcard include/config/FUTEX_ROBUST_UNLOCK) \
+  include/linux/mutex_types.h \
+    $(wildcard include/config/MUTEX_SPIN_ON_OWNER) \
+    $(wildcard include/config/DEBUG_MUTEXES) \
+  include/linux/osq_lock.h \
   include/linux/pid_types.h \
   include/linux/sem_types.h \
   include/linux/shm.h \
   arch/x86/include/asm/shmparam.h \
   include/linux/kmsan_types.h \
-  include/linux/mutex_types.h \
-    $(wildcard include/config/MUTEX_SPIN_ON_OWNER) \
-    $(wildcard include/config/DEBUG_MUTEXES) \
-  include/linux/osq_lock.h \
   include/linux/plist_types.h \
   include/linux/hrtimer_types.h \
   include/linux/timerqueue_types.h \
@@ -708,7 +713,6 @@ deps_net/ethtool/phy.o := \
     $(wildcard include/config/SWAP) \
     $(wildcard include/config/HAVE_ARCH_COMPAT_MMAP_BASES) \
     $(wildcard include/config/MEMBARRIER) \
-    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
     $(wildcard include/config/ARCH_HAS_ELF_CORE_EFLAGS) \
     $(wildcard include/config/AIO) \
     $(wildcard include/config/MMU_NOTIFIER) \
@@ -802,7 +806,6 @@ deps_net/ethtool/phy.o := \
   include/uapi/linux/hdlc/ioctl.h \
   include/linux/fs.h \
     $(wildcard include/config/FANOTIFY_ACCESS_PERMISSIONS) \
-    $(wildcard include/config/READ_ONLY_THP_FOR_FS) \
     $(wildcard include/config/FS_POSIX_ACL) \
     $(wildcard include/config/CGROUP_WRITEBACK) \
     $(wildcard include/config/IMA) \
@@ -911,6 +914,7 @@ deps_net/ethtool/phy.o := \
     $(wildcard include/config/HAVE_ARCH_THREAD_STRUCT_WHITELIST) \
   include/linux/uaccess.h \
     $(wildcard include/config/ARCH_HAS_SUBPAGE_FAULTS) \
+    $(wildcard include/config/ARCH_MEMORY_ORDER_TSO) \
   include/linux/fault-inject-usercopy.h \
     $(wildcard include/config/FAULT_INJECTION_USERCOPY) \
   include/linux/nospec.h \
@@ -937,7 +941,6 @@ deps_net/ethtool/phy.o := \
     $(wildcard include/config/X86_SGX) \
   arch/x86/include/asm/pkru.h \
   arch/x86/include/asm/fpu/api.h \
-    $(wildcard include/config/MATH_EMULATION) \
   arch/x86/include/asm/coco.h \
   include/asm-generic/pgtable_uffd.h \
     $(wildcard include/config/PTE_MARKER_UFFD_WP) \
@@ -1031,6 +1034,8 @@ deps_net/ethtool/phy.o := \
     $(wildcard include/config/KFENCE) \
     $(wildcard include/config/SLUB_TINY) \
     $(wildcard include/config/SLUB_DEBUG) \
+    $(wildcard include/config/KMALLOC_PARTITION_RANDOM) \
+    $(wildcard include/config/KMALLOC_PARTITION_TYPED) \
     $(wildcard include/config/SLAB_BUCKETS) \
     $(wildcard include/config/KVFREE_RCU_BATCHED) \
   include/linux/percpu-refcount.h \
@@ -1181,18 +1186,19 @@ deps_net/ethtool/phy.o := \
     $(wildcard include/config/OSNOISE_TRACER) \
   include/linux/vtime.h \
     $(wildcard include/config/VIRT_CPU_ACCOUNTING) \
+    $(wildcard include/config/HAVE_VIRT_CPU_ACCOUNTING_IDLE) \
     $(wildcard include/config/IRQ_TIME_ACCOUNTING) \
   arch/x86/include/asm/hardirq.h \
-    $(wildcard include/config/CPU_MITIGATIONS) \
-    $(wildcard include/config/KVM_INTEL) \
-    $(wildcard include/config/KVM) \
-    $(wildcard include/config/GUEST_PERF_EVENTS) \
     $(wildcard include/config/X86_THERMAL_VECTOR) \
     $(wildcard include/config/X86_MCE_THRESHOLD) \
     $(wildcard include/config/X86_MCE_AMD) \
     $(wildcard include/config/X86_HV_CALLBACK_VECTOR) \
     $(wildcard include/config/HYPERV) \
+    $(wildcard include/config/KVM) \
+    $(wildcard include/config/GUEST_PERF_EVENTS) \
     $(wildcard include/config/X86_POSTED_MSI) \
+    $(wildcard include/config/CPU_MITIGATIONS) \
+    $(wildcard include/config/KVM_INTEL) \
   include/linux/highmem-internal.h \
   include/net/checksum.h \
   arch/x86/include/asm/checksum.h \
@@ -1215,10 +1221,6 @@ deps_net/ethtool/phy.o := \
     $(wildcard include/config/DMA_CMA) \
     $(wildcard include/config/SWIOTLB) \
     $(wildcard include/config/SWIOTLB_DYNAMIC) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_DEVICE) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU_ALL) \
-    $(wildcard include/config/DMA_OPS_BYPASS) \
     $(wildcard include/config/PM) \
     $(wildcard include/config/PM_SLEEP) \
     $(wildcard include/config/OF) \
@@ -1283,7 +1285,10 @@ deps_net/ethtool/phy.o := \
     $(wildcard include/config/UNWINDER_ORC) \
   include/asm-generic/module.h \
     $(wildcard include/config/HAVE_MOD_ARCH_SPECIFIC) \
-  arch/x86/include/asm/device.h \
+  include/linux/device-id/acpi.h \
+  include/linux/device-id/of.h \
+  arch/x86/include/generated/asm/device.h \
+  include/asm-generic/device.h \
   include/linux/pm_wakeup.h \
   include/linux/scatterlist.h \
     $(wildcard include/config/NEED_SG_DMA_LENGTH) \
@@ -1363,6 +1368,7 @@ deps_net/ethtool/phy.o := \
     $(wildcard include/config/IPV6) \
   include/uapi/linux/bpf_common.h \
   include/uapi/linux/filter.h \
+  include/linux/bpf_defs.h \
   include/crypto/sha2.h \
   include/linux/kallsyms.h \
     $(wildcard include/config/KALLSYMS_ALL) \
@@ -1466,6 +1472,41 @@ deps_net/ethtool/phy.o := \
   arch/x86/include/asm/cfi.h \
     $(wildcard include/config/FINEIBT_BHI) \
     $(wildcard include/config/FUNCTION_PADDING_CFI) \
+  include/linux/xattr.h \
+  include/uapi/linux/xattr.h \
+  include/linux/ftrace.h \
+    $(wildcard include/config/TRACER_SNAPSHOT) \
+    $(wildcard include/config/HAVE_FUNCTION_GRAPH_FREGS) \
+    $(wildcard include/config/FUNCTION_TRACER) \
+    $(wildcard include/config/HAVE_DYNAMIC_FTRACE_WITH_ARGS) \
+    $(wildcard include/config/HAVE_FTRACE_REGS_HAVING_PT_REGS) \
+    $(wildcard include/config/HAVE_REGS_AND_STACK_ACCESS_API) \
+    $(wildcard include/config/DYNAMIC_FTRACE_WITH_REGS) \
+    $(wildcard include/config/DYNAMIC_FTRACE_WITH_ARGS) \
+    $(wildcard include/config/DYNAMIC_FTRACE_WITH_DIRECT_CALLS) \
+    $(wildcard include/config/STACK_TRACER) \
+    $(wildcard include/config/DYNAMIC_FTRACE_WITH_CALL_OPS) \
+    $(wildcard include/config/FUNCTION_GRAPH_RETVAL) \
+    $(wildcard include/config/FTRACE_SYSCALLS) \
+  include/linux/trace_recursion.h \
+    $(wildcard include/config/FTRACE_RECORD_RECURSION) \
+    $(wildcard include/config/FTRACE_VALIDATE_RCU_IS_WATCHING) \
+  include/linux/trace_clock.h \
+  arch/x86/include/asm/trace_clock.h \
+  include/linux/ptrace.h \
+  include/linux/pid_namespace.h \
+    $(wildcard include/config/MEMFD_CREATE) \
+  include/uapi/linux/ptrace.h \
+  include/linux/seccomp.h \
+    $(wildcard include/config/HAVE_ARCH_SECCOMP_FILTER) \
+    $(wildcard include/config/SECCOMP_FILTER) \
+    $(wildcard include/config/CHECKPOINT_RESTORE) \
+    $(wildcard include/config/SECCOMP_CACHE_DEBUG) \
+  include/uapi/linux/seccomp.h \
+  arch/x86/include/asm/seccomp.h \
+  include/asm-generic/seccomp.h \
+  arch/x86/include/asm/ftrace.h \
+    $(wildcard include/config/HAVE_FENTRY) \
   arch/x86/include/asm/rqspinlock.h \
     $(wildcard include/config/QUEUED_SPINLOCKS) \
   include/asm-generic/rqspinlock.h \
@@ -1500,8 +1541,61 @@ deps_net/ethtool/phy.o := \
   include/uapi/linux/mii.h \
   include/linux/bitfield.h \
   include/linux/mod_devicetable.h \
-  include/uapi/linux/mei.h \
+  include/linux/device-id/amba.h \
+  include/linux/device-id/ap.h \
+  include/linux/device-id/apr.h \
+  include/linux/device-id/auxiliary.h \
+  include/linux/device-id/bcma.h \
+  include/linux/device-id/ccw.h \
+  include/linux/device-id/cdx.h \
+  include/linux/device-id/coreboot.h \
+  include/linux/device-id/css.h \
+  include/linux/device-id/dfl.h \
+  include/linux/device-id/dmi.h \
+  include/linux/device-id/eisa.h \
+  include/linux/device-id/fsl_mc.h \
+  include/linux/device-id/hda.h \
+  include/linux/device-id/hid.h \
+  include/linux/device-id/hv_vmbus.h \
+  include/linux/device-id/i2c.h \
+  include/linux/device-id/i3c.h \
+  include/linux/device-id/ieee1394.h \
+  include/linux/device-id/input.h \
+  include/linux/device-id/ipack.h \
+  include/linux/device-id/isapnp.h \
+  include/linux/device-id/ishtp.h \
+  include/linux/device-id/mcb.h \
+  include/linux/device-id/mdio.h \
+  include/linux/device-id/mei_cl.h \
   include/uapi/linux/mei_uuid.h \
+  include/linux/device-id/mhi.h \
+  include/linux/device-id/mips_cdmm.h \
+  include/linux/device-id/parisc.h \
+  include/linux/device-id/pci.h \
+  include/linux/device-id/pcmcia.h \
+  include/linux/device-id/platform.h \
+  include/linux/device-id/pnp.h \
+  include/linux/device-id/rio.h \
+  include/linux/device-id/rpmsg.h \
+  include/linux/device-id/sdio.h \
+  include/linux/device-id/sdw.h \
+  include/linux/device-id/serio.h \
+  include/linux/device-id/slim.h \
+  include/linux/device-id/spi.h \
+  include/linux/device-id/spmi.h \
+  include/linux/device-id/ssam.h \
+  include/linux/device-id/ssb.h \
+  include/linux/device-id/tb.h \
+  include/linux/device-id/tee_client.h \
+  include/linux/device-id/typec.h \
+  include/linux/device-id/ulpi.h \
+  include/linux/device-id/usb.h \
+  include/linux/device-id/vchiq.h \
+  include/linux/device-id/vio.h \
+  include/linux/device-id/virtio.h \
+  include/linux/device-id/wmi.h \
+  include/linux/device-id/x86_cpu.h \
+  include/linux/device-id/zorro.h \
   include/linux/mii_timestamper.h \
   include/linux/net_tstamp.h \
   include/linux/iopoll.h \
@@ -1537,7 +1631,6 @@ deps_net/ethtool/phy.o := \
     $(wildcard include/config/VLAN_8021Q) \
     $(wildcard include/config/NET_DSA) \
     $(wildcard include/config/TIPC) \
-    $(wildcard include/config/ATALK) \
     $(wildcard include/config/CFG80211) \
     $(wildcard include/config/IEEE802154) \
     $(wildcard include/config/6LOWPAN) \

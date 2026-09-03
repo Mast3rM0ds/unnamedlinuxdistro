@@ -1,0 +1,63 @@
+setlocale.o: setlocale.c /usr/include/stdc-predef.h ../lib/config.h \
+ ../lib/../config.h ../lib/locale.h /usr/include/locale.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h ../lib/stddef.h \
+ /usr/include/stddef.h ../lib/setlocale_null.h ../lib/arg-nonnull.h \
+ stdio.h /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/stdarg.h \
+ ../lib/sys/types.h /usr/include/sys/types.h /usr/include/endian.h \
+ sys/select.h sys/time.h /usr/include/sys/time.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h signal.h /usr/include/signal.h \
+ /usr/include/bits/signal.h ../lib/stdlib.h /usr/include/fortify/stdlib.h \
+ /usr/include/stdlib.h ../lib/alloca.h /usr/include/limits.h \
+ /usr/include/bits/limits.h ../lib/stdint.h /usr/include/stdint.h \
+ /usr/include/bits/stdint.h ../lib/limits.h /usr/include/limits.h \
+ ../lib/string.h /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ ../lib/setlocale-fixes.h ../lib/localename.h
+/usr/include/stdc-predef.h:
+../lib/config.h:
+../lib/../config.h:
+../lib/locale.h:
+/usr/include/locale.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+../lib/stddef.h:
+/usr/include/stddef.h:
+../lib/setlocale_null.h:
+../lib/arg-nonnull.h:
+stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/stdarg.h:
+../lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+sys/select.h:
+sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+../lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+../lib/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+../lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+../lib/limits.h:
+/usr/include/limits.h:
+../lib/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+../lib/setlocale-fixes.h:
+../lib/localename.h:

@@ -39,14 +39,19 @@ deps_mm/shrinker.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/linux/memcontrol.h \
     $(wildcard include/config/MEMCG_V1) \
     $(wildcard include/config/MEMCG_NMI_SAFETY_REQUIRES_ATOMIC) \
     $(wildcard include/config/ZSWAP) \
     $(wildcard include/config/CGROUP_WRITEBACK) \
-    $(wildcard include/config/TRANSPARENT_HUGEPAGE) \
     $(wildcard include/config/LRU_GEN_WALKS_MMU) \
     $(wildcard include/config/MEM_ALLOC_PROFILING) \
+    $(wildcard include/config/SWAP) \
   include/linux/cgroup.h \
     $(wildcard include/config/CGROUPS) \
     $(wildcard include/config/DEBUG_CGROUP_REF) \
@@ -108,12 +113,11 @@ deps_mm/shrinker.o := \
     $(wildcard include/config/TASK_XACCT) \
     $(wildcard include/config/CPUSETS) \
     $(wildcard include/config/X86_CPU_RESCTRL) \
-    $(wildcard include/config/FUTEX) \
-    $(wildcard include/config/COMPAT) \
     $(wildcard include/config/PERF_EVENTS) \
     $(wildcard include/config/DEBUG_PREEMPT) \
     $(wildcard include/config/NUMA) \
     $(wildcard include/config/NUMA_BALANCING) \
+    $(wildcard include/config/SCHED_CACHE) \
     $(wildcard include/config/ARCH_HAS_LAZY_MMU_MODE) \
     $(wildcard include/config/FAULT_INJECTION) \
     $(wildcard include/config/LATENCYTOP) \
@@ -146,7 +150,6 @@ deps_mm/shrinker.o := \
     $(wildcard include/config/PREEMPT_DYNAMIC) \
     $(wildcard include/config/HAVE_PREEMPT_DYNAMIC_CALL) \
     $(wildcard include/config/HAVE_PREEMPT_DYNAMIC_KEY) \
-    $(wildcard include/config/SMP) \
     $(wildcard include/config/MEM_ALLOC_PROFILING_DEBUG) \
     $(wildcard include/config/SCHED_MM_CID) \
   include/uapi/linux/sched.h \
@@ -173,7 +176,6 @@ deps_mm/shrinker.o := \
   arch/x86/include/uapi/asm/posix_types_64.h \
   include/uapi/asm-generic/posix_types.h \
   arch/x86/include/asm/current.h \
-    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
   include/linux/build_bug.h \
   include/linux/compiler.h \
     $(wildcard include/config/TRACE_BRANCH_PROFILING) \
@@ -212,7 +214,6 @@ deps_mm/shrinker.o := \
   arch/x86/include/asm/ibt.h \
     $(wildcard include/config/X86_KERNEL_IBT) \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/CC_HAS_NAMED_AS) \
   include/linux/args.h \
   include/linux/bits.h \
   include/vdso/bits.h \
@@ -339,22 +340,8 @@ deps_mm/shrinker.o := \
   arch/x86/include/uapi/asm/ldt.h \
   arch/x86/include/uapi/asm/sigcontext.h \
   arch/x86/include/asm/cpufeatures.h \
-  arch/x86/include/asm/cpuid/api.h \
   arch/x86/include/asm/cpuid/types.h \
-  arch/x86/include/asm/string.h \
-  arch/x86/include/asm/string_64.h \
-    $(wildcard include/config/ARCH_HAS_UACCESS_FLUSHCACHE) \
-  include/linux/jump_label.h \
-    $(wildcard include/config/JUMP_LABEL) \
-    $(wildcard include/config/HAVE_ARCH_JUMP_LABEL_RELATIVE) \
-  include/linux/cleanup.h \
-  include/linux/err.h \
-  arch/x86/include/generated/uapi/asm/errno.h \
-  include/uapi/asm-generic/errno.h \
-  include/uapi/asm-generic/errno-base.h \
-  arch/x86/include/asm/jump_label.h \
-    $(wildcard include/config/HAVE_JUMP_LABEL_HACK) \
-  arch/x86/include/asm/nops.h \
+  arch/x86/include/asm/cpuid/leaf_types.h \
   arch/x86/include/asm/page.h \
   arch/x86/include/asm/page_64.h \
     $(wildcard include/config/DEBUG_VIRTUAL) \
@@ -380,6 +367,7 @@ deps_mm/shrinker.o := \
   include/linux/typecheck.h \
   include/asm-generic/bitops/generic-non-atomic.h \
   arch/x86/include/asm/barrier.h \
+  arch/x86/include/asm/nops.h \
   include/asm-generic/barrier.h \
   arch/x86/include/asm/bitops.h \
     $(wildcard include/config/X86_CMOV) \
@@ -410,6 +398,9 @@ deps_mm/shrinker.o := \
   arch/x86/include/asm/special_insns.h \
   include/linux/errno.h \
   include/uapi/linux/errno.h \
+  arch/x86/include/generated/uapi/asm/errno.h \
+  include/uapi/asm-generic/errno.h \
+  include/uapi/asm-generic/errno-base.h \
   include/linux/irqflags.h \
     $(wildcard include/config/PROVE_LOCKING) \
     $(wildcard include/config/IRQSOFF_TRACER) \
@@ -417,6 +408,8 @@ deps_mm/shrinker.o := \
     $(wildcard include/config/DEBUG_IRQFLAGS) \
     $(wildcard include/config/TRACE_IRQFLAGS_SUPPORT) \
   include/linux/irqflags_types.h \
+  include/linux/cleanup.h \
+  include/linux/err.h \
   arch/x86/include/asm/irqflags.h \
     $(wildcard include/config/DEBUG_ENTRY) \
   arch/x86/include/asm/nospec-branch.h \
@@ -425,6 +418,11 @@ deps_mm/shrinker.o := \
     $(wildcard include/config/MITIGATION_IBPB_ENTRY) \
     $(wildcard include/config/BPF_JIT) \
   include/linux/static_key.h \
+  include/linux/jump_label.h \
+    $(wildcard include/config/JUMP_LABEL) \
+    $(wildcard include/config/HAVE_ARCH_JUMP_LABEL_RELATIVE) \
+  arch/x86/include/asm/jump_label.h \
+    $(wildcard include/config/HAVE_JUMP_LABEL_HACK) \
   arch/x86/include/asm/msr-index.h \
   arch/x86/include/asm/unwind_hints.h \
   arch/x86/include/asm/orc_types.h \
@@ -454,6 +452,9 @@ deps_mm/shrinker.o := \
     $(wildcard include/config/BINARY_PRINTF) \
   include/linux/array_size.h \
   include/uapi/linux/string.h \
+  arch/x86/include/asm/string.h \
+  arch/x86/include/asm/string_64.h \
+    $(wildcard include/config/ARCH_HAS_UACCESS_FLUSHCACHE) \
   include/linux/bitmap-str.h \
   include/linux/cpumask_types.h \
   include/linux/gfp_types.h \
@@ -518,6 +519,7 @@ deps_mm/shrinker.o := \
   include/uapi/linux/time_types.h \
   arch/x86/include/asm/thread_info.h \
     $(wildcard include/config/X86_FRED) \
+    $(wildcard include/config/COMPAT) \
   arch/x86/include/asm/cpufeature.h \
   arch/x86/include/generated/asm/cpufeaturemasks.h \
   include/asm-generic/thread_info_tif.h \
@@ -529,6 +531,16 @@ deps_mm/shrinker.o := \
     $(wildcard include/config/PREEMPT) \
     $(wildcard include/config/PREEMPT_LAZY) \
   arch/x86/include/asm/preempt.h \
+  include/linux/futex_types.h \
+    $(wildcard include/config/FUTEX) \
+    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
+    $(wildcard include/config/FUTEX_ROBUST_UNLOCK) \
+  include/linux/mutex_types.h \
+    $(wildcard include/config/MUTEX_SPIN_ON_OWNER) \
+    $(wildcard include/config/DEBUG_MUTEXES) \
+  include/linux/osq_lock.h \
+  include/linux/spinlock_types.h \
+  include/linux/rwlock_types.h \
   include/linux/smp_types.h \
   include/linux/llist.h \
     $(wildcard include/config/ARCH_HAVE_NMI_SAFE_CMPXCHG) \
@@ -537,12 +549,6 @@ deps_mm/shrinker.o := \
   include/linux/shm.h \
   arch/x86/include/asm/shmparam.h \
   include/linux/kmsan_types.h \
-  include/linux/mutex_types.h \
-    $(wildcard include/config/MUTEX_SPIN_ON_OWNER) \
-    $(wildcard include/config/DEBUG_MUTEXES) \
-  include/linux/osq_lock.h \
-  include/linux/spinlock_types.h \
-  include/linux/rwlock_types.h \
   include/linux/plist_types.h \
   include/linux/hrtimer_types.h \
   include/linux/timerqueue_types.h \
@@ -672,14 +678,12 @@ deps_mm/shrinker.o := \
   include/uapi/linux/taskstats.h \
   include/linux/fs.h \
     $(wildcard include/config/FANOTIFY_ACCESS_PERMISSIONS) \
-    $(wildcard include/config/READ_ONLY_THP_FOR_FS) \
     $(wildcard include/config/FS_POSIX_ACL) \
     $(wildcard include/config/IMA) \
     $(wildcard include/config/FILE_LOCKING) \
     $(wildcard include/config/FSNOTIFY) \
     $(wildcard include/config/EPOLL) \
     $(wildcard include/config/FS_DAX) \
-    $(wildcard include/config/SWAP) \
     $(wildcard include/config/BLOCK) \
     $(wildcard include/config/UNICODE) \
   include/linux/fs/super.h \
@@ -696,14 +700,13 @@ deps_mm/shrinker.o := \
   include/linux/timex.h \
   include/uapi/linux/timex.h \
   arch/x86/include/asm/timex.h \
-    $(wildcard include/config/X86_TSC) \
   arch/x86/include/asm/tsc.h \
   arch/x86/include/asm/msr.h \
   arch/x86/include/uapi/asm/msr.h \
   arch/x86/include/asm/shared/msr.h \
   include/linux/percpu.h \
     $(wildcard include/config/MODULES) \
-    $(wildcard include/config/RANDOM_KMALLOC_CACHES) \
+    $(wildcard include/config/KMALLOC_PARTITION_CACHES) \
     $(wildcard include/config/PAGE_SIZE_4KB) \
     $(wildcard include/config/NEED_PER_CPU_PAGE_FIRST_CHUNK) \
   include/linux/alloc_tag.h \
@@ -742,6 +745,7 @@ deps_mm/shrinker.o := \
     $(wildcard include/config/ZSMALLOC) \
     $(wildcard include/config/UNACCEPTED_MEMORY) \
     $(wildcard include/config/IOMMU_SUPPORT) \
+    $(wildcard include/config/TRANSPARENT_HUGEPAGE) \
     $(wildcard include/config/LRU_GEN_STATS) \
     $(wildcard include/config/MEMORY_FAILURE) \
     $(wildcard include/config/PAGE_EXTENSION) \
@@ -771,7 +775,6 @@ deps_mm/shrinker.o := \
     $(wildcard include/config/PER_VMA_LOCK) \
     $(wildcard include/config/HAVE_ARCH_COMPAT_MMAP_BASES) \
     $(wildcard include/config/MEMBARRIER) \
-    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
     $(wildcard include/config/ARCH_HAS_ELF_CORE_EFLAGS) \
     $(wildcard include/config/AIO) \
     $(wildcard include/config/MMU_NOTIFIER) \
@@ -886,6 +889,7 @@ deps_mm/shrinker.o := \
     $(wildcard include/config/HAVE_ARCH_THREAD_STRUCT_WHITELIST) \
   include/linux/uaccess.h \
     $(wildcard include/config/ARCH_HAS_SUBPAGE_FAULTS) \
+    $(wildcard include/config/ARCH_MEMORY_ORDER_TSO) \
     $(wildcard include/config/HARDENED_USERCOPY) \
   include/linux/fault-inject-usercopy.h \
     $(wildcard include/config/FAULT_INJECTION_USERCOPY) \
@@ -916,7 +920,6 @@ deps_mm/shrinker.o := \
     $(wildcard include/config/X86_SGX) \
   arch/x86/include/asm/pkru.h \
   arch/x86/include/asm/fpu/api.h \
-    $(wildcard include/config/MATH_EMULATION) \
   arch/x86/include/asm/coco.h \
   include/asm-generic/pgtable_uffd.h \
     $(wildcard include/config/PTE_MARKER_UFFD_WP) \
@@ -1011,6 +1014,8 @@ deps_mm/shrinker.o := \
     $(wildcard include/config/KFENCE) \
     $(wildcard include/config/SLUB_TINY) \
     $(wildcard include/config/SLUB_DEBUG) \
+    $(wildcard include/config/KMALLOC_PARTITION_RANDOM) \
+    $(wildcard include/config/KMALLOC_PARTITION_TYPED) \
     $(wildcard include/config/SLAB_BUCKETS) \
     $(wildcard include/config/KVFREE_RCU_BATCHED) \
   include/linux/percpu-refcount.h \
@@ -1048,6 +1053,7 @@ deps_mm/shrinker.o := \
   include/linux/rculist_nulls.h \
   include/linux/kernel_stat.h \
     $(wildcard include/config/GENERIC_IRQ_STAT_SNAPSHOT) \
+    $(wildcard include/config/HAVE_VIRT_CPU_ACCOUNTING_IDLE) \
   include/linux/interrupt.h \
     $(wildcard include/config/IRQ_FORCED_THREADING) \
     $(wildcard include/config/GENERIC_IRQ_PROBE) \
@@ -1064,16 +1070,16 @@ deps_mm/shrinker.o := \
     $(wildcard include/config/VIRT_CPU_ACCOUNTING) \
     $(wildcard include/config/IRQ_TIME_ACCOUNTING) \
   arch/x86/include/asm/hardirq.h \
-    $(wildcard include/config/CPU_MITIGATIONS) \
-    $(wildcard include/config/KVM_INTEL) \
-    $(wildcard include/config/KVM) \
-    $(wildcard include/config/GUEST_PERF_EVENTS) \
     $(wildcard include/config/X86_THERMAL_VECTOR) \
     $(wildcard include/config/X86_MCE_THRESHOLD) \
     $(wildcard include/config/X86_MCE_AMD) \
     $(wildcard include/config/X86_HV_CALLBACK_VECTOR) \
     $(wildcard include/config/HYPERV) \
+    $(wildcard include/config/KVM) \
+    $(wildcard include/config/GUEST_PERF_EVENTS) \
     $(wildcard include/config/X86_POSTED_MSI) \
+    $(wildcard include/config/CPU_MITIGATIONS) \
+    $(wildcard include/config/KVM_INTEL) \
   arch/x86/include/asm/irq.h \
   arch/x86/include/asm/irq_vectors.h \
     $(wildcard include/config/PCI_MSI) \
@@ -1206,12 +1212,6 @@ deps_mm/shrinker.o := \
     $(wildcard include/config/DMA_CMA) \
     $(wildcard include/config/SWIOTLB) \
     $(wildcard include/config/SWIOTLB_DYNAMIC) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_DEVICE) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU_ALL) \
-    $(wildcard include/config/DMA_OPS_BYPASS) \
-    $(wildcard include/config/DMA_NEED_SYNC) \
-    $(wildcard include/config/IOMMU_DMA) \
     $(wildcard include/config/PM) \
     $(wildcard include/config/PM_SLEEP) \
     $(wildcard include/config/OF) \
@@ -1314,7 +1314,10 @@ deps_mm/shrinker.o := \
     $(wildcard include/config/UNWINDER_ORC) \
   include/asm-generic/module.h \
     $(wildcard include/config/HAVE_MOD_ARCH_SPECIFIC) \
-  arch/x86/include/asm/device.h \
+  include/linux/device-id/acpi.h \
+  include/linux/device-id/of.h \
+  arch/x86/include/generated/asm/device.h \
+  include/asm-generic/device.h \
   include/linux/pm_wakeup.h \
   include/linux/folio_batch.h \
   include/trace/events/vmscan.h \
@@ -1342,6 +1345,11 @@ deps_mm/shrinker.o := \
     $(wildcard include/config/FINEIBT) \
   include/trace/events/mmflags.h \
   include/linux/compaction.h \
+  include/linux/swap.h \
+    $(wildcard include/config/THP_SWAP) \
+  include/linux/pagemap.h \
+  include/linux/hugetlb_inline.h \
+  include/uapi/linux/mempolicy.h \
   include/trace/define_trace.h \
   mm/internal.h \
     $(wildcard include/config/NO_PAGE_MAPCOUNT) \
@@ -1351,11 +1359,6 @@ deps_mm/shrinker.o := \
   include/linux/khugepaged.h \
   include/linux/mm_inline.h \
     $(wildcard include/config/LRU_GEN_ENABLED) \
-  include/linux/swap.h \
-    $(wildcard include/config/THP_SWAP) \
-  include/linux/pagemap.h \
-  include/linux/hugetlb_inline.h \
-  include/uapi/linux/mempolicy.h \
   include/linux/userfaultfd_k.h \
   include/linux/leafops.h \
   include/linux/swapops.h \
@@ -1363,7 +1366,6 @@ deps_mm/shrinker.o := \
   include/linux/pagewalk.h \
   include/linux/rmap.h \
     $(wildcard include/config/SLUB_RCU_DEBUG) \
-  include/linux/swap_cgroup.h \
   mm/vma.h \
     $(wildcard include/config/ARM_LPAE) \
     $(wildcard include/config/DEBUG_VM_MAPLE_TREE) \

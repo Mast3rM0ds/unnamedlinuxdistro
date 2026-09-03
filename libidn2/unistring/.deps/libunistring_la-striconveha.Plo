@@ -1,0 +1,52 @@
+libunistring_la-striconveha.lo: striconveha.c \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h \
+ ../config.h striconveha.h stdlib.h ../gl/stdlib.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/features.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h \
+ ../gl/alloca.h stddef.h ../gl/stddef.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h iconveh.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/errno.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/errno.h string.h \
+ ../gl/string.h /home/bloink/Work/unnamedlinuxdistro/fs/include/string.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/strings.h \
+ ../gl/malloca.h stdint.h ../gl/stdint.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdint.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/stdint.h limits.h \
+ ../gl/limits.h /home/bloink/Work/unnamedlinuxdistro/fs/include/limits.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/limits.h \
+ ../gl/xalloc-oversized.h c-strcase.h striconveh.h iconv.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/iconv.h
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h:
+../config.h:
+striconveha.h:
+stdlib.h:
+../gl/stdlib.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/features.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h:
+../gl/alloca.h:
+stddef.h:
+../gl/stddef.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h:
+iconveh.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/errno.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/errno.h:
+string.h:
+../gl/string.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/string.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/strings.h:
+../gl/malloca.h:
+stdint.h:
+../gl/stdint.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdint.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/stdint.h:
+limits.h:
+../gl/limits.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/limits.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/limits.h:
+../gl/xalloc-oversized.h:
+c-strcase.h:
+striconveh.h:
+iconv.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/iconv.h:

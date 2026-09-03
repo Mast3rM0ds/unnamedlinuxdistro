@@ -1,1 +1,1 @@
-cmd_/home/sonakrie/Work/dumbasslinux/linux/tools/objtool/fixdep-in.o :=  printf "/home/sonakrie/Work/dumbasslinux/linux/tools/objtool/%s " fixdep.o | xargs ld -r -o /home/sonakrie/Work/dumbasslinux/linux/tools/objtool/fixdep-in.o
+cmd_/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/fixdep-in.o :=  printf "/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/%s " fixdep.o | xargs ld -r -o /home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/fixdep-in.o

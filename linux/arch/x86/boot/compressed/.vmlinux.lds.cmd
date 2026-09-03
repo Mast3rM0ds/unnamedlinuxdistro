@@ -47,6 +47,7 @@ deps_arch/x86/boot/compressed/vmlinux.lds := \
     $(wildcard include/config/PRINTK_INDEX) \
     $(wildcard include/config/BLK_DEV_INITRD) \
     $(wildcard include/config/AMD_MEM_ENCRYPT) \
+    $(wildcard include/config/PROPELLER_CLANG) \
     $(wildcard include/config/UNWIND_TABLES) \
     $(wildcard include/config/GCOV_KERNEL) \
     $(wildcard include/config/KASAN_GENERIC) \
@@ -101,6 +102,7 @@ deps_arch/x86/boot/compressed/vmlinux.lds := \
     $(wildcard include/config/ARCH_DMA_ADDR_T_64BIT) \
     $(wildcard include/config/PHYS_ADDR_T_64BIT) \
     $(wildcard include/config/ARCH_32BIT_USTAT_F_TINODE) \
+    $(wildcard include/config/KCOV) \
   include/uapi/linux/types.h \
   arch/x86/include/generated/uapi/asm/types.h \
   include/uapi/asm-generic/types.h \

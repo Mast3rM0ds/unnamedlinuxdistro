@@ -38,6 +38,11 @@ deps_arch/x86/kernel/resource.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/linux/ioport.h \
     $(wildcard include/config/MEMORY_HOTREMOVE) \
     $(wildcard include/config/MEMORY_HOTPLUG) \
@@ -94,7 +99,6 @@ deps_arch/x86/kernel/resource.o := \
     $(wildcard include/config/CONSOLE_LOGLEVEL_QUIET) \
     $(wildcard include/config/EARLY_PRINTK) \
     $(wildcard include/config/PRINTK) \
-    $(wildcard include/config/SMP) \
     $(wildcard include/config/PRINTK_INDEX) \
     $(wildcard include/config/DYNAMIC_DEBUG) \
     $(wildcard include/config/DYNAMIC_DEBUG_CORE) \
@@ -310,8 +314,6 @@ deps_arch/x86/kernel/resource.o := \
     $(wildcard include/config/PREEMPT_LAZY) \
   arch/x86/include/asm/preempt.h \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/CC_HAS_NAMED_AS) \
-    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
   include/asm-generic/percpu.h \
     $(wildcard include/config/HAVE_SETUP_PER_CPU_AREA) \
   include/linux/percpu-defs.h \
@@ -450,8 +452,8 @@ deps_arch/x86/kernel/resource.o := \
   arch/x86/include/asm/proto.h \
   arch/x86/include/uapi/asm/ldt.h \
   arch/x86/include/uapi/asm/sigcontext.h \
-  arch/x86/include/asm/cpuid/api.h \
   arch/x86/include/asm/cpuid/types.h \
+  arch/x86/include/asm/cpuid/leaf_types.h \
   arch/x86/include/asm/special_insns.h \
   arch/x86/include/asm/fpu/types.h \
   arch/x86/include/asm/vmxfeatures.h \

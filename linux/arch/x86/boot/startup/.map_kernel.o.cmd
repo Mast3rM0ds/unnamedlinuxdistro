@@ -38,6 +38,11 @@ deps_arch/x86/boot/startup/map_kernel.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/linux/hidden.h \
   include/linux/init.h \
     $(wildcard include/config/MEMORY_HOTPLUG) \
@@ -99,7 +104,6 @@ deps_arch/x86/boot/startup/map_kernel.o := \
     $(wildcard include/config/HAVE_PREEMPT_DYNAMIC_KEY) \
     $(wildcard include/config/PREEMPT_) \
     $(wildcard include/config/DEBUG_ATOMIC_SLEEP) \
-    $(wildcard include/config/SMP) \
     $(wildcard include/config/MMU) \
     $(wildcard include/config/PROVE_LOCKING) \
     $(wildcard include/config/DYNAMIC_FTRACE) \
@@ -311,8 +315,6 @@ deps_arch/x86/boot/startup/map_kernel.o := \
   include/uapi/asm-generic/errno-base.h \
   arch/x86/include/asm/preempt.h \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/CC_HAS_NAMED_AS) \
-    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
   include/asm-generic/percpu.h \
     $(wildcard include/config/HAVE_SETUP_PER_CPU_AREA) \
   include/linux/threads.h \
@@ -448,8 +450,8 @@ deps_arch/x86/boot/startup/map_kernel.o := \
   arch/x86/include/asm/proto.h \
   arch/x86/include/uapi/asm/ldt.h \
   arch/x86/include/uapi/asm/sigcontext.h \
-  arch/x86/include/asm/cpuid/api.h \
   arch/x86/include/asm/cpuid/types.h \
+  arch/x86/include/asm/cpuid/leaf_types.h \
   arch/x86/include/asm/special_insns.h \
   arch/x86/include/asm/fpu/types.h \
   arch/x86/include/asm/vmxfeatures.h \
@@ -517,7 +519,6 @@ deps_arch/x86/boot/startup/map_kernel.o := \
   arch/x86/include/asm/x86_init.h \
   arch/x86/include/asm/pkru.h \
   arch/x86/include/asm/fpu/api.h \
-    $(wildcard include/config/MATH_EMULATION) \
   arch/x86/include/asm/coco.h \
   include/asm-generic/pgtable_uffd.h \
     $(wildcard include/config/PTE_MARKER_UFFD_WP) \
@@ -549,7 +550,6 @@ deps_arch/x86/boot/startup/map_kernel.o := \
     $(wildcard include/config/SWAP) \
     $(wildcard include/config/HAVE_ARCH_COMPAT_MMAP_BASES) \
     $(wildcard include/config/MEMBARRIER) \
-    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
     $(wildcard include/config/ARCH_HAS_ELF_CORE_EFLAGS) \
     $(wildcard include/config/AIO) \
     $(wildcard include/config/MMU_NOTIFIER) \
@@ -562,6 +562,7 @@ deps_arch/x86/boot/startup/map_kernel.o := \
     $(wildcard include/config/MM_ID) \
     $(wildcard include/config/LRU_GEN) \
     $(wildcard include/config/SCHED_MM_CID) \
+    $(wildcard include/config/SCHED_CACHE) \
     $(wildcard include/config/CORE_DUMP_DEFAULT_ELF_HEADERS) \
   include/linux/mm_types_task.h \
   arch/x86/include/asm/tlbbatch.h \
@@ -634,7 +635,6 @@ deps_arch/x86/boot/startup/map_kernel.o := \
     $(wildcard include/config/TASK_XACCT) \
     $(wildcard include/config/CPUSETS) \
     $(wildcard include/config/X86_CPU_RESCTRL) \
-    $(wildcard include/config/FUTEX) \
     $(wildcard include/config/PERF_EVENTS) \
     $(wildcard include/config/FAULT_INJECTION) \
     $(wildcard include/config/LATENCYTOP) \
@@ -659,15 +659,19 @@ deps_arch/x86/boot/startup/map_kernel.o := \
     $(wildcard include/config/SCHED_PROXY_EXEC) \
     $(wildcard include/config/MEM_ALLOC_PROFILING_DEBUG) \
   include/uapi/linux/sched.h \
+  include/linux/futex_types.h \
+    $(wildcard include/config/FUTEX) \
+    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
+    $(wildcard include/config/FUTEX_ROBUST_UNLOCK) \
+  include/linux/mutex_types.h \
+    $(wildcard include/config/MUTEX_SPIN_ON_OWNER) \
+    $(wildcard include/config/DEBUG_MUTEXES) \
+  include/linux/osq_lock.h \
   include/linux/pid_types.h \
   include/linux/sem_types.h \
   include/linux/shm.h \
   arch/x86/include/asm/shmparam.h \
   include/linux/kmsan_types.h \
-  include/linux/mutex_types.h \
-    $(wildcard include/config/MUTEX_SPIN_ON_OWNER) \
-    $(wildcard include/config/DEBUG_MUTEXES) \
-  include/linux/osq_lock.h \
   include/linux/plist_types.h \
   include/linux/hrtimer_types.h \
   include/linux/timerqueue_types.h \
@@ -740,14 +744,13 @@ deps_arch/x86/boot/startup/map_kernel.o := \
   include/linux/timex.h \
   include/uapi/linux/timex.h \
   arch/x86/include/asm/timex.h \
-    $(wildcard include/config/X86_TSC) \
   arch/x86/include/asm/tsc.h \
   arch/x86/include/asm/msr.h \
   arch/x86/include/uapi/asm/msr.h \
   arch/x86/include/asm/shared/msr.h \
   include/linux/percpu.h \
     $(wildcard include/config/MODULES) \
-    $(wildcard include/config/RANDOM_KMALLOC_CACHES) \
+    $(wildcard include/config/KMALLOC_PARTITION_CACHES) \
     $(wildcard include/config/PAGE_SIZE_4KB) \
     $(wildcard include/config/NEED_PER_CPU_PAGE_FIRST_CHUNK) \
   include/linux/alloc_tag.h \

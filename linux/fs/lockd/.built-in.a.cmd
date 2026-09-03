@@ -1,1 +1,1 @@
-savedcmd_fs/lockd/built-in.a := rm -f fs/lockd/built-in.a;  printf "fs/lockd/%s " clntlock.o clntproc.o clntxdr.o host.o svc.o svclock.o svcshare.o svcproc.o svcsubs.o mon.o trace.o xdr.o netlink.o clnt4xdr.o svc4proc.o nlm4xdr_gen.o procfs.o | xargs ar cDPrST fs/lockd/built-in.a
+savedcmd_fs/lockd/built-in.a := rm -f fs/lockd/built-in.a;  printf "fs/lockd/%s " clntlock.o clntproc.o clntxdr.o host.o svc.o svclock.o svcshare.o svcproc.o svcsubs.o mon.o trace.o netlink.o nlm3xdr_gen.o clnt4xdr.o svc4proc.o nlm4xdr_gen.o procfs.o | xargs ar cDPrST fs/lockd/built-in.a

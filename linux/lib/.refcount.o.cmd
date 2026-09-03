@@ -38,12 +38,16 @@ deps_lib/refcount.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/linux/mutex.h \
     $(wildcard include/config/DEBUG_LOCK_ALLOC) \
     $(wildcard include/config/DEBUG_MUTEXES) \
     $(wildcard include/config/PREEMPT_RT) \
   arch/x86/include/asm/current.h \
-    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
   include/linux/build_bug.h \
   include/linux/compiler.h \
     $(wildcard include/config/TRACE_BRANCH_PROFILING) \
@@ -80,7 +84,6 @@ deps_lib/refcount.o := \
     $(wildcard include/config/KCSAN_WEAK_MEMORY) \
     $(wildcard include/config/KCSAN_IGNORE_ATOMICS) \
   include/linux/cache.h \
-    $(wildcard include/config/SMP) \
     $(wildcard include/config/ARCH_HAS_CACHE_LINE_SIZE) \
   include/uapi/linux/kernel.h \
   include/uapi/linux/sysinfo.h \
@@ -108,7 +111,6 @@ deps_lib/refcount.o := \
   arch/x86/include/asm/ibt.h \
     $(wildcard include/config/X86_KERNEL_IBT) \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/CC_HAS_NAMED_AS) \
   include/linux/args.h \
   include/linux/bits.h \
   include/vdso/bits.h \
@@ -319,6 +321,8 @@ deps_lib/refcount.o := \
   arch/x86/include/asm/sparsemem.h \
     $(wildcard include/config/SPARSEMEM) \
     $(wildcard include/config/X86_PAE) \
+  include/vdso/page.h \
+    $(wildcard include/config/PAGE_SHIFT) \
   include/linux/smp_types.h \
   include/linux/llist.h \
     $(wildcard include/config/ARCH_HAVE_NMI_SAFE_CMPXCHG) \
@@ -362,8 +366,6 @@ deps_lib/refcount.o := \
     $(wildcard include/config/X86_MEM_ENCRYPT) \
   include/linux/cc_platform.h \
     $(wildcard include/config/ARCH_HAS_CC_PLATFORM) \
-  include/vdso/page.h \
-    $(wildcard include/config/PAGE_SHIFT) \
   arch/x86/include/asm/page_64_types.h \
     $(wildcard include/config/KASAN) \
     $(wildcard include/config/RANDOMIZE_BASE) \
@@ -406,8 +408,8 @@ deps_lib/refcount.o := \
   arch/x86/include/asm/proto.h \
   arch/x86/include/uapi/asm/ldt.h \
   arch/x86/include/uapi/asm/sigcontext.h \
-  arch/x86/include/asm/cpuid/api.h \
   arch/x86/include/asm/cpuid/types.h \
+  arch/x86/include/asm/cpuid/leaf_types.h \
   arch/x86/include/asm/pgtable_types.h \
     $(wildcard include/config/X86_INTEL_MEMORY_PROTECTION_KEYS) \
     $(wildcard include/config/MEM_SOFT_DIRTY) \

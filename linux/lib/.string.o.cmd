@@ -42,6 +42,11 @@ deps_lib/string.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/linux/bits.h \
   include/vdso/bits.h \
   include/vdso/const.h \
@@ -114,7 +119,6 @@ deps_lib/string.o := \
   include/asm-generic/bug.h \
     $(wildcard include/config/BUG) \
     $(wildcard include/config/GENERIC_BUG_RELATIVE_POINTERS) \
-    $(wildcard include/config/SMP) \
   include/linux/once_lite.h \
   include/linux/panic.h \
     $(wildcard include/config/PANIC_TIMEOUT) \
@@ -175,6 +179,7 @@ deps_lib/string.o := \
   arch/x86/include/generated/uapi/asm/errno.h \
   include/uapi/asm-generic/errno.h \
   include/uapi/asm-generic/errno-base.h \
+  include/linux/minmax.h \
   include/linux/string.h \
     $(wildcard include/config/BINARY_PRINTF) \
   include/linux/args.h \

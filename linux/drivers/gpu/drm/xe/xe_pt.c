@@ -14,6 +14,7 @@
 #include "xe_gt_stats.h"
 #include "xe_migrate.h"
 #include "xe_page_reclaim.h"
+#include "xe_pat.h"
 #include "xe_pt_types.h"
 #include "xe_pt_walk.h"
 #include "xe_res_cursor.h"
@@ -62,7 +63,7 @@ static u64 __xe_pt_empty_pte(struct xe_tile *tile, struct xe_vm *vm,
 			     unsigned int level)
 {
 	struct xe_device *xe = tile_to_xe(tile);
-	u16 pat_index = xe->pat.idx[XE_CACHE_WB];
+	u16 pat_index = xe_cache_pat_idx(xe, XE_CACHE_WB);
 	u8 id = tile->id;
 
 	if (!xe_vm_has_scratch(vm))
@@ -442,10 +443,6 @@ static bool xe_pt_hugepte_possible(u64 addr, u64 next, unsigned int level,
 	if (!xe_pt_covers(addr, next, level, &xe_walk->base))
 		return false;
 
-	/* Does the DMA segment cover the whole pte? */
-	if (next - xe_walk->va_curs_start > xe_walk->curs->size)
-		return false;
-
 	/* null VMA's and purged BO's do not have dma addresses */
 	if (xe_vma_is_null(xe_walk->vma) || (bo && xe_bo_is_purged(bo)))
 		return true;
@@ -453,6 +450,10 @@ static bool xe_pt_hugepte_possible(u64 addr, u64 next, unsigned int level,
 	/* if we are clearing page table, no dma addresses*/
 	if (xe_walk->clear_pt)
 		return true;
+
+	/* Does the DMA segment cover the whole pte? */
+	if (next - xe_walk->va_curs_start > xe_walk->curs->size)
+		return false;
 
 	/* Is the DMA address huge PTE size aligned? */
 	size = next - addr;
@@ -774,8 +775,11 @@ xe_pt_stage_bind(struct xe_tile *tile, struct xe_vma *vma,
 	}
 
 	xe_walk.needs_64K = (vm->flags & XE_VM_FLAG_64K);
-	if (clear_pt)
+	if (clear_pt) {
+		xe_assert(xe, !range);
+		curs.size = xe_vma_size(vma);
 		goto walk_pt;
+	}
 
 	if (vma->gpuva.flags & XE_VMA_ATOMIC_PTE_BIT) {
 		xe_walk.default_vram_pte = xe_atomic_for_vram(vm, vma) ? XE_USM_PPGTT_PTE_AE : 0;

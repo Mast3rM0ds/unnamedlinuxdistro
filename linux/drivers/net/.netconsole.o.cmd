@@ -7,6 +7,7 @@ deps_drivers/net/netconsole.o := \
     $(wildcard include/config/NETCONSOLE_EXTENDED_LOG) \
     $(wildcard include/config/NETCONSOLE_PREPEND_RELEASE) \
     $(wildcard include/config/IPV6) \
+    $(wildcard include/config/PREEMPT_RT) \
   include/linux/compiler-version.h \
     $(wildcard include/config/CC_VERSION_TEXT) \
   include/generated/gcc-plugins.h \
@@ -42,6 +43,11 @@ deps_drivers/net/netconsole.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/linux/mm.h \
     $(wildcard include/config/SYSCTL) \
     $(wildcard include/config/HAVE_ARCH_MMAP_RND_BITS) \
@@ -169,7 +175,6 @@ deps_drivers/net/netconsole.o := \
   include/asm-generic/bug.h \
     $(wildcard include/config/BUG) \
     $(wildcard include/config/GENERIC_BUG_RELATIVE_POINTERS) \
-    $(wildcard include/config/SMP) \
   include/linux/once_lite.h \
   include/linux/panic.h \
     $(wildcard include/config/PANIC_TIMEOUT) \
@@ -264,7 +269,6 @@ deps_drivers/net/netconsole.o := \
     $(wildcard include/config/HAVE_ARCH_PFN_VALID) \
   include/linux/spinlock.h \
     $(wildcard include/config/PREEMPTION) \
-    $(wildcard include/config/PREEMPT_RT) \
   include/linux/typecheck.h \
   include/linux/preempt.h \
     $(wildcard include/config/PREEMPT_COUNT) \
@@ -281,8 +285,6 @@ deps_drivers/net/netconsole.o := \
   arch/x86/include/asm/preempt.h \
   arch/x86/include/asm/rmwcc.h \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/CC_HAS_NAMED_AS) \
-    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
   include/asm-generic/percpu.h \
     $(wildcard include/config/HAVE_SETUP_PER_CPU_AREA) \
   include/linux/threads.h \
@@ -503,8 +505,8 @@ deps_drivers/net/netconsole.o := \
   arch/x86/include/asm/proto.h \
   arch/x86/include/uapi/asm/ldt.h \
   arch/x86/include/uapi/asm/sigcontext.h \
-  arch/x86/include/asm/cpuid/api.h \
   arch/x86/include/asm/cpuid/types.h \
+  arch/x86/include/asm/cpuid/leaf_types.h \
   arch/x86/include/asm/special_insns.h \
   arch/x86/include/asm/fpu/types.h \
   arch/x86/include/asm/vmxfeatures.h \
@@ -593,7 +595,6 @@ deps_drivers/net/netconsole.o := \
     $(wildcard include/config/SLAB_FREELIST_HARDENED) \
     $(wildcard include/config/HAVE_ARCH_COMPAT_MMAP_BASES) \
     $(wildcard include/config/MEMBARRIER) \
-    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
     $(wildcard include/config/ARCH_HAS_ELF_CORE_EFLAGS) \
     $(wildcard include/config/AIO) \
     $(wildcard include/config/MMU_NOTIFIER) \
@@ -601,6 +602,7 @@ deps_drivers/net/netconsole.o := \
     $(wildcard include/config/IOMMU_MM_DATA) \
     $(wildcard include/config/KSM) \
     $(wildcard include/config/SCHED_MM_CID) \
+    $(wildcard include/config/SCHED_CACHE) \
     $(wildcard include/config/CORE_DUMP_DEFAULT_ELF_HEADERS) \
   include/linux/mm_types_task.h \
   arch/x86/include/asm/tlbbatch.h \
@@ -673,7 +675,6 @@ deps_drivers/net/netconsole.o := \
     $(wildcard include/config/TASK_XACCT) \
     $(wildcard include/config/CPUSETS) \
     $(wildcard include/config/X86_CPU_RESCTRL) \
-    $(wildcard include/config/FUTEX) \
     $(wildcard include/config/PERF_EVENTS) \
     $(wildcard include/config/ARCH_HAS_LAZY_MMU_MODE) \
     $(wildcard include/config/FAULT_INJECTION) \
@@ -698,6 +699,10 @@ deps_drivers/net/netconsole.o := \
     $(wildcard include/config/SCHED_PROXY_EXEC) \
     $(wildcard include/config/MEM_ALLOC_PROFILING_DEBUG) \
   include/uapi/linux/sched.h \
+  include/linux/futex_types.h \
+    $(wildcard include/config/FUTEX) \
+    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
+    $(wildcard include/config/FUTEX_ROBUST_UNLOCK) \
   include/linux/pid_types.h \
   include/linux/sem_types.h \
   include/linux/shm.h \
@@ -776,14 +781,13 @@ deps_drivers/net/netconsole.o := \
   include/linux/timex.h \
   include/uapi/linux/timex.h \
   arch/x86/include/asm/timex.h \
-    $(wildcard include/config/X86_TSC) \
   arch/x86/include/asm/tsc.h \
   arch/x86/include/asm/msr.h \
   arch/x86/include/uapi/asm/msr.h \
   arch/x86/include/asm/shared/msr.h \
   include/linux/percpu.h \
     $(wildcard include/config/MODULES) \
-    $(wildcard include/config/RANDOM_KMALLOC_CACHES) \
+    $(wildcard include/config/KMALLOC_PARTITION_CACHES) \
     $(wildcard include/config/PAGE_SIZE_4KB) \
     $(wildcard include/config/NEED_PER_CPU_PAGE_FIRST_CHUNK) \
   include/linux/alloc_tag.h \
@@ -890,7 +894,6 @@ deps_drivers/net/netconsole.o := \
     $(wildcard include/config/X86_SGX) \
   arch/x86/include/asm/pkru.h \
   arch/x86/include/asm/fpu/api.h \
-    $(wildcard include/config/MATH_EMULATION) \
   arch/x86/include/asm/coco.h \
   include/asm-generic/pgtable_uffd.h \
     $(wildcard include/config/PTE_MARKER_UFFD_WP) \
@@ -920,6 +923,8 @@ deps_drivers/net/netconsole.o := \
     $(wildcard include/config/KFENCE) \
     $(wildcard include/config/SLUB_TINY) \
     $(wildcard include/config/SLUB_DEBUG) \
+    $(wildcard include/config/KMALLOC_PARTITION_RANDOM) \
+    $(wildcard include/config/KMALLOC_PARTITION_TYPED) \
     $(wildcard include/config/SLAB_BUCKETS) \
     $(wildcard include/config/KVFREE_RCU_BATCHED) \
   include/linux/hash.h \
@@ -945,6 +950,7 @@ deps_drivers/net/netconsole.o := \
     $(wildcard include/config/HAVE_ARCH_THREAD_STRUCT_WHITELIST) \
   include/linux/uaccess.h \
     $(wildcard include/config/ARCH_HAS_SUBPAGE_FAULTS) \
+    $(wildcard include/config/ARCH_MEMORY_ORDER_TSO) \
     $(wildcard include/config/HARDENED_USERCOPY) \
   include/linux/fault-inject-usercopy.h \
     $(wildcard include/config/FAULT_INJECTION_USERCOPY) \
@@ -1008,7 +1014,6 @@ deps_drivers/net/netconsole.o := \
     $(wildcard include/config/PERSISTENT_HUGE_ZERO_FOLIO) \
   include/linux/fs.h \
     $(wildcard include/config/FANOTIFY_ACCESS_PERMISSIONS) \
-    $(wildcard include/config/READ_ONLY_THP_FOR_FS) \
     $(wildcard include/config/FS_POSIX_ACL) \
     $(wildcard include/config/CGROUP_WRITEBACK) \
     $(wildcard include/config/IMA) \
@@ -1177,8 +1182,193 @@ deps_drivers/net/netconsole.o := \
     $(wildcard include/config/IRQ_WORK) \
   arch/x86/include/asm/irq_work.h \
   include/uapi/linux/vesa.h \
-  include/linux/netpoll.h \
-    $(wildcard include/config/NETPOLL) \
+  include/linux/ip.h \
+  include/linux/skbuff.h \
+    $(wildcard include/config/NF_CONNTRACK) \
+    $(wildcard include/config/BRIDGE_NETFILTER) \
+    $(wildcard include/config/NET_TC_SKB_EXT) \
+    $(wildcard include/config/MAX_SKB_FRAGS) \
+    $(wildcard include/config/NET_SOCK_MSG) \
+    $(wildcard include/config/SKB_EXTENSIONS) \
+    $(wildcard include/config/NET_XGRESS) \
+    $(wildcard include/config/WIRELESS) \
+    $(wildcard include/config/IPV6_NDISC_NODETYPE) \
+    $(wildcard include/config/IP_VS) \
+    $(wildcard include/config/NETFILTER_XT_TARGET_TRACE) \
+    $(wildcard include/config/NF_TABLES) \
+    $(wildcard include/config/NET_SWITCHDEV) \
+    $(wildcard include/config/NET_REDIRECT) \
+    $(wildcard include/config/NETFILTER_SKIP_EGRESS) \
+    $(wildcard include/config/SKB_DECRYPTED) \
+    $(wildcard include/config/IP_SCTP) \
+    $(wildcard include/config/NET_SCHED) \
+    $(wildcard include/config/NET_RX_BUSY_POLL) \
+    $(wildcard include/config/XPS) \
+    $(wildcard include/config/NETWORK_SECMARK) \
+    $(wildcard include/config/DEBUG_NET) \
+    $(wildcard include/config/FAIL_SKB_REALLOC) \
+    $(wildcard include/config/HAVE_EFFICIENT_UNALIGNED_ACCESS) \
+    $(wildcard include/config/NETWORK_PHY_TIMESTAMPING) \
+    $(wildcard include/config/XFRM) \
+    $(wildcard include/config/MPTCP) \
+    $(wildcard include/config/MCTP_FLOWS) \
+    $(wildcard include/config/INET_PSP) \
+    $(wildcard include/config/CAN) \
+  include/linux/bvec.h \
+  include/linux/highmem.h \
+  include/linux/cacheflush.h \
+  arch/x86/include/asm/cacheflush.h \
+  include/asm-generic/cacheflush.h \
+  include/linux/kmsan.h \
+  include/linux/dma-direction.h \
+  include/linux/hardirq.h \
+  include/linux/context_tracking_state.h \
+    $(wildcard include/config/CONTEXT_TRACKING_USER) \
+    $(wildcard include/config/CONTEXT_TRACKING) \
+    $(wildcard include/config/RCU_DYNTICKS_TORTURE) \
+  include/linux/ftrace_irq.h \
+    $(wildcard include/config/HWLAT_TRACER) \
+    $(wildcard include/config/OSNOISE_TRACER) \
+  include/linux/vtime.h \
+    $(wildcard include/config/VIRT_CPU_ACCOUNTING) \
+    $(wildcard include/config/HAVE_VIRT_CPU_ACCOUNTING_IDLE) \
+    $(wildcard include/config/IRQ_TIME_ACCOUNTING) \
+  arch/x86/include/asm/hardirq.h \
+    $(wildcard include/config/X86_THERMAL_VECTOR) \
+    $(wildcard include/config/X86_MCE_THRESHOLD) \
+    $(wildcard include/config/X86_MCE_AMD) \
+    $(wildcard include/config/X86_HV_CALLBACK_VECTOR) \
+    $(wildcard include/config/HYPERV) \
+    $(wildcard include/config/KVM) \
+    $(wildcard include/config/GUEST_PERF_EVENTS) \
+    $(wildcard include/config/X86_POSTED_MSI) \
+    $(wildcard include/config/CPU_MITIGATIONS) \
+    $(wildcard include/config/KVM_INTEL) \
+  include/linux/highmem-internal.h \
+  include/net/checksum.h \
+  arch/x86/include/asm/checksum.h \
+    $(wildcard include/config/GENERIC_CSUM) \
+  arch/x86/include/asm/checksum_64.h \
+  include/linux/in6.h \
+  include/uapi/linux/in6.h \
+  include/linux/dma-mapping.h \
+    $(wildcard include/config/DMA_API_DEBUG) \
+    $(wildcard include/config/HAS_DMA) \
+    $(wildcard include/config/IOMMU_DMA) \
+    $(wildcard include/config/DMA_NEED_SYNC) \
+    $(wildcard include/config/NEED_DMA_MAP_STATE) \
+  include/linux/device.h \
+    $(wildcard include/config/GENERIC_MSI_IRQ) \
+    $(wildcard include/config/ENERGY_MODEL) \
+    $(wildcard include/config/PINCTRL) \
+    $(wildcard include/config/ARCH_HAS_DMA_OPS) \
+    $(wildcard include/config/DMA_DECLARE_COHERENT) \
+    $(wildcard include/config/DMA_CMA) \
+    $(wildcard include/config/SWIOTLB) \
+    $(wildcard include/config/SWIOTLB_DYNAMIC) \
+    $(wildcard include/config/PM) \
+    $(wildcard include/config/PM_SLEEP) \
+    $(wildcard include/config/OF) \
+    $(wildcard include/config/DEVTMPFS) \
+  include/linux/dev_printk.h \
+  include/linux/energy_model.h \
+  include/linux/sched/cpufreq.h \
+    $(wildcard include/config/CPU_FREQ) \
+  include/linux/sched/topology.h \
+    $(wildcard include/config/SCHED_CLUSTER) \
+    $(wildcard include/config/SCHED_MC) \
+    $(wildcard include/config/CPU_FREQ_GOV_SCHEDUTIL) \
+  include/linux/sched/idle.h \
+  include/linux/sched/sd_flags.h \
+  include/linux/klist.h \
+  include/linux/pm.h \
+    $(wildcard include/config/VT_CONSOLE_SLEEP) \
+    $(wildcard include/config/CXL_SUSPEND) \
+    $(wildcard include/config/PM_CLK) \
+    $(wildcard include/config/PM_GENERIC_DOMAINS) \
+  include/linux/device/bus.h \
+    $(wildcard include/config/ACPI) \
+  include/linux/device/class.h \
+  include/linux/device/devres.h \
+    $(wildcard include/config/HAS_IOMEM) \
+  include/linux/device/driver.h \
+  include/linux/device-id/acpi.h \
+  include/linux/device-id/of.h \
+  arch/x86/include/generated/asm/device.h \
+  include/asm-generic/device.h \
+  include/linux/pm_wakeup.h \
+  include/linux/scatterlist.h \
+    $(wildcard include/config/NEED_SG_DMA_LENGTH) \
+    $(wildcard include/config/NEED_SG_DMA_FLAGS) \
+    $(wildcard include/config/DEBUG_SG) \
+    $(wildcard include/config/SGL_ALLOC) \
+    $(wildcard include/config/ARCH_NO_SG_CHAIN) \
+    $(wildcard include/config/SG_POOL) \
+  arch/x86/include/asm/io.h \
+    $(wildcard include/config/MTRR) \
+    $(wildcard include/config/X86_PAT) \
+  arch/x86/include/generated/asm/early_ioremap.h \
+  include/asm-generic/early_ioremap.h \
+    $(wildcard include/config/GENERIC_EARLY_IOREMAP) \
+  arch/x86/include/asm/shared/io.h \
+  include/asm-generic/io.h \
+    $(wildcard include/config/GENERIC_IOMAP) \
+    $(wildcard include/config/TRACE_MMIO_ACCESS) \
+    $(wildcard include/config/HAS_IOPORT) \
+    $(wildcard include/config/GENERIC_IOREMAP) \
+    $(wildcard include/config/HAS_IOPORT_MAP) \
+  include/asm-generic/iomap.h \
+  include/asm-generic/pci_iomap.h \
+    $(wildcard include/config/PCI) \
+    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
+    $(wildcard include/config/GENERIC_PCI_IOMAP) \
+  include/linux/logic_pio.h \
+    $(wildcard include/config/INDIRECT_PIO) \
+  include/linux/fwnode.h \
+  include/linux/netdev_features.h \
+  include/net/flow_dissector.h \
+  include/linux/siphash.h \
+  include/uapi/linux/if_ether.h \
+  include/uapi/linux/pkt_cls.h \
+    $(wildcard include/config/NET_CLS_ACT) \
+  include/uapi/linux/pkt_sched.h \
+  include/uapi/linux/if_packet.h \
+  include/linux/page_frag_cache.h \
+  include/net/flow.h \
+  include/net/inet_dscp.h \
+  include/linux/netfilter/nf_conntrack_common.h \
+  include/uapi/linux/netfilter/nf_conntrack_common.h \
+  include/net/net_debug.h \
+  include/net/dropreason-core.h \
+  include/net/netmem.h \
+    $(wildcard include/config/NET_DEVMEM) \
+  include/uapi/linux/ip.h \
+  include/linux/ipv6.h \
+    $(wildcard include/config/IPV6_ROUTER_PREF) \
+    $(wildcard include/config/IPV6_ROUTE_INFO) \
+    $(wildcard include/config/IPV6_OPTIMISTIC_DAD) \
+    $(wildcard include/config/IPV6_MROUTE) \
+    $(wildcard include/config/IPV6_SEG6_HMAC) \
+    $(wildcard include/config/IPV6_MIP6) \
+    $(wildcard include/config/NET_L3_MASTER_DEV) \
+    $(wildcard include/config/IPV6_SUBTREES) \
+  include/uapi/linux/ipv6.h \
+  include/linux/tcp.h \
+    $(wildcard include/config/SMC) \
+    $(wildcard include/config/TCP_AO) \
+    $(wildcard include/config/TLS_DEVICE) \
+    $(wildcard include/config/BPF) \
+    $(wildcard include/config/TCP_MD5SIG) \
+  include/linux/win_minmax.h \
+  include/net/sock.h \
+    $(wildcard include/config/SOCK_RX_QUEUE_MAPPING) \
+    $(wildcard include/config/SOCK_VALIDATE_XMIT) \
+    $(wildcard include/config/RPS) \
+    $(wildcard include/config/SOCK_CGROUP_DATA) \
+    $(wildcard include/config/INET) \
+    $(wildcard include/config/UNIX) \
+    $(wildcard include/config/BT) \
+    $(wildcard include/config/CGROUP_BPF) \
   include/linux/netdevice.h \
     $(wildcard include/config/DCB) \
     $(wildcard include/config/HYPERV_NET) \
@@ -1188,9 +1378,9 @@ deps_drivers/net/netconsole.o := \
     $(wildcard include/config/NET_IPGRE) \
     $(wildcard include/config/IPV6_SIT) \
     $(wildcard include/config/IPV6_TUNNEL) \
+    $(wildcard include/config/NETPOLL) \
     $(wildcard include/config/XDP_SOCKETS) \
     $(wildcard include/config/BQL) \
-    $(wildcard include/config/XPS) \
     $(wildcard include/config/RFS_ACCEL) \
     $(wildcard include/config/FCOE) \
     $(wildcard include/config/XFRM_OFFLOAD) \
@@ -1198,22 +1388,16 @@ deps_drivers/net/netconsole.o := \
     $(wildcard include/config/LIBFCOE) \
     $(wildcard include/config/NET_SHAPER) \
     $(wildcard include/config/NETFILTER_EGRESS) \
-    $(wildcard include/config/NET_XGRESS) \
     $(wildcard include/config/WIRELESS_EXT) \
-    $(wildcard include/config/NET_L3_MASTER_DEV) \
-    $(wildcard include/config/TLS_DEVICE) \
     $(wildcard include/config/VLAN_8021Q) \
     $(wildcard include/config/NET_DSA) \
     $(wildcard include/config/TIPC) \
-    $(wildcard include/config/ATALK) \
     $(wildcard include/config/CFG80211) \
     $(wildcard include/config/IEEE802154) \
     $(wildcard include/config/6LOWPAN) \
     $(wildcard include/config/MPLS_ROUTING) \
     $(wildcard include/config/MCTP) \
-    $(wildcard include/config/INET_PSP) \
     $(wildcard include/config/NETFILTER_INGRESS) \
-    $(wildcard include/config/NET_SCHED) \
     $(wildcard include/config/PCPU_DEV_REFCNT) \
     $(wildcard include/config/GARP) \
     $(wildcard include/config/MRP) \
@@ -1222,7 +1406,6 @@ deps_drivers/net/netconsole.o := \
     $(wildcard include/config/MACSEC) \
     $(wildcard include/config/DPLL) \
     $(wildcard include/config/DIMLIB) \
-    $(wildcard include/config/RPS) \
     $(wildcard include/config/NET_FLOW_LIMIT) \
     $(wildcard include/config/NET_DEV_REFCNT_TRACKER) \
     $(wildcard include/config/ETHTOOL_NETLINK) \
@@ -1233,33 +1416,20 @@ deps_drivers/net/netconsole.o := \
   arch/x86/include/asm/local.h \
   include/linux/dynamic_queue_limits.h \
   include/net/net_namespace.h \
-    $(wildcard include/config/NF_CONNTRACK) \
     $(wildcard include/config/NF_FLOW_TABLE) \
-    $(wildcard include/config/UNIX) \
     $(wildcard include/config/IEEE802154_6LOWPAN) \
-    $(wildcard include/config/IP_SCTP) \
     $(wildcard include/config/NETFILTER) \
-    $(wildcard include/config/NF_TABLES) \
     $(wildcard include/config/WEXT_CORE) \
-    $(wildcard include/config/XFRM) \
-    $(wildcard include/config/IP_VS) \
     $(wildcard include/config/MPLS) \
-    $(wildcard include/config/CAN) \
     $(wildcard include/config/CRYPTO_USER) \
-    $(wildcard include/config/SMC) \
     $(wildcard include/config/DEBUG_NET_SMALL_RTNL) \
     $(wildcard include/config/VSOCKETS) \
     $(wildcard include/config/NET_NS) \
     $(wildcard include/config/NET_NS_REFCNT_TRACKER) \
-  include/net/flow.h \
-  include/linux/in6.h \
-  include/uapi/linux/in6.h \
-  include/net/inet_dscp.h \
   include/net/netns/core.h \
   include/net/netns/mib.h \
     $(wildcard include/config/XFRM_STATISTICS) \
     $(wildcard include/config/TLS) \
-    $(wildcard include/config/MPTCP) \
   include/net/snmp.h \
   include/uapi/linux/snmp.h \
   include/linux/u64_stats_sync.h \
@@ -1275,13 +1445,8 @@ deps_drivers/net/netconsole.o := \
     $(wildcard include/config/IP_MROUTE) \
     $(wildcard include/config/IP_MROUTE_MULTIPLE_TABLES) \
   include/net/inet_frag.h \
-  include/net/dropreason-core.h \
-  include/linux/siphash.h \
-    $(wildcard include/config/HAVE_EFFICIENT_UNALIGNED_ACCESS) \
   include/net/netns/ipv6.h \
     $(wildcard include/config/IPV6_MULTIPLE_TABLES) \
-    $(wildcard include/config/IPV6_SUBTREES) \
-    $(wildcard include/config/IPV6_MROUTE) \
     $(wildcard include/config/IPV6_MROUTE_MULTIPLE_TABLES) \
     $(wildcard include/config/NF_DEFRAG_IPV6) \
   include/net/dst_ops.h \
@@ -1333,147 +1498,6 @@ deps_drivers/net/netconsole.o := \
     $(wildcard include/config/UTS_NS) \
   include/linux/ns/nstree_types.h \
   include/uapi/linux/nsfs.h \
-  include/linux/skbuff.h \
-    $(wildcard include/config/BRIDGE_NETFILTER) \
-    $(wildcard include/config/NET_TC_SKB_EXT) \
-    $(wildcard include/config/MAX_SKB_FRAGS) \
-    $(wildcard include/config/NET_SOCK_MSG) \
-    $(wildcard include/config/SKB_EXTENSIONS) \
-    $(wildcard include/config/WIRELESS) \
-    $(wildcard include/config/IPV6_NDISC_NODETYPE) \
-    $(wildcard include/config/NETFILTER_XT_TARGET_TRACE) \
-    $(wildcard include/config/NET_SWITCHDEV) \
-    $(wildcard include/config/NET_REDIRECT) \
-    $(wildcard include/config/NETFILTER_SKIP_EGRESS) \
-    $(wildcard include/config/SKB_DECRYPTED) \
-    $(wildcard include/config/NET_RX_BUSY_POLL) \
-    $(wildcard include/config/NETWORK_SECMARK) \
-    $(wildcard include/config/DEBUG_NET) \
-    $(wildcard include/config/FAIL_SKB_REALLOC) \
-    $(wildcard include/config/NETWORK_PHY_TIMESTAMPING) \
-    $(wildcard include/config/MCTP_FLOWS) \
-  include/linux/bvec.h \
-  include/linux/highmem.h \
-  include/linux/cacheflush.h \
-  arch/x86/include/asm/cacheflush.h \
-  include/asm-generic/cacheflush.h \
-  include/linux/kmsan.h \
-  include/linux/dma-direction.h \
-  include/linux/hardirq.h \
-  include/linux/context_tracking_state.h \
-    $(wildcard include/config/CONTEXT_TRACKING_USER) \
-    $(wildcard include/config/CONTEXT_TRACKING) \
-    $(wildcard include/config/RCU_DYNTICKS_TORTURE) \
-  include/linux/ftrace_irq.h \
-    $(wildcard include/config/HWLAT_TRACER) \
-    $(wildcard include/config/OSNOISE_TRACER) \
-  include/linux/vtime.h \
-    $(wildcard include/config/VIRT_CPU_ACCOUNTING) \
-    $(wildcard include/config/IRQ_TIME_ACCOUNTING) \
-  arch/x86/include/asm/hardirq.h \
-    $(wildcard include/config/CPU_MITIGATIONS) \
-    $(wildcard include/config/KVM_INTEL) \
-    $(wildcard include/config/KVM) \
-    $(wildcard include/config/GUEST_PERF_EVENTS) \
-    $(wildcard include/config/X86_THERMAL_VECTOR) \
-    $(wildcard include/config/X86_MCE_THRESHOLD) \
-    $(wildcard include/config/X86_MCE_AMD) \
-    $(wildcard include/config/X86_HV_CALLBACK_VECTOR) \
-    $(wildcard include/config/HYPERV) \
-    $(wildcard include/config/X86_POSTED_MSI) \
-  include/linux/highmem-internal.h \
-  include/net/checksum.h \
-  arch/x86/include/asm/checksum.h \
-    $(wildcard include/config/GENERIC_CSUM) \
-  arch/x86/include/asm/checksum_64.h \
-  include/linux/dma-mapping.h \
-    $(wildcard include/config/DMA_API_DEBUG) \
-    $(wildcard include/config/HAS_DMA) \
-    $(wildcard include/config/IOMMU_DMA) \
-    $(wildcard include/config/DMA_NEED_SYNC) \
-    $(wildcard include/config/NEED_DMA_MAP_STATE) \
-  include/linux/device.h \
-    $(wildcard include/config/GENERIC_MSI_IRQ) \
-    $(wildcard include/config/ENERGY_MODEL) \
-    $(wildcard include/config/PINCTRL) \
-    $(wildcard include/config/ARCH_HAS_DMA_OPS) \
-    $(wildcard include/config/DMA_DECLARE_COHERENT) \
-    $(wildcard include/config/DMA_CMA) \
-    $(wildcard include/config/SWIOTLB) \
-    $(wildcard include/config/SWIOTLB_DYNAMIC) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_DEVICE) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU_ALL) \
-    $(wildcard include/config/DMA_OPS_BYPASS) \
-    $(wildcard include/config/PM) \
-    $(wildcard include/config/PM_SLEEP) \
-    $(wildcard include/config/OF) \
-    $(wildcard include/config/DEVTMPFS) \
-  include/linux/dev_printk.h \
-  include/linux/energy_model.h \
-  include/linux/sched/cpufreq.h \
-    $(wildcard include/config/CPU_FREQ) \
-  include/linux/sched/topology.h \
-    $(wildcard include/config/SCHED_CLUSTER) \
-    $(wildcard include/config/SCHED_MC) \
-    $(wildcard include/config/CPU_FREQ_GOV_SCHEDUTIL) \
-  include/linux/sched/idle.h \
-  include/linux/sched/sd_flags.h \
-  include/linux/klist.h \
-  include/linux/pm.h \
-    $(wildcard include/config/VT_CONSOLE_SLEEP) \
-    $(wildcard include/config/CXL_SUSPEND) \
-    $(wildcard include/config/PM_CLK) \
-    $(wildcard include/config/PM_GENERIC_DOMAINS) \
-  include/linux/device/bus.h \
-    $(wildcard include/config/ACPI) \
-  include/linux/device/class.h \
-  include/linux/device/devres.h \
-    $(wildcard include/config/HAS_IOMEM) \
-  include/linux/device/driver.h \
-  arch/x86/include/asm/device.h \
-  include/linux/pm_wakeup.h \
-  include/linux/scatterlist.h \
-    $(wildcard include/config/NEED_SG_DMA_LENGTH) \
-    $(wildcard include/config/NEED_SG_DMA_FLAGS) \
-    $(wildcard include/config/DEBUG_SG) \
-    $(wildcard include/config/SGL_ALLOC) \
-    $(wildcard include/config/ARCH_NO_SG_CHAIN) \
-    $(wildcard include/config/SG_POOL) \
-  arch/x86/include/asm/io.h \
-    $(wildcard include/config/MTRR) \
-    $(wildcard include/config/X86_PAT) \
-  arch/x86/include/generated/asm/early_ioremap.h \
-  include/asm-generic/early_ioremap.h \
-    $(wildcard include/config/GENERIC_EARLY_IOREMAP) \
-  arch/x86/include/asm/shared/io.h \
-  include/asm-generic/io.h \
-    $(wildcard include/config/GENERIC_IOMAP) \
-    $(wildcard include/config/TRACE_MMIO_ACCESS) \
-    $(wildcard include/config/HAS_IOPORT) \
-    $(wildcard include/config/GENERIC_IOREMAP) \
-    $(wildcard include/config/HAS_IOPORT_MAP) \
-  include/asm-generic/iomap.h \
-  include/asm-generic/pci_iomap.h \
-    $(wildcard include/config/PCI) \
-    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
-    $(wildcard include/config/GENERIC_PCI_IOMAP) \
-  include/linux/logic_pio.h \
-    $(wildcard include/config/INDIRECT_PIO) \
-  include/linux/fwnode.h \
-  include/linux/netdev_features.h \
-  include/net/flow_dissector.h \
-  include/uapi/linux/if_ether.h \
-  include/uapi/linux/pkt_cls.h \
-    $(wildcard include/config/NET_CLS_ACT) \
-  include/uapi/linux/pkt_sched.h \
-  include/uapi/linux/if_packet.h \
-  include/linux/page_frag_cache.h \
-  include/linux/netfilter/nf_conntrack_common.h \
-  include/uapi/linux/netfilter/nf_conntrack_common.h \
-  include/net/net_debug.h \
-  include/net/netmem.h \
-    $(wildcard include/config/NET_DEVMEM) \
   include/linux/seq_file_net.h \
   include/linux/seq_file.h \
   include/linux/string_helpers.h \
@@ -1483,9 +1507,7 @@ deps_drivers/net/netconsole.o := \
   include/linux/cgroup.h \
     $(wildcard include/config/DEBUG_CGROUP_REF) \
     $(wildcard include/config/CGROUP_CPUACCT) \
-    $(wildcard include/config/SOCK_CGROUP_DATA) \
     $(wildcard include/config/CGROUP_DATA) \
-    $(wildcard include/config/CGROUP_BPF) \
   include/uapi/linux/cgroupstats.h \
   include/uapi/linux/taskstats.h \
   include/linux/nsproxy.h \
@@ -1546,13 +1568,13 @@ deps_drivers/net/netconsole.o := \
     $(wildcard include/config/DYNAMIC_FTRACE_WITH_JMP) \
     $(wildcard include/config/FINEIBT) \
     $(wildcard include/config/BPF_JIT_ALWAYS_ON) \
-    $(wildcard include/config/INET) \
   include/uapi/linux/bpf.h \
     $(wildcard include/config/BPF_LIRC_MODE2) \
     $(wildcard include/config/EFFICIENT_UNALIGNED_ACCESS) \
     $(wildcard include/config/BPF_KPROBE_OVERRIDE) \
   include/uapi/linux/bpf_common.h \
   include/uapi/linux/filter.h \
+  include/linux/bpf_defs.h \
   include/crypto/sha2.h \
   include/linux/kallsyms.h \
     $(wildcard include/config/KALLSYMS_ALL) \
@@ -1595,6 +1617,41 @@ deps_drivers/net/netconsole.o := \
   arch/x86/include/asm/cfi.h \
     $(wildcard include/config/FINEIBT_BHI) \
     $(wildcard include/config/FUNCTION_PADDING_CFI) \
+  include/linux/xattr.h \
+  include/uapi/linux/xattr.h \
+  include/linux/ftrace.h \
+    $(wildcard include/config/TRACER_SNAPSHOT) \
+    $(wildcard include/config/HAVE_FUNCTION_GRAPH_FREGS) \
+    $(wildcard include/config/FUNCTION_TRACER) \
+    $(wildcard include/config/HAVE_DYNAMIC_FTRACE_WITH_ARGS) \
+    $(wildcard include/config/HAVE_FTRACE_REGS_HAVING_PT_REGS) \
+    $(wildcard include/config/HAVE_REGS_AND_STACK_ACCESS_API) \
+    $(wildcard include/config/DYNAMIC_FTRACE_WITH_REGS) \
+    $(wildcard include/config/DYNAMIC_FTRACE_WITH_ARGS) \
+    $(wildcard include/config/DYNAMIC_FTRACE_WITH_DIRECT_CALLS) \
+    $(wildcard include/config/STACK_TRACER) \
+    $(wildcard include/config/DYNAMIC_FTRACE_WITH_CALL_OPS) \
+    $(wildcard include/config/FUNCTION_GRAPH_RETVAL) \
+    $(wildcard include/config/FTRACE_SYSCALLS) \
+  include/linux/trace_recursion.h \
+    $(wildcard include/config/FTRACE_RECORD_RECURSION) \
+    $(wildcard include/config/FTRACE_VALIDATE_RCU_IS_WATCHING) \
+  include/linux/trace_clock.h \
+  arch/x86/include/asm/trace_clock.h \
+  include/linux/ptrace.h \
+  include/linux/pid_namespace.h \
+    $(wildcard include/config/MEMFD_CREATE) \
+  include/uapi/linux/ptrace.h \
+  include/linux/seccomp.h \
+    $(wildcard include/config/HAVE_ARCH_SECCOMP_FILTER) \
+    $(wildcard include/config/SECCOMP_FILTER) \
+    $(wildcard include/config/CHECKPOINT_RESTORE) \
+    $(wildcard include/config/SECCOMP_CACHE_DEBUG) \
+  include/uapi/linux/seccomp.h \
+  arch/x86/include/asm/seccomp.h \
+  include/asm-generic/seccomp.h \
+  arch/x86/include/asm/ftrace.h \
+    $(wildcard include/config/HAVE_FENTRY) \
   arch/x86/include/asm/rqspinlock.h \
     $(wildcard include/config/QUEUED_SPINLOCKS) \
   include/asm-generic/rqspinlock.h \
@@ -1615,25 +1672,78 @@ deps_drivers/net/netconsole.o := \
   include/uapi/linux/if_bonding.h \
   include/uapi/linux/netdev.h \
   include/net/neighbour_tables.h \
+  include/linux/poll.h \
+  include/uapi/linux/poll.h \
+  arch/x86/include/generated/uapi/asm/poll.h \
+  include/uapi/asm-generic/poll.h \
+  include/uapi/linux/eventpoll.h \
+  include/linux/indirect_call_wrapper.h \
+  include/net/dst.h \
+  include/linux/rtnetlink.h \
+    $(wildcard include/config/NET_INGRESS) \
+  include/uapi/linux/rtnetlink.h \
+  include/uapi/linux/if_addr.h \
+  include/net/neighbour.h \
+  include/net/rtnetlink.h \
+  include/net/netlink.h \
+  include/net/tcp_states.h \
+  include/linux/net_tstamp.h \
+  include/uapi/linux/net_tstamp.h \
+  include/uapi/linux/ethtool_netlink_generated.h \
+  include/net/l3mdev.h \
+  include/net/fib_rules.h \
+  include/uapi/linux/fib_rules.h \
+  include/net/fib_notifier.h \
+  include/net/inet_connection_sock.h \
+  include/net/inet_sock.h \
+  include/linux/jhash.h \
+  include/linux/unaligned.h \
+  include/linux/unaligned/packed_struct.h \
+  include/vdso/unaligned.h \
+  include/net/request_sock.h \
+    $(wildcard include/config/SYN_COOKIES) \
+  include/net/rstreason.h \
+  include/uapi/linux/mptcp.h \
+  include/uapi/linux/mptcp_pm.h \
+  include/net/netns/hash.h \
+  include/net/inet_timewait_sock.h \
+  include/net/timewait_sock.h \
+  include/uapi/linux/tcp.h \
+  include/linux/udp.h \
+  include/uapi/linux/udp.h \
+  include/linux/netpoll.h \
   include/linux/inet.h \
+  include/net/ip6_checksum.h \
+  include/net/ip.h \
+  include/net/route.h \
+  include/net/inetpeer.h \
+  include/net/ipv6.h \
+  include/linux/jump_label_ratelimit.h \
+  include/net/if_inet6.h \
+  include/net/ip_fib.h \
+  include/uapi/linux/in_route.h \
+  include/net/arp.h \
+  include/linux/if_arp.h \
+    $(wildcard include/config/FIREWIRE_NET) \
+  include/uapi/linux/if_arp.h \
+  include/net/ndisc.h \
+  include/linux/icmpv6.h \
+    $(wildcard include/config/NF_NAT) \
+  include/uapi/linux/route.h \
+  include/net/lwtunnel.h \
+  include/uapi/linux/lwtunnel.h \
   include/linux/configfs.h \
   include/linux/etherdevice.h \
   include/linux/crc32.h \
     $(wildcard include/config/CRC32_ARCH) \
   include/linux/bitrev.h \
     $(wildcard include/config/HAVE_ARCH_BITREVERSE) \
-  include/linux/unaligned.h \
-  include/linux/unaligned/packed_struct.h \
-  include/vdso/unaligned.h \
+  include/asm-generic/bitops/__bitrev.h \
   include/linux/hex.h \
   include/linux/utsname.h \
     $(wildcard include/config/PROC_SYSCTL) \
   include/linux/uts_namespace.h \
   include/uapi/linux/utsname.h \
-  include/linux/rtnetlink.h \
-    $(wildcard include/config/NET_INGRESS) \
-  include/uapi/linux/rtnetlink.h \
-  include/uapi/linux/if_addr.h \
 
 drivers/net/netconsole.o: $(deps_drivers/net/netconsole.o)
 

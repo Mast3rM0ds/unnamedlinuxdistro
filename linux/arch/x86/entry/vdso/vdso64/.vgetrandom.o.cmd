@@ -37,6 +37,11 @@ deps_arch/x86/entry/vdso/vdso64/vgetrandom.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/linux/types.h \
     $(wildcard include/config/HAVE_UID16) \
     $(wildcard include/config/UID16) \
@@ -95,7 +100,6 @@ deps_arch/x86/entry/vdso/vdso64/vgetrandom.o := \
     $(wildcard include/config/X86_L1_CACHE_SHIFT) \
     $(wildcard include/config/X86_INTERNODE_CACHE_SHIFT) \
     $(wildcard include/config/X86_VSMP) \
-    $(wildcard include/config/SMP) \
   include/linux/linkage.h \
     $(wildcard include/config/ARCH_USE_SYM_ANNOTATIONS) \
   include/linux/stringify.h \

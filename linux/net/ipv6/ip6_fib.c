@@ -633,7 +633,6 @@ static int inet6_dump_fib(struct sk_buff *skb, struct netlink_callback *cb)
 	struct rt6_rtnl_dump_arg arg = {
 		.filter.dump_exceptions = true,
 		.filter.dump_routes = true,
-		.filter.rtnl_held = false,
 	};
 	const struct nlmsghdr *nlh = cb->nlh;
 	struct net *net = sock_net(skb->sk);
@@ -1495,6 +1494,7 @@ int fib6_add(struct fib6_node *root, struct fib6_info *rt,
 				   root, and then (in failure) stale node
 				   in main tree.
 				 */
+				fib6_info_release(info->nl_net->ipv6.fib6_null_entry);
 				node_free_immediate(info->nl_net, sfn);
 				err = PTR_ERR(sn);
 				goto failure;

@@ -38,9 +38,13 @@ deps_lib/flex_proportions.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/linux/flex_proportions.h \
   include/linux/percpu_counter.h \
-    $(wildcard include/config/SMP) \
     $(wildcard include/config/HOTPLUG_CPU) \
   include/linux/spinlock.h \
     $(wildcard include/config/DEBUG_SPINLOCK) \
@@ -116,8 +120,6 @@ deps_lib/flex_proportions.o := \
   arch/x86/include/asm/preempt.h \
   arch/x86/include/asm/rmwcc.h \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/CC_HAS_NAMED_AS) \
-    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
   include/linux/bits.h \
   include/vdso/bits.h \
   include/vdso/const.h \
@@ -429,8 +431,8 @@ deps_lib/flex_proportions.o := \
   arch/x86/include/asm/proto.h \
   arch/x86/include/uapi/asm/ldt.h \
   arch/x86/include/uapi/asm/sigcontext.h \
-  arch/x86/include/asm/cpuid/api.h \
   arch/x86/include/asm/cpuid/types.h \
+  arch/x86/include/asm/cpuid/leaf_types.h \
   arch/x86/include/asm/special_insns.h \
   arch/x86/include/asm/fpu/types.h \
   arch/x86/include/asm/vmxfeatures.h \
@@ -497,7 +499,7 @@ deps_lib/flex_proportions.o := \
     $(wildcard include/config/INLINE_WRITE_UNLOCK_IRQRESTORE) \
   include/linux/percpu.h \
     $(wildcard include/config/MODULES) \
-    $(wildcard include/config/RANDOM_KMALLOC_CACHES) \
+    $(wildcard include/config/KMALLOC_PARTITION_CACHES) \
     $(wildcard include/config/PAGE_SIZE_4KB) \
     $(wildcard include/config/NEED_PER_CPU_PAGE_FIRST_CHUNK) \
   include/linux/alloc_tag.h \
@@ -555,9 +557,9 @@ deps_lib/flex_proportions.o := \
     $(wildcard include/config/TASK_XACCT) \
     $(wildcard include/config/CPUSETS) \
     $(wildcard include/config/X86_CPU_RESCTRL) \
-    $(wildcard include/config/FUTEX) \
     $(wildcard include/config/PERF_EVENTS) \
     $(wildcard include/config/NUMA_BALANCING) \
+    $(wildcard include/config/SCHED_CACHE) \
     $(wildcard include/config/ARCH_HAS_LAZY_MMU_MODE) \
     $(wildcard include/config/FAULT_INJECTION) \
     $(wildcard include/config/LATENCYTOP) \
@@ -583,15 +585,19 @@ deps_lib/flex_proportions.o := \
     $(wildcard include/config/SCHED_PROXY_EXEC) \
     $(wildcard include/config/SCHED_MM_CID) \
   include/uapi/linux/sched.h \
+  include/linux/futex_types.h \
+    $(wildcard include/config/FUTEX) \
+    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
+    $(wildcard include/config/FUTEX_ROBUST_UNLOCK) \
+  include/linux/mutex_types.h \
+    $(wildcard include/config/MUTEX_SPIN_ON_OWNER) \
+    $(wildcard include/config/DEBUG_MUTEXES) \
+  include/linux/osq_lock.h \
   include/linux/pid_types.h \
   include/linux/sem_types.h \
   include/linux/shm.h \
   arch/x86/include/asm/shmparam.h \
   include/linux/kmsan_types.h \
-  include/linux/mutex_types.h \
-    $(wildcard include/config/MUTEX_SPIN_ON_OWNER) \
-    $(wildcard include/config/DEBUG_MUTEXES) \
-  include/linux/osq_lock.h \
   include/linux/plist_types.h \
   include/linux/hrtimer_types.h \
   include/linux/timerqueue_types.h \
@@ -698,7 +704,6 @@ deps_lib/flex_proportions.o := \
     $(wildcard include/config/PER_VMA_LOCK) \
     $(wildcard include/config/HAVE_ARCH_COMPAT_MMAP_BASES) \
     $(wildcard include/config/MEMBARRIER) \
-    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
     $(wildcard include/config/ARCH_HAS_ELF_CORE_EFLAGS) \
     $(wildcard include/config/AIO) \
     $(wildcard include/config/MMU_NOTIFIER) \
@@ -748,7 +753,6 @@ deps_lib/flex_proportions.o := \
   include/linux/timex.h \
   include/uapi/linux/timex.h \
   arch/x86/include/asm/timex.h \
-    $(wildcard include/config/X86_TSC) \
   arch/x86/include/asm/tsc.h \
   arch/x86/include/asm/msr.h \
   arch/x86/include/uapi/asm/msr.h \

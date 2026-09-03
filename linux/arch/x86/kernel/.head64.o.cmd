@@ -39,6 +39,11 @@ deps_arch/x86/kernel/head64.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/linux/init.h \
     $(wildcard include/config/MEMORY_HOTPLUG) \
     $(wildcard include/config/HAVE_ARCH_PREL32_RELOCATIONS) \
@@ -99,7 +104,6 @@ deps_arch/x86/kernel/head64.o := \
     $(wildcard include/config/HAVE_PREEMPT_DYNAMIC_KEY) \
     $(wildcard include/config/PREEMPT_) \
     $(wildcard include/config/DEBUG_ATOMIC_SLEEP) \
-    $(wildcard include/config/SMP) \
     $(wildcard include/config/MMU) \
     $(wildcard include/config/PROVE_LOCKING) \
     $(wildcard include/config/DYNAMIC_FTRACE) \
@@ -246,7 +250,7 @@ deps_arch/x86/kernel/head64.o := \
     $(wildcard include/config/HAVE_JUMP_LABEL_HACK) \
   include/linux/percpu.h \
     $(wildcard include/config/MODULES) \
-    $(wildcard include/config/RANDOM_KMALLOC_CACHES) \
+    $(wildcard include/config/KMALLOC_PARTITION_CACHES) \
     $(wildcard include/config/PAGE_SIZE_4KB) \
     $(wildcard include/config/NEED_PER_CPU_PAGE_FIRST_CHUNK) \
     $(wildcard include/config/HAVE_SETUP_PER_CPU_AREA) \
@@ -270,8 +274,6 @@ deps_arch/x86/kernel/head64.o := \
     $(wildcard include/config/PREEMPT_LAZY) \
   arch/x86/include/asm/preempt.h \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/CC_HAS_NAMED_AS) \
-    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
   include/asm-generic/percpu.h \
   include/linux/threads.h \
     $(wildcard include/config/BASE_SMALL) \
@@ -322,6 +324,8 @@ deps_arch/x86/kernel/head64.o := \
   arch/x86/include/asm/sparsemem.h \
     $(wildcard include/config/SPARSEMEM) \
     $(wildcard include/config/X86_PAE) \
+  include/vdso/page.h \
+    $(wildcard include/config/PAGE_SHIFT) \
   include/linux/smp.h \
     $(wildcard include/config/UP_LATE_INIT) \
     $(wildcard include/config/CSD_LOCK_WAIT_DEBUG) \
@@ -367,8 +371,6 @@ deps_arch/x86/kernel/head64.o := \
     $(wildcard include/config/X86_MEM_ENCRYPT) \
   include/linux/cc_platform.h \
     $(wildcard include/config/ARCH_HAS_CC_PLATFORM) \
-  include/vdso/page.h \
-    $(wildcard include/config/PAGE_SHIFT) \
   arch/x86/include/asm/page_64_types.h \
     $(wildcard include/config/KASAN) \
     $(wildcard include/config/RANDOMIZE_BASE) \
@@ -411,8 +413,8 @@ deps_arch/x86/kernel/head64.o := \
   arch/x86/include/asm/proto.h \
   arch/x86/include/uapi/asm/ldt.h \
   arch/x86/include/uapi/asm/sigcontext.h \
-  arch/x86/include/asm/cpuid/api.h \
   arch/x86/include/asm/cpuid/types.h \
+  arch/x86/include/asm/cpuid/leaf_types.h \
   arch/x86/include/asm/pgtable_types.h \
     $(wildcard include/config/X86_INTEL_MEMORY_PROTECTION_KEYS) \
     $(wildcard include/config/MEM_SOFT_DIRTY) \
@@ -506,9 +508,9 @@ deps_arch/x86/kernel/head64.o := \
     $(wildcard include/config/TASK_XACCT) \
     $(wildcard include/config/CPUSETS) \
     $(wildcard include/config/X86_CPU_RESCTRL) \
-    $(wildcard include/config/FUTEX) \
     $(wildcard include/config/PERF_EVENTS) \
     $(wildcard include/config/NUMA_BALANCING) \
+    $(wildcard include/config/SCHED_CACHE) \
     $(wildcard include/config/ARCH_HAS_LAZY_MMU_MODE) \
     $(wildcard include/config/FAULT_INJECTION) \
     $(wildcard include/config/LATENCYTOP) \
@@ -534,17 +536,21 @@ deps_arch/x86/kernel/head64.o := \
     $(wildcard include/config/SCHED_PROXY_EXEC) \
     $(wildcard include/config/SCHED_MM_CID) \
   include/uapi/linux/sched.h \
-  include/linux/pid_types.h \
-  include/linux/sem_types.h \
-  include/linux/shm.h \
-  arch/x86/include/asm/shmparam.h \
-  include/linux/kmsan_types.h \
+  include/linux/futex_types.h \
+    $(wildcard include/config/FUTEX) \
+    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
+    $(wildcard include/config/FUTEX_ROBUST_UNLOCK) \
   include/linux/mutex_types.h \
     $(wildcard include/config/MUTEX_SPIN_ON_OWNER) \
     $(wildcard include/config/DEBUG_MUTEXES) \
   include/linux/osq_lock.h \
   include/linux/spinlock_types.h \
   include/linux/rwlock_types.h \
+  include/linux/pid_types.h \
+  include/linux/sem_types.h \
+  include/linux/shm.h \
+  arch/x86/include/asm/shmparam.h \
+  include/linux/kmsan_types.h \
   include/linux/plist_types.h \
   include/linux/hrtimer_types.h \
   include/linux/timerqueue_types.h \
@@ -763,7 +769,6 @@ deps_arch/x86/kernel/head64.o := \
     $(wildcard include/config/SLAB_FREELIST_HARDENED) \
     $(wildcard include/config/HAVE_ARCH_COMPAT_MMAP_BASES) \
     $(wildcard include/config/MEMBARRIER) \
-    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
     $(wildcard include/config/ARCH_HAS_ELF_CORE_EFLAGS) \
     $(wildcard include/config/AIO) \
     $(wildcard include/config/MMU_NOTIFIER) \
@@ -811,7 +816,6 @@ deps_arch/x86/kernel/head64.o := \
   include/linux/timex.h \
   include/uapi/linux/timex.h \
   arch/x86/include/asm/timex.h \
-    $(wildcard include/config/X86_TSC) \
   arch/x86/include/asm/tsc.h \
   arch/x86/include/asm/msr.h \
   arch/x86/include/uapi/asm/msr.h \
@@ -915,7 +919,6 @@ deps_arch/x86/kernel/head64.o := \
     $(wildcard include/config/X86_SGX) \
   arch/x86/include/asm/pkru.h \
   arch/x86/include/asm/fpu/api.h \
-    $(wildcard include/config/MATH_EMULATION) \
   arch/x86/include/asm/coco.h \
   include/asm-generic/pgtable_uffd.h \
     $(wildcard include/config/PTE_MARKER_UFFD_WP) \
@@ -945,6 +948,8 @@ deps_arch/x86/kernel/head64.o := \
     $(wildcard include/config/KFENCE) \
     $(wildcard include/config/SLUB_TINY) \
     $(wildcard include/config/SLUB_DEBUG) \
+    $(wildcard include/config/KMALLOC_PARTITION_RANDOM) \
+    $(wildcard include/config/KMALLOC_PARTITION_TYPED) \
     $(wildcard include/config/SLAB_BUCKETS) \
     $(wildcard include/config/KVFREE_RCU_BATCHED) \
   include/linux/hash.h \
@@ -970,6 +975,7 @@ deps_arch/x86/kernel/head64.o := \
     $(wildcard include/config/HAVE_ARCH_THREAD_STRUCT_WHITELIST) \
   include/linux/uaccess.h \
     $(wildcard include/config/ARCH_HAS_SUBPAGE_FAULTS) \
+    $(wildcard include/config/ARCH_MEMORY_ORDER_TSO) \
     $(wildcard include/config/HARDENED_USERCOPY) \
   include/linux/fault-inject-usercopy.h \
     $(wildcard include/config/FAULT_INJECTION_USERCOPY) \
@@ -1033,7 +1039,6 @@ deps_arch/x86/kernel/head64.o := \
     $(wildcard include/config/PERSISTENT_HUGE_ZERO_FOLIO) \
   include/linux/fs.h \
     $(wildcard include/config/FANOTIFY_ACCESS_PERMISSIONS) \
-    $(wildcard include/config/READ_ONLY_THP_FOR_FS) \
     $(wildcard include/config/FS_POSIX_ACL) \
     $(wildcard include/config/CGROUP_WRITEBACK) \
     $(wildcard include/config/IMA) \
@@ -1162,6 +1167,7 @@ deps_arch/x86/kernel/head64.o := \
     $(wildcard include/config/MICROCODE) \
     $(wildcard include/config/CPU_SUP_INTEL) \
     $(wildcard include/config/MICROCODE_LATE_LOADING) \
+  arch/x86/include/asm/cpuid/api.h \
   arch/x86/include/asm/kasan.h \
     $(wildcard include/config/KASAN_SHADOW_OFFSET) \
   arch/x86/include/asm/realmode.h \
@@ -1188,8 +1194,13 @@ deps_arch/x86/kernel/head64.o := \
     $(wildcard include/config/INTEL_TDX_GUEST) \
     $(wildcard include/config/KVM_GUEST) \
     $(wildcard include/config/INTEL_TDX_HOST) \
-    $(wildcard include/config/KEXEC_CORE) \
+  include/linux/kvm_types.h \
+    $(wildcard include/config/KVM) \
+  arch/x86/include/asm/kvm_types.h \
+    $(wildcard include/config/KVM_AMD) \
+    $(wildcard include/config/KVM_INTEL) \
   arch/x86/include/asm/shared/tdx.h \
+  arch/x86/include/asm/shared/tdx_errno.h \
   arch/x86/include/uapi/asm/mce.h \
   arch/x86/include/asm/tdx_global_metadata.h \
   arch/x86/include/asm/init.h \

@@ -1,0 +1,137 @@
+1.16.1   - Change /etc/make-ca/make-ca.conf.dist to use the URL that we changed
+           the make-ca tool to in version 1.16. Thanks goes to Andrew K. from
+           AVS ISP for the report privately.
+1.16     - Change the certificate root for Mozilla to Let's Encrypt
+           and adjust the URL to use https://hg-edge.mozilla.org instead
+           of https://hg.mozilla.org. This is required because hg.mozilla.org
+           now permanently redirects to hg-edge.mozilla.org, and the security
+           certificate is now signed by Let's Encrypt. Also of note is that
+           the command used to get the log and certdata.txt had to be adjusted
+           for this change. This should work until 2035, as that is when the
+           root certificate expires. This fixes GH#34.
+1.15     - Revert "work around bug in p11-kit trust extract that allows
+           certificates with nss-{email,server}-distrust after attribute to
+           enter downstream": that isn't a bug in fact.  The date in the
+           attribute should be compared with the issue date of the
+           downstream certificate provided by the web server or the email
+           sender (that make-ca cannot know), not the system date.  SSL
+           implementations like GnuTLS or OpenSSL should handle them, but
+           they seem not doing it properly.  However that's not a valid
+           reason to misinterpret the attribute.
+1.14     - Silence a warning from OpenSSL 3.2.x
+         - Stop using statically named temporary files
+         - Prevent translated date in the man page
+1.13     - Update the certificate of the CA root of hg.mozilla.org. It seems
+           it has changed on September 19th, 2023.
+1.12     - Remove extraneos output at end of downloaded certdata.txt file
+         - Work around bug in p11-kit trust extract that allows certificates
+           with nss-{email,server}-distust after attribute to enter downstream
+           trust bundles where this attribute is not honored.
+1.11     - Ship certificate of the CA root of hg.mozilla.org and use it for
+           verification
+         - Update CS.txt (and update-mscertsign.sh)
+1.10     - Use --filter=ca-anchors for all stores
+         - Update CS.txt (no changes since last update)
+         - Fix installation of systemd timers on non-systemd systems
+1.9      - Guard overrides on first run to avoid error message
+         - Move dist files to /etc/make-ca
+         - Add distribution script to update CS.txt from CCADB
+1.8.1    - Set defualt for code signing to off
+1.8      - Use get_p11_label for certificate name in output when processing
+           local certificates
+         - Use "Subject:" line for get_p11_label()
+         - Use last OU= value for get_p11_label() fallback
+         - Fix several text issues in get_p11_label - Thanks to Michael Joost
+         - Omit x-certificate-extension in comparison for 
+           copy-local-modifications
+         - Use X509v3 Key Usage section to determine local trust for anchors
+           added using 'trust anchor --store'
+         - Add nss-{server,email}-distrust-after values in anchors - requires
+           p11-kit >= 0.23.19
+         - Use --filter=certificates for all stores
+         - Fix output of NSSDB and Java PCKS#12 stores
+         - Correct incorrectly named get_p11_val()
+         - Use .p11-kit extension for anchors
+         - Handle getopt style short options in get_args()
+         - Use Microsoft's trust for code signing with -i | --mscodesign
+           Note: this is manually generated, will add CCADB when avaialble
+         - Backup and restore anchors with PKIX extensions
+1.7      - Revert help2man update (requires complete perl environment)
+1.6      - Fix install target for make -j#
+         - Add detailed dependency info and add note about configuration file 
+         - Update help2man to 1.47.12
+1.5      - Allow generation of all stores in alternate directory
+1.4      - Revert change to use /usr/bin/update-ca-certifiates for systemd 
+           service
+1.3      - Added write_nss_db() and write_java_p12() functions to eliminate
+           duplicate code
+         - Corrected version string
+         - Remove unused variables saarg, csarg, and smarg in
+           get_trust_values() function
+         - Remove unused CERTLIST variable in copy-trust-modifications
+         - Fix syntax error in check_arg() function
+         - Correct STDERR redirection in multiple functions
+         - Redirect errors in copy-trust-modifications script
+         - Use update-ca-certificates for systemd service
+1.2      - Use md5sum values for anchors.txt to detect p11-kit changes
+         - Added get_p11_label() function to get reliable label values
+         - Added get_trust_values(), get_p11_trust(), and write_anchor()
+           functions to eliminate duplicate code
+         - Fix certificate label in local certificates
+         - Changed default name of anchors list to use md5sums extension
+         - Added copy-trust-modifcations script for use by p11-kit
+1.1      - Add anchorlist for use by p11-kit to utilize LOCALDIR
+1.0      - Move bundle defaults to /etc/pki/tls/{certs,java}/
+         - Fix invalid test cases on command line processing
+         - Remove -c/--cadir flags, replace with -b/--bundledir to store
+           all bundles in same location
+         - Perform system installation of update service files
+         - Separate installation step for other consumers
+         - Install default configuration file
+0.9      - Use P11-Kit trust module to generate alternate certificate stores
+           from trust policy
+         - Only generate the trust store (and optionally NSSDB and Java PKCS#12)
+           when using DESTDIR - you now must run the installed script as part of
+           your post-installation procedure, with P11-Kit trust available, to
+           generate the alternate certificate stores - only the trust store (and
+           optionally NSSDB and Java P12 stores) are distributed
+         - Added "Wants=network-online.target" to update-pki.service - Thanks to
+           Brendan L for the fix
+         - No longer generate Java p12 format cacerts by default
+         - No longer generate NSSDB store by default
+0.8      - Use 'openssl rehash' instead of c-rehash script
+0.7      - Generate both PKCS#12 and JKS stores for Java
+         - Local certs keep out of band trust when copied to system certs
+         - Remove use of .old files/directories
+0.6      - Allow use of proxy with OpenSSL s_client
+         - Really check revision before download
+         - Make sure download was successful before testing values
+0.5      - Install systemd timer and service units
+         - Add uninstall and clean targets
+0.4      - Add email and code signing flat file certificate stores
+0.3      - Generate single file stores (Java and GNUTLS) using main OpenSSL
+           store as source to avoid duplicates
+0.2      - Install source certdata.txt file
+         - Provide -r/--rebuild option
+         - Add -g/--get option to download using only s_client
+         - Always add REVISION value to installed certdata.txt
+         - Use HG revision value (fall back to date for local files)
+         - Allow rebuid within DESTDIR
+         - Complete manpage
+0.1      - Check executable bit for CERTUTIL, KEYTOOL, and OPENSSL
+         - Allow global configuration file
+         - Use correct license text (MIT)
+20170425 - Use p11-kit format anchors
+         - Add CKA_NSS_MOZILLA_CA_POLICY attribute for p11-kit anchors
+         - Add clientAuth OpenSSL attribute and (currently unused) NSS
+           CKA_TRUST_CLIENT_AUTH
+20170119 - Show trust bits on local certs
+         - Add version output for help2man
+20161210 - Add note about --force switch when same version
+20161126 - Add -D/--destdir switch
+20161124 - Add -f/--force switch to bypass version check
+         - Add multiple switches to allow for alternate locations
+         - Add help text
+20161118 - Drop make-cert.pl script
+         - Add support for Java and NSSDB
+

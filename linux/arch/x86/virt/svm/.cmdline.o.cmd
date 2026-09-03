@@ -38,6 +38,11 @@ deps_arch/x86/virt/svm/cmdline.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/linux/string.h \
     $(wildcard include/config/BINARY_PRINTF) \
   include/linux/args.h \
@@ -116,7 +121,6 @@ deps_arch/x86/virt/svm/cmdline.o := \
     $(wildcard include/config/CONSOLE_LOGLEVEL_QUIET) \
     $(wildcard include/config/EARLY_PRINTK) \
     $(wildcard include/config/PRINTK) \
-    $(wildcard include/config/SMP) \
     $(wildcard include/config/PRINTK_INDEX) \
     $(wildcard include/config/DYNAMIC_DEBUG) \
     $(wildcard include/config/DYNAMIC_DEBUG_CORE) \
@@ -179,9 +183,64 @@ deps_arch/x86/virt/svm/cmdline.o := \
   include/linux/cpufeature.h \
     $(wildcard include/config/GENERIC_CPU_AUTOPROBE) \
   include/linux/mod_devicetable.h \
-  include/uapi/linux/mei.h \
-  include/uapi/linux/mei_uuid.h \
+  include/linux/device-id/acpi.h \
+  include/linux/device-id/amba.h \
+  include/linux/device-id/ap.h \
+  include/linux/device-id/apr.h \
+  include/linux/device-id/auxiliary.h \
+  include/linux/device-id/bcma.h \
+  include/linux/device-id/ccw.h \
+  include/linux/device-id/cdx.h \
+  include/linux/device-id/coreboot.h \
+  include/linux/device-id/css.h \
+  include/linux/device-id/dfl.h \
+  include/linux/device-id/dmi.h \
+  include/linux/device-id/eisa.h \
+  include/linux/device-id/fsl_mc.h \
+  include/linux/device-id/hda.h \
+  include/linux/device-id/hid.h \
+  include/linux/device-id/hv_vmbus.h \
   include/linux/uuid.h \
+  include/linux/device-id/i2c.h \
+  include/linux/device-id/i3c.h \
+  include/linux/device-id/ieee1394.h \
+  include/linux/device-id/input.h \
+  include/linux/device-id/ipack.h \
+  include/linux/device-id/isapnp.h \
+  include/linux/device-id/ishtp.h \
+  include/linux/device-id/mcb.h \
+  include/linux/device-id/mdio.h \
+  include/linux/device-id/mei_cl.h \
+  include/uapi/linux/mei_uuid.h \
+  include/linux/device-id/mhi.h \
+  include/linux/device-id/mips_cdmm.h \
+  include/linux/device-id/of.h \
+  include/linux/device-id/parisc.h \
+  include/linux/device-id/pci.h \
+  include/linux/device-id/pcmcia.h \
+  include/linux/device-id/platform.h \
+  include/linux/device-id/pnp.h \
+  include/linux/device-id/rio.h \
+  include/linux/device-id/rpmsg.h \
+  include/linux/device-id/sdio.h \
+  include/linux/device-id/sdw.h \
+  include/linux/device-id/serio.h \
+  include/linux/device-id/slim.h \
+  include/linux/device-id/spi.h \
+  include/linux/device-id/spmi.h \
+  include/linux/device-id/ssam.h \
+  include/linux/device-id/ssb.h \
+  include/linux/device-id/tb.h \
+  include/linux/device-id/tee_client.h \
+  include/linux/device-id/typec.h \
+  include/linux/device-id/ulpi.h \
+  include/linux/device-id/usb.h \
+  include/linux/device-id/vchiq.h \
+  include/linux/device-id/vio.h \
+  include/linux/device-id/virtio.h \
+  include/linux/device-id/wmi.h \
+  include/linux/device-id/x86_cpu.h \
+  include/linux/device-id/zorro.h \
   arch/x86/include/asm/cpufeature.h \
   arch/x86/include/asm/processor.h \
     $(wildcard include/config/X86_VMX_FEATURE_NAMES) \
@@ -189,7 +248,6 @@ deps_arch/x86/virt/svm/cmdline.o := \
     $(wildcard include/config/VM86) \
     $(wildcard include/config/X86_USER_SHADOW_STACK) \
     $(wildcard include/config/X86_DEBUG_FPU) \
-    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
     $(wildcard include/config/PARAVIRT_XXL) \
     $(wildcard include/config/CPU_SUP_AMD) \
     $(wildcard include/config/XEN) \
@@ -251,7 +309,6 @@ deps_arch/x86/virt/svm/cmdline.o := \
   arch/x86/include/uapi/asm/sigcontext.h \
   arch/x86/include/asm/current.h \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/CC_HAS_NAMED_AS) \
   include/asm-generic/percpu.h \
     $(wildcard include/config/DEBUG_PREEMPT) \
     $(wildcard include/config/HAVE_SETUP_PER_CPU_AREA) \
@@ -261,8 +318,8 @@ deps_arch/x86/virt/svm/cmdline.o := \
     $(wildcard include/config/ARCH_MODULE_NEEDS_WEAK_PER_CPU) \
     $(wildcard include/config/DEBUG_FORCE_WEAK_PER_CPU) \
   arch/x86/include/asm/cpufeatures.h \
-  arch/x86/include/asm/cpuid/api.h \
   arch/x86/include/asm/cpuid/types.h \
+  arch/x86/include/asm/cpuid/leaf_types.h \
   arch/x86/include/asm/page.h \
   arch/x86/include/asm/page_64.h \
     $(wildcard include/config/DEBUG_VIRTUAL) \

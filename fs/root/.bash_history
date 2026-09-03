@@ -91,3 +91,10 @@ apk add --init-db
 apk add --initdb
 apk update
 exit
+ls
+/usr/sbin/make-ca -g
+ln -sf /usr/bin/bash /bin/bash
+/usr/sbin/make-ca -g
+exit
+exi
+exit

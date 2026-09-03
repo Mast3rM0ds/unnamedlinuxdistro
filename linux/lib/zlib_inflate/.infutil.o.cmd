@@ -38,6 +38,11 @@ deps_lib/zlib_inflate/infutil.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/linux/zutil.h \
   include/linux/zlib.h \
   include/linux/zconf.h \
@@ -120,7 +125,6 @@ deps_lib/zlib_inflate/infutil.o := \
     $(wildcard include/config/HAVE_PREEMPT_DYNAMIC_KEY) \
     $(wildcard include/config/PREEMPT_) \
     $(wildcard include/config/DEBUG_ATOMIC_SLEEP) \
-    $(wildcard include/config/SMP) \
     $(wildcard include/config/MMU) \
     $(wildcard include/config/PROVE_LOCKING) \
     $(wildcard include/config/DYNAMIC_FTRACE) \
@@ -254,7 +258,9 @@ deps_lib/zlib_inflate/infutil.o := \
     $(wildcard include/config/SLUB_TINY) \
     $(wildcard include/config/SLAB_OBJ_EXT) \
     $(wildcard include/config/SLUB_DEBUG) \
-    $(wildcard include/config/RANDOM_KMALLOC_CACHES) \
+    $(wildcard include/config/KMALLOC_PARTITION_CACHES) \
+    $(wildcard include/config/KMALLOC_PARTITION_RANDOM) \
+    $(wildcard include/config/KMALLOC_PARTITION_TYPED) \
     $(wildcard include/config/ZONE_DMA) \
     $(wildcard include/config/SLAB_BUCKETS) \
     $(wildcard include/config/KVFREE_RCU_BATCHED) \
@@ -315,8 +321,6 @@ deps_lib/zlib_inflate/infutil.o := \
     $(wildcard include/config/PREEMPT_LAZY) \
   arch/x86/include/asm/preempt.h \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/CC_HAS_NAMED_AS) \
-    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
   include/asm-generic/percpu.h \
     $(wildcard include/config/HAVE_SETUP_PER_CPU_AREA) \
   include/linux/threads.h \
@@ -471,8 +475,8 @@ deps_lib/zlib_inflate/infutil.o := \
   arch/x86/include/asm/proto.h \
   arch/x86/include/uapi/asm/ldt.h \
   arch/x86/include/uapi/asm/sigcontext.h \
-  arch/x86/include/asm/cpuid/api.h \
   arch/x86/include/asm/cpuid/types.h \
+  arch/x86/include/asm/cpuid/leaf_types.h \
   arch/x86/include/asm/special_insns.h \
   arch/x86/include/asm/fpu/types.h \
   arch/x86/include/asm/vmxfeatures.h \
@@ -563,7 +567,6 @@ deps_lib/zlib_inflate/infutil.o := \
     $(wildcard include/config/PER_VMA_LOCK) \
     $(wildcard include/config/HAVE_ARCH_COMPAT_MMAP_BASES) \
     $(wildcard include/config/MEMBARRIER) \
-    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
     $(wildcard include/config/ARCH_HAS_ELF_CORE_EFLAGS) \
     $(wildcard include/config/AIO) \
     $(wildcard include/config/MMU_NOTIFIER) \
@@ -573,6 +576,7 @@ deps_lib/zlib_inflate/infutil.o := \
     $(wildcard include/config/KSM) \
     $(wildcard include/config/MM_ID) \
     $(wildcard include/config/SCHED_MM_CID) \
+    $(wildcard include/config/SCHED_CACHE) \
     $(wildcard include/config/CORE_DUMP_DEFAULT_ELF_HEADERS) \
   include/linux/mm_types_task.h \
   arch/x86/include/asm/tlbbatch.h \
@@ -645,7 +649,6 @@ deps_lib/zlib_inflate/infutil.o := \
     $(wildcard include/config/TASK_XACCT) \
     $(wildcard include/config/CPUSETS) \
     $(wildcard include/config/X86_CPU_RESCTRL) \
-    $(wildcard include/config/FUTEX) \
     $(wildcard include/config/PERF_EVENTS) \
     $(wildcard include/config/ARCH_HAS_LAZY_MMU_MODE) \
     $(wildcard include/config/FAULT_INJECTION) \
@@ -671,6 +674,10 @@ deps_lib/zlib_inflate/infutil.o := \
     $(wildcard include/config/SCHED_PROXY_EXEC) \
     $(wildcard include/config/MEM_ALLOC_PROFILING_DEBUG) \
   include/uapi/linux/sched.h \
+  include/linux/futex_types.h \
+    $(wildcard include/config/FUTEX) \
+    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
+    $(wildcard include/config/FUTEX_ROBUST_UNLOCK) \
   include/linux/pid_types.h \
   include/linux/sem_types.h \
   include/linux/shm.h \
@@ -749,7 +756,6 @@ deps_lib/zlib_inflate/infutil.o := \
   include/linux/timex.h \
   include/uapi/linux/timex.h \
   arch/x86/include/asm/timex.h \
-    $(wildcard include/config/X86_TSC) \
   arch/x86/include/asm/tsc.h \
   arch/x86/include/asm/msr.h \
   arch/x86/include/uapi/asm/msr.h \

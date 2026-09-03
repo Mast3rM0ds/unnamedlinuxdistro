@@ -38,6 +38,11 @@ deps_lib/crypto/chacha-block-generic.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/crypto/chacha.h \
   include/linux/unaligned.h \
   include/linux/unaligned/packed_struct.h \
@@ -132,7 +137,6 @@ deps_lib/crypto/chacha-block-generic.o := \
   include/asm-generic/bitops/generic-non-atomic.h \
   arch/x86/include/asm/barrier.h \
   arch/x86/include/asm/alternative.h \
-    $(wildcard include/config/SMP) \
     $(wildcard include/config/CALL_THUNKS) \
     $(wildcard include/config/MITIGATION_ITS) \
     $(wildcard include/config/MITIGATION_RETHUNK) \

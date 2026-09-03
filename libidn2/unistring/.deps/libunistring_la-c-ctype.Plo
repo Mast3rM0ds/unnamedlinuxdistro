@@ -1,0 +1,6 @@
+libunistring_la-c-ctype.lo: c-ctype.c \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h \
+ ../config.h c-ctype.h
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h:
+../config.h:
+c-ctype.h:

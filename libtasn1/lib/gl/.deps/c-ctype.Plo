@@ -1,0 +1,6 @@
+c-ctype.lo: c-ctype.c /usr/include/stdc-predef.h ../../config.h c-ctype.h \
+ /usr/include/stdbool.h
+/usr/include/stdc-predef.h:
+../../config.h:
+c-ctype.h:
+/usr/include/stdbool.h:

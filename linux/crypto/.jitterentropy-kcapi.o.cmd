@@ -39,6 +39,11 @@ deps_crypto/jitterentropy-kcapi.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/crypto/sha3.h \
   include/linux/types.h \
     $(wildcard include/config/HAVE_UID16) \
@@ -121,7 +126,6 @@ deps_crypto/jitterentropy-kcapi.o := \
     $(wildcard include/config/HAVE_PREEMPT_DYNAMIC_KEY) \
     $(wildcard include/config/PREEMPT_) \
     $(wildcard include/config/DEBUG_ATOMIC_SLEEP) \
-    $(wildcard include/config/SMP) \
     $(wildcard include/config/MMU) \
     $(wildcard include/config/PROVE_LOCKING) \
     $(wildcard include/config/DYNAMIC_FTRACE) \
@@ -293,14 +297,12 @@ deps_crypto/jitterentropy-kcapi.o := \
   include/linux/timex.h \
   include/uapi/linux/timex.h \
   arch/x86/include/asm/timex.h \
-    $(wildcard include/config/X86_TSC) \
   arch/x86/include/asm/processor.h \
     $(wildcard include/config/X86_VMX_FEATURE_NAMES) \
     $(wildcard include/config/X86_IOPL_IOPERM) \
     $(wildcard include/config/VM86) \
     $(wildcard include/config/X86_USER_SHADOW_STACK) \
     $(wildcard include/config/X86_DEBUG_FPU) \
-    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
     $(wildcard include/config/PARAVIRT_XXL) \
     $(wildcard include/config/CPU_SUP_AMD) \
     $(wildcard include/config/XEN) \
@@ -341,7 +343,6 @@ deps_crypto/jitterentropy-kcapi.o := \
   arch/x86/include/uapi/asm/sigcontext.h \
   arch/x86/include/asm/current.h \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/CC_HAS_NAMED_AS) \
   include/asm-generic/percpu.h \
     $(wildcard include/config/DEBUG_PREEMPT) \
     $(wildcard include/config/HAVE_SETUP_PER_CPU_AREA) \
@@ -350,8 +351,8 @@ deps_crypto/jitterentropy-kcapi.o := \
   include/linux/percpu-defs.h \
     $(wildcard include/config/ARCH_MODULE_NEEDS_WEAK_PER_CPU) \
     $(wildcard include/config/DEBUG_FORCE_WEAK_PER_CPU) \
-  arch/x86/include/asm/cpuid/api.h \
   arch/x86/include/asm/cpuid/types.h \
+  arch/x86/include/asm/cpuid/leaf_types.h \
   arch/x86/include/asm/page.h \
   arch/x86/include/asm/page_64.h \
     $(wildcard include/config/DEBUG_VIRTUAL) \
@@ -454,7 +455,7 @@ deps_crypto/jitterentropy-kcapi.o := \
   arch/x86/include/uapi/asm/msr.h \
   arch/x86/include/asm/shared/msr.h \
   include/linux/percpu.h \
-    $(wildcard include/config/RANDOM_KMALLOC_CACHES) \
+    $(wildcard include/config/KMALLOC_PARTITION_CACHES) \
     $(wildcard include/config/PAGE_SIZE_4KB) \
     $(wildcard include/config/NEED_PER_CPU_PAGE_FIRST_CHUNK) \
   include/linux/alloc_tag.h \
@@ -541,9 +542,9 @@ deps_crypto/jitterentropy-kcapi.o := \
     $(wildcard include/config/TASK_XACCT) \
     $(wildcard include/config/CPUSETS) \
     $(wildcard include/config/X86_CPU_RESCTRL) \
-    $(wildcard include/config/FUTEX) \
     $(wildcard include/config/PERF_EVENTS) \
     $(wildcard include/config/NUMA_BALANCING) \
+    $(wildcard include/config/SCHED_CACHE) \
     $(wildcard include/config/ARCH_HAS_LAZY_MMU_MODE) \
     $(wildcard include/config/FAULT_INJECTION) \
     $(wildcard include/config/LATENCYTOP) \
@@ -567,17 +568,21 @@ deps_crypto/jitterentropy-kcapi.o := \
     $(wildcard include/config/SCHED_PROXY_EXEC) \
     $(wildcard include/config/SCHED_MM_CID) \
   include/uapi/linux/sched.h \
-  include/linux/pid_types.h \
-  include/linux/sem_types.h \
-  include/linux/shm.h \
-  arch/x86/include/asm/shmparam.h \
-  include/linux/kmsan_types.h \
+  include/linux/futex_types.h \
+    $(wildcard include/config/FUTEX) \
+    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
+    $(wildcard include/config/FUTEX_ROBUST_UNLOCK) \
   include/linux/mutex_types.h \
     $(wildcard include/config/MUTEX_SPIN_ON_OWNER) \
     $(wildcard include/config/DEBUG_MUTEXES) \
   include/linux/osq_lock.h \
   include/linux/spinlock_types.h \
   include/linux/rwlock_types.h \
+  include/linux/pid_types.h \
+  include/linux/sem_types.h \
+  include/linux/shm.h \
+  arch/x86/include/asm/shmparam.h \
+  include/linux/kmsan_types.h \
   include/linux/plist_types.h \
   include/linux/hrtimer_types.h \
   include/linux/timerqueue_types.h \
@@ -737,7 +742,6 @@ deps_crypto/jitterentropy-kcapi.o := \
     $(wildcard include/config/PER_VMA_LOCK) \
     $(wildcard include/config/HAVE_ARCH_COMPAT_MMAP_BASES) \
     $(wildcard include/config/MEMBARRIER) \
-    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
     $(wildcard include/config/ARCH_HAS_ELF_CORE_EFLAGS) \
     $(wildcard include/config/AIO) \
     $(wildcard include/config/MMU_NOTIFIER) \
@@ -883,7 +887,6 @@ deps_crypto/jitterentropy-kcapi.o := \
   include/uapi/linux/hdlc/ioctl.h \
   include/linux/fs.h \
     $(wildcard include/config/FANOTIFY_ACCESS_PERMISSIONS) \
-    $(wildcard include/config/READ_ONLY_THP_FOR_FS) \
     $(wildcard include/config/FS_POSIX_ACL) \
     $(wildcard include/config/CGROUP_WRITEBACK) \
     $(wildcard include/config/IMA) \
@@ -934,6 +937,7 @@ deps_crypto/jitterentropy-kcapi.o := \
     $(wildcard include/config/HAVE_ARCH_THREAD_STRUCT_WHITELIST) \
   include/linux/uaccess.h \
     $(wildcard include/config/ARCH_HAS_SUBPAGE_FAULTS) \
+    $(wildcard include/config/ARCH_MEMORY_ORDER_TSO) \
   include/linux/fault-inject-usercopy.h \
     $(wildcard include/config/FAULT_INJECTION_USERCOPY) \
   include/linux/nospec.h \
@@ -960,7 +964,6 @@ deps_crypto/jitterentropy-kcapi.o := \
     $(wildcard include/config/X86_SGX) \
   arch/x86/include/asm/pkru.h \
   arch/x86/include/asm/fpu/api.h \
-    $(wildcard include/config/MATH_EMULATION) \
   arch/x86/include/asm/coco.h \
   include/asm-generic/pgtable_uffd.h \
     $(wildcard include/config/PTE_MARKER_UFFD_WP) \
@@ -1051,6 +1054,8 @@ deps_crypto/jitterentropy-kcapi.o := \
     $(wildcard include/config/KFENCE) \
     $(wildcard include/config/SLUB_TINY) \
     $(wildcard include/config/SLUB_DEBUG) \
+    $(wildcard include/config/KMALLOC_PARTITION_RANDOM) \
+    $(wildcard include/config/KMALLOC_PARTITION_TYPED) \
     $(wildcard include/config/SLAB_BUCKETS) \
     $(wildcard include/config/KVFREE_RCU_BATCHED) \
   include/linux/percpu-refcount.h \

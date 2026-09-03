@@ -1,4 +1,4 @@
-savedcmd_net/netfilter/nf_log_syslog.o := gcc -Wp,-MMD,net/netfilter/.nf_log_syslog.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -Werror -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -std=gnu11 -fms-extensions -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -mno-sse4a -fcf-protection=branch -fno-jump-tables -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -march=x86-64 -mtune=generic -mno-red-zone -mcmodel=kernel -mstack-protector-guard-reg=gs -mstack-protector-guard-symbol=__ref_stack_chk_guard -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -mindirect-branch-cs-prefix -mfunction-return=thunk-extern -fno-jump-tables -fpatchable-function-entry=16,16 -fno-delete-null-pointer-checks -O2 -fno-allow-store-data-races -fstack-protector-strong -fomit-frame-pointer -ftrivial-auto-var-init=zero -fzero-init-padding-bits=all -fno-stack-clash-protection -fmin-function-alignment=16 -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -fno-builtin-wcslen -Wall -Wextra -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wmissing-declarations -Wmissing-prototypes -Wframe-larger-than=2048 -Wno-main -Wno-type-limits -Wno-dangling-pointer -Wvla-larger-than=1 -Wno-pointer-sign -Wcast-function-type -Wno-unterminated-string-initialization -Wno-array-bounds -Wno-stringop-overflow -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -Wunused -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-truncation -Wno-override-init -Wno-missing-field-initializers -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -Wno-unused-parameter -DGCC_PLUGINS  -DMODULE  -DKBUILD_BASENAME='"nf_log_syslog"' -DKBUILD_MODNAME='"nf_log_syslog"' -D__KBUILD_MODNAME=nf_log_syslog -c -o net/netfilter/nf_log_syslog.o net/netfilter/nf_log_syslog.c   ; ./tools/objtool/objtool --hacks=jump_label --hacks=noinstr --hacks=skylake --ibt --orc --retpoline --rethunk --static-call --uaccess --prefix=16  --link  --module net/netfilter/nf_log_syslog.o
+savedcmd_net/netfilter/nf_log_syslog.o := gcc -Wp,-MMD,net/netfilter/.nf_log_syslog.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -Werror -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -std=gnu11 -fms-extensions -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -mno-sse4a -fcf-protection=branch -fno-jump-tables -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -march=x86-64 -mtune=generic -mno-red-zone -mcmodel=kernel -mstack-protector-guard-reg=gs -mstack-protector-guard-symbol=__ref_stack_chk_guard -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -mindirect-branch-cs-prefix -mfunction-return=thunk-extern -fno-jump-tables -fpatchable-function-entry=16,16 -fno-delete-null-pointer-checks -O2 -fno-allow-store-data-races -fstack-protector-strong -fomit-frame-pointer -ftrivial-auto-var-init=zero -fzero-init-padding-bits=all -fno-stack-clash-protection -fmin-function-alignment=16 -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -fno-builtin-wcslen -Wall -Wextra -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wmissing-declarations -Wmissing-prototypes -Wframe-larger-than=2048 -Wno-main -Wno-type-limits -Wno-dangling-pointer -Wvla-larger-than=1 -Wno-pointer-sign -Wcast-function-type -Wno-unterminated-string-initialization -Wno-array-bounds -Wno-stringop-overflow -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -Wunused -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-truncation -Wno-override-init -Wno-missing-field-initializers -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -Wno-unused-parameter -DGCC_PLUGINS  -DMODULE  -DKBUILD_BASENAME='"nf_log_syslog"' -DKBUILD_MODNAME='"nf_log_syslog"' -D__KBUILD_MODNAME=nf_log_syslog -c -o net/netfilter/nf_log_syslog.o net/netfilter/nf_log_syslog.c   ; ./tools/objtool/objtool --hacks=jump_label --hacks=noinstr --hacks=skylake --ibt --prefix=16 --orc --retpoline --rethunk --static-call --uaccess  --link  --module net/netfilter/nf_log_syslog.o
 
 source_net/netfilter/nf_log_syslog.o := net/netfilter/nf_log_syslog.c
 
@@ -39,6 +39,11 @@ deps_net/netfilter/nf_log_syslog.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/linux/kernel.h \
     $(wildcard include/config/PREEMPT_VOLUNTARY_BUILD) \
     $(wildcard include/config/PREEMPT_DYNAMIC) \
@@ -46,7 +51,6 @@ deps_net/netfilter/nf_log_syslog.o := \
     $(wildcard include/config/HAVE_PREEMPT_DYNAMIC_KEY) \
     $(wildcard include/config/PREEMPT_) \
     $(wildcard include/config/DEBUG_ATOMIC_SLEEP) \
-    $(wildcard include/config/SMP) \
     $(wildcard include/config/MMU) \
     $(wildcard include/config/PROVE_LOCKING) \
     $(wildcard include/config/DYNAMIC_FTRACE) \
@@ -273,14 +277,12 @@ deps_net/netfilter/nf_log_syslog.o := \
   include/linux/timex.h \
   include/uapi/linux/timex.h \
   arch/x86/include/asm/timex.h \
-    $(wildcard include/config/X86_TSC) \
   arch/x86/include/asm/processor.h \
     $(wildcard include/config/X86_VMX_FEATURE_NAMES) \
     $(wildcard include/config/X86_IOPL_IOPERM) \
     $(wildcard include/config/VM86) \
     $(wildcard include/config/X86_USER_SHADOW_STACK) \
     $(wildcard include/config/X86_DEBUG_FPU) \
-    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
     $(wildcard include/config/PARAVIRT_XXL) \
     $(wildcard include/config/CPU_SUP_AMD) \
     $(wildcard include/config/XEN) \
@@ -321,7 +323,6 @@ deps_net/netfilter/nf_log_syslog.o := \
   arch/x86/include/uapi/asm/sigcontext.h \
   arch/x86/include/asm/current.h \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/CC_HAS_NAMED_AS) \
   include/asm-generic/percpu.h \
     $(wildcard include/config/DEBUG_PREEMPT) \
     $(wildcard include/config/HAVE_SETUP_PER_CPU_AREA) \
@@ -330,20 +331,8 @@ deps_net/netfilter/nf_log_syslog.o := \
   include/linux/percpu-defs.h \
     $(wildcard include/config/ARCH_MODULE_NEEDS_WEAK_PER_CPU) \
     $(wildcard include/config/DEBUG_FORCE_WEAK_PER_CPU) \
-  arch/x86/include/asm/cpuid/api.h \
   arch/x86/include/asm/cpuid/types.h \
-  arch/x86/include/asm/string.h \
-  arch/x86/include/asm/string_64.h \
-    $(wildcard include/config/ARCH_HAS_UACCESS_FLUSHCACHE) \
-  include/linux/jump_label.h \
-    $(wildcard include/config/HAVE_ARCH_JUMP_LABEL_RELATIVE) \
-  include/linux/cleanup.h \
-  include/linux/err.h \
-  arch/x86/include/generated/uapi/asm/errno.h \
-  include/uapi/asm-generic/errno.h \
-  include/uapi/asm-generic/errno-base.h \
-  arch/x86/include/asm/jump_label.h \
-    $(wildcard include/config/HAVE_JUMP_LABEL_HACK) \
+  arch/x86/include/asm/cpuid/leaf_types.h \
   arch/x86/include/asm/page.h \
   arch/x86/include/asm/page_64.h \
     $(wildcard include/config/DEBUG_VIRTUAL) \
@@ -373,6 +362,9 @@ deps_net/netfilter/nf_log_syslog.o := \
   arch/x86/include/asm/special_insns.h \
   include/linux/errno.h \
   include/uapi/linux/errno.h \
+  arch/x86/include/generated/uapi/asm/errno.h \
+  include/uapi/asm-generic/errno.h \
+  include/uapi/asm-generic/errno-base.h \
   include/linux/irqflags.h \
     $(wildcard include/config/TRACE_IRQFLAGS) \
     $(wildcard include/config/PREEMPT_RT) \
@@ -381,6 +373,8 @@ deps_net/netfilter/nf_log_syslog.o := \
     $(wildcard include/config/DEBUG_IRQFLAGS) \
     $(wildcard include/config/TRACE_IRQFLAGS_SUPPORT) \
   include/linux/irqflags_types.h \
+  include/linux/cleanup.h \
+  include/linux/err.h \
   arch/x86/include/asm/irqflags.h \
     $(wildcard include/config/DEBUG_ENTRY) \
   arch/x86/include/asm/nospec-branch.h \
@@ -389,6 +383,10 @@ deps_net/netfilter/nf_log_syslog.o := \
     $(wildcard include/config/MITIGATION_IBPB_ENTRY) \
     $(wildcard include/config/BPF_JIT) \
   include/linux/static_key.h \
+  include/linux/jump_label.h \
+    $(wildcard include/config/HAVE_ARCH_JUMP_LABEL_RELATIVE) \
+  arch/x86/include/asm/jump_label.h \
+    $(wildcard include/config/HAVE_JUMP_LABEL_HACK) \
   arch/x86/include/asm/msr-index.h \
   arch/x86/include/asm/unwind_hints.h \
   arch/x86/include/asm/orc_types.h \
@@ -415,6 +413,9 @@ deps_net/netfilter/nf_log_syslog.o := \
   include/linux/string.h \
     $(wildcard include/config/BINARY_PRINTF) \
   include/uapi/linux/string.h \
+  arch/x86/include/asm/string.h \
+  arch/x86/include/asm/string_64.h \
+    $(wildcard include/config/ARCH_HAS_UACCESS_FLUSHCACHE) \
   include/linux/bitmap-str.h \
   include/linux/cpumask_types.h \
   include/linux/gfp_types.h \
@@ -451,7 +452,7 @@ deps_net/netfilter/nf_log_syslog.o := \
   arch/x86/include/uapi/asm/msr.h \
   arch/x86/include/asm/shared/msr.h \
   include/linux/percpu.h \
-    $(wildcard include/config/RANDOM_KMALLOC_CACHES) \
+    $(wildcard include/config/KMALLOC_PARTITION_CACHES) \
     $(wildcard include/config/PAGE_SIZE_4KB) \
     $(wildcard include/config/NEED_PER_CPU_PAGE_FIRST_CHUNK) \
   include/linux/alloc_tag.h \
@@ -538,9 +539,9 @@ deps_net/netfilter/nf_log_syslog.o := \
     $(wildcard include/config/TASK_XACCT) \
     $(wildcard include/config/CPUSETS) \
     $(wildcard include/config/X86_CPU_RESCTRL) \
-    $(wildcard include/config/FUTEX) \
     $(wildcard include/config/PERF_EVENTS) \
     $(wildcard include/config/NUMA_BALANCING) \
+    $(wildcard include/config/SCHED_CACHE) \
     $(wildcard include/config/ARCH_HAS_LAZY_MMU_MODE) \
     $(wildcard include/config/FAULT_INJECTION) \
     $(wildcard include/config/LATENCYTOP) \
@@ -564,17 +565,21 @@ deps_net/netfilter/nf_log_syslog.o := \
     $(wildcard include/config/SCHED_PROXY_EXEC) \
     $(wildcard include/config/SCHED_MM_CID) \
   include/uapi/linux/sched.h \
-  include/linux/pid_types.h \
-  include/linux/sem_types.h \
-  include/linux/shm.h \
-  arch/x86/include/asm/shmparam.h \
-  include/linux/kmsan_types.h \
+  include/linux/futex_types.h \
+    $(wildcard include/config/FUTEX) \
+    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
+    $(wildcard include/config/FUTEX_ROBUST_UNLOCK) \
   include/linux/mutex_types.h \
     $(wildcard include/config/MUTEX_SPIN_ON_OWNER) \
     $(wildcard include/config/DEBUG_MUTEXES) \
   include/linux/osq_lock.h \
   include/linux/spinlock_types.h \
   include/linux/rwlock_types.h \
+  include/linux/pid_types.h \
+  include/linux/sem_types.h \
+  include/linux/shm.h \
+  arch/x86/include/asm/shmparam.h \
+  include/linux/kmsan_types.h \
   include/linux/plist_types.h \
   include/linux/hrtimer_types.h \
   include/linux/timerqueue_types.h \
@@ -734,7 +739,6 @@ deps_net/netfilter/nf_log_syslog.o := \
     $(wildcard include/config/PER_VMA_LOCK) \
     $(wildcard include/config/HAVE_ARCH_COMPAT_MMAP_BASES) \
     $(wildcard include/config/MEMBARRIER) \
-    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
     $(wildcard include/config/ARCH_HAS_ELF_CORE_EFLAGS) \
     $(wildcard include/config/AIO) \
     $(wildcard include/config/MMU_NOTIFIER) \
@@ -880,7 +884,6 @@ deps_net/netfilter/nf_log_syslog.o := \
   include/uapi/linux/hdlc/ioctl.h \
   include/linux/fs.h \
     $(wildcard include/config/FANOTIFY_ACCESS_PERMISSIONS) \
-    $(wildcard include/config/READ_ONLY_THP_FOR_FS) \
     $(wildcard include/config/FS_POSIX_ACL) \
     $(wildcard include/config/CGROUP_WRITEBACK) \
     $(wildcard include/config/IMA) \
@@ -931,6 +934,7 @@ deps_net/netfilter/nf_log_syslog.o := \
     $(wildcard include/config/HAVE_ARCH_THREAD_STRUCT_WHITELIST) \
   include/linux/uaccess.h \
     $(wildcard include/config/ARCH_HAS_SUBPAGE_FAULTS) \
+    $(wildcard include/config/ARCH_MEMORY_ORDER_TSO) \
   include/linux/fault-inject-usercopy.h \
     $(wildcard include/config/FAULT_INJECTION_USERCOPY) \
   include/linux/nospec.h \
@@ -957,7 +961,6 @@ deps_net/netfilter/nf_log_syslog.o := \
     $(wildcard include/config/X86_SGX) \
   arch/x86/include/asm/pkru.h \
   arch/x86/include/asm/fpu/api.h \
-    $(wildcard include/config/MATH_EMULATION) \
   arch/x86/include/asm/coco.h \
   include/asm-generic/pgtable_uffd.h \
     $(wildcard include/config/PTE_MARKER_UFFD_WP) \
@@ -1047,6 +1050,8 @@ deps_net/netfilter/nf_log_syslog.o := \
     $(wildcard include/config/KFENCE) \
     $(wildcard include/config/SLUB_TINY) \
     $(wildcard include/config/SLUB_DEBUG) \
+    $(wildcard include/config/KMALLOC_PARTITION_RANDOM) \
+    $(wildcard include/config/KMALLOC_PARTITION_TYPED) \
     $(wildcard include/config/SLAB_BUCKETS) \
     $(wildcard include/config/KVFREE_RCU_BATCHED) \
   include/linux/percpu-refcount.h \
@@ -1211,18 +1216,19 @@ deps_net/netfilter/nf_log_syslog.o := \
     $(wildcard include/config/OSNOISE_TRACER) \
   include/linux/vtime.h \
     $(wildcard include/config/VIRT_CPU_ACCOUNTING) \
+    $(wildcard include/config/HAVE_VIRT_CPU_ACCOUNTING_IDLE) \
     $(wildcard include/config/IRQ_TIME_ACCOUNTING) \
   arch/x86/include/asm/hardirq.h \
-    $(wildcard include/config/CPU_MITIGATIONS) \
-    $(wildcard include/config/KVM_INTEL) \
-    $(wildcard include/config/KVM) \
-    $(wildcard include/config/GUEST_PERF_EVENTS) \
     $(wildcard include/config/X86_THERMAL_VECTOR) \
     $(wildcard include/config/X86_MCE_THRESHOLD) \
     $(wildcard include/config/X86_MCE_AMD) \
     $(wildcard include/config/X86_HV_CALLBACK_VECTOR) \
     $(wildcard include/config/HYPERV) \
+    $(wildcard include/config/KVM) \
+    $(wildcard include/config/GUEST_PERF_EVENTS) \
     $(wildcard include/config/X86_POSTED_MSI) \
+    $(wildcard include/config/CPU_MITIGATIONS) \
+    $(wildcard include/config/KVM_INTEL) \
   include/linux/highmem-internal.h \
   include/net/checksum.h \
   arch/x86/include/asm/checksum.h \
@@ -1245,10 +1251,6 @@ deps_net/netfilter/nf_log_syslog.o := \
     $(wildcard include/config/DMA_CMA) \
     $(wildcard include/config/SWIOTLB) \
     $(wildcard include/config/SWIOTLB_DYNAMIC) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_DEVICE) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU_ALL) \
-    $(wildcard include/config/DMA_OPS_BYPASS) \
     $(wildcard include/config/PM) \
     $(wildcard include/config/PM_SLEEP) \
     $(wildcard include/config/OF) \
@@ -1275,7 +1277,10 @@ deps_net/netfilter/nf_log_syslog.o := \
   include/linux/device/devres.h \
     $(wildcard include/config/HAS_IOMEM) \
   include/linux/device/driver.h \
-  arch/x86/include/asm/device.h \
+  include/linux/device-id/acpi.h \
+  include/linux/device-id/of.h \
+  arch/x86/include/generated/asm/device.h \
+  include/asm-generic/device.h \
   include/linux/pm_wakeup.h \
   include/linux/scatterlist.h \
     $(wildcard include/config/NEED_SG_DMA_LENGTH) \
@@ -1351,7 +1356,6 @@ deps_net/netfilter/nf_log_syslog.o := \
     $(wildcard include/config/VLAN_8021Q) \
     $(wildcard include/config/NET_DSA) \
     $(wildcard include/config/TIPC) \
-    $(wildcard include/config/ATALK) \
     $(wildcard include/config/CFG80211) \
     $(wildcard include/config/IEEE802154) \
     $(wildcard include/config/6LOWPAN) \
@@ -1542,6 +1546,7 @@ deps_net/netfilter/nf_log_syslog.o := \
     $(wildcard include/config/BPF_KPROBE_OVERRIDE) \
   include/uapi/linux/bpf_common.h \
   include/uapi/linux/filter.h \
+  include/linux/bpf_defs.h \
   include/crypto/sha2.h \
   include/linux/kallsyms.h \
     $(wildcard include/config/KALLSYMS_ALL) \
@@ -1584,6 +1589,41 @@ deps_net/netfilter/nf_log_syslog.o := \
   arch/x86/include/asm/cfi.h \
     $(wildcard include/config/FINEIBT_BHI) \
     $(wildcard include/config/FUNCTION_PADDING_CFI) \
+  include/linux/xattr.h \
+  include/uapi/linux/xattr.h \
+  include/linux/ftrace.h \
+    $(wildcard include/config/TRACER_SNAPSHOT) \
+    $(wildcard include/config/HAVE_FUNCTION_GRAPH_FREGS) \
+    $(wildcard include/config/FUNCTION_TRACER) \
+    $(wildcard include/config/HAVE_DYNAMIC_FTRACE_WITH_ARGS) \
+    $(wildcard include/config/HAVE_FTRACE_REGS_HAVING_PT_REGS) \
+    $(wildcard include/config/HAVE_REGS_AND_STACK_ACCESS_API) \
+    $(wildcard include/config/DYNAMIC_FTRACE_WITH_REGS) \
+    $(wildcard include/config/DYNAMIC_FTRACE_WITH_ARGS) \
+    $(wildcard include/config/DYNAMIC_FTRACE_WITH_DIRECT_CALLS) \
+    $(wildcard include/config/STACK_TRACER) \
+    $(wildcard include/config/DYNAMIC_FTRACE_WITH_CALL_OPS) \
+    $(wildcard include/config/FUNCTION_GRAPH_RETVAL) \
+    $(wildcard include/config/FTRACE_SYSCALLS) \
+  include/linux/trace_recursion.h \
+    $(wildcard include/config/FTRACE_RECORD_RECURSION) \
+    $(wildcard include/config/FTRACE_VALIDATE_RCU_IS_WATCHING) \
+  include/linux/trace_clock.h \
+  arch/x86/include/asm/trace_clock.h \
+  include/linux/ptrace.h \
+  include/linux/pid_namespace.h \
+    $(wildcard include/config/MEMFD_CREATE) \
+  include/uapi/linux/ptrace.h \
+  include/linux/seccomp.h \
+    $(wildcard include/config/HAVE_ARCH_SECCOMP_FILTER) \
+    $(wildcard include/config/SECCOMP_FILTER) \
+    $(wildcard include/config/CHECKPOINT_RESTORE) \
+    $(wildcard include/config/SECCOMP_CACHE_DEBUG) \
+  include/uapi/linux/seccomp.h \
+  arch/x86/include/asm/seccomp.h \
+  include/asm-generic/seccomp.h \
+  arch/x86/include/asm/ftrace.h \
+    $(wildcard include/config/HAVE_FENTRY) \
   arch/x86/include/asm/rqspinlock.h \
     $(wildcard include/config/QUEUED_SPINLOCKS) \
   include/asm-generic/rqspinlock.h \
@@ -1703,6 +1743,7 @@ deps_net/netfilter/nf_log_syslog.o := \
     $(wildcard include/config/CRC32_ARCH) \
   include/linux/bitrev.h \
     $(wildcard include/config/HAVE_ARCH_BITREVERSE) \
+  include/asm-generic/bitops/__bitrev.h \
   include/uapi/linux/if_vlan.h \
   include/linux/vmalloc.h \
     $(wildcard include/config/HAVE_ARCH_HUGE_VMALLOC) \
@@ -1729,18 +1770,6 @@ deps_net/netfilter/nf_log_syslog.o := \
   include/uapi/linux/ipsec.h \
   include/linux/audit.h \
     $(wildcard include/config/AUDIT_COMPAT_GENERIC) \
-  include/linux/ptrace.h \
-  include/linux/pid_namespace.h \
-    $(wildcard include/config/MEMFD_CREATE) \
-  include/uapi/linux/ptrace.h \
-  include/linux/seccomp.h \
-    $(wildcard include/config/HAVE_ARCH_SECCOMP_FILTER) \
-    $(wildcard include/config/SECCOMP_FILTER) \
-    $(wildcard include/config/CHECKPOINT_RESTORE) \
-    $(wildcard include/config/SECCOMP_CACHE_DEBUG) \
-  include/uapi/linux/seccomp.h \
-  arch/x86/include/asm/seccomp.h \
-  include/asm-generic/seccomp.h \
   include/linux/audit_arch.h \
   include/uapi/linux/audit.h \
   include/uapi/linux/fanotify.h \

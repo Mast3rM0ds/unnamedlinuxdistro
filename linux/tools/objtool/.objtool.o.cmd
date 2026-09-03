@@ -1,90 +1,99 @@
-cmd_/home/sonakrie/Work/dumbasslinux/linux/tools/objtool/objtool.o := gcc -Wp,-MD,/home/sonakrie/Work/dumbasslinux/linux/tools/objtool/.objtool.o.d -Wp,-MT,/home/sonakrie/Work/dumbasslinux/linux/tools/objtool/objtool.o -std=gnu11 -fomit-frame-pointer -O2 -g -Werror -Wall -Wextra -Wmissing-prototypes -Wmissing-declarations -Wwrite-strings -Wno-implicit-fallthrough -Wno-sign-compare -Wno-unused-parameter -I/home/sonakrie/Work/dumbasslinux/linux/tools/include -I/home/sonakrie/Work/dumbasslinux/linux/tools/include/uapi -I/home/sonakrie/Work/dumbasslinux/linux/tools/arch/x86/include/uapi -I/home/sonakrie/Work/dumbasslinux/linux/tools/arch/x86/include -I/home/sonakrie/Work/dumbasslinux/linux/tools/objtool/include -I/home/sonakrie/Work/dumbasslinux/linux/tools/objtool/arch/x86/include -I/home/sonakrie/Work/dumbasslinux/linux/tools/objtool/libsubcmd/include -D"BUILD_STR(s)=$(pound)s" -c -o /home/sonakrie/Work/dumbasslinux/linux/tools/objtool/objtool.o objtool.c
+cmd_/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/objtool.o := gcc -Wp,-MD,/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/.objtool.o.d -Wp,-MT,/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/objtool.o -std=gnu11 -fomit-frame-pointer -O2 -g -Werror -Wall -Wextra -Wmissing-prototypes -Wmissing-declarations -Wwrite-strings -Wno-implicit-fallthrough -Wno-sign-compare -Wno-unused-parameter -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/include -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/include/uapi -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/arch/x86/include/uapi -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/arch/x86/include -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/include -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/arch/x86/include -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/lib -D"BUILD_STR(s)=$(pound)s" -c -o /home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/objtool.o objtool.c
 
-source_/home/sonakrie/Work/dumbasslinux/linux/tools/objtool/objtool.o := objtool.c
+source_/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/objtool.o := objtool.c
 
-deps_/home/sonakrie/Work/dumbasslinux/linux/tools/objtool/objtool.o := \
+deps_/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/objtool.o := \
   /usr/include/stdc-predef.h \
+  /usr/include/fortify/stdio.h \
   /usr/include/stdio.h \
   /usr/include/features.h \
   /usr/include/bits/alltypes.h \
+  /usr/include/fortify/fortify-headers.h \
   /usr/include/stdbool.h \
+  /usr/include/fortify/string.h \
   /usr/include/string.h \
+  /usr/include/fortify/strings.h \
   /usr/include/strings.h \
+  /usr/include/fortify/stdlib.h \
   /usr/include/stdlib.h \
   /usr/include/alloca.h \
+  /usr/include/limits.h \
+  /usr/include/bits/limits.h \
+  /usr/include/fortify/unistd.h \
   /usr/include/unistd.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/objtool/libsubcmd/include/subcmd/exec-cmd.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/objtool/libsubcmd/include/subcmd/pager.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/linux/kernel.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/lib/subcmd/exec-cmd.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/lib/subcmd/pager.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/kernel.h \
   /usr/include/stdarg.h \
   /usr/include/stddef.h \
   /usr/include/assert.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/linux/build_bug.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/linux/compiler.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/linux/compiler_types.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/linux/compiler-context-analysis.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/linux/compiler-gcc.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/linux/types.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/build_bug.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/compiler.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/compiler_types.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/compiler-context-analysis.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/compiler-gcc.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/types.h \
   /usr/include/stdint.h \
   /usr/include/bits/stdint.h \
   /usr/include/asm/types.h \
   /usr/include/asm-generic/types.h \
   /usr/include/asm-generic/int-ll64.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/uapi/asm/bitsperlong.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/arch/x86/include/uapi/asm/bitsperlong.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/asm-generic/bitsperlong.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/uapi/asm-generic/bitsperlong.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/uapi/asm/bitsperlong.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/arch/x86/include/uapi/asm/bitsperlong.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/asm-generic/bitsperlong.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/uapi/asm-generic/bitsperlong.h \
   /usr/include/asm/posix_types.h \
   /usr/include/asm/posix_types_64.h \
   /usr/include/asm-generic/posix_types.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/linux/math.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/linux/panic.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/math.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/panic.h \
   /usr/include/endian.h \
   /usr/include/byteswap.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/linux/container_of.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/objtool/include/objtool/builtin.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/objtool/libsubcmd/include/subcmd/parse-options.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/objtool/include/objtool/objtool.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/linux/list.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/linux/poison.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/linux/hashtable.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/linux/bitops.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/container_of.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/include/objtool/builtin.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/lib/subcmd/parse-options.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/include/objtool/objtool.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/list.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/poison.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/hashtable.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/bitops.h \
   /usr/include/limits.h \
-  /usr/include/bits/limits.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/linux/bits.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/vdso/bits.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/vdso/const.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/uapi/linux/const.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/uapi/linux/bits.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/linux/overflow.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/asm-generic/bitops.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/asm-generic/bitops/__ffs.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/asm-generic/bitops/__ffz.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/asm-generic/bitops/fls.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/asm-generic/bitops/__fls.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/asm-generic/bitops/fls64.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/asm-generic/bitops/hweight.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/asm-generic/bitops/arch_hweight.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/asm-generic/bitops/const_hweight.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/asm-generic/bitops/atomic.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/asm-generic/bitops/non-atomic.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/linux/hash.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/linux/log2.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/objtool/include/objtool/elf.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/bits.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/vdso/bits.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/vdso/const.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/uapi/linux/const.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/uapi/linux/bits.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/overflow.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/asm-generic/bitops.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/asm-generic/bitops/__ffs.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/asm-generic/bitops/__ffz.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/asm-generic/bitops/fls.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/asm-generic/bitops/__fls.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/asm-generic/bitops/fls64.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/asm-generic/bitops/hweight.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/asm-generic/bitops/arch_hweight.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/asm-generic/bitops/const_hweight.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/asm-generic/bitops/atomic.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/asm-generic/bitops/non-atomic.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/hash.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/log2.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/include/objtool/elf.h \
   /usr/include/gelf.h \
   /usr/include/libelf.h \
   /usr/include/sys/types.h \
+  /usr/include/fortify/sys/select.h \
   /usr/include/sys/select.h \
+  /usr/include/fortify/fortify-headers.h \
   /usr/include/elf.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/linux/string.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/linux/rbtree.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/uapi/linux/stddef.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/linux/jhash.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/include/linux/unaligned/packed_struct.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/objtool/include/objtool/endianness.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/objtool/include/objtool/checksum_types.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/objtool/arch/x86/include/arch/elf.h \
-  /home/sonakrie/Work/dumbasslinux/linux/tools/objtool/include/objtool/warn.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/string.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/rbtree.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/uapi/linux/stddef.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/jhash.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/unaligned/packed_struct.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/include/objtool/endianness.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/include/objtool/checksum_types.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/arch/x86/include/arch/elf.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/include/objtool/warn.h \
   /usr/include/sys/stat.h \
   /usr/include/bits/stat.h \
   /usr/include/fcntl.h \
@@ -92,6 +101,6 @@ deps_/home/sonakrie/Work/dumbasslinux/linux/tools/objtool/objtool.o := \
   /usr/include/errno.h \
   /usr/include/bits/errno.h \
 
-/home/sonakrie/Work/dumbasslinux/linux/tools/objtool/objtool.o: $(deps_/home/sonakrie/Work/dumbasslinux/linux/tools/objtool/objtool.o)
+/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/objtool.o: $(deps_/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/objtool.o)
 
-$(deps_/home/sonakrie/Work/dumbasslinux/linux/tools/objtool/objtool.o):
+$(deps_/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/objtool.o):

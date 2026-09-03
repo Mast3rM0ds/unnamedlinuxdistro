@@ -1,0 +1,21 @@
+pkix_asn1_tab.o: pkix_asn1_tab.c /usr/include/stdc-predef.h ../config.h \
+ ../lib/includes/libtasn1.h /usr/include/sys/types.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/endian.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ /usr/include/time.h /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/fortify/fortify-headers.h
+/usr/include/stdc-predef.h:
+../config.h:
+../lib/includes/libtasn1.h:
+/usr/include/sys/types.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/time.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/fortify/fortify-headers.h:

@@ -1,0 +1,29 @@
+malloca.lo: malloca.c /usr/include/stdc-predef.h ../../config.h malloca.h \
+ alloca.h /usr/include/stddef.h /usr/include/bits/alltypes.h stdlib.h \
+ /usr/include/fortify/stdlib.h /usr/include/stdlib.h \
+ /usr/include/features.h /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/fortify/fortify-headers.h stdint.h /usr/include/stdint.h \
+ /usr/include/bits/stdint.h limits.h /usr/include/limits.h \
+ xalloc-oversized.h idx.h intprops.h verify.h
+/usr/include/stdc-predef.h:
+../../config.h:
+malloca.h:
+alloca.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/features.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/fortify/fortify-headers.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+limits.h:
+/usr/include/limits.h:
+xalloc-oversized.h:
+idx.h:
+intprops.h:
+verify.h:

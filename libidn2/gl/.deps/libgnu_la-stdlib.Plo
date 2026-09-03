@@ -1,0 +1,16 @@
+libgnu_la-stdlib.lo: stdlib.c \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h \
+ ../config.h stdlib.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/features.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h alloca.h \
+ stddef.h /home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h:
+../config.h:
+stdlib.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/features.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h:
+alloca.h:
+stddef.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h:

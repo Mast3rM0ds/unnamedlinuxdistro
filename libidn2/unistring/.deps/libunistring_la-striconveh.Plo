@@ -1,0 +1,61 @@
+libunistring_la-striconveh.lo: striconveh.c \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h \
+ ../config.h striconveh.h stdlib.h ../gl/stdlib.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/features.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h \
+ ../gl/alloca.h stddef.h ../gl/stddef.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h iconv.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/iconv.h iconveh.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/errno.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/errno.h string.h \
+ ../gl/string.h /home/bloink/Work/unnamedlinuxdistro/fs/include/string.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/strings.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/unistr.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/unitypes.h \
+ ../unistring/stdint.h ../gl/stdint.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdint.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/stdint.h limits.h \
+ ../gl/limits.h /home/bloink/Work/unnamedlinuxdistro/fs/include/limits.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/limits.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/unistring/cdefs.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/unistring/inline.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdbool.h c-strcase.h \
+ c-strcaseeq.h c-ctype.h
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h:
+../config.h:
+striconveh.h:
+stdlib.h:
+../gl/stdlib.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/features.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h:
+../gl/alloca.h:
+stddef.h:
+../gl/stddef.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h:
+iconv.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/iconv.h:
+iconveh.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/errno.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/errno.h:
+string.h:
+../gl/string.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/string.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/strings.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unistr.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unitypes.h:
+../unistring/stdint.h:
+../gl/stdint.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdint.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/stdint.h:
+limits.h:
+../gl/limits.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/limits.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/limits.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unistring/cdefs.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unistring/inline.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdbool.h:
+c-strcase.h:
+c-strcaseeq.h:
+c-ctype.h:

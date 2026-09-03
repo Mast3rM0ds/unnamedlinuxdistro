@@ -52,6 +52,11 @@ deps_drivers/iommu/iommu.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/linux/amba/bus.h \
   include/linux/clk.h \
     $(wildcard include/config/COMMON_CLK) \
@@ -103,7 +108,6 @@ deps_drivers/iommu/iommu.o := \
     $(wildcard include/config/HAVE_PREEMPT_DYNAMIC_KEY) \
     $(wildcard include/config/PREEMPT_) \
     $(wildcard include/config/DEBUG_ATOMIC_SLEEP) \
-    $(wildcard include/config/SMP) \
     $(wildcard include/config/MMU) \
     $(wildcard include/config/PROVE_LOCKING) \
     $(wildcard include/config/DYNAMIC_FTRACE) \
@@ -256,7 +260,6 @@ deps_drivers/iommu/iommu.o := \
     $(wildcard include/config/DEBUG_MUTEXES) \
     $(wildcard include/config/PREEMPT_RT) \
   arch/x86/include/asm/current.h \
-    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
   include/linux/cache.h \
     $(wildcard include/config/ARCH_HAS_CACHE_LINE_SIZE) \
   include/vdso/cache.h \
@@ -265,7 +268,6 @@ deps_drivers/iommu/iommu.o := \
     $(wildcard include/config/X86_INTERNODE_CACHE_SHIFT) \
     $(wildcard include/config/X86_VSMP) \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/CC_HAS_NAMED_AS) \
   include/asm-generic/percpu.h \
     $(wildcard include/config/DEBUG_PREEMPT) \
     $(wildcard include/config/HAVE_SETUP_PER_CPU_AREA) \
@@ -340,6 +342,8 @@ deps_drivers/iommu/iommu.o := \
   arch/x86/include/asm/sparsemem.h \
     $(wildcard include/config/SPARSEMEM) \
     $(wildcard include/config/X86_PAE) \
+  include/vdso/page.h \
+    $(wildcard include/config/PAGE_SHIFT) \
   include/linux/smp_types.h \
   include/linux/llist.h \
     $(wildcard include/config/ARCH_HAVE_NMI_SAFE_CMPXCHG) \
@@ -383,8 +387,6 @@ deps_drivers/iommu/iommu.o := \
     $(wildcard include/config/X86_MEM_ENCRYPT) \
   include/linux/cc_platform.h \
     $(wildcard include/config/ARCH_HAS_CC_PLATFORM) \
-  include/vdso/page.h \
-    $(wildcard include/config/PAGE_SHIFT) \
   arch/x86/include/asm/page_64_types.h \
     $(wildcard include/config/KASAN) \
     $(wildcard include/config/RANDOMIZE_BASE) \
@@ -427,8 +429,8 @@ deps_drivers/iommu/iommu.o := \
   arch/x86/include/asm/proto.h \
   arch/x86/include/uapi/asm/ldt.h \
   arch/x86/include/uapi/asm/sigcontext.h \
-  arch/x86/include/asm/cpuid/api.h \
   arch/x86/include/asm/cpuid/types.h \
+  arch/x86/include/asm/cpuid/leaf_types.h \
   arch/x86/include/asm/pgtable_types.h \
     $(wildcard include/config/X86_INTEL_MEMORY_PROTECTION_KEYS) \
     $(wildcard include/config/MEM_SOFT_DIRTY) \
@@ -589,9 +591,9 @@ deps_drivers/iommu/iommu.o := \
     $(wildcard include/config/TASK_XACCT) \
     $(wildcard include/config/CPUSETS) \
     $(wildcard include/config/X86_CPU_RESCTRL) \
-    $(wildcard include/config/FUTEX) \
     $(wildcard include/config/PERF_EVENTS) \
     $(wildcard include/config/NUMA_BALANCING) \
+    $(wildcard include/config/SCHED_CACHE) \
     $(wildcard include/config/ARCH_HAS_LAZY_MMU_MODE) \
     $(wildcard include/config/FAULT_INJECTION) \
     $(wildcard include/config/LATENCYTOP) \
@@ -618,6 +620,10 @@ deps_drivers/iommu/iommu.o := \
     $(wildcard include/config/MEM_ALLOC_PROFILING_DEBUG) \
     $(wildcard include/config/SCHED_MM_CID) \
   include/uapi/linux/sched.h \
+  include/linux/futex_types.h \
+    $(wildcard include/config/FUTEX) \
+    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
+    $(wildcard include/config/FUTEX_ROBUST_UNLOCK) \
   include/linux/pid_types.h \
   include/linux/sem_types.h \
   include/linux/shm.h \
@@ -703,13 +709,12 @@ deps_drivers/iommu/iommu.o := \
   include/linux/timex.h \
   include/uapi/linux/timex.h \
   arch/x86/include/asm/timex.h \
-    $(wildcard include/config/X86_TSC) \
   arch/x86/include/asm/tsc.h \
   arch/x86/include/asm/msr.h \
   arch/x86/include/uapi/asm/msr.h \
   arch/x86/include/asm/shared/msr.h \
   include/linux/percpu.h \
-    $(wildcard include/config/RANDOM_KMALLOC_CACHES) \
+    $(wildcard include/config/KMALLOC_PARTITION_CACHES) \
     $(wildcard include/config/PAGE_SIZE_4KB) \
     $(wildcard include/config/NEED_PER_CPU_PAGE_FIRST_CHUNK) \
   include/vdso/time32.h \
@@ -741,11 +746,6 @@ deps_drivers/iommu/iommu.o := \
     $(wildcard include/config/DMA_CMA) \
     $(wildcard include/config/SWIOTLB) \
     $(wildcard include/config/SWIOTLB_DYNAMIC) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_DEVICE) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU_ALL) \
-    $(wildcard include/config/DMA_OPS_BYPASS) \
-    $(wildcard include/config/DMA_NEED_SYNC) \
     $(wildcard include/config/PM) \
     $(wildcard include/config/PM_SLEEP) \
     $(wildcard include/config/DEVTMPFS) \
@@ -808,7 +808,6 @@ deps_drivers/iommu/iommu.o := \
     $(wildcard include/config/PER_VMA_LOCK) \
     $(wildcard include/config/HAVE_ARCH_COMPAT_MMAP_BASES) \
     $(wildcard include/config/MEMBARRIER) \
-    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
     $(wildcard include/config/ARCH_HAS_ELF_CORE_EFLAGS) \
     $(wildcard include/config/AIO) \
     $(wildcard include/config/MMU_NOTIFIER) \
@@ -958,7 +957,6 @@ deps_drivers/iommu/iommu.o := \
   include/uapi/linux/hdlc/ioctl.h \
   include/linux/fs.h \
     $(wildcard include/config/FANOTIFY_ACCESS_PERMISSIONS) \
-    $(wildcard include/config/READ_ONLY_THP_FOR_FS) \
     $(wildcard include/config/FS_POSIX_ACL) \
     $(wildcard include/config/CGROUP_WRITEBACK) \
     $(wildcard include/config/IMA) \
@@ -999,6 +997,7 @@ deps_drivers/iommu/iommu.o := \
     $(wildcard include/config/HAVE_ARCH_THREAD_STRUCT_WHITELIST) \
   include/linux/uaccess.h \
     $(wildcard include/config/ARCH_HAS_SUBPAGE_FAULTS) \
+    $(wildcard include/config/ARCH_MEMORY_ORDER_TSO) \
   include/linux/fault-inject-usercopy.h \
     $(wildcard include/config/FAULT_INJECTION_USERCOPY) \
   include/linux/nospec.h \
@@ -1025,7 +1024,6 @@ deps_drivers/iommu/iommu.o := \
     $(wildcard include/config/X86_SGX) \
   arch/x86/include/asm/pkru.h \
   arch/x86/include/asm/fpu/api.h \
-    $(wildcard include/config/MATH_EMULATION) \
   arch/x86/include/asm/coco.h \
   include/asm-generic/pgtable_uffd.h \
     $(wildcard include/config/PTE_MARKER_UFFD_WP) \
@@ -1114,6 +1112,8 @@ deps_drivers/iommu/iommu.o := \
     $(wildcard include/config/KFENCE) \
     $(wildcard include/config/SLUB_TINY) \
     $(wildcard include/config/SLUB_DEBUG) \
+    $(wildcard include/config/KMALLOC_PARTITION_RANDOM) \
+    $(wildcard include/config/KMALLOC_PARTITION_TYPED) \
     $(wildcard include/config/SLAB_BUCKETS) \
     $(wildcard include/config/KVFREE_RCU_BATCHED) \
   include/linux/percpu-refcount.h \
@@ -1158,11 +1158,12 @@ deps_drivers/iommu/iommu.o := \
     $(wildcard include/config/UNWINDER_ORC) \
   include/asm-generic/module.h \
     $(wildcard include/config/HAVE_MOD_ARCH_SPECIFIC) \
-  arch/x86/include/asm/device.h \
+  include/linux/device-id/acpi.h \
+  include/linux/device-id/of.h \
+  arch/x86/include/generated/asm/device.h \
+  include/asm-generic/device.h \
   include/linux/pm_wakeup.h \
-  include/linux/mod_devicetable.h \
-  include/uapi/linux/mei.h \
-  include/uapi/linux/mei_uuid.h \
+  include/linux/device-id/amba.h \
   include/linux/regulator/consumer.h \
     $(wildcard include/config/REGULATOR) \
   include/linux/suspend.h \
@@ -1207,6 +1208,7 @@ deps_drivers/iommu/iommu.o := \
   include/linux/rculist_nulls.h \
   include/linux/kernel_stat.h \
     $(wildcard include/config/GENERIC_IRQ_STAT_SNAPSHOT) \
+    $(wildcard include/config/HAVE_VIRT_CPU_ACCOUNTING_IDLE) \
   include/linux/interrupt.h \
     $(wildcard include/config/IRQ_FORCED_THREADING) \
     $(wildcard include/config/GENERIC_IRQ_PROBE) \
@@ -1223,16 +1225,16 @@ deps_drivers/iommu/iommu.o := \
     $(wildcard include/config/VIRT_CPU_ACCOUNTING) \
     $(wildcard include/config/IRQ_TIME_ACCOUNTING) \
   arch/x86/include/asm/hardirq.h \
-    $(wildcard include/config/CPU_MITIGATIONS) \
-    $(wildcard include/config/KVM_INTEL) \
-    $(wildcard include/config/KVM) \
-    $(wildcard include/config/GUEST_PERF_EVENTS) \
     $(wildcard include/config/X86_THERMAL_VECTOR) \
     $(wildcard include/config/X86_MCE_THRESHOLD) \
     $(wildcard include/config/X86_MCE_AMD) \
     $(wildcard include/config/X86_HV_CALLBACK_VECTOR) \
     $(wildcard include/config/HYPERV) \
+    $(wildcard include/config/KVM) \
+    $(wildcard include/config/GUEST_PERF_EVENTS) \
     $(wildcard include/config/X86_POSTED_MSI) \
+    $(wildcard include/config/CPU_MITIGATIONS) \
+    $(wildcard include/config/KVM_INTEL) \
   arch/x86/include/asm/irq.h \
   arch/x86/include/asm/irq_vectors.h \
     $(wildcard include/config/PCI_MSI) \
@@ -1424,6 +1426,7 @@ deps_drivers/iommu/iommu.o := \
     $(wildcard include/config/ACPI_MCFG) \
     $(wildcard include/config/EEH) \
     $(wildcard include/config/S390) \
+  include/linux/device-id/pci.h \
   include/linux/io.h \
     $(wildcard include/config/STRICT_DEVMEM) \
   include/linux/resource_ext.h \
@@ -1438,14 +1441,18 @@ deps_drivers/iommu/iommu.o := \
   arch/x86/include/asm/memtype.h \
   include/linux/dma-mapping.h \
     $(wildcard include/config/DMA_API_DEBUG) \
+    $(wildcard include/config/DMA_NEED_SYNC) \
     $(wildcard include/config/NEED_DMA_MAP_STATE) \
   include/linux/pci-ats.h \
   include/linux/platform_device.h \
     $(wildcard include/config/HIBERNATE_CALLBACKS) \
     $(wildcard include/config/SUPERH) \
+  include/linux/device-id/platform.h \
   include/linux/fsl/mc.h \
+  include/linux/device-id/fsl_mc.h \
   include/uapi/linux/fsl_mc.h \
   include/linux/cdx/cdx_bus.h \
+  include/linux/device-id/cdx.h \
   include/linux/msi.h \
     $(wildcard include/config/PCI_MSI_ARCH_FALLBACKS) \
     $(wildcard include/config/PCI_XEN) \

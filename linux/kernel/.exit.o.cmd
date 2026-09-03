@@ -7,6 +7,8 @@ deps_kernel/exit.o := \
     $(wildcard include/config/SYSFS) \
     $(wildcard include/config/POSIX_TIMERS) \
     $(wildcard include/config/MEMCG) \
+    $(wildcard include/config/SCHED_CACHE) \
+    $(wildcard include/config/NUMA_BALANCING) \
     $(wildcard include/config/DEBUG_STACK_USAGE) \
     $(wildcard include/config/STACK_GROWSUP) \
     $(wildcard include/config/VM_EVENT_COUNTERS) \
@@ -47,6 +49,11 @@ deps_kernel/exit.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/linux/mm.h \
     $(wildcard include/config/HAVE_ARCH_MMAP_RND_BITS) \
     $(wildcard include/config/HAVE_ARCH_MMAP_RND_COMPAT_BITS) \
@@ -70,7 +77,6 @@ deps_kernel/exit.o := \
     $(wildcard include/config/NUMA) \
     $(wildcard include/config/FIND_NORMAL_PAGE) \
     $(wildcard include/config/USERFAULTFD) \
-    $(wildcard include/config/NUMA_BALANCING) \
     $(wildcard include/config/PER_VMA_LOCK) \
     $(wildcard include/config/SHMEM) \
     $(wildcard include/config/KASAN_SW_TAGS) \
@@ -172,7 +178,6 @@ deps_kernel/exit.o := \
   include/asm-generic/bug.h \
     $(wildcard include/config/BUG) \
     $(wildcard include/config/GENERIC_BUG_RELATIVE_POINTERS) \
-    $(wildcard include/config/SMP) \
   include/linux/once_lite.h \
   include/linux/panic.h \
     $(wildcard include/config/PANIC_TIMEOUT) \
@@ -283,8 +288,6 @@ deps_kernel/exit.o := \
   arch/x86/include/asm/preempt.h \
   arch/x86/include/asm/rmwcc.h \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/CC_HAS_NAMED_AS) \
-    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
   include/asm-generic/percpu.h \
     $(wildcard include/config/HAVE_SETUP_PER_CPU_AREA) \
   include/linux/threads.h \
@@ -504,8 +507,8 @@ deps_kernel/exit.o := \
   arch/x86/include/asm/proto.h \
   arch/x86/include/uapi/asm/ldt.h \
   arch/x86/include/uapi/asm/sigcontext.h \
-  arch/x86/include/asm/cpuid/api.h \
   arch/x86/include/asm/cpuid/types.h \
+  arch/x86/include/asm/cpuid/leaf_types.h \
   arch/x86/include/asm/special_insns.h \
   arch/x86/include/asm/fpu/types.h \
   arch/x86/include/asm/vmxfeatures.h \
@@ -594,7 +597,6 @@ deps_kernel/exit.o := \
     $(wildcard include/config/SLAB_FREELIST_HARDENED) \
     $(wildcard include/config/HAVE_ARCH_COMPAT_MMAP_BASES) \
     $(wildcard include/config/MEMBARRIER) \
-    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
     $(wildcard include/config/ARCH_HAS_ELF_CORE_EFLAGS) \
     $(wildcard include/config/AIO) \
     $(wildcard include/config/MMU_NOTIFIER) \
@@ -698,6 +700,9 @@ deps_kernel/exit.o := \
     $(wildcard include/config/SCHED_PROXY_EXEC) \
     $(wildcard include/config/MEM_ALLOC_PROFILING_DEBUG) \
   include/uapi/linux/sched.h \
+  include/linux/futex_types.h \
+    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
+    $(wildcard include/config/FUTEX_ROBUST_UNLOCK) \
   include/linux/pid_types.h \
   include/linux/sem_types.h \
   include/linux/shm.h \
@@ -775,14 +780,13 @@ deps_kernel/exit.o := \
   include/linux/timex.h \
   include/uapi/linux/timex.h \
   arch/x86/include/asm/timex.h \
-    $(wildcard include/config/X86_TSC) \
   arch/x86/include/asm/tsc.h \
   arch/x86/include/asm/msr.h \
   arch/x86/include/uapi/asm/msr.h \
   arch/x86/include/asm/shared/msr.h \
   include/linux/percpu.h \
     $(wildcard include/config/MODULES) \
-    $(wildcard include/config/RANDOM_KMALLOC_CACHES) \
+    $(wildcard include/config/KMALLOC_PARTITION_CACHES) \
     $(wildcard include/config/PAGE_SIZE_4KB) \
     $(wildcard include/config/NEED_PER_CPU_PAGE_FIRST_CHUNK) \
   include/linux/alloc_tag.h \
@@ -888,7 +892,6 @@ deps_kernel/exit.o := \
     $(wildcard include/config/X86_SGX) \
   arch/x86/include/asm/pkru.h \
   arch/x86/include/asm/fpu/api.h \
-    $(wildcard include/config/MATH_EMULATION) \
   arch/x86/include/asm/coco.h \
   include/asm-generic/pgtable_uffd.h \
     $(wildcard include/config/PTE_MARKER_UFFD_WP) \
@@ -918,6 +921,8 @@ deps_kernel/exit.o := \
     $(wildcard include/config/KFENCE) \
     $(wildcard include/config/SLUB_TINY) \
     $(wildcard include/config/SLUB_DEBUG) \
+    $(wildcard include/config/KMALLOC_PARTITION_RANDOM) \
+    $(wildcard include/config/KMALLOC_PARTITION_TYPED) \
     $(wildcard include/config/SLAB_BUCKETS) \
     $(wildcard include/config/KVFREE_RCU_BATCHED) \
   include/linux/hash.h \
@@ -943,6 +948,7 @@ deps_kernel/exit.o := \
     $(wildcard include/config/HAVE_ARCH_THREAD_STRUCT_WHITELIST) \
   include/linux/uaccess.h \
     $(wildcard include/config/ARCH_HAS_SUBPAGE_FAULTS) \
+    $(wildcard include/config/ARCH_MEMORY_ORDER_TSO) \
     $(wildcard include/config/HARDENED_USERCOPY) \
   include/linux/fault-inject-usercopy.h \
     $(wildcard include/config/FAULT_INJECTION_USERCOPY) \
@@ -1006,7 +1012,6 @@ deps_kernel/exit.o := \
     $(wildcard include/config/PERSISTENT_HUGE_ZERO_FOLIO) \
   include/linux/fs.h \
     $(wildcard include/config/FANOTIFY_ACCESS_PERMISSIONS) \
-    $(wildcard include/config/READ_ONLY_THP_FOR_FS) \
     $(wildcard include/config/FS_POSIX_ACL) \
     $(wildcard include/config/CGROUP_WRITEBACK) \
     $(wildcard include/config/IMA) \
@@ -1108,18 +1113,19 @@ deps_kernel/exit.o := \
     $(wildcard include/config/OSNOISE_TRACER) \
   include/linux/vtime.h \
     $(wildcard include/config/VIRT_CPU_ACCOUNTING) \
+    $(wildcard include/config/HAVE_VIRT_CPU_ACCOUNTING_IDLE) \
     $(wildcard include/config/IRQ_TIME_ACCOUNTING) \
   arch/x86/include/asm/hardirq.h \
-    $(wildcard include/config/CPU_MITIGATIONS) \
-    $(wildcard include/config/KVM_INTEL) \
-    $(wildcard include/config/KVM) \
-    $(wildcard include/config/GUEST_PERF_EVENTS) \
     $(wildcard include/config/X86_THERMAL_VECTOR) \
     $(wildcard include/config/X86_MCE_THRESHOLD) \
     $(wildcard include/config/X86_MCE_AMD) \
     $(wildcard include/config/X86_HV_CALLBACK_VECTOR) \
     $(wildcard include/config/HYPERV) \
+    $(wildcard include/config/KVM) \
+    $(wildcard include/config/GUEST_PERF_EVENTS) \
     $(wildcard include/config/X86_POSTED_MSI) \
+    $(wildcard include/config/CPU_MITIGATIONS) \
+    $(wildcard include/config/KVM_INTEL) \
   arch/x86/include/asm/irq.h \
   arch/x86/include/asm/irq_vectors.h \
     $(wildcard include/config/PCI_MSI) \
@@ -1223,12 +1229,6 @@ deps_kernel/exit.o := \
     $(wildcard include/config/DMA_CMA) \
     $(wildcard include/config/SWIOTLB) \
     $(wildcard include/config/SWIOTLB_DYNAMIC) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_DEVICE) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU_ALL) \
-    $(wildcard include/config/DMA_OPS_BYPASS) \
-    $(wildcard include/config/DMA_NEED_SYNC) \
-    $(wildcard include/config/IOMMU_DMA) \
     $(wildcard include/config/PM) \
     $(wildcard include/config/PM_SLEEP) \
     $(wildcard include/config/OF) \
@@ -1255,7 +1255,10 @@ deps_kernel/exit.o := \
   include/linux/device/devres.h \
     $(wildcard include/config/HAS_IOMEM) \
   include/linux/device/driver.h \
-  arch/x86/include/asm/device.h \
+  include/linux/device-id/acpi.h \
+  include/linux/device-id/of.h \
+  arch/x86/include/generated/asm/device.h \
+  include/asm-generic/device.h \
   include/linux/pm_wakeup.h \
   include/linux/seq_file.h \
   include/linux/string_helpers.h \
@@ -1475,6 +1478,7 @@ deps_kernel/exit.o := \
     $(wildcard include/config/IPV6) \
   include/uapi/linux/bpf_common.h \
   include/uapi/linux/filter.h \
+  include/linux/bpf_defs.h \
   include/crypto/sha2.h \
   include/linux/bpfptr.h \
   include/linux/btf.h \
@@ -1498,6 +1502,8 @@ deps_kernel/exit.o := \
     $(wildcard include/config/BLK_DEV_INTEGRITY) \
   include/linux/bvec.h \
   include/linux/folio_batch.h \
+  include/linux/xattr.h \
+  include/uapi/linux/xattr.h \
   arch/x86/include/asm/rqspinlock.h \
     $(wildcard include/config/QUEUED_SPINLOCKS) \
   include/asm-generic/rqspinlock.h \
@@ -1514,6 +1520,7 @@ deps_kernel/exit.o := \
   include/uapi/linux/cn_proc.h \
   include/linux/futex.h \
   include/uapi/linux/futex.h \
+  arch/x86/include/asm/futex_robust.h \
   include/linux/pipe_fs_i.h \
   include/linux/audit.h \
     $(wildcard include/config/AUDIT_COMPAT_GENERIC) \
@@ -1526,6 +1533,7 @@ deps_kernel/exit.o := \
     $(wildcard include/config/BLOCK_HOLDER_DEPRECATED) \
     $(wildcard include/config/BLK_DEV_ZONED) \
     $(wildcard include/config/CDROM) \
+    $(wildcard include/config/BLK_ERROR_INJECTION) \
     $(wildcard include/config/BLK_DEV_THROTTLING) \
     $(wildcard include/config/BLK_RQ_ALLOC_TIME) \
   include/linux/bio.h \
@@ -1662,6 +1670,8 @@ deps_kernel/exit.o := \
   include/linux/dma-mapping.h \
     $(wildcard include/config/DMA_API_DEBUG) \
     $(wildcard include/config/HAS_DMA) \
+    $(wildcard include/config/IOMMU_DMA) \
+    $(wildcard include/config/DMA_NEED_SYNC) \
     $(wildcard include/config/NEED_DMA_MAP_STATE) \
   include/linux/scatterlist.h \
     $(wildcard include/config/NEED_SG_DMA_LENGTH) \

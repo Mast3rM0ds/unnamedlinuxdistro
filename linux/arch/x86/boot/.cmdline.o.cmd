@@ -37,6 +37,11 @@ deps_arch/x86/boot/cmdline.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   arch/x86/boot/boot.h \
   include/linux/stdarg.h \
   include/linux/types.h \
@@ -129,7 +134,6 @@ deps_arch/x86/boot/cmdline.o := \
   arch/x86/include/asm/kaslr.h \
   include/linux/pfn.h \
   include/linux/cache.h \
-    $(wildcard include/config/SMP) \
     $(wildcard include/config/ARCH_HAS_CACHE_LINE_SIZE) \
   include/uapi/linux/kernel.h \
   include/uapi/linux/sysinfo.h \

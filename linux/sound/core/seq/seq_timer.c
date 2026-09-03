@@ -344,10 +344,10 @@ int snd_seq_timer_stop(struct snd_seq_timer *tmr)
 
 static int initialize_timer(struct snd_seq_timer *tmr)
 {
-	struct snd_timer *t;
 	unsigned long freq;
 
-	t = tmr->timeri->timer;
+	struct snd_timer *t __free(snd_timeri_timer) =
+		snd_timeri_timer_get(tmr->timeri);
 	if (!t)
 		return -EINVAL;
 
@@ -362,11 +362,10 @@ static int initialize_timer(struct snd_seq_timer *tmr)
 	tmr->ticks = 1;
 	if (!(t->hw.flags & SNDRV_TIMER_HW_SLAVE)) {
 		unsigned long r = snd_timer_resolution(tmr->timeri);
-		if (r) {
-			tmr->ticks = (unsigned int)(1000000000uL / (r * freq));
-			if (! tmr->ticks)
-				tmr->ticks = 1;
-		}
+		unsigned long den;
+
+		if (r && !check_mul_overflow(r, freq, &den))
+			tmr->ticks = max(1U, (unsigned int)(1000000000uL / den));
 	}
 	tmr->initialized = 1;
 	return 0;
@@ -467,7 +466,12 @@ void snd_seq_info_timer_read(struct snd_info_entry *entry,
 			ti = tmr->timeri;
 			if (!ti)
 				break;
-			snd_iprintf(buffer, "Timer for queue %i : %s\n", q->queue, ti->timer->name);
+
+			struct snd_timer *t __free(snd_timeri_timer) =
+				snd_timeri_timer_get(ti);
+			snd_iprintf(buffer, "Timer for queue %i : %s\n",
+				    q->queue,
+				    t ? t->name : "DEAD");
 			resolution = snd_timer_resolution(ti) * tmr->ticks;
 			snd_iprintf(buffer, "  Period time : %lu.%09lu\n", resolution / 1000000000, resolution % 1000000000);
 			snd_iprintf(buffer, "  Skew : %u / %u\n", tmr->skew, tmr->skew_base);

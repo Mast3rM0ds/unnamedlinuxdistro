@@ -1,0 +1,32 @@
+libunistring_la-unistd.lo: unistd.c \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h \
+ ../config.h unistd.h ../gl/unistd.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/unistd.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/features.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h stddef.h \
+ ../gl/stddef.h /home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h \
+ stdlib.h ../gl/stdlib.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h ../gl/alloca.h \
+ sys/types.h ../gl/sys/types.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/types.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/endian.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/select.h
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h:
+../config.h:
+unistd.h:
+../gl/unistd.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unistd.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/features.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h:
+stddef.h:
+../gl/stddef.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h:
+stdlib.h:
+../gl/stdlib.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h:
+../gl/alloca.h:
+sys/types.h:
+../gl/sys/types.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/types.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/endian.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/select.h:

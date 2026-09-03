@@ -8,11 +8,11 @@
 	.section	.text.startup,"ax",@progbits
 	.align 16
 	.globl	main
-	.section	__patchable_function_entries,"awo",@progbits,.LPFE5456
+	.section	__patchable_function_entries,"awo",@progbits,.LPFE5513
 	.align 8
-	.quad	.LPFE5456
+	.quad	.LPFE5513
 	.section	.text.startup
-.LPFE5456:
+.LPFE5513:
 	nop	
 	nop	
 	nop	
@@ -170,11 +170,11 @@ main:
 	.size	main, .-main
 	.text
 	.align 16
-	.section	__patchable_function_entries,"awo",@progbits,.LPFE5457
+	.section	__patchable_function_entries,"awo",@progbits,.LPFE5514
 	.align 8
-	.quad	.LPFE5457
+	.quad	.LPFE5514
 	.text
-.LPFE5457:
+.LPFE5514:
 	nop	
 	nop	
 	nop	
@@ -238,12 +238,12 @@ common:
 # arch/x86/kernel/asm-offsets.c:45: 	OFFSET(TASK_threadsp, task_struct, thread.sp);
 # 45 "arch/x86/kernel/asm-offsets.c" 1
 	
-.ascii "->TASK_threadsp $3088 offsetof(struct task_struct, thread.sp)"	#
+.ascii "->TASK_threadsp $3136 offsetof(struct task_struct, thread.sp)"	#
 # 0 "" 2
 # arch/x86/kernel/asm-offsets.c:47: 	OFFSET(TASK_stack_canary, task_struct, stack_canary);
 # 47 "arch/x86/kernel/asm-offsets.c" 1
 	
-.ascii "->TASK_stack_canary $1528 offsetof(struct task_struct, stack_canary)"	#
+.ascii "->TASK_stack_canary $1536 offsetof(struct task_struct, stack_canary)"	#
 # 0 "" 2
 # arch/x86/kernel/asm-offsets.c:50: 	BLANK();
 # 50 "arch/x86/kernel/asm-offsets.c" 1

@@ -38,8 +38,12 @@ deps_arch/x86/lib/cache-smp.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
-  include/linux/smp.h \
+  arch/x86/include/asm/percpu_types.h \
     $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
+  include/linux/smp.h \
     $(wildcard include/config/UP_LATE_INIT) \
     $(wildcard include/config/DEBUG_PREEMPT) \
     $(wildcard include/config/CSD_LOCK_WAIT_DEBUG) \
@@ -294,6 +298,8 @@ deps_arch/x86/lib/cache-smp.o := \
   arch/x86/include/asm/sparsemem.h \
     $(wildcard include/config/SPARSEMEM) \
     $(wildcard include/config/X86_PAE) \
+  include/vdso/page.h \
+    $(wildcard include/config/PAGE_SHIFT) \
   include/linux/smp_types.h \
   include/linux/llist.h \
     $(wildcard include/config/ARCH_HAVE_NMI_SAFE_CMPXCHG) \
@@ -309,8 +315,6 @@ deps_arch/x86/lib/cache-smp.o := \
     $(wildcard include/config/PREEMPT_LAZY) \
   arch/x86/include/asm/preempt.h \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/CC_HAS_NAMED_AS) \
-    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
   include/asm-generic/percpu.h \
     $(wildcard include/config/HAVE_SETUP_PER_CPU_AREA) \
   include/linux/percpu-defs.h \
@@ -356,8 +360,6 @@ deps_arch/x86/lib/cache-smp.o := \
     $(wildcard include/config/X86_MEM_ENCRYPT) \
   include/linux/cc_platform.h \
     $(wildcard include/config/ARCH_HAS_CC_PLATFORM) \
-  include/vdso/page.h \
-    $(wildcard include/config/PAGE_SHIFT) \
   arch/x86/include/asm/page_64_types.h \
     $(wildcard include/config/KASAN) \
     $(wildcard include/config/RANDOMIZE_BASE) \
@@ -400,8 +402,8 @@ deps_arch/x86/lib/cache-smp.o := \
   arch/x86/include/asm/proto.h \
   arch/x86/include/uapi/asm/ldt.h \
   arch/x86/include/uapi/asm/sigcontext.h \
-  arch/x86/include/asm/cpuid/api.h \
   arch/x86/include/asm/cpuid/types.h \
+  arch/x86/include/asm/cpuid/leaf_types.h \
   arch/x86/include/asm/pgtable_types.h \
     $(wildcard include/config/X86_INTEL_MEMORY_PROTECTION_KEYS) \
     $(wildcard include/config/MEM_SOFT_DIRTY) \

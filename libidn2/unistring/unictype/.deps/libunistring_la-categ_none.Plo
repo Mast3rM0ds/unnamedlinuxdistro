@@ -1,0 +1,33 @@
+unictype/libunistring_la-categ_none.lo: unictype/categ_none.c \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h \
+ ../config.h /home/bloink/Work/unnamedlinuxdistro/fs/include/unictype.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/unitypes.h \
+ ../unistring/stdint.h ../gl/stdint.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdint.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/stdint.h limits.h \
+ ../gl/limits.h /home/bloink/Work/unnamedlinuxdistro/fs/include/limits.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/features.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/limits.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdbool.h stddef.h \
+ ../gl/stddef.h /home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/unistring/woe32dll.h
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h:
+../config.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unictype.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unitypes.h:
+../unistring/stdint.h:
+../gl/stdint.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdint.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/stdint.h:
+limits.h:
+../gl/limits.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/limits.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/features.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/limits.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdbool.h:
+stddef.h:
+../gl/stddef.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unistring/woe32dll.h:

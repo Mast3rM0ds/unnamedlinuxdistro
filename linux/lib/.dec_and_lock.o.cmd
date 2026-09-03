@@ -38,6 +38,11 @@ deps_lib/dec_and_lock.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/linux/export.h \
     $(wildcard include/config/MODVERSIONS) \
     $(wildcard include/config/64BIT) \
@@ -88,7 +93,6 @@ deps_lib/dec_and_lock.o := \
   arch/x86/include/asm/ibt.h \
     $(wildcard include/config/X86_KERNEL_IBT) \
   include/linux/spinlock.h \
-    $(wildcard include/config/SMP) \
     $(wildcard include/config/DEBUG_SPINLOCK) \
     $(wildcard include/config/PREEMPTION) \
     $(wildcard include/config/DEBUG_LOCK_ALLOC) \
@@ -113,8 +117,6 @@ deps_lib/dec_and_lock.o := \
   arch/x86/include/asm/preempt.h \
   arch/x86/include/asm/rmwcc.h \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/CC_HAS_NAMED_AS) \
-    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
   include/linux/bits.h \
   include/vdso/bits.h \
   include/vdso/const.h \
@@ -427,8 +429,8 @@ deps_lib/dec_and_lock.o := \
   arch/x86/include/asm/proto.h \
   arch/x86/include/uapi/asm/ldt.h \
   arch/x86/include/uapi/asm/sigcontext.h \
-  arch/x86/include/asm/cpuid/api.h \
   arch/x86/include/asm/cpuid/types.h \
+  arch/x86/include/asm/cpuid/leaf_types.h \
   arch/x86/include/asm/special_insns.h \
   arch/x86/include/asm/fpu/types.h \
   arch/x86/include/asm/vmxfeatures.h \

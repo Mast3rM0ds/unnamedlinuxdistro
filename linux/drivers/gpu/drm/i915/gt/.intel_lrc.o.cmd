@@ -40,6 +40,11 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/drm/drm_print.h \
     $(wildcard include/config/DEBUG_FS) \
     $(wildcard include/config/DRM_USE_DYNAMIC_DEBUG) \
@@ -83,7 +88,6 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
     $(wildcard include/config/CONSOLE_LOGLEVEL_QUIET) \
     $(wildcard include/config/EARLY_PRINTK) \
     $(wildcard include/config/PRINTK) \
-    $(wildcard include/config/SMP) \
     $(wildcard include/config/PRINTK_INDEX) \
     $(wildcard include/config/DYNAMIC_DEBUG) \
     $(wildcard include/config/DYNAMIC_DEBUG_CORE) \
@@ -153,12 +157,6 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
     $(wildcard include/config/SWIOTLB) \
     $(wildcard include/config/SWIOTLB_DYNAMIC) \
     $(wildcard include/config/NUMA) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_DEVICE) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU_ALL) \
-    $(wildcard include/config/DMA_OPS_BYPASS) \
-    $(wildcard include/config/DMA_NEED_SYNC) \
-    $(wildcard include/config/IOMMU_DMA) \
     $(wildcard include/config/PM) \
     $(wildcard include/config/PM_SLEEP) \
     $(wildcard include/config/OF) \
@@ -220,11 +218,10 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
     $(wildcard include/config/TASK_XACCT) \
     $(wildcard include/config/CPUSETS) \
     $(wildcard include/config/X86_CPU_RESCTRL) \
-    $(wildcard include/config/FUTEX) \
-    $(wildcard include/config/COMPAT) \
     $(wildcard include/config/PERF_EVENTS) \
     $(wildcard include/config/DEBUG_PREEMPT) \
     $(wildcard include/config/NUMA_BALANCING) \
+    $(wildcard include/config/SCHED_CACHE) \
     $(wildcard include/config/ARCH_HAS_LAZY_MMU_MODE) \
     $(wildcard include/config/FAULT_INJECTION) \
     $(wildcard include/config/LATENCYTOP) \
@@ -259,7 +256,6 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
     $(wildcard include/config/SCHED_MM_CID) \
   include/uapi/linux/sched.h \
   arch/x86/include/asm/current.h \
-    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
   include/linux/cache.h \
     $(wildcard include/config/ARCH_HAS_CACHE_LINE_SIZE) \
   include/uapi/linux/kernel.h \
@@ -270,7 +266,6 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
     $(wildcard include/config/X86_INTERNODE_CACHE_SHIFT) \
     $(wildcard include/config/X86_VSMP) \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/CC_HAS_NAMED_AS) \
   include/linux/args.h \
   arch/x86/include/asm/asm.h \
     $(wildcard include/config/KPROBES) \
@@ -352,22 +347,8 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
   arch/x86/include/uapi/asm/ldt.h \
   arch/x86/include/uapi/asm/sigcontext.h \
   arch/x86/include/asm/cpufeatures.h \
-  arch/x86/include/asm/cpuid/api.h \
   arch/x86/include/asm/cpuid/types.h \
-  arch/x86/include/asm/string.h \
-  arch/x86/include/asm/string_64.h \
-    $(wildcard include/config/ARCH_HAS_UACCESS_FLUSHCACHE) \
-  include/linux/jump_label.h \
-    $(wildcard include/config/JUMP_LABEL) \
-    $(wildcard include/config/HAVE_ARCH_JUMP_LABEL_RELATIVE) \
-  include/linux/cleanup.h \
-  include/linux/err.h \
-  arch/x86/include/generated/uapi/asm/errno.h \
-  include/uapi/asm-generic/errno.h \
-  include/uapi/asm-generic/errno-base.h \
-  arch/x86/include/asm/jump_label.h \
-    $(wildcard include/config/HAVE_JUMP_LABEL_HACK) \
-  arch/x86/include/asm/nops.h \
+  arch/x86/include/asm/cpuid/leaf_types.h \
   arch/x86/include/asm/page.h \
   arch/x86/include/asm/page_64.h \
     $(wildcard include/config/DEBUG_VIRTUAL) \
@@ -393,6 +374,7 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
   include/linux/typecheck.h \
   include/asm-generic/bitops/generic-non-atomic.h \
   arch/x86/include/asm/barrier.h \
+  arch/x86/include/asm/nops.h \
   include/asm-generic/barrier.h \
   arch/x86/include/asm/bitops.h \
     $(wildcard include/config/X86_CMOV) \
@@ -423,6 +405,9 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
   arch/x86/include/asm/special_insns.h \
   include/linux/errno.h \
   include/uapi/linux/errno.h \
+  arch/x86/include/generated/uapi/asm/errno.h \
+  include/uapi/asm-generic/errno.h \
+  include/uapi/asm-generic/errno-base.h \
   include/linux/irqflags.h \
     $(wildcard include/config/PROVE_LOCKING) \
     $(wildcard include/config/IRQSOFF_TRACER) \
@@ -430,6 +415,8 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
     $(wildcard include/config/DEBUG_IRQFLAGS) \
     $(wildcard include/config/TRACE_IRQFLAGS_SUPPORT) \
   include/linux/irqflags_types.h \
+  include/linux/cleanup.h \
+  include/linux/err.h \
   arch/x86/include/asm/irqflags.h \
     $(wildcard include/config/DEBUG_ENTRY) \
   arch/x86/include/asm/nospec-branch.h \
@@ -438,6 +425,11 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
     $(wildcard include/config/MITIGATION_IBPB_ENTRY) \
     $(wildcard include/config/BPF_JIT) \
   include/linux/static_key.h \
+  include/linux/jump_label.h \
+    $(wildcard include/config/JUMP_LABEL) \
+    $(wildcard include/config/HAVE_ARCH_JUMP_LABEL_RELATIVE) \
+  arch/x86/include/asm/jump_label.h \
+    $(wildcard include/config/HAVE_JUMP_LABEL_HACK) \
   arch/x86/include/asm/msr-index.h \
   arch/x86/include/asm/unwind_hints.h \
   arch/x86/include/asm/orc_types.h \
@@ -467,6 +459,9 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
     $(wildcard include/config/BINARY_PRINTF) \
   include/linux/array_size.h \
   include/uapi/linux/string.h \
+  arch/x86/include/asm/string.h \
+  arch/x86/include/asm/string_64.h \
+    $(wildcard include/config/ARCH_HAS_UACCESS_FLUSHCACHE) \
   include/linux/bitmap-str.h \
   include/linux/cpumask_types.h \
   include/linux/gfp_types.h \
@@ -531,6 +526,7 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
   include/uapi/linux/time_types.h \
   arch/x86/include/asm/thread_info.h \
     $(wildcard include/config/X86_FRED) \
+    $(wildcard include/config/COMPAT) \
   arch/x86/include/asm/cpufeature.h \
   arch/x86/include/generated/asm/cpufeaturemasks.h \
   include/asm-generic/thread_info_tif.h \
@@ -542,6 +538,16 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
     $(wildcard include/config/PREEMPT) \
     $(wildcard include/config/PREEMPT_LAZY) \
   arch/x86/include/asm/preempt.h \
+  include/linux/futex_types.h \
+    $(wildcard include/config/FUTEX) \
+    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
+    $(wildcard include/config/FUTEX_ROBUST_UNLOCK) \
+  include/linux/mutex_types.h \
+    $(wildcard include/config/MUTEX_SPIN_ON_OWNER) \
+    $(wildcard include/config/DEBUG_MUTEXES) \
+  include/linux/osq_lock.h \
+  include/linux/spinlock_types.h \
+  include/linux/rwlock_types.h \
   include/linux/smp_types.h \
   include/linux/llist.h \
     $(wildcard include/config/ARCH_HAVE_NMI_SAFE_CMPXCHG) \
@@ -550,12 +556,6 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
   include/linux/shm.h \
   arch/x86/include/asm/shmparam.h \
   include/linux/kmsan_types.h \
-  include/linux/mutex_types.h \
-    $(wildcard include/config/MUTEX_SPIN_ON_OWNER) \
-    $(wildcard include/config/DEBUG_MUTEXES) \
-  include/linux/osq_lock.h \
-  include/linux/spinlock_types.h \
-  include/linux/rwlock_types.h \
   include/linux/plist_types.h \
   include/linux/hrtimer_types.h \
   include/linux/timerqueue_types.h \
@@ -678,7 +678,7 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
   include/linux/radix-tree.h \
   include/linux/percpu.h \
     $(wildcard include/config/MODULES) \
-    $(wildcard include/config/RANDOM_KMALLOC_CACHES) \
+    $(wildcard include/config/KMALLOC_PARTITION_CACHES) \
     $(wildcard include/config/PAGE_SIZE_4KB) \
     $(wildcard include/config/NEED_PER_CPU_PAGE_FIRST_CHUNK) \
   include/linux/alloc_tag.h \
@@ -750,7 +750,6 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
     $(wildcard include/config/PER_VMA_LOCK) \
     $(wildcard include/config/HAVE_ARCH_COMPAT_MMAP_BASES) \
     $(wildcard include/config/MEMBARRIER) \
-    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
     $(wildcard include/config/ARCH_HAS_ELF_CORE_EFLAGS) \
     $(wildcard include/config/AIO) \
     $(wildcard include/config/MMU_NOTIFIER) \
@@ -784,7 +783,6 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
   include/linux/timex.h \
   include/uapi/linux/timex.h \
   arch/x86/include/asm/timex.h \
-    $(wildcard include/config/X86_TSC) \
   arch/x86/include/asm/tsc.h \
   arch/x86/include/asm/msr.h \
   arch/x86/include/uapi/asm/msr.h \
@@ -946,7 +944,6 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
   include/uapi/linux/hdlc/ioctl.h \
   include/linux/fs.h \
     $(wildcard include/config/FANOTIFY_ACCESS_PERMISSIONS) \
-    $(wildcard include/config/READ_ONLY_THP_FOR_FS) \
     $(wildcard include/config/FS_POSIX_ACL) \
     $(wildcard include/config/CGROUP_WRITEBACK) \
     $(wildcard include/config/IMA) \
@@ -987,6 +984,7 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
     $(wildcard include/config/HAVE_ARCH_THREAD_STRUCT_WHITELIST) \
   include/linux/uaccess.h \
     $(wildcard include/config/ARCH_HAS_SUBPAGE_FAULTS) \
+    $(wildcard include/config/ARCH_MEMORY_ORDER_TSO) \
   include/linux/fault-inject-usercopy.h \
     $(wildcard include/config/FAULT_INJECTION_USERCOPY) \
   include/linux/nospec.h \
@@ -1013,7 +1011,6 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
     $(wildcard include/config/X86_SGX) \
   arch/x86/include/asm/pkru.h \
   arch/x86/include/asm/fpu/api.h \
-    $(wildcard include/config/MATH_EMULATION) \
   arch/x86/include/asm/coco.h \
   include/asm-generic/pgtable_uffd.h \
     $(wildcard include/config/PTE_MARKER_UFFD_WP) \
@@ -1102,6 +1099,8 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
     $(wildcard include/config/KFENCE) \
     $(wildcard include/config/SLUB_TINY) \
     $(wildcard include/config/SLUB_DEBUG) \
+    $(wildcard include/config/KMALLOC_PARTITION_RANDOM) \
+    $(wildcard include/config/KMALLOC_PARTITION_TYPED) \
     $(wildcard include/config/SLAB_BUCKETS) \
     $(wildcard include/config/KVFREE_RCU_BATCHED) \
   include/linux/percpu-refcount.h \
@@ -1146,7 +1145,10 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
     $(wildcard include/config/UNWINDER_ORC) \
   include/asm-generic/module.h \
     $(wildcard include/config/HAVE_MOD_ARCH_SPECIFIC) \
-  arch/x86/include/asm/device.h \
+  include/linux/device-id/acpi.h \
+  include/linux/device-id/of.h \
+  arch/x86/include/generated/asm/device.h \
+  include/asm-generic/device.h \
   include/linux/pm_wakeup.h \
   include/uapi/drm/drm.h \
   include/uapi/drm/drm_mode.h \
@@ -1196,17 +1198,18 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
     $(wildcard include/config/OSNOISE_TRACER) \
   include/linux/vtime.h \
     $(wildcard include/config/VIRT_CPU_ACCOUNTING) \
+    $(wildcard include/config/HAVE_VIRT_CPU_ACCOUNTING_IDLE) \
   arch/x86/include/asm/hardirq.h \
-    $(wildcard include/config/CPU_MITIGATIONS) \
-    $(wildcard include/config/KVM_INTEL) \
-    $(wildcard include/config/KVM) \
-    $(wildcard include/config/GUEST_PERF_EVENTS) \
     $(wildcard include/config/X86_THERMAL_VECTOR) \
     $(wildcard include/config/X86_MCE_THRESHOLD) \
     $(wildcard include/config/X86_MCE_AMD) \
     $(wildcard include/config/X86_HV_CALLBACK_VECTOR) \
     $(wildcard include/config/HYPERV) \
+    $(wildcard include/config/KVM) \
+    $(wildcard include/config/GUEST_PERF_EVENTS) \
     $(wildcard include/config/X86_POSTED_MSI) \
+    $(wildcard include/config/CPU_MITIGATIONS) \
+    $(wildcard include/config/KVM_INTEL) \
   arch/x86/include/asm/irq.h \
   arch/x86/include/asm/irq_vectors.h \
     $(wildcard include/config/PCI_MSI) \
@@ -1217,9 +1220,12 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
   arch/x86/include/asm/tdx.h \
     $(wildcard include/config/INTEL_TDX_GUEST) \
     $(wildcard include/config/INTEL_TDX_HOST) \
-    $(wildcard include/config/KEXEC_CORE) \
+  include/linux/kvm_types.h \
+  arch/x86/include/asm/kvm_types.h \
+    $(wildcard include/config/KVM_AMD) \
   arch/x86/include/asm/trapnr.h \
   arch/x86/include/asm/shared/tdx.h \
+  arch/x86/include/asm/shared/tdx_errno.h \
   arch/x86/include/uapi/asm/mce.h \
   arch/x86/include/asm/tdx_global_metadata.h \
   include/linux/pgtable.h \
@@ -1234,6 +1240,7 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
     $(wildcard include/config/XEN_PV_DOM0) \
     $(wildcard include/config/PVH) \
     $(wildcard include/config/XEN_DOM0) \
+  arch/x86/include/asm/cpuid/api.h \
   drivers/gpu/drm/i915/gt/intel_gt_regs.h \
   drivers/gpu/drm/i915/i915_reg_defs.h \
   include/drm/intel/pick.h \
@@ -1269,9 +1276,7 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
     $(wildcard include/config/ACPI_MCFG) \
     $(wildcard include/config/EEH) \
     $(wildcard include/config/S390) \
-  include/linux/mod_devicetable.h \
-  include/uapi/linux/mei.h \
-  include/uapi/linux/mei_uuid.h \
+  include/linux/device-id/pci.h \
   include/linux/io.h \
     $(wildcard include/config/HAS_IOPORT_MAP) \
     $(wildcard include/config/STRICT_DEVMEM) \
@@ -1367,6 +1372,8 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
   arch/x86/include/asm/memtype.h \
   include/linux/dma-mapping.h \
     $(wildcard include/config/DMA_API_DEBUG) \
+    $(wildcard include/config/IOMMU_DMA) \
+    $(wildcard include/config/DMA_NEED_SYNC) \
     $(wildcard include/config/NEED_DMA_MAP_STATE) \
   include/linux/dma-direction.h \
   include/linux/pm_qos.h \
@@ -1542,6 +1549,7 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
     $(wildcard include/config/IPV6) \
   include/uapi/linux/bpf_common.h \
   include/uapi/linux/filter.h \
+  include/linux/bpf_defs.h \
   include/crypto/sha2.h \
   include/linux/bpfptr.h \
   include/linux/btf.h \
@@ -1576,6 +1584,8 @@ deps_drivers/gpu/drm/i915/gt/intel_lrc.o := \
   arch/x86/include/asm/cfi.h \
     $(wildcard include/config/FINEIBT_BHI) \
     $(wildcard include/config/FUNCTION_PADDING_CFI) \
+  include/linux/xattr.h \
+  include/uapi/linux/xattr.h \
   arch/x86/include/asm/rqspinlock.h \
     $(wildcard include/config/QUEUED_SPINLOCKS) \
   include/asm-generic/rqspinlock.h \

@@ -1,0 +1,72 @@
+idna.lo: idna.c \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h \
+ ../config.h ../gl/stdlib.h ../unistring/stdlib.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/features.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h \
+ ../gl/alloca.h ../gl/stddef.h ../unistring/stddef.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/errno.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/errno.h idn2.h \
+ ../gl/stdint.h ../unistring/stdint.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdint.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/stdint.h \
+ ../gl/limits.h ../unistring/limits.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/limits.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/limits.h \
+ ../gl/string.h ../unistring/string.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/string.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/strings.h bidi.h \
+ tables.h context.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdbool.h tr46map.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/unitypes.h \
+ ../unistring/stdint.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/unictype.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/unitypes.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/unistring/woe32dll.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/uninorm.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/unistring/cdefs.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/unistr.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/unistring/inline.h \
+ idna.h
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h:
+../config.h:
+../gl/stdlib.h:
+../unistring/stdlib.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/features.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h:
+../gl/alloca.h:
+../gl/stddef.h:
+../unistring/stddef.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/errno.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/errno.h:
+idn2.h:
+../gl/stdint.h:
+../unistring/stdint.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdint.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/stdint.h:
+../gl/limits.h:
+../unistring/limits.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/limits.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/limits.h:
+../gl/string.h:
+../unistring/string.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/string.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/strings.h:
+bidi.h:
+tables.h:
+context.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdbool.h:
+tr46map.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unitypes.h:
+../unistring/stdint.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unictype.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unitypes.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unistring/woe32dll.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/uninorm.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unistring/cdefs.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unistr.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unistring/inline.h:
+idna.h:

@@ -1,0 +1,39 @@
+libgnu_la-version-etc.lo: version-etc.c \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h \
+ ../config.h version-etc.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdarg.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h stdio.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdio.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/features.h stddef.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h sys/types.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/types.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/endian.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/select.h gettext.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/libintl.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/locale.h string.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/string.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/strings.h stdlib.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h alloca.h
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h:
+../config.h:
+version-etc.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdarg.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h:
+stdio.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdio.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/features.h:
+stddef.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h:
+sys/types.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/types.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/endian.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/select.h:
+gettext.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/libintl.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/locale.h:
+string.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/string.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/strings.h:
+stdlib.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h:
+alloca.h:

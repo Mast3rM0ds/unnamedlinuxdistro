@@ -1,0 +1,56 @@
+binary-io.o: binary-io.c /usr/include/stdc-predef.h ../lib/config.h \
+ ../lib/../config.h binary-io.h ../lib/fcntl.h ../lib/sys/types.h \
+ /usr/include/sys/types.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/endian.h sys/select.h \
+ sys/time.h /usr/include/sys/time.h /usr/include/fortify/sys/select.h \
+ /usr/include/sys/select.h /usr/include/fortify/fortify-headers.h \
+ signal.h /usr/include/signal.h /usr/include/bits/signal.h sys/stat.h \
+ ../lib/time.h /usr/include/time.h ../lib/stddef.h /usr/include/stddef.h \
+ /usr/include/sys/stat.h /usr/include/bits/stat.h /usr/include/fcntl.h \
+ /usr/include/bits/fcntl.h ../lib/unistd.h /usr/include/fortify/unistd.h \
+ /usr/include/unistd.h /usr/include/fortify/fortify-headers.h \
+ ../lib/stdlib.h /usr/include/fortify/stdlib.h /usr/include/stdlib.h \
+ ../lib/alloca.h /usr/include/limits.h /usr/include/bits/limits.h stdio.h \
+ /usr/include/fortify/stdio.h /usr/include/stdio.h /usr/include/stdarg.h
+/usr/include/stdc-predef.h:
+../lib/config.h:
+../lib/../config.h:
+binary-io.h:
+../lib/fcntl.h:
+../lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/endian.h:
+sys/select.h:
+sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+sys/stat.h:
+../lib/time.h:
+/usr/include/time.h:
+../lib/stddef.h:
+/usr/include/stddef.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+../lib/unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+/usr/include/fortify/fortify-headers.h:
+../lib/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+../lib/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/stdarg.h:

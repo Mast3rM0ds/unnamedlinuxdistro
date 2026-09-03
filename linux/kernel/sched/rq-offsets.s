@@ -8,11 +8,11 @@
 	.section	.text.startup,"ax",@progbits
 	.align 16
 	.globl	main
-	.section	__patchable_function_entries,"awo",@progbits,.LPFE7199
+	.section	__patchable_function_entries,"awo",@progbits,.LPFE7350
 	.align 8
-	.quad	.LPFE7199
+	.quad	.LPFE7350
 	.section	.text.startup
-.LPFE7199:
+.LPFE7350:
 	nop	
 	nop	
 	nop	

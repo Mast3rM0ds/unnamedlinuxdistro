@@ -1,0 +1,44 @@
+libunistring_la-localcharset.lo: localcharset.c \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h \
+ ../config.h localcharset.h stddef.h ../gl/stddef.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h \
+ ../gl/stdio.h /home/bloink/Work/unnamedlinuxdistro/fs/include/stdio.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/features.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdarg.h sys/types.h \
+ ../gl/sys/types.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/types.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/endian.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/select.h string.h \
+ ../gl/string.h /home/bloink/Work/unnamedlinuxdistro/fs/include/string.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/strings.h stdlib.h \
+ ../gl/stdlib.h /home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h \
+ ../gl/alloca.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/langinfo.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/nl_types.h
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h:
+../config.h:
+localcharset.h:
+stddef.h:
+../gl/stddef.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h:
+../gl/stdio.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdio.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/features.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdarg.h:
+sys/types.h:
+../gl/sys/types.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/types.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/endian.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/select.h:
+string.h:
+../gl/string.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/string.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/strings.h:
+stdlib.h:
+../gl/stdlib.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h:
+../gl/alloca.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/langinfo.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/nl_types.h:

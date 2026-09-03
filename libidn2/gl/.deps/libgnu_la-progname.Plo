@@ -1,0 +1,38 @@
+libgnu_la-progname.lo: progname.c \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h \
+ ../config.h progname.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/errno.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/features.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/errno.h stdio.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdio.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdarg.h stddef.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h sys/types.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/types.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/endian.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/select.h stdlib.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h alloca.h \
+ string.h /home/bloink/Work/unnamedlinuxdistro/fs/include/string.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/strings.h
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h:
+../config.h:
+progname.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/errno.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/features.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/errno.h:
+stdio.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdio.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdarg.h:
+stddef.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h:
+sys/types.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/types.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/endian.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/select.h:
+stdlib.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h:
+alloca.h:
+string.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/string.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/strings.h:

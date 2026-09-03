@@ -40,6 +40,11 @@ deps_arch/x86/kernel/cpu/tsx.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/linux/cpufeature.h \
     $(wildcard include/config/GENERIC_CPU_AUTOPROBE) \
   include/linux/init.h \
@@ -82,8 +87,23 @@ deps_arch/x86/kernel/cpu/tsx.o := \
     $(wildcard include/config/KCSAN_IGNORE_ATOMICS) \
   include/linux/stringify.h \
   include/linux/mod_devicetable.h \
-  include/uapi/linux/mei.h \
-  include/uapi/linux/mei_uuid.h \
+  include/linux/device-id/acpi.h \
+  include/linux/device-id/amba.h \
+  include/linux/device-id/ap.h \
+  include/linux/device-id/apr.h \
+  include/linux/device-id/auxiliary.h \
+  include/linux/device-id/bcma.h \
+  include/linux/device-id/ccw.h \
+  include/linux/device-id/cdx.h \
+  include/linux/device-id/coreboot.h \
+  include/linux/device-id/css.h \
+  include/linux/device-id/dfl.h \
+  include/linux/device-id/dmi.h \
+  include/linux/device-id/eisa.h \
+  include/linux/device-id/fsl_mc.h \
+  include/linux/device-id/hda.h \
+  include/linux/device-id/hid.h \
+  include/linux/device-id/hv_vmbus.h \
   include/linux/uuid.h \
   include/linux/string.h \
     $(wildcard include/config/BINARY_PRINTF) \
@@ -122,16 +142,54 @@ deps_arch/x86/kernel/cpu/tsx.o := \
   include/generated/asm-offsets.h \
   arch/x86/include/asm/extable_fixup_types.h \
   arch/x86/include/asm/nops.h \
+  include/linux/device-id/i2c.h \
+  include/linux/device-id/i3c.h \
+  include/linux/device-id/ieee1394.h \
+  include/linux/device-id/input.h \
+  include/linux/device-id/ipack.h \
+  include/linux/device-id/isapnp.h \
+  include/linux/device-id/ishtp.h \
+  include/linux/device-id/mcb.h \
+  include/linux/device-id/mdio.h \
+  include/linux/device-id/mei_cl.h \
+  include/uapi/linux/mei_uuid.h \
+  include/linux/device-id/mhi.h \
+  include/linux/device-id/mips_cdmm.h \
+  include/linux/device-id/of.h \
+  include/linux/device-id/parisc.h \
+  include/linux/device-id/pci.h \
+  include/linux/device-id/pcmcia.h \
+  include/linux/device-id/platform.h \
+  include/linux/device-id/pnp.h \
+  include/linux/device-id/rio.h \
+  include/linux/device-id/rpmsg.h \
+  include/linux/device-id/sdio.h \
+  include/linux/device-id/sdw.h \
+  include/linux/device-id/serio.h \
+  include/linux/device-id/slim.h \
+  include/linux/device-id/spi.h \
+  include/linux/device-id/spmi.h \
+  include/linux/device-id/ssam.h \
+  include/linux/device-id/ssb.h \
+  include/linux/device-id/tb.h \
+  include/linux/device-id/tee_client.h \
+  include/linux/device-id/typec.h \
+  include/linux/device-id/ulpi.h \
+  include/linux/device-id/usb.h \
+  include/linux/device-id/vchiq.h \
+  include/linux/device-id/vio.h \
+  include/linux/device-id/virtio.h \
+  include/linux/device-id/wmi.h \
+  include/linux/device-id/x86_cpu.h \
+  include/linux/device-id/zorro.h \
   arch/x86/include/asm/cpufeature.h \
   arch/x86/include/asm/processor.h \
     $(wildcard include/config/X86_VSMP) \
     $(wildcard include/config/X86_VMX_FEATURE_NAMES) \
     $(wildcard include/config/X86_IOPL_IOPERM) \
-    $(wildcard include/config/SMP) \
     $(wildcard include/config/VM86) \
     $(wildcard include/config/X86_USER_SHADOW_STACK) \
     $(wildcard include/config/X86_DEBUG_FPU) \
-    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
     $(wildcard include/config/PARAVIRT_XXL) \
     $(wildcard include/config/CPU_SUP_AMD) \
     $(wildcard include/config/XEN) \
@@ -253,7 +311,6 @@ deps_arch/x86/kernel/cpu/tsx.o := \
   include/uapi/linux/sysinfo.h \
   include/vdso/cache.h \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/CC_HAS_NAMED_AS) \
   include/asm-generic/percpu.h \
     $(wildcard include/config/DEBUG_PREEMPT) \
     $(wildcard include/config/HAVE_SETUP_PER_CPU_AREA) \
@@ -263,8 +320,8 @@ deps_arch/x86/kernel/cpu/tsx.o := \
     $(wildcard include/config/ARCH_MODULE_NEEDS_WEAK_PER_CPU) \
     $(wildcard include/config/DEBUG_FORCE_WEAK_PER_CPU) \
   arch/x86/include/asm/cpufeatures.h \
-  arch/x86/include/asm/cpuid/api.h \
   arch/x86/include/asm/cpuid/types.h \
+  arch/x86/include/asm/cpuid/leaf_types.h \
   arch/x86/include/asm/page.h \
   arch/x86/include/asm/page_64.h \
     $(wildcard include/config/DEBUG_VIRTUAL) \
@@ -457,12 +514,6 @@ deps_arch/x86/kernel/cpu/tsx.o := \
     $(wildcard include/config/DMA_CMA) \
     $(wildcard include/config/SWIOTLB) \
     $(wildcard include/config/SWIOTLB_DYNAMIC) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_DEVICE) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU_ALL) \
-    $(wildcard include/config/DMA_OPS_BYPASS) \
-    $(wildcard include/config/DMA_NEED_SYNC) \
-    $(wildcard include/config/IOMMU_DMA) \
     $(wildcard include/config/PM) \
     $(wildcard include/config/PM_SLEEP) \
     $(wildcard include/config/OF) \
@@ -520,10 +571,9 @@ deps_arch/x86/kernel/cpu/tsx.o := \
     $(wildcard include/config/TASK_XACCT) \
     $(wildcard include/config/CPUSETS) \
     $(wildcard include/config/X86_CPU_RESCTRL) \
-    $(wildcard include/config/FUTEX) \
-    $(wildcard include/config/COMPAT) \
     $(wildcard include/config/PERF_EVENTS) \
     $(wildcard include/config/NUMA_BALANCING) \
+    $(wildcard include/config/SCHED_CACHE) \
     $(wildcard include/config/ARCH_HAS_LAZY_MMU_MODE) \
     $(wildcard include/config/FAULT_INJECTION) \
     $(wildcard include/config/LATENCYTOP) \
@@ -563,6 +613,7 @@ deps_arch/x86/kernel/cpu/tsx.o := \
   include/uapi/linux/time_types.h \
   arch/x86/include/asm/thread_info.h \
     $(wildcard include/config/X86_FRED) \
+    $(wildcard include/config/COMPAT) \
   include/asm-generic/thread_info_tif.h \
   include/linux/preempt.h \
     $(wildcard include/config/PREEMPT_COUNT) \
@@ -572,6 +623,16 @@ deps_arch/x86/kernel/cpu/tsx.o := \
     $(wildcard include/config/PREEMPT) \
     $(wildcard include/config/PREEMPT_LAZY) \
   arch/x86/include/asm/preempt.h \
+  include/linux/futex_types.h \
+    $(wildcard include/config/FUTEX) \
+    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
+    $(wildcard include/config/FUTEX_ROBUST_UNLOCK) \
+  include/linux/mutex_types.h \
+    $(wildcard include/config/MUTEX_SPIN_ON_OWNER) \
+    $(wildcard include/config/DEBUG_MUTEXES) \
+  include/linux/osq_lock.h \
+  include/linux/spinlock_types.h \
+  include/linux/rwlock_types.h \
   include/linux/smp_types.h \
   include/linux/llist.h \
     $(wildcard include/config/ARCH_HAVE_NMI_SAFE_CMPXCHG) \
@@ -580,12 +641,6 @@ deps_arch/x86/kernel/cpu/tsx.o := \
   include/linux/shm.h \
   arch/x86/include/asm/shmparam.h \
   include/linux/kmsan_types.h \
-  include/linux/mutex_types.h \
-    $(wildcard include/config/MUTEX_SPIN_ON_OWNER) \
-    $(wildcard include/config/DEBUG_MUTEXES) \
-  include/linux/osq_lock.h \
-  include/linux/spinlock_types.h \
-  include/linux/rwlock_types.h \
   include/linux/plist_types.h \
   include/linux/hrtimer_types.h \
   include/linux/timerqueue_types.h \
@@ -708,7 +763,7 @@ deps_arch/x86/kernel/cpu/tsx.o := \
   include/linux/radix-tree.h \
   include/linux/percpu.h \
     $(wildcard include/config/MODULES) \
-    $(wildcard include/config/RANDOM_KMALLOC_CACHES) \
+    $(wildcard include/config/KMALLOC_PARTITION_CACHES) \
     $(wildcard include/config/PAGE_SIZE_4KB) \
     $(wildcard include/config/NEED_PER_CPU_PAGE_FIRST_CHUNK) \
   include/linux/alloc_tag.h \
@@ -780,7 +835,6 @@ deps_arch/x86/kernel/cpu/tsx.o := \
     $(wildcard include/config/PER_VMA_LOCK) \
     $(wildcard include/config/HAVE_ARCH_COMPAT_MMAP_BASES) \
     $(wildcard include/config/MEMBARRIER) \
-    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
     $(wildcard include/config/ARCH_HAS_ELF_CORE_EFLAGS) \
     $(wildcard include/config/AIO) \
     $(wildcard include/config/MMU_NOTIFIER) \
@@ -814,7 +868,6 @@ deps_arch/x86/kernel/cpu/tsx.o := \
   include/linux/timex.h \
   include/uapi/linux/timex.h \
   arch/x86/include/asm/timex.h \
-    $(wildcard include/config/X86_TSC) \
   arch/x86/include/asm/tsc.h \
   arch/x86/include/asm/msr.h \
   arch/x86/include/uapi/asm/msr.h \
@@ -975,7 +1028,6 @@ deps_arch/x86/kernel/cpu/tsx.o := \
   include/uapi/linux/hdlc/ioctl.h \
   include/linux/fs.h \
     $(wildcard include/config/FANOTIFY_ACCESS_PERMISSIONS) \
-    $(wildcard include/config/READ_ONLY_THP_FOR_FS) \
     $(wildcard include/config/FS_POSIX_ACL) \
     $(wildcard include/config/CGROUP_WRITEBACK) \
     $(wildcard include/config/IMA) \
@@ -1015,6 +1067,7 @@ deps_arch/x86/kernel/cpu/tsx.o := \
     $(wildcard include/config/HAVE_ARCH_THREAD_STRUCT_WHITELIST) \
   include/linux/uaccess.h \
     $(wildcard include/config/ARCH_HAS_SUBPAGE_FAULTS) \
+    $(wildcard include/config/ARCH_MEMORY_ORDER_TSO) \
   include/linux/fault-inject-usercopy.h \
     $(wildcard include/config/FAULT_INJECTION_USERCOPY) \
   include/linux/nospec.h \
@@ -1041,7 +1094,6 @@ deps_arch/x86/kernel/cpu/tsx.o := \
     $(wildcard include/config/X86_SGX) \
   arch/x86/include/asm/pkru.h \
   arch/x86/include/asm/fpu/api.h \
-    $(wildcard include/config/MATH_EMULATION) \
   arch/x86/include/asm/coco.h \
   include/asm-generic/pgtable_uffd.h \
     $(wildcard include/config/PTE_MARKER_UFFD_WP) \
@@ -1130,6 +1182,8 @@ deps_arch/x86/kernel/cpu/tsx.o := \
     $(wildcard include/config/KFENCE) \
     $(wildcard include/config/SLUB_TINY) \
     $(wildcard include/config/SLUB_DEBUG) \
+    $(wildcard include/config/KMALLOC_PARTITION_RANDOM) \
+    $(wildcard include/config/KMALLOC_PARTITION_TYPED) \
     $(wildcard include/config/SLAB_BUCKETS) \
     $(wildcard include/config/KVFREE_RCU_BATCHED) \
   include/linux/percpu-refcount.h \
@@ -1174,7 +1228,8 @@ deps_arch/x86/kernel/cpu/tsx.o := \
     $(wildcard include/config/UNWINDER_ORC) \
   include/asm-generic/module.h \
     $(wildcard include/config/HAVE_MOD_ARCH_SPECIFIC) \
-  arch/x86/include/asm/device.h \
+  arch/x86/include/generated/asm/device.h \
+  include/asm-generic/device.h \
   include/linux/pm_wakeup.h \
   include/linux/cpu.h \
     $(wildcard include/config/GENERIC_CPU_DEVICES) \

@@ -1,0 +1,57 @@
+asn1Coding.o: asn1Coding.c /usr/include/stdc-predef.h ../config.h \
+ gl/stdio.h /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/fortify/fortify-headers.h /usr/include/stdarg.h \
+ /usr/include/stddef.h ../lib/gl/sys/types.h gl/sys/types.h \
+ /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/fortify/fortify-headers.h ../lib/gl/string.h gl/string.h \
+ /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h ../lib/gl/stdlib.h \
+ gl/stdlib.h /usr/include/fortify/stdlib.h /usr/include/stdlib.h \
+ gl/alloca.h /usr/include/limits.h /usr/include/bits/limits.h \
+ ../lib/gl/unistd.h gl/unistd.h /usr/include/fortify/unistd.h \
+ /usr/include/unistd.h /usr/include/getopt.h /usr/include/assert.h \
+ ../lib/includes/libtasn1.h gl/time.h /usr/include/time.h gl/progname.h \
+ gl/version-etc.h
+/usr/include/stdc-predef.h:
+../config.h:
+gl/stdio.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/fortify/fortify-headers.h:
+/usr/include/stdarg.h:
+/usr/include/stddef.h:
+../lib/gl/sys/types.h:
+gl/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/fortify/sys/select.h:
+/usr/include/sys/select.h:
+/usr/include/fortify/fortify-headers.h:
+../lib/gl/string.h:
+gl/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+../lib/gl/stdlib.h:
+gl/stdlib.h:
+/usr/include/fortify/stdlib.h:
+/usr/include/stdlib.h:
+gl/alloca.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+../lib/gl/unistd.h:
+gl/unistd.h:
+/usr/include/fortify/unistd.h:
+/usr/include/unistd.h:
+/usr/include/getopt.h:
+/usr/include/assert.h:
+../lib/includes/libtasn1.h:
+gl/time.h:
+/usr/include/time.h:
+gl/progname.h:
+gl/version-etc.h:

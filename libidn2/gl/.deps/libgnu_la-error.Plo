@@ -1,0 +1,59 @@
+libgnu_la-error.lo: error.c \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h \
+ ../config.h error.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdarg.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h stddef.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h stdio.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdio.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/features.h sys/types.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/types.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/endian.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/select.h stdlib.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h alloca.h \
+ string.h /home/bloink/Work/unnamedlinuxdistro/fs/include/string.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/strings.h gettext.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/libintl.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/locale.h fcntl.h \
+ sys/stat.h time.h /home/bloink/Work/unnamedlinuxdistro/fs/include/time.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/stat.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/stat.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/fcntl.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/fcntl.h unistd.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/unistd.h getopt-cdefs.h \
+ getopt-pfx-core.h getopt-core.h
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h:
+../config.h:
+error.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdarg.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h:
+stddef.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h:
+stdio.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdio.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/features.h:
+sys/types.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/types.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/endian.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/select.h:
+stdlib.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h:
+alloca.h:
+string.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/string.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/strings.h:
+gettext.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/libintl.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/locale.h:
+fcntl.h:
+sys/stat.h:
+time.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/time.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/stat.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/stat.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/fcntl.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/fcntl.h:
+unistd.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unistd.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+getopt-core.h:

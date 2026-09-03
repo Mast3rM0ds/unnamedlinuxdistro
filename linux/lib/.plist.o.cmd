@@ -39,6 +39,11 @@ deps_lib/plist.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/linux/bug.h \
     $(wildcard include/config/GENERIC_BUG) \
     $(wildcard include/config/PRINTK) \
@@ -100,7 +105,6 @@ deps_lib/plist.o := \
   include/asm-generic/bug.h \
     $(wildcard include/config/BUG) \
     $(wildcard include/config/GENERIC_BUG_RELATIVE_POINTERS) \
-    $(wildcard include/config/SMP) \
   include/linux/once_lite.h \
   include/linux/panic.h \
     $(wildcard include/config/PANIC_TIMEOUT) \

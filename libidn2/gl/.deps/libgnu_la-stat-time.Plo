@@ -1,0 +1,35 @@
+libgnu_la-stat-time.lo: stat-time.c \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h \
+ ../config.h stat-time.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/errno.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/features.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/errno.h \
+ /usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h \
+ stddef.h /home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h \
+ sys/stat.h sys/types.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/types.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/endian.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/select.h time.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/time.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/stat.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/stat.h
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h:
+../config.h:
+stat-time.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/errno.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/features.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/errno.h:
+/usr/lib/gcc/x86_64-alpine-linux-musl/15.2.0/include/stdckdint.h:
+stddef.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h:
+sys/stat.h:
+sys/types.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/types.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/endian.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/select.h:
+time.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/time.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/stat.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/stat.h:

@@ -59,6 +59,7 @@ deps_lib/crypto/x86/sha256-ssse3-asm.o := \
     $(wildcard include/config/ARCH_DMA_ADDR_T_64BIT) \
     $(wildcard include/config/PHYS_ADDR_T_64BIT) \
     $(wildcard include/config/ARCH_32BIT_USTAT_F_TINODE) \
+    $(wildcard include/config/KCOV) \
   include/uapi/linux/types.h \
   arch/x86/include/generated/uapi/asm/types.h \
   include/uapi/asm-generic/types.h \

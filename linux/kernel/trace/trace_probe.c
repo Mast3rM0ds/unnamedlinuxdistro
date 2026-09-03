@@ -954,15 +954,10 @@ static int __store_entry_arg(struct trace_probe *tp, int argnum)
 	int i, offset, last_offset = 0;
 
 	if (!earg) {
-		earg = kzalloc_obj(*tp->entry_arg);
+		earg = kzalloc_flex(*earg, code, 2 * tp->nr_args + 1);
 		if (!earg)
 			return -ENOMEM;
 		earg->size = 2 * tp->nr_args + 1;
-		earg->code = kzalloc_objs(struct fetch_insn, earg->size);
-		if (!earg->code) {
-			kfree(earg);
-			return -ENOMEM;
-		}
 		/* Fill the code buffer with 'end' to simplify it */
 		for (i = 0; i < earg->size; i++)
 			earg->code[i].op = FETCH_OP_END;
@@ -1906,7 +1901,11 @@ const char **traceprobe_expand_meta_args(int argc, const char *argv[],
 				trace_probe_log_err(0, BAD_VAR);
 				return ERR_PTR(-ENOENT);
 			}
-			/* Note: $argN starts from $arg1 */
+			/* Note: $argN starts from $arg1, so $arg0 is invalid. */
+			if (n == 0) {
+				trace_probe_log_err(0, BAD_ARG_NUM);
+				return ERR_PTR(-EINVAL);
+			}
 			ret = sprint_nth_btf_arg(n - 1, type, buf + used,
 						 bufsize - used, ctx);
 			if (ret < 0)
@@ -2171,7 +2170,6 @@ void trace_probe_cleanup(struct trace_probe *tp)
 		traceprobe_free_probe_arg(&tp->args[i]);
 
 	if (tp->entry_arg) {
-		kfree(tp->entry_arg->code);
 		kfree(tp->entry_arg);
 		tp->entry_arg = NULL;
 	}

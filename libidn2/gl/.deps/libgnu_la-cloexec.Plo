@@ -1,0 +1,48 @@
+libgnu_la-cloexec.lo: cloexec.c \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h \
+ ../config.h cloexec.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/errno.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/features.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/errno.h fcntl.h \
+ sys/types.h /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/types.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/endian.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/select.h sys/stat.h \
+ time.h /home/bloink/Work/unnamedlinuxdistro/fs/include/time.h stddef.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/stat.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/stat.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/fcntl.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/fcntl.h unistd.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/unistd.h stdlib.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h alloca.h \
+ getopt-cdefs.h getopt-pfx-core.h getopt-core.h
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h:
+../config.h:
+cloexec.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/errno.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/features.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/errno.h:
+fcntl.h:
+sys/types.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/types.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/endian.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/select.h:
+sys/stat.h:
+time.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/time.h:
+stddef.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/stat.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/stat.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/fcntl.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/fcntl.h:
+unistd.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unistd.h:
+stdlib.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h:
+alloca.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+getopt-core.h:

@@ -40,6 +40,11 @@ deps_kernel/sys_ni.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/linux/linkage.h \
     $(wildcard include/config/ARCH_USE_SYM_ANNOTATIONS) \
   include/linux/stringify.h \
@@ -108,7 +113,6 @@ deps_kernel/sys_ni.o := \
     $(wildcard include/config/PARAVIRT_XXL) \
     $(wildcard include/config/X86_DEBUGCTLMSR) \
   arch/x86/include/asm/segment.h \
-    $(wildcard include/config/SMP) \
     $(wildcard include/config/XEN_PV) \
   include/linux/const.h \
   include/vdso/const.h \

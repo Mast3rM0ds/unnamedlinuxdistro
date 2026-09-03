@@ -1,0 +1,57 @@
+libidn2_cmd_la-idn2_cmd.lo: idn2_cmd.c \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h \
+ ../config.h ../gl/stdio.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdio.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/features.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdarg.h ../gl/stddef.h \
+ ../unistring/stddef.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h \
+ ../gl/sys/types.h ../unistring/sys/types.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/types.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/endian.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/select.h \
+ ../gl/stdlib.h ../unistring/stdlib.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h ../gl/alloca.h \
+ ../gl/string.h ../unistring/string.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/string.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/strings.h ../gl/getopt.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/getopt.h \
+ ../gl/getopt-cdefs.h ../gl/getopt-pfx-core.h ../gl/unistd.h \
+ ../unistring/unistd.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/unistd.h \
+ ../gl/getopt-core.h ../gl/getopt-pfx-ext.h ../gl/getopt-ext.h idn2_cmd.h
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h:
+../config.h:
+../gl/stdio.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdio.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/features.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdarg.h:
+../gl/stddef.h:
+../unistring/stddef.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h:
+../gl/sys/types.h:
+../unistring/sys/types.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/types.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/endian.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/select.h:
+../gl/stdlib.h:
+../unistring/stdlib.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h:
+../gl/alloca.h:
+../gl/string.h:
+../unistring/string.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/string.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/strings.h:
+../gl/getopt.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/getopt.h:
+../gl/getopt-cdefs.h:
+../gl/getopt-pfx-core.h:
+../gl/unistd.h:
+../unistring/unistd.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unistd.h:
+../gl/getopt-core.h:
+../gl/getopt-pfx-ext.h:
+../gl/getopt-ext.h:
+idn2_cmd.h:

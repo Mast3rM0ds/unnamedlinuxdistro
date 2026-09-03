@@ -38,10 +38,13 @@ deps_scripts/mod/devicetable-offsets.s := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/linux/kbuild.h \
   include/linux/mod_devicetable.h \
-  include/uapi/linux/mei.h \
-  include/uapi/linux/mei_uuid.h \
   include/linux/types.h \
     $(wildcard include/config/HAVE_UID16) \
     $(wildcard include/config/UID16) \
@@ -64,6 +67,23 @@ deps_scripts/mod/devicetable-offsets.s := \
     $(wildcard include/config/X86_32) \
   arch/x86/include/uapi/asm/posix_types_64.h \
   include/uapi/asm-generic/posix_types.h \
+  include/linux/device-id/acpi.h \
+  include/linux/device-id/amba.h \
+  include/linux/device-id/ap.h \
+  include/linux/device-id/apr.h \
+  include/linux/device-id/auxiliary.h \
+  include/linux/device-id/bcma.h \
+  include/linux/device-id/ccw.h \
+  include/linux/device-id/cdx.h \
+  include/linux/device-id/coreboot.h \
+  include/linux/device-id/css.h \
+  include/linux/device-id/dfl.h \
+  include/linux/device-id/dmi.h \
+  include/linux/device-id/eisa.h \
+  include/linux/device-id/fsl_mc.h \
+  include/linux/device-id/hda.h \
+  include/linux/device-id/hid.h \
+  include/linux/device-id/hv_vmbus.h \
   include/linux/uuid.h \
   include/linux/string.h \
     $(wildcard include/config/BINARY_PRINTF) \
@@ -113,6 +133,46 @@ deps_scripts/mod/devicetable-offsets.s := \
   include/linux/stringify.h \
   arch/x86/include/asm/extable_fixup_types.h \
   arch/x86/include/asm/nops.h \
+  include/linux/device-id/i2c.h \
+  include/linux/device-id/i3c.h \
+  include/linux/device-id/ieee1394.h \
+  include/linux/device-id/input.h \
+  include/linux/device-id/ipack.h \
+  include/linux/device-id/isapnp.h \
+  include/linux/device-id/ishtp.h \
+  include/linux/device-id/mcb.h \
+  include/linux/device-id/mdio.h \
+  include/linux/device-id/mei_cl.h \
+  include/uapi/linux/mei_uuid.h \
+  include/linux/device-id/mhi.h \
+  include/linux/device-id/mips_cdmm.h \
+  include/linux/device-id/of.h \
+  include/linux/device-id/parisc.h \
+  include/linux/device-id/pci.h \
+  include/linux/device-id/pcmcia.h \
+  include/linux/device-id/platform.h \
+  include/linux/device-id/pnp.h \
+  include/linux/device-id/rio.h \
+  include/linux/device-id/rpmsg.h \
+  include/linux/device-id/sdio.h \
+  include/linux/device-id/sdw.h \
+  include/linux/device-id/serio.h \
+  include/linux/device-id/slim.h \
+  include/linux/device-id/spi.h \
+  include/linux/device-id/spmi.h \
+  include/linux/device-id/ssam.h \
+  include/linux/device-id/ssb.h \
+  include/linux/device-id/tb.h \
+  include/linux/device-id/tee_client.h \
+  include/linux/device-id/typec.h \
+  include/linux/device-id/ulpi.h \
+  include/linux/device-id/usb.h \
+  include/linux/device-id/vchiq.h \
+  include/linux/device-id/vio.h \
+  include/linux/device-id/virtio.h \
+  include/linux/device-id/wmi.h \
+  include/linux/device-id/x86_cpu.h \
+  include/linux/device-id/zorro.h \
 
 scripts/mod/devicetable-offsets.s: $(deps_scripts/mod/devicetable-offsets.s)
 

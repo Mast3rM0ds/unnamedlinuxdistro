@@ -1,1 +1,1 @@
-savedcmd_fs/fuse/built-in.a := rm -f fs/fuse/built-in.a;  printf "fs/fuse/%s " trace.o dev.o dir.o file.o inode.o control.o xattr.o acl.o readdir.o ioctl.o iomode.o passthrough.o backing.o sysctl.o dev_uring.o | xargs ar cDPrST fs/fuse/built-in.a
+savedcmd_fs/fuse/built-in.a := rm -f fs/fuse/built-in.a;  printf "fs/fuse/%s " trace.o dev.o dir.o file.o inode.o control.o xattr.o acl.o readdir.o ioctl.o req_timeout.o req.o poll.o notify.o iomode.o passthrough.o backing.o sysctl.o dev_uring.o | xargs ar cDPrST fs/fuse/built-in.a

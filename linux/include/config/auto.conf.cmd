@@ -11,6 +11,7 @@ deps_config := \
 	kernel/Kconfig.preempt \
 	kernel/rcu/Kconfig \
 	usr/Kconfig \
+	rust/kernel/Kconfig.test \
 	kernel/Kconfig.kexec \
 	kernel/liveupdate/Kconfig \
 	arch/Kconfig \
@@ -84,7 +85,6 @@ deps_config := \
 	net/dsa/Kconfig \
 	net/8021q/Kconfig \
 	net/llc/Kconfig \
-	net/appletalk/Kconfig \
 	net/x25/Kconfig \
 	net/lapb/Kconfig \
 	net/phonet/Kconfig \
@@ -299,6 +299,7 @@ deps_config := \
 	drivers/net/dsa/microchip/Kconfig \
 	drivers/net/dsa/mv88e6xxx/Kconfig \
 	drivers/net/dsa/mxl862xx/Kconfig \
+	drivers/net/dsa/netc/Kconfig \
 	drivers/net/dsa/ocelot/Kconfig \
 	drivers/net/dsa/qca/Kconfig \
 	drivers/net/dsa/sja1105/Kconfig \
@@ -312,6 +313,7 @@ deps_config := \
 	drivers/net/ethernet/agere/Kconfig \
 	drivers/net/ethernet/airoha/Kconfig \
 	drivers/net/ethernet/alacritech/Kconfig \
+	drivers/net/ethernet/alibaba/Kconfig \
 	drivers/net/ethernet/allwinner/Kconfig \
 	drivers/net/ethernet/altera/Kconfig \
 	drivers/net/ethernet/amazon/Kconfig \
@@ -583,6 +585,7 @@ deps_config := \
 	drivers/dpll/zl3073x/Kconfig \
 	drivers/pinctrl/Kconfig \
 	drivers/pinctrl/actions/Kconfig \
+	drivers/pinctrl/airoha/Kconfig \
 	drivers/pinctrl/aspeed/Kconfig \
 	drivers/pinctrl/bcm/Kconfig \
 	drivers/pinctrl/bcm/Kconfig.stb \
@@ -615,6 +618,7 @@ deps_config := \
 	drivers/pinctrl/sunxi/Kconfig \
 	drivers/pinctrl/tegra/Kconfig \
 	drivers/pinctrl/ti/Kconfig \
+	drivers/pinctrl/ultrarisc/Kconfig \
 	drivers/pinctrl/uniphier/Kconfig \
 	drivers/pinctrl/visconti/Kconfig \
 	drivers/pinctrl/vt8500/Kconfig \
@@ -639,6 +643,7 @@ deps_config := \
 	drivers/thermal/samsung/Kconfig \
 	drivers/thermal/st/Kconfig \
 	drivers/thermal/renesas/Kconfig \
+	drivers/thermal/spacemit/Kconfig \
 	drivers/thermal/tegra/Kconfig \
 	drivers/thermal/qcom/Kconfig \
 	drivers/watchdog/Kconfig \
@@ -687,6 +692,7 @@ deps_config := \
 	drivers/media/usb/hackrf/Kconfig \
 	drivers/media/usb/msi2500/Kconfig \
 	drivers/media/pci/Kconfig \
+	drivers/media/pci/hws/Kconfig \
 	drivers/media/pci/mgb4/Kconfig \
 	drivers/media/pci/solo6x10/Kconfig \
 	drivers/media/pci/tw5864/Kconfig \
@@ -724,6 +730,8 @@ deps_config := \
 	drivers/media/radio/si4713/Kconfig \
 	drivers/media/platform/Kconfig \
 	drivers/media/platform/allegro-dvt/Kconfig \
+	drivers/media/platform/amd/Kconfig \
+	drivers/media/platform/amd/isp4/Kconfig \
 	drivers/media/platform/amlogic/Kconfig \
 	drivers/media/platform/amlogic/c3/Kconfig \
 	drivers/media/platform/amlogic/c3/isp/Kconfig \
@@ -823,6 +831,7 @@ deps_config := \
 	drivers/media/i2c/ccs/Kconfig \
 	drivers/media/i2c/et8ek8/Kconfig \
 	drivers/media/i2c/cx25840/Kconfig \
+	drivers/media/i2c/cvs/Kconfig \
 	drivers/media/spi/Kconfig \
 	drivers/media/tuners/Kconfig \
 	drivers/media/dvb-frontends/Kconfig \
@@ -1175,6 +1184,7 @@ deps_config := \
 	drivers/virt/coco/tdx-guest/Kconfig \
 	drivers/virt/coco/arm-cca-guest/Kconfig \
 	drivers/virt/coco/guest/Kconfig \
+	drivers/virt/coco/tdx-host/Kconfig \
 	drivers/virtio/Kconfig \
 	drivers/vdpa/Kconfig \
 	drivers/vhost/Kconfig \
@@ -1207,7 +1217,6 @@ deps_config := \
 	drivers/staging/media/sunxi/cedrus/Kconfig \
 	drivers/staging/media/sunxi/sun6i-isp/Kconfig \
 	drivers/staging/media/tegra-video/Kconfig \
-	drivers/staging/media/deprecated/atmel/Kconfig \
 	drivers/staging/fbtft/Kconfig \
 	drivers/staging/most/Kconfig \
 	drivers/staging/most/net/Kconfig \
@@ -1447,6 +1456,7 @@ deps_config := \
 	drivers/phy/allwinner/Kconfig \
 	drivers/phy/amlogic/Kconfig \
 	drivers/phy/apple/Kconfig \
+	drivers/phy/axiado/Kconfig \
 	drivers/phy/broadcom/Kconfig \
 	drivers/phy/cadence/Kconfig \
 	drivers/phy/canaan/Kconfig \
@@ -1616,8 +1626,6 @@ deps_config := \
 	crypto/async_tx/Kconfig \
 	arch/arm/crypto/Kconfig \
 	arch/arm64/crypto/Kconfig \
-	arch/loongarch/crypto/Kconfig \
-	arch/mips/crypto/Kconfig \
 	arch/powerpc/crypto/Kconfig \
 	arch/riscv/crypto/Kconfig \
 	arch/s390/crypto/Kconfig \
@@ -1702,7 +1710,7 @@ ifneq "$(ARCH)" "x86"
 $(autoconfig): FORCE
 endif
 
-ifneq "$(KERNELVERSION)" "7.1.7"
+ifneq "$(KERNELVERSION)" "7.2.2"
 $(autoconfig): FORCE
 endif
 

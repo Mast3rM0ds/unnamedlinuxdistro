@@ -1,5 +1,5 @@
 !<thin>
-//                                              142       `
+//                                              376       `
 xor/xor-core.o/
 xor/xor-8regs.o/
 xor/xor-32regs.o/
@@ -7,10 +7,37 @@ xor/xor-8regs-prefetch.o/
 xor/xor-32regs-prefetch.o/
 xor/x86/xor-avx.o/
 xor/x86/xor-sse.o/
-/0              0           0     0     644     9560      `
+raid6/algos.o/
+raid6/tables.o/
+raid6/int1.o/
+raid6/int2.o/
+raid6/int4.o/
+raid6/int8.o/
+raid6/recov.o/
+raid6/x86/sse2.o/
+raid6/x86/avx2.o/
+raid6/x86/avx512.o/
+raid6/x86/recov_ssse3.o/
+raid6/x86/recov_avx2.o/
+raid6/x86/recov_avx512.o/
+
+/0              0           0     0     644     9344      `
 /16             0           0     0     644     2640      `
 /33             0           0     0     644     2648      `
 /51             0           0     0     644     4120      `
 /77             0           0     0     644     4120      `
 /104            0           0     0     644     4168      `
 /123            0           0     0     644     7392      `
+/142            0           0     0     644     18560     `
+/157            0           0     0     644     77352     `
+/173            0           0     0     644     2664      `
+/187            0           0     0     644     2976      `
+/201            0           0     0     644     3656      `
+/215            0           0     0     644     5776      `
+/229            0           0     0     644     3432      `
+/244            0           0     0     644     6072      `
+/262            0           0     0     644     6064      `
+/280            0           0     0     644     7256      `
+/300            0           0     0     644     4120      `
+/325            0           0     0     644     4320      `
+/349            0           0     0     644     4456      `

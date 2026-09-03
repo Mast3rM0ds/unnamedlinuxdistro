@@ -39,6 +39,11 @@ deps_lib/iomap_copy.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   include/linux/export.h \
     $(wildcard include/config/MODVERSIONS) \
     $(wildcard include/config/GENDWARFKSYMS) \
@@ -162,7 +167,6 @@ deps_lib/iomap_copy.o := \
     $(wildcard include/config/X86_VSYSCALL_EMULATION) \
   arch/x86/include/asm/cpufeatures.h \
   arch/x86/include/asm/alternative.h \
-    $(wildcard include/config/SMP) \
     $(wildcard include/config/CALL_THUNKS) \
     $(wildcard include/config/MITIGATION_ITS) \
   include/linux/objtool.h \
@@ -302,8 +306,6 @@ deps_lib/iomap_copy.o := \
   arch/x86/include/asm/unwind_hints.h \
   arch/x86/include/asm/orc_types.h \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/CC_HAS_NAMED_AS) \
-    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
   include/asm-generic/percpu.h \
     $(wildcard include/config/DEBUG_PREEMPT) \
     $(wildcard include/config/HAVE_SETUP_PER_CPU_AREA) \

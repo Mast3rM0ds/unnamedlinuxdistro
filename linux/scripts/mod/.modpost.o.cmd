@@ -7,6 +7,7 @@ deps_scripts/mod/modpost.o := \
     $(wildcard include/config/MODULE_SRCVERSION_ALL) \
     $(wildcard include/config/BASIC_MODVERSIONS) \
     $(wildcard include/config/EXTENDED_MODVERSIONS) \
+    $(wildcard include/config/LTO_CLANG_THIN_DIST) \
     $(wildcard include/config/TRIM_UNUSED_KSYMS) \
     $(wildcard include/config/MODULE_UNLOAD) \
     $(wildcard include/config/SECTION_MISMATCH_WARN_ONLY) \

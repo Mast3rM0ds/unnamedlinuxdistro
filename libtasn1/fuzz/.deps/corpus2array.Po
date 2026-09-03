@@ -1,0 +1,20 @@
+corpus2array.o: corpus2array.c /usr/include/stdc-predef.h \
+ /usr/include/fortify/stdio.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/fortify/fortify-headers.h ../lib/gl/string.h \
+ /usr/include/fortify/string.h /usr/include/string.h \
+ /usr/include/fortify/strings.h /usr/include/strings.h \
+ /usr/include/stddef.h /usr/include/ctype.h
+/usr/include/stdc-predef.h:
+/usr/include/fortify/stdio.h:
+/usr/include/stdio.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/fortify/fortify-headers.h:
+../lib/gl/string.h:
+/usr/include/fortify/string.h:
+/usr/include/string.h:
+/usr/include/fortify/strings.h:
+/usr/include/strings.h:
+/usr/include/stddef.h:
+/usr/include/ctype.h:

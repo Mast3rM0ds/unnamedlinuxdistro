@@ -3,9 +3,6 @@ savedcmd_arch/x86/entry/vdso/vdso32/sigreturn.o := gcc -Wp,-MMD,arch/x86/entry/v
 source_arch/x86/entry/vdso/vdso32/sigreturn.o := arch/x86/entry/vdso/vdso32/sigreturn.S
 
 deps_arch/x86/entry/vdso/vdso32/sigreturn.o := \
-    $(wildcard include/config/AS_IS_GNU) \
-    $(wildcard include/config/AS_IS_LLVM) \
-    $(wildcard include/config/AS_VERSION) \
   include/linux/compiler-version.h \
     $(wildcard include/config/CC_VERSION_TEXT) \
   include/linux/kconfig.h \
@@ -71,6 +68,7 @@ deps_arch/x86/entry/vdso/vdso32/sigreturn.o := \
     $(wildcard include/config/ARCH_DMA_ADDR_T_64BIT) \
     $(wildcard include/config/PHYS_ADDR_T_64BIT) \
     $(wildcard include/config/ARCH_32BIT_USTAT_F_TINODE) \
+    $(wildcard include/config/KCOV) \
   include/uapi/linux/types.h \
   arch/x86/include/generated/uapi/asm/types.h \
   include/uapi/asm-generic/types.h \

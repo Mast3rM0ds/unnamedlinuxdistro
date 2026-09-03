@@ -7,7 +7,7 @@ xor-8regs-prefetch.o/
 xor-32regs-prefetch.o/
 x86/xor-avx.o/
 x86/xor-sse.o/
-/0              0           0     0     644     9560      `
+/0              0           0     0     644     9344      `
 /12             0           0     0     644     2640      `
 /25             0           0     0     644     2648      `
 /39             0           0     0     644     4120      `

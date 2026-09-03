@@ -38,6 +38,11 @@ deps_drivers/gpu/drm/i915/i915_mmio_range.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
   drivers/gpu/drm/i915/i915_mmio_range.h \
   include/linux/types.h \
     $(wildcard include/config/HAVE_UID16) \

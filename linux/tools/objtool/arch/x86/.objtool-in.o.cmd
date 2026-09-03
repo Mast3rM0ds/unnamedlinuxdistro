@@ -1,1 +1,1 @@
-cmd_/home/sonakrie/Work/dumbasslinux/linux/tools/objtool/arch/x86/objtool-in.o :=  printf "/home/sonakrie/Work/dumbasslinux/linux/tools/objtool/arch/x86/%s " decode.o special.o orc.o | xargs ld -r -o /home/sonakrie/Work/dumbasslinux/linux/tools/objtool/arch/x86/objtool-in.o
+cmd_/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/arch/x86/objtool-in.o :=  printf "/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/arch/x86/%s " decode.o special.o orc.o | xargs ld -r -o /home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/arch/x86/objtool-in.o

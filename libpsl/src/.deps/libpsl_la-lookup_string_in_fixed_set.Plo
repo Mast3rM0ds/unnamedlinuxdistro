@@ -1,0 +1,7 @@
+libpsl_la-lookup_string_in_fixed_set.lo: lookup_string_in_fixed_set.c \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h:

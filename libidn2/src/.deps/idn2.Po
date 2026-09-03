@@ -1,0 +1,98 @@
+idn2.o: idn2.c \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h \
+ ../config.h ../gl/stdint.h ../unistring/stdint.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdint.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/stdint.h \
+ ../gl/limits.h ../unistring/limits.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/limits.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/features.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/limits.h \
+ ../gl/stdio.h /home/bloink/Work/unnamedlinuxdistro/fs/include/stdio.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdarg.h ../gl/stddef.h \
+ ../unistring/stddef.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h \
+ ../gl/sys/types.h ../unistring/sys/types.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/types.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/endian.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/sys/select.h \
+ ../gl/stdlib.h ../unistring/stdlib.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h ../gl/alloca.h \
+ ../gl/string.h ../unistring/string.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/string.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/strings.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/errno.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/bits/errno.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/locale.h ../gl/unistd.h \
+ ../unistring/unistd.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/unistd.h \
+ ../gl/getopt-cdefs.h ../gl/getopt-pfx-core.h ../gl/getopt-core.h \
+ ../lib/idn2.h /home/bloink/Work/unnamedlinuxdistro/fs/include/unitypes.h \
+ ../unistring/stdint.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/uniconv.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/unitypes.h \
+ ../unistring/iconveh.h ../unistring/localcharset.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/unistr.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/unistring/cdefs.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/unistring/inline.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/stdbool.h ../gl/error.h \
+ ../gl/gettext.h \
+ /home/bloink/Work/unnamedlinuxdistro/fs/include/libintl.h \
+ ../gl/progname.h ../gl/version-etc.h idn2_cmd.h
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdc-predef.h:
+../config.h:
+../gl/stdint.h:
+../unistring/stdint.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdint.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/alltypes.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/stdint.h:
+../gl/limits.h:
+../unistring/limits.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/limits.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/features.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/limits.h:
+../gl/stdio.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdio.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdarg.h:
+../gl/stddef.h:
+../unistring/stddef.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stddef.h:
+../gl/sys/types.h:
+../unistring/sys/types.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/types.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/endian.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/sys/select.h:
+../gl/stdlib.h:
+../unistring/stdlib.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdlib.h:
+../gl/alloca.h:
+../gl/string.h:
+../unistring/string.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/string.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/strings.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/errno.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/bits/errno.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/locale.h:
+../gl/unistd.h:
+../unistring/unistd.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unistd.h:
+../gl/getopt-cdefs.h:
+../gl/getopt-pfx-core.h:
+../gl/getopt-core.h:
+../lib/idn2.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unitypes.h:
+../unistring/stdint.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/uniconv.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unitypes.h:
+../unistring/iconveh.h:
+../unistring/localcharset.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unistr.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unistring/cdefs.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/unistring/inline.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/stdbool.h:
+../gl/error.h:
+../gl/gettext.h:
+/home/bloink/Work/unnamedlinuxdistro/fs/include/libintl.h:
+../gl/progname.h:
+../gl/version-etc.h:
+idn2_cmd.h:

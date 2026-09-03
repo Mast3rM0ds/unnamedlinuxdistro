@@ -4,7 +4,6 @@ source_net/sunrpc/auth_gss/gss_krb5_crypto.o := net/sunrpc/auth_gss/gss_krb5_cry
 
 deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/SUNRPC_DEBUG) \
-    $(wildcard include/config/KUNIT) \
   include/linux/compiler-version.h \
     $(wildcard include/config/CC_VERSION_TEXT) \
   include/generated/gcc-plugins.h \
@@ -40,16 +39,12 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
     $(wildcard include/config/CC_HAS_TYPEOF_UNQUAL) \
-  include/crypto/hash.h \
-  include/linux/crypto.h \
-  include/linux/completion.h \
-    $(wildcard include/config/LOCKDEP) \
-  include/linux/swait.h \
-  include/linux/list.h \
-    $(wildcard include/config/LIST_HARDENED) \
-    $(wildcard include/config/DEBUG_LIST) \
-  include/linux/container_of.h \
-  include/linux/build_bug.h \
+  arch/x86/include/asm/percpu_types.h \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/CC_HAS_NAMED_AS) \
+    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
+  include/asm-generic/percpu_types.h \
+  include/linux/err.h \
   include/linux/compiler.h \
     $(wildcard include/config/TRACE_BRANCH_PROFILING) \
     $(wildcard include/config/PROFILE_ALL_BRANCHES) \
@@ -84,21 +79,84 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
   include/linux/kcsan-checks.h \
     $(wildcard include/config/KCSAN_WEAK_MEMORY) \
     $(wildcard include/config/KCSAN_IGNORE_ATOMICS) \
-  include/linux/poison.h \
-    $(wildcard include/config/ILLEGAL_POINTER_VALUE) \
-  include/linux/const.h \
-  include/vdso/const.h \
-  include/uapi/linux/const.h \
-  arch/x86/include/asm/barrier.h \
-  arch/x86/include/asm/alternative.h \
-    $(wildcard include/config/SMP) \
-    $(wildcard include/config/CALL_THUNKS) \
-    $(wildcard include/config/MITIGATION_ITS) \
-    $(wildcard include/config/MITIGATION_RETHUNK) \
+  arch/x86/include/generated/uapi/asm/errno.h \
+  include/uapi/asm-generic/errno.h \
+  include/uapi/asm-generic/errno-base.h \
+  include/linux/mm.h \
+    $(wildcard include/config/SYSCTL) \
+    $(wildcard include/config/HAVE_ARCH_MMAP_RND_BITS) \
+    $(wildcard include/config/HAVE_ARCH_MMAP_RND_COMPAT_BITS) \
+    $(wildcard include/config/SPARSEMEM) \
+    $(wildcard include/config/SPARSEMEM_VMEMMAP) \
+    $(wildcard include/config/MMU) \
+    $(wildcard include/config/PPC32) \
+    $(wildcard include/config/X86_USER_SHADOW_STACK) \
+    $(wildcard include/config/RISCV_USER_CFI) \
+    $(wildcard include/config/ARM64_GCS) \
+    $(wildcard include/config/STACK_GROWSUP) \
+    $(wildcard include/config/MEM_SOFT_DIRTY) \
+    $(wildcard include/config/ARCH_HAS_PKEYS) \
+    $(wildcard include/config/ARCH_PKEY_BITS) \
+    $(wildcard include/config/PPC64) \
+    $(wildcard include/config/PARISC) \
+    $(wildcard include/config/SPARC64) \
+    $(wildcard include/config/ARM64_MTE) \
+    $(wildcard include/config/HAVE_ARCH_USERFAULTFD_MINOR) \
+    $(wildcard include/config/MSEAL_SYSTEM_MAPPINGS) \
+    $(wildcard include/config/NUMA) \
+    $(wildcard include/config/FIND_NORMAL_PAGE) \
+    $(wildcard include/config/USERFAULTFD) \
+    $(wildcard include/config/NUMA_BALANCING) \
+    $(wildcard include/config/PER_VMA_LOCK) \
+    $(wildcard include/config/SHMEM) \
+    $(wildcard include/config/KASAN_HW_TAGS) \
+    $(wildcard include/config/TRANSPARENT_HUGEPAGE) \
+    $(wildcard include/config/HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD) \
+    $(wildcard include/config/MIGRATION) \
+    $(wildcard include/config/CMA) \
+    $(wildcard include/config/MM_ID) \
+    $(wildcard include/config/HIGHMEM) \
+    $(wildcard include/config/BPF_SYSCALL) \
+    $(wildcard include/config/ARCH_HAS_PTE_SPECIAL) \
+    $(wildcard include/config/ARCH_SUPPORTS_PMD_PFNMAP) \
+    $(wildcard include/config/ARCH_SUPPORTS_PUD_PFNMAP) \
+    $(wildcard include/config/ASYNC_KERNEL_PGTABLE_FREE) \
+    $(wildcard include/config/SPLIT_PTE_PTLOCKS) \
+    $(wildcard include/config/HIGHPTE) \
+    $(wildcard include/config/SPLIT_PMD_PTLOCKS) \
+    $(wildcard include/config/DEBUG_VM_RB) \
+    $(wildcard include/config/PAGE_POISONING) \
+    $(wildcard include/config/INIT_ON_ALLOC_DEFAULT_ON) \
+    $(wildcard include/config/INIT_ON_FREE_DEFAULT_ON) \
+    $(wildcard include/config/DEBUG_PAGEALLOC) \
+    $(wildcard include/config/MEMORY_HOTPLUG) \
+    $(wildcard include/config/ARCH_WANT_OPTIMIZE_DAX_VMEMMAP) \
+    $(wildcard include/config/MEMORY_FAILURE) \
+    $(wildcard include/config/HUGETLBFS) \
+    $(wildcard include/config/MAPPING_DIRTY_HELPERS) \
+    $(wildcard include/config/ANON_VMA_NAME) \
+    $(wildcard include/config/UNACCEPTED_MEMORY) \
+    $(wildcard include/config/PAGE_POOL) \
+  include/linux/args.h \
+  include/linux/errno.h \
+  include/uapi/linux/errno.h \
+  include/linux/mmdebug.h \
+    $(wildcard include/config/DEBUG_VM) \
+    $(wildcard include/config/DEBUG_VM_IRQSOFF) \
+    $(wildcard include/config/DEBUG_VIRTUAL) \
+    $(wildcard include/config/DEBUG_VM_PGFLAGS) \
+  include/linux/bug.h \
+    $(wildcard include/config/GENERIC_BUG) \
+    $(wildcard include/config/PRINTK) \
+    $(wildcard include/config/BUG_ON_DATA_CORRUPTION) \
+  arch/x86/include/asm/bug.h \
+    $(wildcard include/config/DEBUG_BUGVERBOSE) \
+    $(wildcard include/config/DEBUG_BUGVERBOSE_DETAILED) \
   include/linux/stringify.h \
+  include/linux/instrumentation.h \
+    $(wildcard include/config/NOINSTR_VALIDATION) \
   include/linux/objtool.h \
     $(wildcard include/config/FRAME_POINTER) \
-    $(wildcard include/config/NOINSTR_VALIDATION) \
     $(wildcard include/config/MITIGATION_UNRET_ENTRY) \
     $(wildcard include/config/MITIGATION_SRSO) \
   include/linux/objtool_types.h \
@@ -108,11 +166,6 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
   arch/x86/include/asm/asm-offsets.h \
   include/generated/asm-offsets.h \
   arch/x86/include/asm/extable_fixup_types.h \
-  arch/x86/include/asm/bug.h \
-    $(wildcard include/config/GENERIC_BUG) \
-    $(wildcard include/config/DEBUG_BUGVERBOSE) \
-    $(wildcard include/config/DEBUG_BUGVERBOSE_DETAILED) \
-  include/linux/instrumentation.h \
   include/linux/static_call_types.h \
     $(wildcard include/config/HAVE_STATIC_CALL) \
     $(wildcard include/config/HAVE_STATIC_CALL_INLINE) \
@@ -128,13 +181,12 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/CONSOLE_LOGLEVEL_DEFAULT) \
     $(wildcard include/config/CONSOLE_LOGLEVEL_QUIET) \
     $(wildcard include/config/EARLY_PRINTK) \
-    $(wildcard include/config/PRINTK) \
     $(wildcard include/config/PRINTK_INDEX) \
     $(wildcard include/config/DYNAMIC_DEBUG) \
     $(wildcard include/config/DYNAMIC_DEBUG_CORE) \
   include/linux/init.h \
-    $(wildcard include/config/MEMORY_HOTPLUG) \
     $(wildcard include/config/HAVE_ARCH_PREL32_RELOCATIONS) \
+  include/linux/build_bug.h \
   include/linux/kern_levels.h \
   include/linux/linkage.h \
     $(wildcard include/config/ARCH_USE_SYM_ANNOTATIONS) \
@@ -143,6 +195,7 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/GENDWARFKSYMS) \
   arch/x86/include/asm/linkage.h \
     $(wildcard include/config/CALL_PADDING) \
+    $(wildcard include/config/MITIGATION_RETHUNK) \
     $(wildcard include/config/MITIGATION_RETPOLINE) \
     $(wildcard include/config/MITIGATION_SLS) \
     $(wildcard include/config/FUNCTION_PADDING_BYTES) \
@@ -152,11 +205,14 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
   include/linux/ratelimit_types.h \
   include/linux/bits.h \
   include/vdso/bits.h \
+  include/vdso/const.h \
+  include/uapi/linux/const.h \
   include/uapi/linux/bits.h \
   include/linux/overflow.h \
   include/linux/limits.h \
   include/uapi/linux/limits.h \
   include/vdso/limits.h \
+  include/linux/const.h \
   include/uapi/linux/param.h \
   arch/x86/include/generated/uapi/asm/param.h \
   include/asm-generic/param.h \
@@ -178,9 +234,36 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
   include/linux/byteorder/generic.h \
   include/linux/lockdep_types.h \
     $(wildcard include/config/PROVE_RAW_LOCK_NESTING) \
+    $(wildcard include/config/LOCKDEP) \
     $(wildcard include/config/LOCK_STAT) \
-  arch/x86/include/asm/nops.h \
-  include/asm-generic/barrier.h \
+  include/linux/gfp.h \
+    $(wildcard include/config/ZONE_DMA) \
+    $(wildcard include/config/ZONE_DMA32) \
+    $(wildcard include/config/ZONE_DEVICE) \
+    $(wildcard include/config/COMPACTION) \
+    $(wildcard include/config/CONTIG_ALLOC) \
+  include/linux/gfp_types.h \
+  include/linux/mmzone.h \
+    $(wildcard include/config/ARCH_FORCE_MAX_ORDER) \
+    $(wildcard include/config/PAGE_BLOCK_MAX_ORDER) \
+    $(wildcard include/config/HAVE_GIGANTIC_FOLIOS) \
+    $(wildcard include/config/HUGETLB_PAGE) \
+    $(wildcard include/config/HUGETLB_PAGE_OPTIMIZE_VMEMMAP) \
+    $(wildcard include/config/MEMORY_ISOLATION) \
+    $(wildcard include/config/ZSMALLOC) \
+    $(wildcard include/config/IOMMU_SUPPORT) \
+    $(wildcard include/config/SWAP) \
+    $(wildcard include/config/LRU_GEN) \
+    $(wildcard include/config/LRU_GEN_STATS) \
+    $(wildcard include/config/LRU_GEN_WALKS_MMU) \
+    $(wildcard include/config/MEMCG) \
+    $(wildcard include/config/FLATMEM) \
+    $(wildcard include/config/PAGE_EXTENSION) \
+    $(wildcard include/config/DEFERRED_STRUCT_PAGE_INIT) \
+    $(wildcard include/config/HAVE_MEMORYLESS_NODES) \
+    $(wildcard include/config/SPARSEMEM_EXTREME) \
+    $(wildcard include/config/SPARSEMEM_VMEMMAP_PREINIT) \
+    $(wildcard include/config/HAVE_ARCH_PFN_VALID) \
   include/linux/spinlock.h \
     $(wildcard include/config/PREEMPTION) \
     $(wildcard include/config/PREEMPT_RT) \
@@ -196,16 +279,9 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/PREEMPT) \
     $(wildcard include/config/PREEMPT_LAZY) \
   include/linux/cleanup.h \
-  include/linux/err.h \
-  arch/x86/include/generated/uapi/asm/errno.h \
-  include/uapi/asm-generic/errno.h \
-  include/uapi/asm-generic/errno-base.h \
-  include/linux/args.h \
   arch/x86/include/asm/preempt.h \
   arch/x86/include/asm/rmwcc.h \
   arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/CC_HAS_NAMED_AS) \
-    $(wildcard include/config/USE_X86_SEG_SUPPORT) \
   include/asm-generic/percpu.h \
     $(wildcard include/config/HAVE_SETUP_PER_CPU_AREA) \
   include/linux/threads.h \
@@ -240,6 +316,7 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/CALL_THUNKS_DEBUG) \
     $(wildcard include/config/MITIGATION_CALL_DEPTH_TRACKING) \
     $(wildcard include/config/MITIGATION_IBPB_ENTRY) \
+    $(wildcard include/config/MITIGATION_ITS) \
     $(wildcard include/config/BPF_JIT) \
   include/linux/static_key.h \
   include/linux/jump_label.h \
@@ -247,6 +324,9 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/HAVE_ARCH_JUMP_LABEL_RELATIVE) \
   arch/x86/include/asm/jump_label.h \
     $(wildcard include/config/HAVE_JUMP_LABEL_HACK) \
+  arch/x86/include/asm/nops.h \
+  arch/x86/include/asm/alternative.h \
+    $(wildcard include/config/CALL_THUNKS) \
   arch/x86/include/asm/cpufeatures.h \
   arch/x86/include/asm/msr-index.h \
   arch/x86/include/asm/unwind_hints.h \
@@ -269,7 +349,6 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
   arch/x86/include/asm/pgtable_types.h \
     $(wildcard include/config/X86_INTEL_MEMORY_PROTECTION_KEYS) \
     $(wildcard include/config/X86_PAE) \
-    $(wildcard include/config/MEM_SOFT_DIRTY) \
     $(wildcard include/config/HAVE_ARCH_USERFAULTFD_WP) \
     $(wildcard include/config/PGTABLE_LEVELS) \
     $(wildcard include/config/PROC_FS) \
@@ -288,7 +367,6 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/KMSAN) \
     $(wildcard include/config/DEBUG_KMAP_LOCAL_FORCE_MAP) \
   arch/x86/include/asm/sparsemem.h \
-    $(wildcard include/config/SPARSEMEM) \
   include/linux/cpumask.h \
     $(wildcard include/config/FORCE_NR_CPUS) \
     $(wildcard include/config/HOTPLUG_CPU) \
@@ -298,6 +376,8 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
   arch/x86/include/asm/atomic.h \
   arch/x86/include/asm/cmpxchg.h \
   arch/x86/include/asm/cmpxchg_64.h \
+  arch/x86/include/asm/barrier.h \
+  include/asm-generic/barrier.h \
   arch/x86/include/asm/atomic64_64.h \
   include/linux/atomic/atomic-arch-fallback.h \
     $(wildcard include/config/GENERIC_ATOMIC64) \
@@ -306,8 +386,6 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
   include/linux/instrumented.h \
     $(wildcard include/config/DEBUG_ATOMIC) \
     $(wildcard include/config/DEBUG_ATOMIC_LARGEST_ALIGN) \
-  include/linux/bug.h \
-    $(wildcard include/config/BUG_ON_DATA_CORRUPTION) \
   include/linux/kmsan-checks.h \
   include/linux/bitmap.h \
   include/linux/align.h \
@@ -327,8 +405,6 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
   include/asm-generic/bitops/instrumented-lock.h \
   include/asm-generic/bitops/le.h \
   include/asm-generic/bitops/ext2-atomic-setbit.h \
-  include/linux/errno.h \
-  include/uapi/linux/errno.h \
   include/linux/find.h \
   include/linux/string.h \
     $(wildcard include/config/BINARY_PRINTF) \
@@ -339,14 +415,10 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/ARCH_HAS_UACCESS_FLUSHCACHE) \
   include/linux/bitmap-str.h \
   include/linux/cpumask_types.h \
-  include/linux/gfp_types.h \
-    $(wildcard include/config/KASAN_HW_TAGS) \
   include/linux/numa.h \
     $(wildcard include/config/NUMA_KEEP_MEMINFO) \
-    $(wildcard include/config/NUMA) \
     $(wildcard include/config/HAVE_ARCH_NODE_DEV_GROUP) \
   include/linux/nodemask.h \
-    $(wildcard include/config/HIGHMEM) \
   include/linux/minmax.h \
   include/linux/nodemask_types.h \
     $(wildcard include/config/NODES_SHIFT) \
@@ -358,8 +430,8 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/HAVE_PREEMPT_DYNAMIC_KEY) \
     $(wildcard include/config/PREEMPT_) \
     $(wildcard include/config/DEBUG_ATOMIC_SLEEP) \
-    $(wildcard include/config/MMU) \
     $(wildcard include/config/DYNAMIC_FTRACE) \
+  include/linux/container_of.h \
   include/linux/kstrtox.h \
   include/linux/log2.h \
     $(wildcard include/config/ARCH_HAS_ILOG2_U32) \
@@ -375,6 +447,11 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
   include/linux/util_macros.h \
     $(wildcard include/config/FOO_SUSPEND) \
   include/linux/wordpart.h \
+  include/linux/list.h \
+    $(wildcard include/config/LIST_HARDENED) \
+    $(wildcard include/config/DEBUG_LIST) \
+  include/linux/poison.h \
+    $(wildcard include/config/ILLEGAL_POINTER_VALUE) \
   include/uapi/linux/random.h \
   include/uapi/linux/ioctl.h \
   arch/x86/include/generated/uapi/asm/ioctl.h \
@@ -407,22 +484,14 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/IA32_EMULATION) \
   arch/x86/include/asm/page.h \
   arch/x86/include/asm/page_64.h \
-    $(wildcard include/config/DEBUG_VIRTUAL) \
     $(wildcard include/config/X86_VSYSCALL_EMULATION) \
-  include/linux/mmdebug.h \
-    $(wildcard include/config/DEBUG_VM) \
-    $(wildcard include/config/DEBUG_VM_IRQSOFF) \
-    $(wildcard include/config/DEBUG_VM_PGFLAGS) \
   include/linux/range.h \
   include/asm-generic/memory_model.h \
-    $(wildcard include/config/FLATMEM) \
-    $(wildcard include/config/SPARSEMEM_VMEMMAP) \
   include/linux/pfn.h \
   include/asm-generic/getorder.h \
   arch/x86/include/asm/cpufeature.h \
   arch/x86/include/asm/processor.h \
     $(wildcard include/config/X86_VMX_FEATURE_NAMES) \
-    $(wildcard include/config/X86_USER_SHADOW_STACK) \
     $(wildcard include/config/X86_DEBUG_FPU) \
     $(wildcard include/config/CPU_SUP_AMD) \
     $(wildcard include/config/XEN) \
@@ -433,8 +502,8 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
   arch/x86/include/asm/proto.h \
   arch/x86/include/uapi/asm/ldt.h \
   arch/x86/include/uapi/asm/sigcontext.h \
-  arch/x86/include/asm/cpuid/api.h \
   arch/x86/include/asm/cpuid/types.h \
+  arch/x86/include/asm/cpuid/leaf_types.h \
   arch/x86/include/asm/special_insns.h \
   arch/x86/include/asm/fpu/types.h \
   arch/x86/include/asm/vmxfeatures.h \
@@ -499,50 +568,8 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/INLINE_WRITE_UNLOCK_IRQ) \
     $(wildcard include/config/INLINE_READ_UNLOCK_IRQRESTORE) \
     $(wildcard include/config/INLINE_WRITE_UNLOCK_IRQRESTORE) \
-  include/linux/wait.h \
-  include/linux/refcount_types.h \
-  include/linux/slab.h \
-    $(wildcard include/config/DEBUG_OBJECTS) \
-    $(wildcard include/config/FAILSLAB) \
-    $(wildcard include/config/MEMCG) \
-    $(wildcard include/config/KFENCE) \
-    $(wildcard include/config/SLUB_TINY) \
-    $(wildcard include/config/SLAB_OBJ_EXT) \
-    $(wildcard include/config/SLUB_DEBUG) \
-    $(wildcard include/config/RANDOM_KMALLOC_CACHES) \
-    $(wildcard include/config/ZONE_DMA) \
-    $(wildcard include/config/SLAB_BUCKETS) \
-    $(wildcard include/config/KVFREE_RCU_BATCHED) \
-  include/linux/gfp.h \
-    $(wildcard include/config/ZONE_DMA32) \
-    $(wildcard include/config/ZONE_DEVICE) \
-    $(wildcard include/config/COMPACTION) \
-    $(wildcard include/config/CONTIG_ALLOC) \
-  include/linux/mmzone.h \
-    $(wildcard include/config/ARCH_FORCE_MAX_ORDER) \
-    $(wildcard include/config/PAGE_BLOCK_MAX_ORDER) \
-    $(wildcard include/config/HAVE_GIGANTIC_FOLIOS) \
-    $(wildcard include/config/HUGETLB_PAGE) \
-    $(wildcard include/config/HUGETLB_PAGE_OPTIMIZE_VMEMMAP) \
-    $(wildcard include/config/CMA) \
-    $(wildcard include/config/MEMORY_ISOLATION) \
-    $(wildcard include/config/ZSMALLOC) \
-    $(wildcard include/config/UNACCEPTED_MEMORY) \
-    $(wildcard include/config/IOMMU_SUPPORT) \
-    $(wildcard include/config/SWAP) \
-    $(wildcard include/config/NUMA_BALANCING) \
-    $(wildcard include/config/TRANSPARENT_HUGEPAGE) \
-    $(wildcard include/config/LRU_GEN) \
-    $(wildcard include/config/LRU_GEN_STATS) \
-    $(wildcard include/config/LRU_GEN_WALKS_MMU) \
-    $(wildcard include/config/MEMORY_FAILURE) \
-    $(wildcard include/config/PAGE_EXTENSION) \
-    $(wildcard include/config/DEFERRED_STRUCT_PAGE_INIT) \
-    $(wildcard include/config/HAVE_MEMORYLESS_NODES) \
-    $(wildcard include/config/SPARSEMEM_EXTREME) \
-    $(wildcard include/config/SPARSEMEM_VMEMMAP_PREINIT) \
-    $(wildcard include/config/HAVE_ARCH_PFN_VALID) \
   include/linux/list_nulls.h \
+  include/linux/wait.h \
   include/linux/seqlock.h \
     $(wildcard include/config/CC_IS_GCC) \
     $(wildcard include/config/GCC_VERSION) \
@@ -560,23 +587,19 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
   include/generated/bounds.h \
   include/linux/mm_types.h \
     $(wildcard include/config/HAVE_ALIGNED_STRUCT_PAGE) \
+    $(wildcard include/config/SLAB_OBJ_EXT) \
     $(wildcard include/config/HUGETLB_PMD_PAGE_TABLE_SHARING) \
     $(wildcard include/config/SLAB_FREELIST_HARDENED) \
-    $(wildcard include/config/USERFAULTFD) \
-    $(wildcard include/config/ANON_VMA_NAME) \
-    $(wildcard include/config/PER_VMA_LOCK) \
     $(wildcard include/config/HAVE_ARCH_COMPAT_MMAP_BASES) \
     $(wildcard include/config/MEMBARRIER) \
-    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
     $(wildcard include/config/ARCH_HAS_ELF_CORE_EFLAGS) \
     $(wildcard include/config/AIO) \
     $(wildcard include/config/MMU_NOTIFIER) \
-    $(wildcard include/config/SPLIT_PMD_PTLOCKS) \
     $(wildcard include/config/ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH) \
     $(wildcard include/config/IOMMU_MM_DATA) \
     $(wildcard include/config/KSM) \
-    $(wildcard include/config/MM_ID) \
     $(wildcard include/config/SCHED_MM_CID) \
+    $(wildcard include/config/SCHED_CACHE) \
     $(wildcard include/config/CORE_DUMP_DEFAULT_ELF_HEADERS) \
   include/linux/mm_types_task.h \
   arch/x86/include/asm/tlbbatch.h \
@@ -585,6 +608,7 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
   arch/x86/include/uapi/asm/auxvec.h \
   include/linux/kref.h \
   include/linux/refcount.h \
+  include/linux/refcount_types.h \
   include/linux/rbtree.h \
   include/linux/rbtree_types.h \
   include/linux/rcupdate.h \
@@ -648,18 +672,17 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/TASK_XACCT) \
     $(wildcard include/config/CPUSETS) \
     $(wildcard include/config/X86_CPU_RESCTRL) \
-    $(wildcard include/config/FUTEX) \
     $(wildcard include/config/PERF_EVENTS) \
     $(wildcard include/config/ARCH_HAS_LAZY_MMU_MODE) \
     $(wildcard include/config/FAULT_INJECTION) \
     $(wildcard include/config/LATENCYTOP) \
+    $(wildcard include/config/KUNIT) \
     $(wildcard include/config/FUNCTION_GRAPH_TRACER) \
     $(wildcard include/config/UPROBES) \
     $(wildcard include/config/BCACHE) \
     $(wildcard include/config/VMAP_STACK) \
     $(wildcard include/config/LIVEPATCH) \
     $(wildcard include/config/SECURITY) \
-    $(wildcard include/config/BPF_SYSCALL) \
     $(wildcard include/config/KSTACK_ERASE) \
     $(wildcard include/config/KSTACK_ERASE_METRICS) \
     $(wildcard include/config/X86_MCE) \
@@ -673,6 +696,10 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/SCHED_PROXY_EXEC) \
     $(wildcard include/config/MEM_ALLOC_PROFILING_DEBUG) \
   include/uapi/linux/sched.h \
+  include/linux/futex_types.h \
+    $(wildcard include/config/FUTEX) \
+    $(wildcard include/config/FUTEX_PRIVATE_HASH) \
+    $(wildcard include/config/FUTEX_ROBUST_UNLOCK) \
   include/linux/pid_types.h \
   include/linux/sem_types.h \
   include/linux/shm.h \
@@ -738,6 +765,8 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
   include/linux/rwsem.h \
     $(wildcard include/config/RWSEM_SPIN_ON_OWNER) \
     $(wildcard include/config/DEBUG_RWSEMS) \
+  include/linux/completion.h \
+  include/linux/swait.h \
   include/linux/uprobes.h \
   include/linux/timer.h \
     $(wildcard include/config/DEBUG_OBJECTS_TIMERS) \
@@ -749,13 +778,13 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
   include/linux/timex.h \
   include/uapi/linux/timex.h \
   arch/x86/include/asm/timex.h \
-    $(wildcard include/config/X86_TSC) \
   arch/x86/include/asm/tsc.h \
   arch/x86/include/asm/msr.h \
   arch/x86/include/uapi/asm/msr.h \
   arch/x86/include/asm/shared/msr.h \
   include/linux/percpu.h \
     $(wildcard include/config/MODULES) \
+    $(wildcard include/config/KMALLOC_PARTITION_CACHES) \
     $(wildcard include/config/PAGE_SIZE_4KB) \
     $(wildcard include/config/NEED_PER_CPU_PAGE_FIRST_CHUNK) \
   include/linux/alloc_tag.h \
@@ -772,6 +801,7 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/GENERIC_CMOS_UPDATE) \
   include/linux/clocksource_ids.h \
   include/linux/debugobjects.h \
+    $(wildcard include/config/DEBUG_OBJECTS) \
     $(wildcard include/config/DEBUG_OBJECTS_FREE) \
   arch/x86/include/asm/uprobes.h \
   include/linux/notifier.h \
@@ -798,7 +828,6 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/PAGE_IDLE_FLAG) \
     $(wildcard include/config/ARCH_USES_PG_ARCH_2) \
     $(wildcard include/config/ARCH_USES_PG_ARCH_3) \
-    $(wildcard include/config/MIGRATION) \
   include/linux/local_lock.h \
   include/linux/local_lock_internal.h \
   include/linux/zswap.h \
@@ -826,56 +855,6 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
   include/asm-generic/topology.h \
   include/linux/cpu_smt.h \
     $(wildcard include/config/HOTPLUG_SMT) \
-  include/linux/percpu-refcount.h \
-  include/linux/hash.h \
-    $(wildcard include/config/HAVE_ARCH_HASH) \
-  include/linux/kasan.h \
-    $(wildcard include/config/KASAN_STACK) \
-    $(wildcard include/config/KASAN_VMALLOC) \
-  include/linux/kasan-enabled.h \
-    $(wildcard include/config/ARCH_DEFER_KASAN) \
-  include/linux/kasan-tags.h \
-  include/linux/scatterlist.h \
-    $(wildcard include/config/NEED_SG_DMA_LENGTH) \
-    $(wildcard include/config/NEED_SG_DMA_FLAGS) \
-    $(wildcard include/config/DEBUG_SG) \
-    $(wildcard include/config/SGL_ALLOC) \
-    $(wildcard include/config/ARCH_NO_SG_CHAIN) \
-    $(wildcard include/config/SG_POOL) \
-  include/linux/mm.h \
-    $(wildcard include/config/SYSCTL) \
-    $(wildcard include/config/HAVE_ARCH_MMAP_RND_BITS) \
-    $(wildcard include/config/HAVE_ARCH_MMAP_RND_COMPAT_BITS) \
-    $(wildcard include/config/PPC32) \
-    $(wildcard include/config/RISCV_USER_CFI) \
-    $(wildcard include/config/ARM64_GCS) \
-    $(wildcard include/config/STACK_GROWSUP) \
-    $(wildcard include/config/ARCH_HAS_PKEYS) \
-    $(wildcard include/config/ARCH_PKEY_BITS) \
-    $(wildcard include/config/PPC64) \
-    $(wildcard include/config/PARISC) \
-    $(wildcard include/config/SPARC64) \
-    $(wildcard include/config/ARM64_MTE) \
-    $(wildcard include/config/HAVE_ARCH_USERFAULTFD_MINOR) \
-    $(wildcard include/config/MSEAL_SYSTEM_MAPPINGS) \
-    $(wildcard include/config/FIND_NORMAL_PAGE) \
-    $(wildcard include/config/SHMEM) \
-    $(wildcard include/config/HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD) \
-    $(wildcard include/config/ARCH_HAS_PTE_SPECIAL) \
-    $(wildcard include/config/ARCH_SUPPORTS_PMD_PFNMAP) \
-    $(wildcard include/config/ARCH_SUPPORTS_PUD_PFNMAP) \
-    $(wildcard include/config/ASYNC_KERNEL_PGTABLE_FREE) \
-    $(wildcard include/config/SPLIT_PTE_PTLOCKS) \
-    $(wildcard include/config/HIGHPTE) \
-    $(wildcard include/config/DEBUG_VM_RB) \
-    $(wildcard include/config/PAGE_POISONING) \
-    $(wildcard include/config/INIT_ON_ALLOC_DEFAULT_ON) \
-    $(wildcard include/config/INIT_ON_FREE_DEFAULT_ON) \
-    $(wildcard include/config/DEBUG_PAGEALLOC) \
-    $(wildcard include/config/ARCH_WANT_OPTIMIZE_DAX_VMEMMAP) \
-    $(wildcard include/config/HUGETLBFS) \
-    $(wildcard include/config/MAPPING_DIRTY_HELPERS) \
-    $(wildcard include/config/PAGE_POOL) \
   include/linux/pgalloc_tag.h \
   include/linux/mmap_lock.h \
   include/linux/sched/mm.h \
@@ -886,6 +865,7 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/ARCH_HAS_PREPARE_SYNC_CORE_CMD) \
   arch/x86/include/asm/sync_core.h \
   include/linux/sched/coredump.h \
+  include/linux/percpu-refcount.h \
   include/linux/bit_spinlock.h \
   include/linux/shrinker.h \
     $(wildcard include/config/SHRINKER_DEBUG) \
@@ -911,7 +891,6 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/X86_SGX) \
   arch/x86/include/asm/pkru.h \
   arch/x86/include/asm/fpu/api.h \
-    $(wildcard include/config/MATH_EMULATION) \
   arch/x86/include/asm/coco.h \
   include/asm-generic/pgtable_uffd.h \
     $(wildcard include/config/PTE_MARKER_UFFD_WP) \
@@ -926,10 +905,27 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
   arch/x86/include/uapi/asm/vsyscall.h \
   include/asm-generic/fixmap.h \
   arch/x86/include/asm/pgtable-invert.h \
+  include/linux/kasan.h \
+    $(wildcard include/config/KASAN_STACK) \
+    $(wildcard include/config/KASAN_VMALLOC) \
+  include/linux/kasan-enabled.h \
+    $(wildcard include/config/ARCH_DEFER_KASAN) \
+  include/linux/kasan-tags.h \
   include/linux/memremap.h \
     $(wildcard include/config/DEVICE_PRIVATE) \
     $(wildcard include/config/PCI_P2PDMA) \
   include/linux/ioport.h \
+  include/linux/slab.h \
+    $(wildcard include/config/FAILSLAB) \
+    $(wildcard include/config/KFENCE) \
+    $(wildcard include/config/SLUB_TINY) \
+    $(wildcard include/config/SLUB_DEBUG) \
+    $(wildcard include/config/KMALLOC_PARTITION_RANDOM) \
+    $(wildcard include/config/KMALLOC_PARTITION_TYPED) \
+    $(wildcard include/config/SLAB_BUCKETS) \
+    $(wildcard include/config/KVFREE_RCU_BATCHED) \
+  include/linux/hash.h \
+    $(wildcard include/config/HAVE_ARCH_HASH) \
   include/linux/cacheinfo.h \
     $(wildcard include/config/ACPI_PPTT) \
     $(wildcard include/config/ARM) \
@@ -951,6 +947,7 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/HAVE_ARCH_THREAD_STRUCT_WHITELIST) \
   include/linux/uaccess.h \
     $(wildcard include/config/ARCH_HAS_SUBPAGE_FAULTS) \
+    $(wildcard include/config/ARCH_MEMORY_ORDER_TSO) \
     $(wildcard include/config/HARDENED_USERCOPY) \
   include/linux/fault-inject-usercopy.h \
     $(wildcard include/config/FAULT_INJECTION_USERCOPY) \
@@ -1014,7 +1011,6 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/PERSISTENT_HUGE_ZERO_FOLIO) \
   include/linux/fs.h \
     $(wildcard include/config/FANOTIFY_ACCESS_PERMISSIONS) \
-    $(wildcard include/config/READ_ONLY_THP_FOR_FS) \
     $(wildcard include/config/FS_POSIX_ACL) \
     $(wildcard include/config/CGROUP_WRITEBACK) \
     $(wildcard include/config/IMA) \
@@ -1098,6 +1094,13 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/BALLOON_MIGRATION) \
     $(wildcard include/config/X86) \
     $(wildcard include/config/DEBUG_STACK_USAGE) \
+  include/linux/scatterlist.h \
+    $(wildcard include/config/NEED_SG_DMA_LENGTH) \
+    $(wildcard include/config/NEED_SG_DMA_FLAGS) \
+    $(wildcard include/config/DEBUG_SG) \
+    $(wildcard include/config/SGL_ALLOC) \
+    $(wildcard include/config/ARCH_NO_SG_CHAIN) \
+    $(wildcard include/config/SG_POOL) \
   arch/x86/include/asm/io.h \
     $(wildcard include/config/MTRR) \
     $(wildcard include/config/X86_PAT) \
@@ -1119,12 +1122,6 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
   include/linux/logic_pio.h \
     $(wildcard include/config/INDIRECT_PIO) \
   include/linux/fwnode.h \
-  include/crypto/skcipher.h \
-  include/crypto/utils.h \
-    $(wildcard include/config/HAVE_EFFICIENT_UNALIGNED_ACCESS) \
-  include/linux/unaligned.h \
-  include/linux/unaligned/packed_struct.h \
-  include/vdso/unaligned.h \
   include/linux/highmem.h \
   include/linux/cacheflush.h \
   arch/x86/include/asm/cacheflush.h \
@@ -1141,18 +1138,19 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/OSNOISE_TRACER) \
   include/linux/vtime.h \
     $(wildcard include/config/VIRT_CPU_ACCOUNTING) \
+    $(wildcard include/config/HAVE_VIRT_CPU_ACCOUNTING_IDLE) \
     $(wildcard include/config/IRQ_TIME_ACCOUNTING) \
   arch/x86/include/asm/hardirq.h \
-    $(wildcard include/config/CPU_MITIGATIONS) \
-    $(wildcard include/config/KVM_INTEL) \
-    $(wildcard include/config/KVM) \
-    $(wildcard include/config/GUEST_PERF_EVENTS) \
     $(wildcard include/config/X86_THERMAL_VECTOR) \
     $(wildcard include/config/X86_MCE_THRESHOLD) \
     $(wildcard include/config/X86_MCE_AMD) \
     $(wildcard include/config/X86_HV_CALLBACK_VECTOR) \
     $(wildcard include/config/HYPERV) \
+    $(wildcard include/config/KVM) \
+    $(wildcard include/config/GUEST_PERF_EVENTS) \
     $(wildcard include/config/X86_POSTED_MSI) \
+    $(wildcard include/config/CPU_MITIGATIONS) \
+    $(wildcard include/config/KVM_INTEL) \
   include/linux/highmem-internal.h \
   include/linux/pagemap.h \
   include/linux/hugetlb_inline.h \
@@ -1168,6 +1166,9 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
   include/linux/sunrpc/xdr.h \
   include/linux/uio.h \
   include/uapi/linux/uio.h \
+  include/linux/unaligned.h \
+  include/linux/unaligned/packed_struct.h \
+  include/vdso/unaligned.h \
   include/linux/sunrpc/msg_prot.h \
   include/linux/inet.h \
   include/net/net_namespace.h \
@@ -1222,6 +1223,7 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
   include/net/inet_frag.h \
   include/net/dropreason-core.h \
   include/linux/siphash.h \
+    $(wildcard include/config/HAVE_EFFICIENT_UNALIGNED_ACCESS) \
   include/net/netns/ipv6.h \
     $(wildcard include/config/IPV6_MULTIPLE_TABLES) \
     $(wildcard include/config/IPV6_SUBTREES) \
@@ -1328,10 +1330,6 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/DMA_CMA) \
     $(wildcard include/config/SWIOTLB) \
     $(wildcard include/config/SWIOTLB_DYNAMIC) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_DEVICE) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU_ALL) \
-    $(wildcard include/config/DMA_OPS_BYPASS) \
     $(wildcard include/config/PM) \
     $(wildcard include/config/PM_SLEEP) \
     $(wildcard include/config/OF) \
@@ -1424,7 +1422,10 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/UNWINDER_ORC) \
   include/asm-generic/module.h \
     $(wildcard include/config/HAVE_MOD_ARCH_SPECIFIC) \
-  arch/x86/include/asm/device.h \
+  include/linux/device-id/acpi.h \
+  include/linux/device-id/of.h \
+  arch/x86/include/generated/asm/device.h \
+  include/asm-generic/device.h \
   include/linux/pm_wakeup.h \
   include/linux/netdev_features.h \
   include/net/flow_dissector.h \
@@ -1506,7 +1507,6 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/VLAN_8021Q) \
     $(wildcard include/config/NET_DSA) \
     $(wildcard include/config/TIPC) \
-    $(wildcard include/config/ATALK) \
     $(wildcard include/config/CFG80211) \
     $(wildcard include/config/IEEE802154) \
     $(wildcard include/config/6LOWPAN) \
@@ -1597,6 +1597,7 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
     $(wildcard include/config/BPF_KPROBE_OVERRIDE) \
   include/uapi/linux/bpf_common.h \
   include/uapi/linux/filter.h \
+  include/linux/bpf_defs.h \
   include/crypto/sha2.h \
   include/linux/kallsyms.h \
     $(wildcard include/config/KALLSYMS_ALL) \
@@ -1639,6 +1640,41 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
   arch/x86/include/asm/cfi.h \
     $(wildcard include/config/FINEIBT_BHI) \
     $(wildcard include/config/FUNCTION_PADDING_CFI) \
+  include/linux/xattr.h \
+  include/uapi/linux/xattr.h \
+  include/linux/ftrace.h \
+    $(wildcard include/config/TRACER_SNAPSHOT) \
+    $(wildcard include/config/HAVE_FUNCTION_GRAPH_FREGS) \
+    $(wildcard include/config/FUNCTION_TRACER) \
+    $(wildcard include/config/HAVE_DYNAMIC_FTRACE_WITH_ARGS) \
+    $(wildcard include/config/HAVE_FTRACE_REGS_HAVING_PT_REGS) \
+    $(wildcard include/config/HAVE_REGS_AND_STACK_ACCESS_API) \
+    $(wildcard include/config/DYNAMIC_FTRACE_WITH_REGS) \
+    $(wildcard include/config/DYNAMIC_FTRACE_WITH_ARGS) \
+    $(wildcard include/config/DYNAMIC_FTRACE_WITH_DIRECT_CALLS) \
+    $(wildcard include/config/STACK_TRACER) \
+    $(wildcard include/config/DYNAMIC_FTRACE_WITH_CALL_OPS) \
+    $(wildcard include/config/FUNCTION_GRAPH_RETVAL) \
+    $(wildcard include/config/FTRACE_SYSCALLS) \
+  include/linux/trace_recursion.h \
+    $(wildcard include/config/FTRACE_RECORD_RECURSION) \
+    $(wildcard include/config/FTRACE_VALIDATE_RCU_IS_WATCHING) \
+  include/linux/trace_clock.h \
+  arch/x86/include/asm/trace_clock.h \
+  include/linux/ptrace.h \
+  include/linux/pid_namespace.h \
+    $(wildcard include/config/MEMFD_CREATE) \
+  include/uapi/linux/ptrace.h \
+  include/linux/seccomp.h \
+    $(wildcard include/config/HAVE_ARCH_SECCOMP_FILTER) \
+    $(wildcard include/config/SECCOMP_FILTER) \
+    $(wildcard include/config/CHECKPOINT_RESTORE) \
+    $(wildcard include/config/SECCOMP_CACHE_DEBUG) \
+  include/uapi/linux/seccomp.h \
+  arch/x86/include/asm/seccomp.h \
+  include/asm-generic/seccomp.h \
+  arch/x86/include/asm/ftrace.h \
+    $(wildcard include/config/HAVE_FENTRY) \
   arch/x86/include/asm/rqspinlock.h \
     $(wildcard include/config/QUEUED_SPINLOCKS) \
   include/asm-generic/rqspinlock.h \
@@ -1699,8 +1735,11 @@ deps_net/sunrpc/auth_gss/gss_krb5_crypto.o := \
   include/net/if_inet6.h \
   include/linux/sunrpc/xprtmultipath.h \
   include/linux/sunrpc/gss_err.h \
-  include/kunit/visibility.h \
   net/sunrpc/auth_gss/gss_krb5_internal.h \
+  include/crypto/krb5.h \
+  include/linux/crypto.h \
+  include/crypto/aead.h \
+  include/crypto/hash.h \
 
 net/sunrpc/auth_gss/gss_krb5_crypto.o: $(deps_net/sunrpc/auth_gss/gss_krb5_crypto.o)
 

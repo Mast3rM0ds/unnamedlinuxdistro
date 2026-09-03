@@ -3,6 +3,7 @@ savedcmd_arch/x86/entry/vdso/vdso32/vdso32.lds := gcc -E -Wp,-MMD,arch/x86/entry
 source_arch/x86/entry/vdso/vdso32/vdso32.lds := arch/x86/entry/vdso/vdso32/vdso32.lds.S
 
 deps_arch/x86/entry/vdso/vdso32/vdso32.lds := \
+    $(wildcard include/config/FUTEX_ROBUST_UNLOCK) \
   include/linux/compiler-version.h \
     $(wildcard include/config/CC_VERSION_TEXT) \
   include/linux/kconfig.h \
@@ -18,6 +19,7 @@ deps_arch/x86/entry/vdso/vdso32/vdso32.lds := \
     $(wildcard include/config/PHYS_ADDR_T_64BIT) \
     $(wildcard include/config/64BIT) \
     $(wildcard include/config/ARCH_32BIT_USTAT_F_TINODE) \
+    $(wildcard include/config/KCOV) \
   include/uapi/linux/types.h \
   arch/x86/include/generated/uapi/asm/types.h \
   include/uapi/asm-generic/types.h \
