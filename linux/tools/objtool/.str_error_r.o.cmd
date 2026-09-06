@@ -1,24 +1,52 @@
-cmd_/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/str_error_r.o := gcc -Wp,-MD,/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/.str_error_r.o.d -Wp,-MT,/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/str_error_r.o -std=gnu11 -fomit-frame-pointer -O2 -g -Werror -Wall -Wextra -Wmissing-prototypes -Wmissing-declarations -Wwrite-strings -Wno-implicit-fallthrough -Wno-sign-compare -Wno-unused-parameter -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/include -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/include/uapi -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/arch/x86/include/uapi -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/arch/x86/include -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/include -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/arch/x86/include -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/lib -D"BUILD_STR(s)=$(pound)s" -c -o /home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/str_error_r.o ../lib/str_error_r.c
+cmd_/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/str_error_r.o := gcc -Wp,-MD,/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/.str_error_r.o.d -Wp,-MT,/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/str_error_r.o -std=gnu11 -fomit-frame-pointer -O2 -g -Werror -Wall -Wextra -Wmissing-prototypes -Wmissing-declarations -Wwrite-strings -Wno-implicit-fallthrough -Wno-sign-compare -Wno-unused-parameter -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/include -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/include/uapi -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/arch/x86/include/uapi -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/arch/x86/include -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/include -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/arch/x86/include -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/lib -DBUILD_KLP -DDISAS -DPACKAGE='objtool' -DDISASM_INIT_STYLED -D"BUILD_STR(s)=$(pound)s" -c -o /home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/str_error_r.o ../lib/str_error_r.c
 
 source_/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/str_error_r.o := ../lib/str_error_r.c
 
 deps_/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/str_error_r.o := \
   /usr/include/stdc-predef.h \
-  /usr/include/fortify/string.h \
   /usr/include/string.h \
+  /usr/include/bits/libc-header-start.h \
   /usr/include/features.h \
-  /usr/include/bits/alltypes.h \
-  /usr/include/fortify/strings.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15/include/stddef.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
   /usr/include/strings.h \
-  /usr/include/fortify/fortify-headers.h \
-  /usr/include/fortify/stdio.h \
+  /usr/include/bits/strings_fortified.h \
+  /usr/include/bits/string_fortified.h \
   /usr/include/stdio.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15/include/stdarg.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/include/bits/stdio2-decl.h \
+  /usr/include/bits/stdio.h \
+  /usr/include/bits/stdio2.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/string.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/types.h \
-  /usr/include/stdbool.h \
-  /usr/include/stddef.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15/include/stdbool.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15/include/stdint.h \
   /usr/include/stdint.h \
-  /usr/include/bits/stdint.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdint-least.h \
   /usr/include/asm/types.h \
   /usr/include/asm-generic/types.h \
   /usr/include/asm-generic/int-ll64.h \

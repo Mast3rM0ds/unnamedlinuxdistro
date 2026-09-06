@@ -98,3 +98,15 @@ ln -sf /usr/bin/bash /bin/bash
 exit
 exi
 exit
+ls
+fetchit 
+ls
+bloink list
+ls
+bloink-pin
+clear
+ls
+cmp 
+cmp --help
+ls
+exit

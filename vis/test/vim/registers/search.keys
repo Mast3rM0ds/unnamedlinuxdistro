@@ -1,7 +1,0 @@
-/search<Enter>
-O
-<C-r>/<Escape>
-/pattern<Enter>
-G
-o
-<C-r>/<Escape>

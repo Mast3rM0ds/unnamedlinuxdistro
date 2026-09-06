@@ -1,20 +1,39 @@
-cmd_/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/weak.o := gcc -Wp,-MD,/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/.weak.o.d -Wp,-MT,/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/weak.o -std=gnu11 -fomit-frame-pointer -O2 -g -Werror -Wall -Wextra -Wmissing-prototypes -Wmissing-declarations -Wwrite-strings -Wno-implicit-fallthrough -Wno-sign-compare -Wno-unused-parameter -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/include -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/include/uapi -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/arch/x86/include/uapi -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/arch/x86/include -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/include -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/arch/x86/include -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/lib -D"BUILD_STR(s)=$(pound)s" -c -o /home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/weak.o weak.c
+cmd_/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/weak.o := gcc -Wp,-MD,/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/.weak.o.d -Wp,-MT,/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/weak.o -std=gnu11 -fomit-frame-pointer -O2 -g -Werror -Wall -Wextra -Wmissing-prototypes -Wmissing-declarations -Wwrite-strings -Wno-implicit-fallthrough -Wno-sign-compare -Wno-unused-parameter -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/include -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/include/uapi -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/arch/x86/include/uapi -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/arch/x86/include -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/include -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/arch/x86/include -I/home/bloink/Work/unnamedlinuxdistro/linux/tools/lib -DBUILD_KLP -DDISAS -DPACKAGE='objtool' -DDISASM_INIT_STYLED -D"BUILD_STR(s)=$(pound)s" -c -o /home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/weak.o weak.c
 
 source_/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/weak.o := weak.c
 
 deps_/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/weak.o := \
   /usr/include/stdc-predef.h \
-  /usr/include/stdbool.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15/include/stdbool.h \
   /usr/include/errno.h \
   /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
   /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/uapi/asm/errno.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/arch/x86/include/uapi/asm/errno.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/uapi/asm-generic/errno.h \
+  /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/uapi/asm-generic/errno-base.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/include/objtool/objtool.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/list.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/types.h \
-  /usr/include/stddef.h \
-  /usr/include/bits/alltypes.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15/include/stddef.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15/include/stdint.h \
   /usr/include/stdint.h \
-  /usr/include/bits/stdint.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdint-least.h \
   /usr/include/asm/types.h \
   /usr/include/asm-generic/types.h \
   /usr/include/asm-generic/int-ll64.h \
@@ -27,7 +46,7 @@ deps_/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/weak.o := \
   /usr/include/asm-generic/posix_types.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/poison.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/kernel.h \
-  /usr/include/stdarg.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15/include/stdarg.h \
   /usr/include/assert.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/build_bug.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/compiler.h \
@@ -36,20 +55,64 @@ deps_/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/weak.o := \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/compiler-gcc.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/math.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/panic.h \
-  /usr/include/fortify/stdio.h \
   /usr/include/stdio.h \
-  /usr/include/fortify/fortify-headers.h \
-  /usr/include/fortify/stdlib.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/include/bits/stdio2-decl.h \
+  /usr/include/bits/stdio.h \
+  /usr/include/bits/stdio2.h \
   /usr/include/stdlib.h \
-  /usr/include/alloca.h \
-  /usr/include/limits.h \
-  /usr/include/bits/limits.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/timer_t.h \
   /usr/include/endian.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/select2.h \
+  /usr/include/bits/select-decl.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-bsearch.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/bits/stdlib.h \
   /usr/include/byteswap.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/container_of.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/hashtable.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/bitops.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15/include/limits.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15/include/syslimits.h \
   /usr/include/limits.h \
+  /usr/include/bits/posix1_lim.h \
+  /usr/include/bits/local_lim.h \
+  /usr/include/linux/limits.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/bits/pthread_stack_min.h \
+  /usr/include/bits/posix2_lim.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/bits.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/vdso/bits.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/vdso/const.h \
@@ -72,26 +135,40 @@ deps_/home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/weak.o := \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/include/objtool/elf.h \
   /usr/include/gelf.h \
   /usr/include/libelf.h \
-  /usr/include/sys/types.h \
-  /usr/include/fortify/sys/select.h \
-  /usr/include/sys/select.h \
-  /usr/include/fortify/fortify-headers.h \
   /usr/include/elf.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/string.h \
-  /usr/include/fortify/string.h \
   /usr/include/string.h \
-  /usr/include/fortify/strings.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
   /usr/include/strings.h \
+  /usr/include/bits/strings_fortified.h \
+  /usr/include/bits/string_fortified.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/rbtree.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/uapi/linux/stddef.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/jhash.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/include/linux/unaligned/packed_struct.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/include/objtool/endianness.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/include/objtool/checksum_types.h \
+  /usr/include/xxhash.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/arch/x86/include/arch/elf.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/include/objtool/arch.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/include/objtool/cfi.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/arch/x86/include/arch/cfi_regs.h \
+  /usr/include/bfd.h \
+  /usr/include/x86_64-pc-linux-gnu/bfd.h \
+  /usr/include/ansidecl.h \
+  /usr/include/symcat.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/diagnostics.h \
+  /usr/include/sys/stat.h \
+  /usr/include/bits/stat.h \
+  /usr/include/bits/struct_stat.h \
+  /usr/include/inttypes.h \
+  /usr/include/dis-asm.h \
+  /usr/include/bfd.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/objtool/include/objtool/builtin.h \
   /home/bloink/Work/unnamedlinuxdistro/linux/tools/lib/subcmd/parse-options.h \
 

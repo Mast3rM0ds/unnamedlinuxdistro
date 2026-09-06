@@ -1,22 +1,6 @@
 #!/bin/sh
-# tools/bloink-pin — fetch every unpinned source and fill in its real sha256
-#
-# Usage:
-#   tools/bloink-pin                      pin every recipes/*/package.lua
-#   tools/bloink-pin recipes/foo/package.lua [more.lua ...]   pin specific ones
-#
-# Uses wget with --no-check-certificate instead of curl: minimal/musl base
-# systems (this distro included) often lack curl or a working
-# ca-certificates bundle. That's an acceptable trade-off here because the
-# thing that actually decides whether the fetched bytes are trusted is the
-# sha256 pin this script writes and bloink verifies on every future fetch —
-# not the TLS handshake. If your machine has real certs, edit the wget line
-# below and drop the flag.
-#
-# URL extraction and hash-splicing are both done in Python rather than
-# grep, because BusyBox grep (Alpine and friends) has no -P/PCRE support
-# and its POSIX ERE mode is a pain for this. wget/sha256sum/python3 are
-# the only external tools this script assumes.
+# shame me for this one but it was sadly made with the use of a LLM
+# real sorry but i aint doing all of these tools.
 set -eu
 
 cd "$(dirname "$0")/.."
@@ -41,13 +25,12 @@ for m in re.findall(r"url\s*=\s*\"([^\"]+)\"", content):
 }
 
 splice_hash() {
-    # $1 = recipe path, $2 = sha256
     python3 -c '
 import sys
 path, digest = sys.argv[1], sys.argv[2]
 with open(path) as f:
     content = f.read()
-marker_str = "sha256 = \"PIN_ME\", -- run tools/bloink-pin to fill this in"
+marker_str = "sha256 = \"PIN_ME\""
 if marker_str in content:
     content = content.replace(marker_str, "sha256 = \"%s\"," % digest, 1)
     with open(path, "w") as f:

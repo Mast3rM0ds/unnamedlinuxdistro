@@ -1,9 +1,3 @@
--- recipes/shared-mime-info/package.lua
--- GENERATED starter recipe. sha256 is a PIN_ME placeholder because
--- this build environment can't reach the upstream host to fetch and
--- hash the real tarball (see gen_recipes.py docstring / docs/PHILOSOPHY.md).
--- Run tools/bloink-pin on this file from a machine with normal internet
--- access before `bloink build` will accept it.
 return {
   name = "shared-mime-info",
   version = "2.4",
@@ -14,7 +8,7 @@ return {
   sources = {
     {
       url = "https://gitlab.freedesktop.org/xdg/shared-mime-info/-/archive/2.4/shared-mime-info-2.4.tar.gz",
-      sha256 = "PIN_ME", -- run tools/bloink-pin to fill this in
+      sha256 = "531291d0387eb94e16e775d7e73788d06d2b2fdd8cd2ac6b6b15287593b6a2de",
     },
   },
 

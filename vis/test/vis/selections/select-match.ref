@@ -1,3 +1,0 @@
-void print(char *info) {
-	printf("msg: %s\n", info);
-}

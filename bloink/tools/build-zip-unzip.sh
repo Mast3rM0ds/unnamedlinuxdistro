@@ -53,12 +53,29 @@ fi
 # hard "conflicting types" error once a compiler's default standard
 # moved to C23, where empty parens instead mean "takes zero arguments".
 # Reproduced and confirmed on the actual unzip source: fails under
-# -std=gnu2x, compiles clean under -std=gnu17. Embedded into $CC itself
-# (not CFLAGS) because zip's Makefile does `CFLAGS = ...` — a plain
-# assignment, not `?=` — so overriding CFLAGS on the make command line
-# would silently drop required flags like -DUNIX instead of adding to
-# them.
-BUILD_CC="$BUILD_CC -std=gnu17"
+# -std=gnu2x, compiles clean under -std=gnu17.
+#
+# Also disable implicit-function-declaration errors. unzip's own
+# unix/configure script probes for dirent support with a tiny test that
+# calls opendir()/closedir() with *no* #include <dirent.h> at all,
+# relying on old-style implicit declarations. GCC 14+ makes that a hard
+# error by default (independent of -std=), so the probe fails for a
+# reason that has nothing to do with whether dirent.h actually exists —
+# confirmed by running unix/configure directly and diffing its output
+# both ways: with the error enabled it produces the contradictory
+# "-DNO_DIR -DHAVE_DIRENT_H" (both defined at once, which is what
+# actually breaks the build — NO_DIR turns on unzip's own ancient DIR
+# emulation, which then collides with the real dirent.h), with it
+# disabled it correctly produces only "-DHAVE_DIRENT_H".
+#
+# Both flags are embedded into $CC itself (not CFLAGS) because zip's
+# Makefile does `CFLAGS = ...` — a plain assignment, not `?=` — so
+# overriding CFLAGS on the make command line would silently drop
+# required flags like -DUNIX instead of adding to them. unzip's
+# configure script also receives this same $CC value directly (it's
+# invoked as `sh unix/configure "${CC}" ...`), so the fix applies to
+# both the build and the probe that was actually misfiring.
+BUILD_CC="$BUILD_CC -std=gnu17 -Wno-implicit-function-declaration"
 echo "==> using CC='$BUILD_CC'" >&2
 
 fetch_verify() {
