@@ -27,7 +27,7 @@ jobs:
             flex \
             openssl-dev \
             elfutils-dev \
-            libelf-dev \
+            libelf \
             linux-headers \
             perl \
             python3 \
