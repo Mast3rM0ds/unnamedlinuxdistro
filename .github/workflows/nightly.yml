@@ -1,0 +1,70 @@
+name: nightly build
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: alpine:latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: |
+          apk add --no-cache \
+            bash \
+            build-base \
+            bc \
+            bison \
+            flex \
+            openssl-dev \
+            elfutils-dev \
+            libelf-dev \
+            linux-headers \
+            perl \
+            python3 \
+            rsync \
+            cpio \
+            gzip \
+            xz \
+            git \
+            pahole
+
+      - name: build kernel
+        working-directory: .
+        run: |
+          cd linux
+          make -j"$(nproc)"
+
+      - name: build init
+        run: |
+          cd fs
+          find . -mindepth 1 -printf '%P\n' | cpio -o -H newc | gzip > ../init.cpio
+          cd ..
+
+      - name: upload init
+        uses: actions/upload-artifact@v4
+        with:
+          name: init-cpio
+          path: init.cpio
+
+      - name: publish
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: nightly
+          name: Nightly
+          prerelease: true
+          make_latest: false
+          files: init.cpio
+          body: |
+            automated nightly build from commit ${{ github.sha }}.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
