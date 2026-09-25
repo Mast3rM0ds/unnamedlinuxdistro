@@ -971,6 +971,7 @@ deps_fs/netfs/direct_write.o := \
   include/linux/sched/user.h \
     $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
     $(wildcard include/config/IOMMUFD) \
+    $(wildcard include/config/SECRETMEM) \
     $(wildcard include/config/WATCH_QUEUE) \
   include/linux/ratelimit.h \
   include/linux/pid.h \

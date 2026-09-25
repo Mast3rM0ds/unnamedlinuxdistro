@@ -991,6 +991,7 @@ deps_arch/x86/lib/insn-eval.o := \
     $(wildcard include/config/EPOLL) \
     $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
     $(wildcard include/config/IOMMUFD) \
+    $(wildcard include/config/SECRETMEM) \
     $(wildcard include/config/WATCH_QUEUE) \
   include/linux/pid.h \
   include/linux/rhashtable-types.h \

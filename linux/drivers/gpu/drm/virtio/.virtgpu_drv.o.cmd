@@ -992,6 +992,7 @@ deps_drivers/gpu/drm/virtio/virtgpu_drv.o := \
   include/linux/sched/user.h \
     $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
     $(wildcard include/config/IOMMUFD) \
+    $(wildcard include/config/SECRETMEM) \
     $(wildcard include/config/WATCH_QUEUE) \
   include/linux/ratelimit.h \
   include/linux/pid.h \
@@ -1464,6 +1465,13 @@ deps_drivers/gpu/drm/virtio/virtgpu_drv.o := \
   include/drm/drm_ioctl.h \
   include/drm/drm_probe_helper.h \
   include/uapi/drm/virtgpu_drm.h \
+  include/xen/xen.h \
+    $(wildcard include/config/XEN_PVH) \
+    $(wildcard include/config/XEN_DOM0) \
+    $(wildcard include/config/XEN_BALLOON) \
+    $(wildcard include/config/XEN_UNPOPULATED_ALLOC) \
+  include/xen/interface/hvm/start_info.h \
+  include/xen/balloon.h \
 
 drivers/gpu/drm/virtio/virtgpu_drv.o: $(deps_drivers/gpu/drm/virtio/virtgpu_drv.o)
 

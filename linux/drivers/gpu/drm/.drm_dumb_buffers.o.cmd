@@ -1045,6 +1045,7 @@ deps_drivers/gpu/drm/drm_dumb_buffers.o := \
     $(wildcard include/config/EPOLL) \
     $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
     $(wildcard include/config/IOMMUFD) \
+    $(wildcard include/config/SECRETMEM) \
     $(wildcard include/config/WATCH_QUEUE) \
   include/linux/ratelimit.h \
   include/linux/pid.h \
@@ -1347,92 +1348,6 @@ deps_drivers/gpu/drm/drm_dumb_buffers.o := \
   drivers/gpu/drm/drm_crtc_internal.h \
     $(wildcard include/config/DRM_LOAD_EDID_FIRMWARE) \
     $(wildcard include/config/DRM_PANIC) \
-  drivers/gpu/drm/drm_internal.h \
-    $(wildcard include/config/DRM_CLIENT) \
-    $(wildcard include/config/MAGIC_SYSRQ) \
-  include/linux/kthread.h \
-  include/drm/drm_ioctl.h \
-  include/drm/drm_vblank.h \
-  include/linux/poll.h \
-  include/uapi/linux/poll.h \
-  arch/x86/include/generated/uapi/asm/poll.h \
-  include/uapi/asm-generic/poll.h \
-  include/uapi/linux/eventpoll.h \
-  include/drm/drm_file.h \
-  include/drm/drm_prime.h \
-  include/drm/drm_modes.h \
-  include/linux/hdmi.h \
-  include/drm/drm_mode_object.h \
-  include/drm/drm_lease.h \
-  include/drm/drm_connector.h \
-  include/linux/ctype.h \
-  include/drm/drm_util.h \
-    $(wildcard include/config/DRM_EXPORT_FOR_TESTS) \
-  include/linux/kgdb.h \
-    $(wildcard include/config/HAVE_ARCH_KGDB) \
-    $(wildcard include/config/KGDB) \
-    $(wildcard include/config/KGDB_HONOUR_BLOCKLIST) \
-  include/linux/kprobes.h \
-    $(wildcard include/config/KRETPROBE_ON_RETHOOK) \
-    $(wildcard include/config/OPTPROBES) \
-    $(wildcard include/config/KPROBES_ON_FTRACE) \
-  include/linux/ftrace.h \
-    $(wildcard include/config/TRACER_SNAPSHOT) \
-    $(wildcard include/config/HAVE_FUNCTION_GRAPH_FREGS) \
-    $(wildcard include/config/FUNCTION_TRACER) \
-    $(wildcard include/config/HAVE_DYNAMIC_FTRACE_WITH_ARGS) \
-    $(wildcard include/config/HAVE_FTRACE_REGS_HAVING_PT_REGS) \
-    $(wildcard include/config/HAVE_REGS_AND_STACK_ACCESS_API) \
-    $(wildcard include/config/DYNAMIC_FTRACE_WITH_REGS) \
-    $(wildcard include/config/DYNAMIC_FTRACE_WITH_ARGS) \
-    $(wildcard include/config/DYNAMIC_FTRACE_WITH_DIRECT_CALLS) \
-    $(wildcard include/config/DYNAMIC_FTRACE_WITH_JMP) \
-    $(wildcard include/config/STACK_TRACER) \
-    $(wildcard include/config/DYNAMIC_FTRACE_WITH_CALL_OPS) \
-    $(wildcard include/config/FUNCTION_GRAPH_RETVAL) \
-    $(wildcard include/config/FTRACE_SYSCALLS) \
-  include/linux/trace_recursion.h \
-    $(wildcard include/config/FTRACE_RECORD_RECURSION) \
-    $(wildcard include/config/FTRACE_VALIDATE_RCU_IS_WATCHING) \
-  include/linux/trace_clock.h \
-  arch/x86/include/asm/trace_clock.h \
-  include/linux/kallsyms.h \
-    $(wildcard include/config/KALLSYMS_ALL) \
-  include/linux/ptrace.h \
-  include/linux/pid_namespace.h \
-    $(wildcard include/config/MEMFD_CREATE) \
-    $(wildcard include/config/PID_NS) \
-  include/linux/nsproxy.h \
-  include/linux/ns_common.h \
-  include/linux/ns/ns_common_types.h \
-    $(wildcard include/config/IPC_NS) \
-    $(wildcard include/config/NET_NS) \
-    $(wildcard include/config/TIME_NS) \
-    $(wildcard include/config/UTS_NS) \
-  include/linux/ns/nstree_types.h \
-  include/uapi/linux/nsfs.h \
-  include/uapi/linux/ptrace.h \
-  include/linux/seccomp.h \
-    $(wildcard include/config/HAVE_ARCH_SECCOMP_FILTER) \
-    $(wildcard include/config/SECCOMP_FILTER) \
-    $(wildcard include/config/CHECKPOINT_RESTORE) \
-    $(wildcard include/config/SECCOMP_CACHE_DEBUG) \
-  include/uapi/linux/seccomp.h \
-  arch/x86/include/asm/seccomp.h \
-  include/asm-generic/seccomp.h \
-  arch/x86/include/asm/ftrace.h \
-    $(wildcard include/config/HAVE_FENTRY) \
-  include/linux/objpool.h \
-  include/linux/rethook.h \
-  arch/x86/include/asm/kprobes.h \
-  include/asm-generic/kprobes.h \
-  arch/x86/include/asm/text-patching.h \
-    $(wildcard include/config/UML_X86) \
-  arch/x86/include/asm/insn.h \
-  arch/x86/include/asm/inat.h \
-  arch/x86/include/asm/inat_types.h \
-  arch/x86/include/asm/kgdb.h \
-  include/drm/drm_property.h \
 
 drivers/gpu/drm/drm_dumb_buffers.o: $(deps_drivers/gpu/drm/drm_dumb_buffers.o)
 

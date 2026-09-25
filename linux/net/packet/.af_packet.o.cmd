@@ -971,6 +971,7 @@ deps_net/packet/af_packet.o := \
   include/linux/sched/user.h \
     $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
     $(wildcard include/config/IOMMUFD) \
+    $(wildcard include/config/SECRETMEM) \
     $(wildcard include/config/WATCH_QUEUE) \
   include/linux/ratelimit.h \
   include/linux/pid.h \
@@ -1758,6 +1759,35 @@ deps_net/packet/af_packet.o := \
   include/linux/proc_fs.h \
     $(wildcard include/config/PROC_PID_ARCH_STATUS) \
   include/linux/virtio_net.h \
+  include/net/tcp.h \
+    $(wildcard include/config/BPF_STREAM_PARSER) \
+  include/net/inet_hashtables.h \
+  include/net/sock_reuseport.h \
+  include/net/tcp_ao.h \
+  include/net/inet_ecn.h \
+  include/net/dsfield.h \
+  include/net/mptcp.h \
+    $(wildcard include/config/MPTCP_IPV6) \
+  include/net/xfrm.h \
+    $(wildcard include/config/XFRM_SUB_POLICY) \
+    $(wildcard include/config/NET_PKTGEN) \
+    $(wildcard include/config/XFRM_MIGRATE) \
+    $(wildcard include/config/XFRM_USER_COMPAT) \
+    $(wildcard include/config/XFRM_INTERFACE) \
+  include/uapi/linux/pfkeyv2.h \
+  include/uapi/linux/ipsec.h \
+  include/linux/audit.h \
+    $(wildcard include/config/AUDIT_COMPAT_GENERIC) \
+  include/linux/audit_arch.h \
+  include/uapi/linux/audit.h \
+  include/uapi/linux/fanotify.h \
+  arch/x86/include/asm/syscall.h \
+  include/net/ip6_fib.h \
+  include/linux/ipv6_route.h \
+  include/uapi/linux/ipv6_route.h \
+  include/net/gro_cells.h \
+  include/net/secure_seq.h \
+  include/linux/bpf-cgroup.h \
   include/uapi/linux/virtio_net.h \
   include/uapi/linux/virtio_ids.h \
   include/linux/virtio_config.h \

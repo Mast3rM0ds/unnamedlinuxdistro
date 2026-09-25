@@ -1710,7 +1710,7 @@ ifneq "$(ARCH)" "x86"
 $(autoconfig): FORCE
 endif
 
-ifneq "$(KERNELVERSION)" "7.2.2"
+ifneq "$(KERNELVERSION)" "7.2.7"
 $(autoconfig): FORCE
 endif
 
@@ -1730,7 +1730,7 @@ ifneq "$(RUSTC)" "rustc"
 $(autoconfig): FORCE
 endif
 
-ifneq "$(CC_VERSION_TEXT)" "gcc (Gentoo 15.3.0 p8) 15.3.0"
+ifneq "$(CC_VERSION_TEXT)" "gcc (Alpine 15.2.0) 15.2.0"
 $(autoconfig): FORCE
 endif
 
@@ -1742,11 +1742,11 @@ ifneq "$(OBJCOPY)" "objcopy"
 $(autoconfig): FORCE
 endif
 
-ifneq "$(PAHOLE_VERSION)" "131"
+ifneq "$(PAHOLE_VERSION)" "0"
 $(autoconfig): FORCE
 endif
 
-ifneq "$(RUSTC_VERSION_TEXT)" "rustc 1.96.1 (31fca3adb 2026-06-26)"
+ifneq "$(RUSTC_VERSION_TEXT)" ""
 $(autoconfig): FORCE
 endif
 

@@ -1138,6 +1138,7 @@ deps_drivers/net/virtio_net.o := \
   include/linux/sched/user.h \
     $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
     $(wildcard include/config/IOMMUFD) \
+    $(wildcard include/config/SECRETMEM) \
     $(wildcard include/config/WATCH_QUEUE) \
   include/linux/ratelimit.h \
   include/linux/pid.h \
@@ -1715,15 +1716,28 @@ deps_drivers/net/virtio_net.o := \
   include/uapi/linux/tcp.h \
   include/linux/udp.h \
   include/uapi/linux/udp.h \
-  include/uapi/linux/virtio_net.h \
-  include/uapi/linux/virtio_ids.h \
-  include/linux/virtio_config.h \
-    $(wildcard include/config/VIRTIO_HARDEN_NOTIFICATION) \
-  include/linux/virtio_byteorder.h \
-  include/uapi/linux/virtio_types.h \
-  include/uapi/linux/virtio_config.h \
-  include/linux/bpf_trace.h \
-  include/trace/events/xdp.h \
+  include/net/tcp.h \
+    $(wildcard include/config/BPF_STREAM_PARSER) \
+  include/net/inet_hashtables.h \
+  include/net/ip.h \
+  include/net/route.h \
+  include/net/inetpeer.h \
+  include/net/ipv6.h \
+  include/linux/jump_label_ratelimit.h \
+  include/net/if_inet6.h \
+  include/net/ip_fib.h \
+  include/uapi/linux/in_route.h \
+  include/net/arp.h \
+  include/linux/if_arp.h \
+    $(wildcard include/config/FIREWIRE_NET) \
+  include/uapi/linux/if_arp.h \
+  include/net/ndisc.h \
+  include/linux/icmpv6.h \
+    $(wildcard include/config/NF_NAT) \
+  include/uapi/linux/route.h \
+  include/net/lwtunnel.h \
+  include/uapi/linux/lwtunnel.h \
+  include/net/sock_reuseport.h \
   include/linux/filter.h \
     $(wildcard include/config/HAVE_EBPF_JIT) \
   include/linux/sched/clock.h \
@@ -1745,6 +1759,40 @@ deps_drivers/net/virtio_net.o := \
   include/net/flow_offload.h \
   include/net/dropreason-qdisc.h \
   include/net/dropreason.h \
+  include/net/tcp_ao.h \
+  include/net/inet_ecn.h \
+  include/net/dsfield.h \
+  include/net/mptcp.h \
+    $(wildcard include/config/MPTCP_IPV6) \
+  include/net/xfrm.h \
+    $(wildcard include/config/XFRM_SUB_POLICY) \
+    $(wildcard include/config/NET_PKTGEN) \
+    $(wildcard include/config/XFRM_MIGRATE) \
+    $(wildcard include/config/XFRM_USER_COMPAT) \
+    $(wildcard include/config/XFRM_INTERFACE) \
+  include/uapi/linux/pfkeyv2.h \
+  include/uapi/linux/ipsec.h \
+  include/linux/audit.h \
+    $(wildcard include/config/AUDIT_COMPAT_GENERIC) \
+  include/linux/audit_arch.h \
+  include/uapi/linux/audit.h \
+  include/uapi/linux/fanotify.h \
+  arch/x86/include/asm/syscall.h \
+  include/net/ip6_fib.h \
+  include/linux/ipv6_route.h \
+  include/uapi/linux/ipv6_route.h \
+  include/net/gro_cells.h \
+  include/net/secure_seq.h \
+  include/linux/bpf-cgroup.h \
+  include/uapi/linux/virtio_net.h \
+  include/uapi/linux/virtio_ids.h \
+  include/linux/virtio_config.h \
+    $(wildcard include/config/VIRTIO_HARDEN_NOTIFICATION) \
+  include/linux/virtio_byteorder.h \
+  include/uapi/linux/virtio_types.h \
+  include/uapi/linux/virtio_config.h \
+  include/linux/bpf_trace.h \
+  include/trace/events/xdp.h \
   include/linux/tracepoint.h \
     $(wildcard include/config/HAVE_SYSCALL_TRACEPOINTS) \
   include/net/xdp.h \
@@ -1760,21 +1808,6 @@ deps_drivers/net/virtio_net.o := \
   include/trace/define_trace.h \
   include/linux/average.h \
   include/linux/dim.h \
-  include/net/route.h \
-  include/net/inetpeer.h \
-  include/net/ipv6.h \
-  include/linux/jump_label_ratelimit.h \
-  include/net/if_inet6.h \
-  include/net/ip_fib.h \
-  include/uapi/linux/in_route.h \
-  include/net/arp.h \
-  include/linux/if_arp.h \
-    $(wildcard include/config/FIREWIRE_NET) \
-  include/uapi/linux/if_arp.h \
-  include/net/ndisc.h \
-  include/linux/icmpv6.h \
-    $(wildcard include/config/NF_NAT) \
-  include/uapi/linux/route.h \
   include/net/net_failover.h \
   include/net/failover.h \
   include/net/netdev_rx_queue.h \

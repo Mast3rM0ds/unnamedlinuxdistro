@@ -690,6 +690,7 @@ deps_security/keys/sysctl.o := \
     $(wildcard include/config/EPOLL) \
     $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
     $(wildcard include/config/IOMMUFD) \
+    $(wildcard include/config/SECRETMEM) \
     $(wildcard include/config/WATCH_QUEUE) \
   include/linux/percpu_counter.h \
   include/linux/percpu.h \

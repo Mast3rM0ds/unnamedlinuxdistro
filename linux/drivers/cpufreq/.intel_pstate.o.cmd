@@ -1035,6 +1035,7 @@ deps_drivers/cpufreq/intel_pstate.o := \
   include/linux/sched/user.h \
     $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
     $(wildcard include/config/IOMMUFD) \
+    $(wildcard include/config/SECRETMEM) \
     $(wildcard include/config/WATCH_QUEUE) \
   include/linux/ratelimit.h \
   include/linux/pid.h \
@@ -1421,14 +1422,17 @@ deps_drivers/cpufreq/intel_pstate.o := \
   include/linux/vm_event_item.h \
     $(wildcard include/config/BALLOON) \
     $(wildcard include/config/BALLOON_MIGRATION) \
-  include/linux/seq_file.h \
-  include/linux/string_helpers.h \
-  include/linux/string_choices.h \
   include/linux/poll.h \
   include/uapi/linux/poll.h \
   arch/x86/include/generated/uapi/asm/poll.h \
   include/uapi/asm-generic/poll.h \
   include/uapi/linux/eventpoll.h \
+  include/linux/ring_buffer_types.h \
+    $(wildcard include/config/HAVE_64BIT_ALIGNED_ACCESS) \
+  arch/x86/include/asm/local.h \
+  include/linux/seq_file.h \
+  include/linux/string_helpers.h \
+  include/linux/string_choices.h \
   include/uapi/linux/trace_mmap.h \
   include/linux/trace_seq.h \
   include/linux/seq_buf.h \
@@ -1472,7 +1476,6 @@ deps_drivers/cpufreq/intel_pstate.o := \
   arch/x86/include/asm/switch_to.h \
   arch/x86/include/generated/asm/local64.h \
   include/asm-generic/local64.h \
-  arch/x86/include/asm/local.h \
   arch/x86/include/asm/hw_breakpoint.h \
   arch/x86/include/uapi/asm/hw_breakpoint.h \
   include/linux/kdebug.h \

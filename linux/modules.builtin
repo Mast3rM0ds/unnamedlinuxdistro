@@ -175,8 +175,12 @@ kernel/drivers/iommu/iova.ko
 kernel/drivers/gpu/buddy.ko
 kernel/drivers/gpu/drm/drm.ko
 kernel/drivers/gpu/drm/drm_panel_orientation_quirks.ko
+kernel/drivers/gpu/drm/drm_panel_backlight_quirks.ko
+kernel/drivers/gpu/drm/drm_exec.ko
+kernel/drivers/gpu/drm/drm_gpuvm.ko
 kernel/drivers/gpu/drm/drm_buddy.ko
 kernel/drivers/gpu/drm/drm_shmem_helper.ko
+kernel/drivers/gpu/drm/drm_suballoc_helper.ko
 kernel/drivers/gpu/drm/drm_vram_helper.ko
 kernel/drivers/gpu/drm/drm_ttm_helper.ko
 kernel/drivers/gpu/drm/drm_kms_helper.ko
@@ -184,7 +188,13 @@ kernel/drivers/gpu/drm/drm_mipi_dsi.ko
 kernel/drivers/gpu/drm/clients/drm_client_lib.ko
 kernel/drivers/gpu/drm/display/drm_display_helper.ko
 kernel/drivers/gpu/drm/ttm/ttm.ko
+kernel/drivers/gpu/drm/scheduler/gpu-sched.ko
+kernel/drivers/gpu/drm/radeon/radeon.ko
+kernel/drivers/gpu/drm/amd/amdgpu/amdgpu.ko
+kernel/drivers/gpu/drm/amd/amdxcp/amdxcp.ko
 kernel/drivers/gpu/drm/i915/i915.ko
+kernel/drivers/gpu/drm/vmwgfx/vmwgfx.ko
+kernel/drivers/gpu/drm/nouveau/nouveau.ko
 kernel/drivers/gpu/drm/virtio/virtio-gpu.ko
 kernel/drivers/gpu/drm/sysfb/drm_sysfb_helper.ko
 kernel/drivers/gpu/drm/sysfb/simpledrm.ko
@@ -268,6 +278,7 @@ kernel/drivers/i2c/i2c-core.ko
 kernel/drivers/i2c/i2c-smbus.ko
 kernel/drivers/i2c/algos/i2c-algo-bit.ko
 kernel/drivers/i2c/busses/i2c-i801.ko
+kernel/drivers/media/cec/core/cec.ko
 kernel/drivers/pps/pps_core.ko
 kernel/drivers/ptp/ptp.ko
 kernel/drivers/ptp/ptp_kvm.ko
@@ -308,6 +319,7 @@ kernel/drivers/hid/hid-sunplus.ko
 kernel/drivers/hid/hid-topseed.ko
 kernel/drivers/hid/usbhid/usbhid.ko
 kernel/drivers/platform/x86/wmi-bmof.ko
+kernel/drivers/platform/x86/mxm-wmi.ko
 kernel/drivers/platform/x86/eeepc-laptop.ko
 kernel/drivers/platform/wmi/wmi.ko
 kernel/sound/soundcore.ko

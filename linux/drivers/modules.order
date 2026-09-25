@@ -1,1 +1,3 @@
+drivers/gpu/drm/nouveau/ch7006.o
+drivers/gpu/drm/nouveau/sil164.o
 drivers/thermal/intel/x86_pkg_temp_thermal.o

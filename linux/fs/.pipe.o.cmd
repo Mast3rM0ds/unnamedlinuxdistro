@@ -988,6 +988,7 @@ deps_fs/pipe.o := \
     $(wildcard include/config/EPOLL) \
     $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
     $(wildcard include/config/IOMMUFD) \
+    $(wildcard include/config/SECRETMEM) \
   include/linux/ratelimit.h \
   include/linux/pid.h \
   include/linux/rhashtable-types.h \
@@ -1452,6 +1453,8 @@ deps_fs/pipe.o := \
   include/linux/ring_buffer.h \
     $(wildcard include/config/RING_BUFFER_ALLOW_SWAP) \
     $(wildcard include/config/RING_BUFFER) \
+  include/linux/ring_buffer_types.h \
+    $(wildcard include/config/HAVE_64BIT_ALIGNED_ACCESS) \
   include/uapi/linux/trace_mmap.h \
   include/linux/trace_seq.h \
   include/linux/seq_buf.h \

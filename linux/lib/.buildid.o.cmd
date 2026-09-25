@@ -976,6 +976,7 @@ deps_lib/buildid.o := \
   include/linux/sched/user.h \
     $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
     $(wildcard include/config/IOMMUFD) \
+    $(wildcard include/config/SECRETMEM) \
     $(wildcard include/config/WATCH_QUEUE) \
   include/linux/ratelimit.h \
   include/linux/pid.h \
@@ -1179,7 +1180,6 @@ deps_lib/buildid.o := \
   include/linux/highmem-internal.h \
   include/linux/hugetlb_inline.h \
   include/linux/secretmem.h \
-    $(wildcard include/config/SECRETMEM) \
 
 lib/buildid.o: $(deps_lib/buildid.o)
 

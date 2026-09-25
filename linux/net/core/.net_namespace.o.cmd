@@ -6,6 +6,7 @@ deps_net/core/net_namespace.o := \
     $(wildcard include/config/KEYS) \
     $(wildcard include/config/DEBUG_NET_SMALL_RTNL) \
     $(wildcard include/config/NET_NS) \
+    $(wildcard include/config/REF_TRACKER) \
     $(wildcard include/config/NET_NS_REFCNT_TRACKER) \
   include/linux/compiler-version.h \
     $(wildcard include/config/CC_VERSION_TEXT) \
@@ -935,7 +936,6 @@ deps_net/core/net_namespace.o := \
   include/net/netns/vsock.h \
   include/net/net_trackers.h \
   include/linux/ref_tracker.h \
-    $(wildcard include/config/REF_TRACKER) \
     $(wildcard include/config/DEBUG_FS) \
   include/linux/stackdepot.h \
     $(wildcard include/config/STACKDEPOT) \
@@ -1139,6 +1139,7 @@ deps_net/core/net_namespace.o := \
   include/linux/sched/user.h \
     $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
     $(wildcard include/config/IOMMUFD) \
+    $(wildcard include/config/SECRETMEM) \
     $(wildcard include/config/WATCH_QUEUE) \
   include/linux/ratelimit.h \
   include/linux/pid.h \

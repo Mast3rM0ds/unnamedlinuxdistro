@@ -5,7 +5,6 @@ source_kernel/pid.o := kernel/pid.c
 deps_kernel/pid.o := \
     $(wildcard include/config/SYSCTL) \
     $(wildcard include/config/MEMFD_CREATE) \
-    $(wildcard include/config/PROC_SYSCTL) \
   include/linux/compiler-version.h \
     $(wildcard include/config/CC_VERSION_TEXT) \
   include/generated/gcc-plugins.h \
@@ -989,6 +988,7 @@ deps_kernel/pid.o := \
     $(wildcard include/config/EPOLL) \
     $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
     $(wildcard include/config/IOMMUFD) \
+    $(wildcard include/config/SECRETMEM) \
     $(wildcard include/config/WATCH_QUEUE) \
   include/linux/ratelimit.h \
   include/linux/pid.h \
@@ -1137,6 +1137,7 @@ deps_kernel/pid.o := \
   include/uapi/linux/nsfs.h \
   include/linux/init_task.h \
   include/linux/utsname.h \
+    $(wildcard include/config/PROC_SYSCTL) \
   include/linux/uts_namespace.h \
   include/uapi/linux/utsname.h \
   include/linux/ftrace.h \
@@ -1542,6 +1543,8 @@ deps_kernel/pid.o := \
   arch/x86/include/generated/uapi/asm/poll.h \
   include/uapi/asm-generic/poll.h \
   include/uapi/linux/eventpoll.h \
+  include/linux/ring_buffer_types.h \
+    $(wildcard include/config/HAVE_64BIT_ALIGNED_ACCESS) \
   include/uapi/linux/trace_mmap.h \
   include/linux/trace_seq.h \
   include/linux/seq_buf.h \

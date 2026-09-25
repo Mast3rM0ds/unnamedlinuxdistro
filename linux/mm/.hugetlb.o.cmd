@@ -7,6 +7,7 @@ deps_mm/hugetlb.o := \
     $(wildcard include/config/ARCH_HAS_GIGANTIC_PAGE) \
     $(wildcard include/config/CONTIG_ALLOC) \
     $(wildcard include/config/NUMA) \
+    $(wildcard include/config/HUGETLB_PAGE_OPTIMIZE_VMEMMAP) \
     $(wildcard include/config/HIGHMEM) \
     $(wildcard include/config/SMP) \
     $(wildcard include/config/USERFAULTFD) \
@@ -262,7 +263,6 @@ deps_mm/hugetlb.o := \
     $(wildcard include/config/PAGE_BLOCK_MAX_ORDER) \
     $(wildcard include/config/HAVE_GIGANTIC_FOLIOS) \
     $(wildcard include/config/HUGETLB_PAGE) \
-    $(wildcard include/config/HUGETLB_PAGE_OPTIMIZE_VMEMMAP) \
     $(wildcard include/config/MEMORY_ISOLATION) \
     $(wildcard include/config/ZSMALLOC) \
     $(wildcard include/config/IOMMU_SUPPORT) \
@@ -990,6 +990,7 @@ deps_mm/hugetlb.o := \
     $(wildcard include/config/EPOLL) \
     $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
     $(wildcard include/config/IOMMUFD) \
+    $(wildcard include/config/SECRETMEM) \
     $(wildcard include/config/WATCH_QUEUE) \
   include/linux/ratelimit.h \
   include/linux/pid.h \

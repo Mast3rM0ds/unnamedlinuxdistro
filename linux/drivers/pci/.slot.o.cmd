@@ -3,6 +3,7 @@ savedcmd_drivers/pci/slot.o := gcc -Wp,-MMD,drivers/pci/.slot.o.d -nostdinc -I./
 source_drivers/pci/slot.o := drivers/pci/slot.c
 
 deps_drivers/pci/slot.o := \
+    $(wildcard include/config/S390) \
   include/linux/compiler-version.h \
     $(wildcard include/config/CC_VERSION_TEXT) \
   include/generated/gcc-plugins.h \
@@ -895,7 +896,6 @@ deps_drivers/pci/slot.o := \
     $(wildcard include/config/OF) \
     $(wildcard include/config/X86) \
     $(wildcard include/config/EEH) \
-    $(wildcard include/config/S390) \
   include/linux/device-id/pci.h \
   include/linux/ioport.h \
   include/linux/device.h \
@@ -1083,6 +1083,7 @@ deps_drivers/pci/slot.o := \
   include/linux/sched/user.h \
     $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
     $(wildcard include/config/IOMMUFD) \
+    $(wildcard include/config/SECRETMEM) \
     $(wildcard include/config/WATCH_QUEUE) \
   include/linux/pid.h \
   include/linux/posix-timers.h \

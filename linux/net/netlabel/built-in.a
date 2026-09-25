@@ -8,8 +8,8 @@ netlabel_mgmt.o/
 netlabel_unlabeled.o/
 netlabel_cipso_v4.o/
 netlabel_calipso.o/
-/0              0           0     0     644     2728      `
-/17             0           0     0     644     23104     `
+/0              0           0     0     644     2872      `
+/17             0           0     0     644     23112     `
 /34             0           0     0     644     16984     `
 /57             0           0     0     644     6256      `
 /78             0           0     0     644     15192     `

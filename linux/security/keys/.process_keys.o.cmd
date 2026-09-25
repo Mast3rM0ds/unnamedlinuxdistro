@@ -649,6 +649,7 @@ deps_security/keys/process_keys.o := \
     $(wildcard include/config/NET) \
     $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
     $(wildcard include/config/IOMMUFD) \
+    $(wildcard include/config/SECRETMEM) \
     $(wildcard include/config/WATCH_QUEUE) \
   include/linux/uidgid.h \
     $(wildcard include/config/MULTIUSER) \

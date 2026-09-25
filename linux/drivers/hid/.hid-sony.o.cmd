@@ -44,26 +44,7 @@ deps_drivers/hid/hid-sony.o := \
     $(wildcard include/config/CC_HAS_NAMED_AS) \
     $(wildcard include/config/USE_X86_SEG_SUPPORT) \
   include/asm-generic/percpu_types.h \
-  include/linux/device.h \
-    $(wildcard include/config/DEBUG_LOCK_ALLOC) \
-    $(wildcard include/config/GENERIC_MSI_IRQ) \
-    $(wildcard include/config/ENERGY_MODEL) \
-    $(wildcard include/config/PINCTRL) \
-    $(wildcard include/config/ARCH_HAS_DMA_OPS) \
-    $(wildcard include/config/DMA_DECLARE_COHERENT) \
-    $(wildcard include/config/DMA_CMA) \
-    $(wildcard include/config/SWIOTLB) \
-    $(wildcard include/config/SWIOTLB_DYNAMIC) \
-    $(wildcard include/config/NUMA) \
-    $(wildcard include/config/PM) \
-    $(wildcard include/config/PM_SLEEP) \
-    $(wildcard include/config/LOCKDEP) \
-    $(wildcard include/config/OF) \
-    $(wildcard include/config/DEVTMPFS) \
-  include/linux/dev_printk.h \
-    $(wildcard include/config/PRINTK) \
-    $(wildcard include/config/DYNAMIC_DEBUG) \
-    $(wildcard include/config/DYNAMIC_DEBUG_CORE) \
+  include/linux/cleanup.h \
   include/linux/compiler.h \
     $(wildcard include/config/TRACE_BRANCH_PROFILING) \
     $(wildcard include/config/PROFILE_ALL_BRANCHES) \
@@ -98,6 +79,31 @@ deps_drivers/hid/hid-sony.o := \
   include/linux/kcsan-checks.h \
     $(wildcard include/config/KCSAN_WEAK_MEMORY) \
     $(wildcard include/config/KCSAN_IGNORE_ATOMICS) \
+  include/linux/err.h \
+  arch/x86/include/generated/uapi/asm/errno.h \
+  include/uapi/asm-generic/errno.h \
+  include/uapi/asm-generic/errno-base.h \
+  include/linux/args.h \
+  include/linux/device.h \
+    $(wildcard include/config/DEBUG_LOCK_ALLOC) \
+    $(wildcard include/config/GENERIC_MSI_IRQ) \
+    $(wildcard include/config/ENERGY_MODEL) \
+    $(wildcard include/config/PINCTRL) \
+    $(wildcard include/config/ARCH_HAS_DMA_OPS) \
+    $(wildcard include/config/DMA_DECLARE_COHERENT) \
+    $(wildcard include/config/DMA_CMA) \
+    $(wildcard include/config/SWIOTLB) \
+    $(wildcard include/config/SWIOTLB_DYNAMIC) \
+    $(wildcard include/config/NUMA) \
+    $(wildcard include/config/PM) \
+    $(wildcard include/config/PM_SLEEP) \
+    $(wildcard include/config/LOCKDEP) \
+    $(wildcard include/config/OF) \
+    $(wildcard include/config/DEVTMPFS) \
+  include/linux/dev_printk.h \
+    $(wildcard include/config/PRINTK) \
+    $(wildcard include/config/DYNAMIC_DEBUG) \
+    $(wildcard include/config/DYNAMIC_DEBUG_CORE) \
   include/linux/ratelimit.h \
   include/linux/ratelimit_types.h \
   include/linux/bits.h \
@@ -250,7 +256,6 @@ deps_drivers/hid/hid-sony.o := \
   arch/x86/include/asm/ibt.h \
     $(wildcard include/config/X86_KERNEL_IBT) \
   arch/x86/include/asm/percpu.h \
-  include/linux/args.h \
   arch/x86/include/asm/asm.h \
     $(wildcard include/config/KPROBES) \
   include/linux/annotate.h \
@@ -401,9 +406,6 @@ deps_drivers/hid/hid-sony.o := \
   arch/x86/include/asm/special_insns.h \
   include/linux/errno.h \
   include/uapi/linux/errno.h \
-  arch/x86/include/generated/uapi/asm/errno.h \
-  include/uapi/asm-generic/errno.h \
-  include/uapi/asm-generic/errno-base.h \
   include/linux/irqflags.h \
     $(wildcard include/config/PROVE_LOCKING) \
     $(wildcard include/config/IRQSOFF_TRACER) \
@@ -411,8 +413,6 @@ deps_drivers/hid/hid-sony.o := \
     $(wildcard include/config/DEBUG_IRQFLAGS) \
     $(wildcard include/config/TRACE_IRQFLAGS_SUPPORT) \
   include/linux/irqflags_types.h \
-  include/linux/cleanup.h \
-  include/linux/err.h \
   arch/x86/include/asm/irqflags.h \
     $(wildcard include/config/DEBUG_ENTRY) \
   arch/x86/include/asm/nospec-branch.h \
@@ -1036,6 +1036,7 @@ deps_drivers/hid/hid-sony.o := \
   include/linux/sched/user.h \
     $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
     $(wildcard include/config/IOMMUFD) \
+    $(wildcard include/config/SECRETMEM) \
     $(wildcard include/config/WATCH_QUEUE) \
   include/linux/pid.h \
   include/linux/posix-timers.h \

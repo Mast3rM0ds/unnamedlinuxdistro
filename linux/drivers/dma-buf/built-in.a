@@ -8,7 +8,7 @@ dma-fence-unwrap.o/
 dma-resv.o/
 dma-buf-mapping.o/
 sync_file.o/
-/0              0           0     0     644     75168     `
+/0              0           0     0     644     76160     `
 /11             0           0     0     644     56488     `
 /24             0           0     0     644     11768     `
 /43             0           0     0     644     13232     `

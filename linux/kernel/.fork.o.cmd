@@ -862,6 +862,7 @@ deps_kernel/fork.o := \
     $(wildcard include/config/NET) \
     $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
     $(wildcard include/config/IOMMUFD) \
+    $(wildcard include/config/SECRETMEM) \
     $(wildcard include/config/WATCH_QUEUE) \
   include/linux/uidgid.h \
     $(wildcard include/config/MULTIUSER) \
@@ -1516,6 +1517,8 @@ deps_kernel/fork.o := \
   arch/x86/include/generated/uapi/asm/poll.h \
   include/uapi/asm-generic/poll.h \
   include/uapi/linux/eventpoll.h \
+  include/linux/ring_buffer_types.h \
+    $(wildcard include/config/HAVE_64BIT_ALIGNED_ACCESS) \
   include/uapi/linux/trace_mmap.h \
   include/linux/trace_seq.h \
   include/linux/seq_buf.h \

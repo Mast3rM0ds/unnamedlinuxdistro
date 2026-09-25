@@ -950,6 +950,7 @@ deps_fs/notify/fsnotify.o := \
   include/linux/sched/user.h \
     $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
     $(wildcard include/config/IOMMUFD) \
+    $(wildcard include/config/SECRETMEM) \
     $(wildcard include/config/WATCH_QUEUE) \
   include/linux/ratelimit.h \
   include/linux/pid.h \
@@ -1293,6 +1294,9 @@ deps_fs/notify/fsnotify.o := \
   include/linux/ring_buffer.h \
     $(wildcard include/config/RING_BUFFER_ALLOW_SWAP) \
     $(wildcard include/config/RING_BUFFER) \
+  include/linux/ring_buffer_types.h \
+    $(wildcard include/config/HAVE_64BIT_ALIGNED_ACCESS) \
+  arch/x86/include/asm/local.h \
   include/uapi/linux/trace_mmap.h \
   include/linux/trace_seq.h \
   include/linux/seq_buf.h \
@@ -1337,7 +1341,6 @@ deps_fs/notify/fsnotify.o := \
   arch/x86/include/asm/switch_to.h \
   arch/x86/include/generated/asm/local64.h \
   include/asm-generic/local64.h \
-  arch/x86/include/asm/local.h \
   arch/x86/include/asm/hw_breakpoint.h \
   arch/x86/include/uapi/asm/hw_breakpoint.h \
   include/linux/kdebug.h \

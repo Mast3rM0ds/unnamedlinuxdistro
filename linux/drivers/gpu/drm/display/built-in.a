@@ -1,18 +1,20 @@
 !<thin>
-//                                              168       `
+//                                              200       `
 drm_display_helper_mod.o/
 drm_dp_dual_mode_helper.o/
 drm_dp_helper.o/
 drm_dp_mst_topology.o/
 drm_dsc_helper.o/
 drm_hdcp_helper.o/
+drm_hdmi_cec_notifier_helper.o/
 drm_hdmi_helper.o/
 drm_scdc_helper.o/
-/0              0           0     0     644     2888      `
+/0              0           0     0     644     2880      `
 /26             0           0     0     644     13032     `
 /53             0           0     0     644     113608    `
 /70             0           0     0     644     114640    `
 /93             0           0     0     644     18696     `
-/111            0           0     0     644     9208      `
-/130            0           0     0     644     6280      `
-/149            0           0     0     644     6496      `
+/111            0           0     0     644     9240      `
+/130            0           0     0     644     4224      `
+/162            0           0     0     644     6280      `
+/181            0           0     0     644     6496      `

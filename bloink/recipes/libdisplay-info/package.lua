@@ -1,0 +1,22 @@
+return {
+  name = "libdisplay-info",
+  version = "0.2.0",
+  description = "EDID and DisplayID parsing library (wlroots dependency)",
+  license = "MIT",
+  homepage = "https://gitlab.freedesktop.org/emersion/libdisplay-info",
+
+  sources = {
+    {
+      url = "https://gitlab.freedesktop.org/emersion/libdisplay-info/-/archive/0.2.0/libdisplay-info-0.2.0.tar.gz",
+      sha256 = "PIN_ME"
+    },
+  },
+
+  deps = {
+  },
+
+  build = {
+    "meson setup build --prefix=$out",
+    "ninja -C build install",
+  },
+}

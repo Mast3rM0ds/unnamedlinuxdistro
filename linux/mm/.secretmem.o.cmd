@@ -987,6 +987,7 @@ deps_mm/secretmem.o := \
     $(wildcard include/config/EPOLL) \
     $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
     $(wildcard include/config/IOMMUFD) \
+    $(wildcard include/config/SECRETMEM) \
     $(wildcard include/config/WATCH_QUEUE) \
   include/linux/ratelimit.h \
   include/linux/pid.h \
@@ -1372,6 +1373,8 @@ deps_mm/secretmem.o := \
   arch/x86/include/generated/uapi/asm/poll.h \
   include/uapi/asm-generic/poll.h \
   include/uapi/linux/eventpoll.h \
+  include/linux/ring_buffer_types.h \
+    $(wildcard include/config/HAVE_64BIT_ALIGNED_ACCESS) \
   include/uapi/linux/trace_mmap.h \
   include/linux/trace_seq.h \
   include/linux/seq_buf.h \
@@ -1479,7 +1482,6 @@ deps_mm/secretmem.o := \
   include/linux/pseudo_fs.h \
   include/linux/fs_context.h \
   include/linux/secretmem.h \
-    $(wildcard include/config/SECRETMEM) \
   include/linux/set_memory.h \
     $(wildcard include/config/ARCH_HAS_SET_MEMORY) \
     $(wildcard include/config/ARCH_HAS_SET_DIRECT_MAP) \

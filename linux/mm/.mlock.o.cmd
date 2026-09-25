@@ -943,6 +943,7 @@ deps_mm/mlock.o := \
   include/linux/sched/user.h \
     $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
     $(wildcard include/config/IOMMUFD) \
+    $(wildcard include/config/SECRETMEM) \
     $(wildcard include/config/WATCH_QUEUE) \
   include/linux/ratelimit.h \
   include/linux/pid.h \
@@ -1381,6 +1382,8 @@ deps_mm/mlock.o := \
   arch/x86/include/generated/uapi/asm/poll.h \
   include/uapi/asm-generic/poll.h \
   include/uapi/linux/eventpoll.h \
+  include/linux/ring_buffer_types.h \
+    $(wildcard include/config/HAVE_64BIT_ALIGNED_ACCESS) \
   include/uapi/linux/trace_mmap.h \
   include/linux/trace_seq.h \
   include/linux/seq_buf.h \
@@ -1501,7 +1504,6 @@ deps_mm/mlock.o := \
     $(wildcard include/config/LRU_GEN_ENABLED) \
   include/linux/leafops.h \
   include/linux/secretmem.h \
-    $(wildcard include/config/SECRETMEM) \
   mm/internal.h \
     $(wildcard include/config/NO_PAGE_MAPCOUNT) \
     $(wildcard include/config/DEBUG_MEMORY_INIT) \

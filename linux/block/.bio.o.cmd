@@ -8,6 +8,7 @@ deps_block/bio.o := \
     $(wildcard include/config/BLK_INLINE_ENCRYPTION) \
     $(wildcard include/config/BLK_DEV_INTEGRITY) \
     $(wildcard include/config/KMSAN) \
+    $(wildcard include/config/DEBUG_KERNEL) \
   include/linux/compiler-version.h \
     $(wildcard include/config/CC_VERSION_TEXT) \
   include/generated/gcc-plugins.h \
@@ -990,6 +991,7 @@ deps_block/bio.o := \
     $(wildcard include/config/EPOLL) \
     $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
     $(wildcard include/config/IOMMUFD) \
+    $(wildcard include/config/SECRETMEM) \
     $(wildcard include/config/WATCH_QUEUE) \
   include/linux/ratelimit.h \
   include/linux/pid.h \

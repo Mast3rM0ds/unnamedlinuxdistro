@@ -3,13 +3,13 @@ savedcmd_kernel/bpf/core.o := gcc -Wp,-MMD,kernel/bpf/.core.o.d -nostdinc -I./ar
 source_kernel/bpf/core.o := kernel/bpf/core.c
 
 deps_kernel/bpf/core.o := \
+    $(wildcard include/config/BPF_JIT_ALWAYS_ON) \
     $(wildcard include/config/CGROUP_BPF) \
     $(wildcard include/config/FINEIBT) \
     $(wildcard include/config/BPF_SYSCALL) \
     $(wildcard include/config/BPF_JIT) \
     $(wildcard include/config/BPF_JIT_DEFAULT_ON) \
     $(wildcard include/config/MMU) \
-    $(wildcard include/config/BPF_JIT_ALWAYS_ON) \
     $(wildcard include/config/64BIT) \
     $(wildcard include/config/PERF_EVENTS) \
     $(wildcard include/config/ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE) \
@@ -1018,6 +1018,7 @@ deps_kernel/bpf/core.o := \
   include/linux/sched/user.h \
     $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
     $(wildcard include/config/IOMMUFD) \
+    $(wildcard include/config/SECRETMEM) \
     $(wildcard include/config/WATCH_QUEUE) \
   include/linux/ratelimit.h \
   include/linux/pid.h \
@@ -1748,6 +1749,8 @@ deps_kernel/bpf/core.o := \
   arch/x86/include/generated/uapi/asm/poll.h \
   include/uapi/asm-generic/poll.h \
   include/uapi/linux/eventpoll.h \
+  include/linux/ring_buffer_types.h \
+    $(wildcard include/config/HAVE_64BIT_ALIGNED_ACCESS) \
   include/uapi/linux/trace_mmap.h \
   include/linux/trace_seq.h \
   include/linux/seq_buf.h \

@@ -972,6 +972,7 @@ deps_fs/btrfs/extent_io.o := \
   include/linux/sched/user.h \
     $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
     $(wildcard include/config/IOMMUFD) \
+    $(wildcard include/config/SECRETMEM) \
     $(wildcard include/config/WATCH_QUEUE) \
   include/linux/ratelimit.h \
   include/linux/pid.h \
@@ -1252,17 +1253,10 @@ deps_fs/btrfs/extent_io.o := \
   include/linux/pm_wakeup.h \
   include/linux/pagemap.h \
   include/linux/hugetlb_inline.h \
-  include/linux/blkdev.h \
-    $(wildcard include/config/BLOCK_HOLDER_DEPRECATED) \
-    $(wildcard include/config/CDROM) \
-    $(wildcard include/config/BLK_ERROR_INJECTION) \
-    $(wildcard include/config/BLK_DEV_THROTTLING) \
-    $(wildcard include/config/BLK_RQ_ALLOC_TIME) \
-  include/uapi/linux/blkzoned.h \
-  include/linux/sbitmap.h \
-  include/linux/file.h \
-  include/linux/swap.h \
-    $(wildcard include/config/THP_SWAP) \
+  include/linux/rmap.h \
+    $(wildcard include/config/SLUB_RCU_DEBUG) \
+    $(wildcard include/config/HAVE_GUP_FAST) \
+    $(wildcard include/config/PAGE_MAPCOUNT) \
   include/linux/memcontrol.h \
     $(wildcard include/config/MEMCG_NMI_SAFETY_REQUIRES_ATOMIC) \
   include/linux/cgroup.h \
@@ -1338,6 +1332,17 @@ deps_fs/btrfs/extent_io.o := \
   include/linux/backing-dev-defs.h \
     $(wildcard include/config/DEBUG_FS) \
   include/linux/folio_batch.h \
+  include/linux/blkdev.h \
+    $(wildcard include/config/BLOCK_HOLDER_DEPRECATED) \
+    $(wildcard include/config/CDROM) \
+    $(wildcard include/config/BLK_ERROR_INJECTION) \
+    $(wildcard include/config/BLK_DEV_THROTTLING) \
+    $(wildcard include/config/BLK_RQ_ALLOC_TIME) \
+  include/uapi/linux/blkzoned.h \
+  include/linux/sbitmap.h \
+  include/linux/file.h \
+  include/linux/swap.h \
+    $(wildcard include/config/THP_SWAP) \
   include/linux/node.h \
     $(wildcard include/config/HMEM_REPORTING) \
   include/uapi/linux/mempolicy.h \

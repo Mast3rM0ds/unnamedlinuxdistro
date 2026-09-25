@@ -40,6 +40,7 @@ deps_arch/x86/boot/compressed/vmlinux.lds := \
     $(wildcard include/config/ARCH_USES_CFI_TRAPS) \
     $(wildcard include/config/DEBUG_INFO_BTF) \
     $(wildcard include/config/CONSTRUCTORS) \
+    $(wildcard include/config/KLP_BUILD) \
     $(wildcard include/config/GENERIC_BUG) \
     $(wildcard include/config/UNWINDER_ORC) \
     $(wildcard include/config/FW_LOADER) \

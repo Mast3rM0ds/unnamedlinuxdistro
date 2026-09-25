@@ -995,6 +995,7 @@ deps_arch/x86/kernel/alternative.o := \
     $(wildcard include/config/EPOLL) \
     $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
     $(wildcard include/config/IOMMUFD) \
+    $(wildcard include/config/SECRETMEM) \
     $(wildcard include/config/WATCH_QUEUE) \
   include/linux/ratelimit.h \
   include/linux/pid.h \
@@ -1471,9 +1472,22 @@ deps_arch/x86/kernel/alternative.o := \
   include/linux/moduleloader.h \
     $(wildcard include/config/MODULES_USE_ELF_REL) \
     $(wildcard include/config/MODULES_USE_ELF_RELA) \
+  include/linux/kgdb.h \
+    $(wildcard include/config/HAVE_ARCH_KGDB) \
+    $(wildcard include/config/KGDB) \
+    $(wildcard include/config/KGDB_HONOUR_BLOCKLIST) \
+  include/linux/kprobes.h \
+    $(wildcard include/config/KRETPROBE_ON_RETHOOK) \
+    $(wildcard include/config/OPTPROBES) \
+    $(wildcard include/config/KPROBES_ON_FTRACE) \
+  include/linux/objpool.h \
+  include/linux/rethook.h \
+  arch/x86/include/asm/kprobes.h \
+  include/asm-generic/kprobes.h \
   arch/x86/include/asm/insn.h \
   arch/x86/include/asm/inat.h \
   arch/x86/include/asm/inat_types.h \
+  arch/x86/include/asm/kgdb.h \
   arch/x86/include/asm/insn-eval.h \
   arch/x86/include/asm/set_memory.h \
   include/asm-generic/set_memory.h \
