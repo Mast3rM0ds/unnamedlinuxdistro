@@ -27,7 +27,7 @@ jobs:
             flex \
             openssl-dev \
             elfutils-dev \
-            libelf-dev \
+            libelf \
             linux-headers \
             perl \
             python3 \
@@ -36,13 +36,14 @@ jobs:
             gzip \
             xz \
             git \
-            pahole
+            pahole \
+            findutils
 
-      - name: build kernel
-        working-directory: .
-        run: |
-          cd linux
-          make -j"$(nproc)"
+      #- name: build kernel
+        #working-directory: .
+        #run: |
+          #cd linux
+          #make -j"$(nproc)"
 
       - name: build init
         run: |
