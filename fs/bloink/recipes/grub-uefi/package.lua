@@ -1,5 +1,5 @@
 return {
-	name = "grub-legacy-bios",
+	name = "grub-uefi",
 	version = "2.14",
 	description =
 	"The GRUB package contains the GRand Unified Bootloader. - Linux From Scratch 2026(great description lfs!)",
