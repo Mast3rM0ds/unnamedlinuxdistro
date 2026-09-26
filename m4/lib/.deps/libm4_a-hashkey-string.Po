@@ -1,0 +1,18 @@
+libm4_a-hashkey-string.o: hashkey-string.c /usr/include/stdc-predef.h \
+ config.h hashkey-string.h stddef.h /usr/include/stddef.h \
+ /usr/include/bits/alltypes.h limits.h /usr/include/limits.h \
+ /usr/include/features.h /usr/include/bits/limits.h string.h \
+ /usr/include/string.h /usr/include/strings.h
+/usr/include/stdc-predef.h:
+config.h:
+hashkey-string.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:
+string.h:
+/usr/include/string.h:
+/usr/include/strings.h:

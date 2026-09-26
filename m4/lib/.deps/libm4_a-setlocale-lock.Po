@@ -1,0 +1,4 @@
+libm4_a-setlocale-lock.o: setlocale-lock.c /usr/include/stdc-predef.h \
+ config.h
+/usr/include/stdc-predef.h:
+config.h:

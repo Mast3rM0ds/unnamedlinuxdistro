@@ -11010,6 +11010,7 @@
 0x00000000	dev_remove_pack	vmlinux	EXPORT_SYMBOL	
 0x00000000	dev_get_iflink	vmlinux	EXPORT_SYMBOL	
 0x00000000	dev_fill_metadata_dst	vmlinux	EXPORT_SYMBOL_GPL	
+0x00000000	dev_fill_forward_path_release	vmlinux	EXPORT_SYMBOL_GPL	
 0x00000000	dev_fill_forward_path	vmlinux	EXPORT_SYMBOL_GPL	
 0x00000000	__dev_get_by_name	vmlinux	EXPORT_SYMBOL	
 0x00000000	dev_get_by_name_rcu	vmlinux	EXPORT_SYMBOL	

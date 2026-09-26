@@ -1,0 +1,44 @@
+libm4_a-hard-locale.o: hard-locale.c /usr/include/stdc-predef.h config.h \
+ hard-locale.h locale.h /usr/include/locale.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h stddef.h /usr/include/stddef.h \
+ setlocale_null.h arg-nonnull.h stdlib.h /usr/include/stdlib.h alloca.h \
+ unistd.h /usr/include/unistd.h sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h /usr/include/sys/select.h getopt-cdefs.h \
+ getopt-pfx-core.h getopt-core.h fcntl.h sys/stat.h time.h \
+ /usr/include/time.h /usr/include/sys/stat.h /usr/include/bits/stat.h \
+ /usr/include/fcntl.h /usr/include/bits/fcntl.h string.h \
+ /usr/include/string.h /usr/include/strings.h
+/usr/include/stdc-predef.h:
+config.h:
+hard-locale.h:
+locale.h:
+/usr/include/locale.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+stddef.h:
+/usr/include/stddef.h:
+setlocale_null.h:
+arg-nonnull.h:
+stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+unistd.h:
+/usr/include/unistd.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/sys/select.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+getopt-core.h:
+fcntl.h:
+sys/stat.h:
+time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+string.h:
+/usr/include/string.h:
+/usr/include/strings.h:

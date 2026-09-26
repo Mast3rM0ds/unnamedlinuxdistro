@@ -1,0 +1,57 @@
+libm4_a-localename.o: localename.c /usr/include/stdc-predef.h config.h \
+ localename.h limits.h /usr/include/limits.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/bits/limits.h stdlib.h \
+ /usr/include/stdlib.h alloca.h stddef.h /usr/include/stddef.h unistd.h \
+ /usr/include/unistd.h sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h /usr/include/sys/select.h getopt-cdefs.h \
+ getopt-pfx-core.h getopt-core.h fcntl.h sys/stat.h time.h \
+ /usr/include/time.h /usr/include/sys/stat.h /usr/include/bits/stat.h \
+ /usr/include/fcntl.h /usr/include/bits/fcntl.h locale.h \
+ /usr/include/locale.h setlocale_null.h arg-nonnull.h string.h \
+ /usr/include/string.h /usr/include/strings.h flexmember.h \
+ glthread/lock.h /usr/include/errno.h /usr/include/bits/errno.h \
+ glthread/once.h thread-optim.h struniq.h
+/usr/include/stdc-predef.h:
+config.h:
+localename.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/bits/limits.h:
+stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+stddef.h:
+/usr/include/stddef.h:
+unistd.h:
+/usr/include/unistd.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/sys/select.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+getopt-core.h:
+fcntl.h:
+sys/stat.h:
+time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+locale.h:
+/usr/include/locale.h:
+setlocale_null.h:
+arg-nonnull.h:
+string.h:
+/usr/include/string.h:
+/usr/include/strings.h:
+flexmember.h:
+glthread/lock.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+glthread/once.h:
+thread-optim.h:
+struniq.h:

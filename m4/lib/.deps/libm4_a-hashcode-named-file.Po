@@ -1,0 +1,43 @@
+libm4_a-hashcode-named-file.o: hashcode-named-file.c \
+ /usr/include/stdc-predef.h config.h hashcode-file.h sys/types.h \
+ /usr/include/sys/types.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/endian.h \
+ /usr/include/sys/select.h sys/stat.h time.h /usr/include/time.h stddef.h \
+ /usr/include/stddef.h /usr/include/sys/stat.h /usr/include/bits/stat.h \
+ stdlib.h /usr/include/stdlib.h alloca.h unistd.h /usr/include/unistd.h \
+ getopt-cdefs.h getopt-pfx-core.h getopt-core.h fcntl.h \
+ /usr/include/fcntl.h /usr/include/bits/fcntl.h string.h \
+ /usr/include/string.h /usr/include/strings.h hashcode-string2.h \
+ same-inode.h
+/usr/include/stdc-predef.h:
+config.h:
+hashcode-file.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/endian.h:
+/usr/include/sys/select.h:
+sys/stat.h:
+time.h:
+/usr/include/time.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+unistd.h:
+/usr/include/unistd.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+getopt-core.h:
+fcntl.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+string.h:
+/usr/include/string.h:
+/usr/include/strings.h:
+hashcode-string2.h:
+same-inode.h:

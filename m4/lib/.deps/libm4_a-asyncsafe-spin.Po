@@ -1,0 +1,40 @@
+libm4_a-asyncsafe-spin.o: asyncsafe-spin.c /usr/include/stdc-predef.h \
+ config.h asyncsafe-spin.h signal.h sys/types.h /usr/include/sys/types.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/endian.h /usr/include/sys/select.h /usr/include/signal.h \
+ /usr/include/bits/signal.h glthread/spin.h stdlib.h \
+ /usr/include/stdlib.h alloca.h stddef.h /usr/include/stddef.h unistd.h \
+ /usr/include/unistd.h getopt-cdefs.h getopt-pfx-core.h getopt-core.h \
+ fcntl.h sys/stat.h time.h /usr/include/time.h /usr/include/sys/stat.h \
+ /usr/include/bits/stat.h /usr/include/fcntl.h /usr/include/bits/fcntl.h
+/usr/include/stdc-predef.h:
+config.h:
+asyncsafe-spin.h:
+signal.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/endian.h:
+/usr/include/sys/select.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+glthread/spin.h:
+stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+stddef.h:
+/usr/include/stddef.h:
+unistd.h:
+/usr/include/unistd.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+getopt-core.h:
+fcntl.h:
+sys/stat.h:
+time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:

@@ -1710,7 +1710,7 @@ ifneq "$(ARCH)" "x86"
 $(autoconfig): FORCE
 endif
 
-ifneq "$(KERNELVERSION)" "7.2.7"
+ifneq "$(KERNELVERSION)" "7.2.8"
 $(autoconfig): FORCE
 endif
 

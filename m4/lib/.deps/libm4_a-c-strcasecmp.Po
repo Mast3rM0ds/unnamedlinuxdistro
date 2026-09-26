@@ -1,0 +1,15 @@
+libm4_a-c-strcasecmp.o: c-strcasecmp.c /usr/include/stdc-predef.h \
+ config.h c-strcase.h stddef.h /usr/include/stddef.h \
+ /usr/include/bits/alltypes.h limits.h /usr/include/limits.h \
+ /usr/include/features.h /usr/include/bits/limits.h c-ctype.h
+/usr/include/stdc-predef.h:
+config.h:
+c-strcase.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:
+c-ctype.h:

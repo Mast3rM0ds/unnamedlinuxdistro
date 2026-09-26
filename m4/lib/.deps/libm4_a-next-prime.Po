@@ -1,0 +1,17 @@
+libm4_a-next-prime.o: next-prime.c /usr/include/stdc-predef.h config.h \
+ next-prime.h stddef.h /usr/include/stddef.h /usr/include/bits/alltypes.h \
+ stdint.h /usr/include/stdint.h /usr/include/bits/stdint.h limits.h \
+ /usr/include/limits.h /usr/include/features.h /usr/include/bits/limits.h
+/usr/include/stdc-predef.h:
+config.h:
+next-prime.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:

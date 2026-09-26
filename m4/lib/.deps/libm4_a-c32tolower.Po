@@ -1,0 +1,34 @@
+libm4_a-c32tolower.o: c32tolower.c /usr/include/stdc-predef.h config.h \
+ uchar.h /usr/include/uchar.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h stdint.h /usr/include/stdint.h \
+ /usr/include/bits/stdint.h limits.h /usr/include/limits.h \
+ /usr/include/bits/limits.h wchar.h stddef.h /usr/include/stddef.h \
+ /usr/include/wchar.h string.h /usr/include/string.h \
+ /usr/include/strings.h wctype.h /usr/include/wctype.h c32to-impl.h \
+ unicase.h unitypes.h /usr/include/stdbool.h uninorm.h
+/usr/include/stdc-predef.h:
+config.h:
+uchar.h:
+/usr/include/uchar.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+wchar.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/wchar.h:
+string.h:
+/usr/include/string.h:
+/usr/include/strings.h:
+wctype.h:
+/usr/include/wctype.h:
+c32to-impl.h:
+unicase.h:
+unitypes.h:
+/usr/include/stdbool.h:
+uninorm.h:

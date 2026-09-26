@@ -1,0 +1,25 @@
+pthread_sigmask.o: pthread_sigmask.c /usr/include/stdc-predef.h \
+ ../lib/config.h ../lib/signal.h ../lib/sys/types.h \
+ /usr/include/sys/types.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/endian.h sys/select.h \
+ sys/time.h /usr/include/sys/time.h /usr/include/sys/select.h \
+ /usr/include/signal.h /usr/include/bits/signal.h /usr/include/errno.h \
+ /usr/include/bits/errno.h ../lib/stddef.h /usr/include/stddef.h
+/usr/include/stdc-predef.h:
+../lib/config.h:
+../lib/signal.h:
+../lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/endian.h:
+sys/select.h:
+sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/sys/select.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+../lib/stddef.h:
+/usr/include/stddef.h:

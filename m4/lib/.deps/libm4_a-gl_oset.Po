@@ -1,0 +1,8 @@
+libm4_a-gl_oset.o: gl_oset.c /usr/include/stdc-predef.h config.h \
+ gl_oset.h stddef.h /usr/include/stddef.h /usr/include/bits/alltypes.h
+/usr/include/stdc-predef.h:
+config.h:
+gl_oset.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:

@@ -1,0 +1,24 @@
+libm4_a-freading.o: freading.c /usr/include/stdc-predef.h config.h \
+ freading.h stdio.h /usr/include/stdio.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/stdarg.h stddef.h \
+ /usr/include/stddef.h sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h /usr/include/sys/select.h /usr/include/stdio_ext.h \
+ stdio-impl.h /usr/include/errno.h /usr/include/bits/errno.h
+/usr/include/stdc-predef.h:
+config.h:
+freading.h:
+stdio.h:
+/usr/include/stdio.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/stdarg.h:
+stddef.h:
+/usr/include/stddef.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/sys/select.h:
+/usr/include/stdio_ext.h:
+stdio-impl.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:

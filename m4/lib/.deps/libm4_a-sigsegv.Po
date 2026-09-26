@@ -1,0 +1,60 @@
+libm4_a-sigsegv.o: sigsegv.c /usr/include/stdc-predef.h config.h \
+ sigsegv.h stddef.h /usr/include/stddef.h /usr/include/bits/alltypes.h \
+ /usr/include/ucontext.h /usr/include/features.h signal.h sys/types.h \
+ /usr/include/sys/types.h /usr/include/endian.h /usr/include/sys/select.h \
+ /usr/include/signal.h /usr/include/bits/signal.h /usr/include/errno.h \
+ /usr/include/bits/errno.h stdio.h /usr/include/stdio.h \
+ /usr/include/stdarg.h stdint.h /usr/include/stdint.h \
+ /usr/include/bits/stdint.h limits.h /usr/include/limits.h \
+ /usr/include/bits/limits.h stdlib.h /usr/include/stdlib.h alloca.h \
+ unistd.h /usr/include/unistd.h getopt-cdefs.h getopt-pfx-core.h \
+ getopt-core.h fcntl.h sys/stat.h time.h /usr/include/time.h \
+ /usr/include/sys/stat.h /usr/include/bits/stat.h /usr/include/fcntl.h \
+ /usr/include/bits/fcntl.h /usr/include/sys/resource.h \
+ /usr/include/sys/time.h /usr/include/bits/resource.h stackvma.h
+/usr/include/stdc-predef.h:
+config.h:
+sigsegv.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+/usr/include/ucontext.h:
+/usr/include/features.h:
+signal.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/sys/select.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+stdio.h:
+/usr/include/stdio.h:
+/usr/include/stdarg.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+unistd.h:
+/usr/include/unistd.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+getopt-core.h:
+fcntl.h:
+sys/stat.h:
+time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+/usr/include/sys/resource.h:
+/usr/include/sys/time.h:
+/usr/include/bits/resource.h:
+stackvma.h:

@@ -1,0 +1,13 @@
+memset_explicit.o: memset_explicit.c /usr/include/stdc-predef.h \
+ ../lib/config.h ../lib/string.h /usr/include/string.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/strings.h ../lib/stddef.h /usr/include/stddef.h
+/usr/include/stdc-predef.h:
+../lib/config.h:
+../lib/string.h:
+/usr/include/string.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/strings.h:
+../lib/stddef.h:
+/usr/include/stddef.h:

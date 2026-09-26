@@ -1,0 +1,32 @@
+libm4_a-mbiterf.o: mbiterf.c /usr/include/stdc-predef.h config.h \
+ mbiterf.h /usr/include/assert.h /usr/include/features.h stddef.h \
+ /usr/include/stddef.h /usr/include/bits/alltypes.h string.h \
+ /usr/include/string.h /usr/include/strings.h uchar.h \
+ /usr/include/uchar.h stdint.h /usr/include/stdint.h \
+ /usr/include/bits/stdint.h limits.h /usr/include/limits.h \
+ /usr/include/bits/limits.h wchar.h /usr/include/wchar.h wctype.h \
+ /usr/include/wctype.h mbchar.h
+/usr/include/stdc-predef.h:
+config.h:
+mbiterf.h:
+/usr/include/assert.h:
+/usr/include/features.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+string.h:
+/usr/include/string.h:
+/usr/include/strings.h:
+uchar.h:
+/usr/include/uchar.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+wchar.h:
+/usr/include/wchar.h:
+wctype.h:
+/usr/include/wctype.h:
+mbchar.h:

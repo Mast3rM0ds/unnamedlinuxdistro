@@ -1,0 +1,71 @@
+libm4_a-clean-temp-simple.o: clean-temp-simple.c \
+ /usr/include/stdc-predef.h config.h clean-temp-simple.h \
+ clean-temp-private.h stddef.h /usr/include/stddef.h \
+ /usr/include/bits/alltypes.h gl_list.h asyncsafe-spin.h signal.h \
+ sys/types.h /usr/include/sys/types.h /usr/include/features.h \
+ /usr/include/endian.h /usr/include/sys/select.h /usr/include/signal.h \
+ /usr/include/bits/signal.h glthread/spin.h stdlib.h \
+ /usr/include/stdlib.h alloca.h unistd.h /usr/include/unistd.h \
+ getopt-cdefs.h getopt-pfx-core.h getopt-core.h fcntl.h sys/stat.h time.h \
+ /usr/include/time.h /usr/include/sys/stat.h /usr/include/bits/stat.h \
+ /usr/include/fcntl.h /usr/include/bits/fcntl.h /usr/include/errno.h \
+ /usr/include/bits/errno.h string.h /usr/include/string.h \
+ /usr/include/strings.h error.h /usr/include/stdarg.h stdio.h \
+ /usr/include/stdio.h fatal-signal.h glthread/lock.h glthread/once.h \
+ glthread/once.h thread-optim.h gl_linkedhash_list.h hashkey-string.h \
+ gettext.h locale.h /usr/include/locale.h setlocale_null.h arg-nonnull.h
+/usr/include/stdc-predef.h:
+config.h:
+clean-temp-simple.h:
+clean-temp-private.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+gl_list.h:
+asyncsafe-spin.h:
+signal.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/features.h:
+/usr/include/endian.h:
+/usr/include/sys/select.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+glthread/spin.h:
+stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+unistd.h:
+/usr/include/unistd.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+getopt-core.h:
+fcntl.h:
+sys/stat.h:
+time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+string.h:
+/usr/include/string.h:
+/usr/include/strings.h:
+error.h:
+/usr/include/stdarg.h:
+stdio.h:
+/usr/include/stdio.h:
+fatal-signal.h:
+glthread/lock.h:
+glthread/once.h:
+glthread/once.h:
+thread-optim.h:
+gl_linkedhash_list.h:
+hashkey-string.h:
+gettext.h:
+locale.h:
+/usr/include/locale.h:
+setlocale_null.h:
+arg-nonnull.h:

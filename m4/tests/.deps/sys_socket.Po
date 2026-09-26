@@ -1,0 +1,29 @@
+sys_socket.o: sys_socket.c /usr/include/stdc-predef.h ../lib/config.h \
+ sys/socket.h ../lib/sys/types.h /usr/include/sys/types.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/endian.h sys/select.h sys/time.h /usr/include/sys/time.h \
+ /usr/include/sys/select.h ../lib/signal.h /usr/include/signal.h \
+ /usr/include/bits/signal.h ../lib/stddef.h /usr/include/stddef.h \
+ /usr/include/sys/socket.h /usr/include/bits/socket.h sys/uio.h \
+ /usr/include/sys/uio.h
+/usr/include/stdc-predef.h:
+../lib/config.h:
+sys/socket.h:
+../lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/endian.h:
+sys/select.h:
+sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/sys/select.h:
+../lib/signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+../lib/stddef.h:
+/usr/include/stddef.h:
+/usr/include/sys/socket.h:
+/usr/include/bits/socket.h:
+sys/uio.h:
+/usr/include/sys/uio.h:

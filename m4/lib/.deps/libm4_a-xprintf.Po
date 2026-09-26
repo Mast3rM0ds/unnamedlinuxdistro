@@ -1,0 +1,34 @@
+libm4_a-xprintf.o: xprintf.c /usr/include/stdc-predef.h config.h \
+ xprintf.h /usr/include/stdarg.h /usr/include/bits/alltypes.h stdio.h \
+ /usr/include/stdio.h /usr/include/features.h stddef.h \
+ /usr/include/stddef.h sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h /usr/include/sys/select.h /usr/include/errno.h \
+ /usr/include/bits/errno.h error.h exitfail.h gettext.h locale.h \
+ /usr/include/locale.h setlocale_null.h arg-nonnull.h string.h \
+ /usr/include/string.h /usr/include/strings.h
+/usr/include/stdc-predef.h:
+config.h:
+xprintf.h:
+/usr/include/stdarg.h:
+/usr/include/bits/alltypes.h:
+stdio.h:
+/usr/include/stdio.h:
+/usr/include/features.h:
+stddef.h:
+/usr/include/stddef.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/sys/select.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+error.h:
+exitfail.h:
+gettext.h:
+locale.h:
+/usr/include/locale.h:
+setlocale_null.h:
+arg-nonnull.h:
+string.h:
+/usr/include/string.h:
+/usr/include/strings.h:

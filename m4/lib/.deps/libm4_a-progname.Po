@@ -1,0 +1,18 @@
+libm4_a-progname.o: progname.c /usr/include/stdc-predef.h config.h \
+ progname.h arg-nonnull.h /usr/include/errno.h /usr/include/features.h \
+ /usr/include/bits/errno.h string.h /usr/include/string.h \
+ /usr/include/bits/alltypes.h /usr/include/strings.h stddef.h \
+ /usr/include/stddef.h
+/usr/include/stdc-predef.h:
+config.h:
+progname.h:
+arg-nonnull.h:
+/usr/include/errno.h:
+/usr/include/features.h:
+/usr/include/bits/errno.h:
+string.h:
+/usr/include/string.h:
+/usr/include/bits/alltypes.h:
+/usr/include/strings.h:
+stddef.h:
+/usr/include/stddef.h:

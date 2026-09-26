@@ -1,0 +1,42 @@
+libm4_a-pipe2.o: pipe2.c /usr/include/stdc-predef.h config.h unistd.h \
+ /usr/include/unistd.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h stddef.h /usr/include/stddef.h stdlib.h \
+ /usr/include/stdlib.h alloca.h sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h /usr/include/sys/select.h getopt-cdefs.h \
+ getopt-pfx-core.h getopt-core.h fcntl.h sys/stat.h time.h \
+ /usr/include/time.h /usr/include/sys/stat.h /usr/include/bits/stat.h \
+ /usr/include/fcntl.h /usr/include/bits/fcntl.h /usr/include/errno.h \
+ /usr/include/bits/errno.h binary-io.h stdio.h /usr/include/stdio.h \
+ /usr/include/stdarg.h
+/usr/include/stdc-predef.h:
+config.h:
+unistd.h:
+/usr/include/unistd.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+stddef.h:
+/usr/include/stddef.h:
+stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/sys/select.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+getopt-core.h:
+fcntl.h:
+sys/stat.h:
+time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+binary-io.h:
+stdio.h:
+/usr/include/stdio.h:
+/usr/include/stdarg.h:

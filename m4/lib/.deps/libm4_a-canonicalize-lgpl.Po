@@ -1,0 +1,69 @@
+libm4_a-canonicalize-lgpl.o: canonicalize-lgpl.c \
+ /usr/include/stdc-predef.h libc-config.h config.h /usr/include/errno.h \
+ /usr/include/features.h /usr/include/bits/errno.h cdefs.h stdlib.h \
+ /usr/include/stdlib.h /usr/include/bits/alltypes.h alloca.h stddef.h \
+ /usr/include/stddef.h unistd.h /usr/include/unistd.h sys/types.h \
+ /usr/include/sys/types.h /usr/include/endian.h /usr/include/sys/select.h \
+ getopt-cdefs.h getopt-pfx-core.h getopt-core.h fcntl.h sys/stat.h time.h \
+ /usr/include/time.h /usr/include/sys/stat.h /usr/include/bits/stat.h \
+ /usr/include/fcntl.h /usr/include/bits/fcntl.h limits.h \
+ /usr/include/limits.h /usr/include/bits/limits.h string.h \
+ /usr/include/string.h /usr/include/strings.h eloop-threshold.h minmax.h \
+ /usr/include/sys/param.h /usr/include/sys/resource.h \
+ /usr/include/sys/time.h /usr/include/bits/resource.h filename.h idx.h \
+ stdint.h /usr/include/stdint.h /usr/include/bits/stdint.h intprops.h \
+ intprops-internal.h scratch_buffer.h malloc/scratch_buffer.gl.h \
+ /usr/include/stdbool.h pathmax.h
+/usr/include/stdc-predef.h:
+libc-config.h:
+config.h:
+/usr/include/errno.h:
+/usr/include/features.h:
+/usr/include/bits/errno.h:
+cdefs.h:
+stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/bits/alltypes.h:
+alloca.h:
+stddef.h:
+/usr/include/stddef.h:
+unistd.h:
+/usr/include/unistd.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/sys/select.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+getopt-core.h:
+fcntl.h:
+sys/stat.h:
+time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+string.h:
+/usr/include/string.h:
+/usr/include/strings.h:
+eloop-threshold.h:
+minmax.h:
+/usr/include/sys/param.h:
+/usr/include/sys/resource.h:
+/usr/include/sys/time.h:
+/usr/include/bits/resource.h:
+filename.h:
+idx.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+intprops.h:
+intprops-internal.h:
+scratch_buffer.h:
+malloc/scratch_buffer.gl.h:
+/usr/include/stdbool.h:
+pathmax.h:

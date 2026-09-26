@@ -1,0 +1,56 @@
+nanosleep.o: nanosleep.c /usr/include/stdc-predef.h ../lib/config.h \
+ ../lib/time.h /usr/include/time.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h ../lib/stddef.h /usr/include/stddef.h \
+ ../lib/intprops.h ../lib/intprops-internal.h ../lib/limits.h \
+ /usr/include/limits.h /usr/include/bits/limits.h ../lib/stdio.h \
+ /usr/include/stdio.h /usr/include/stdarg.h ../lib/sys/types.h \
+ /usr/include/sys/types.h /usr/include/endian.h sys/select.h sys/time.h \
+ /usr/include/sys/time.h /usr/include/sys/select.h ../lib/signal.h \
+ /usr/include/signal.h /usr/include/bits/signal.h /usr/include/errno.h \
+ /usr/include/bits/errno.h ../lib/unistd.h /usr/include/unistd.h \
+ ../lib/stdlib.h /usr/include/stdlib.h ../lib/alloca.h \
+ ../lib/getopt-cdefs.h ../lib/getopt-pfx-core.h ../lib/getopt-core.h \
+ ../lib/fcntl.h ../lib/sys/stat.h /usr/include/sys/stat.h \
+ /usr/include/bits/stat.h /usr/include/fcntl.h /usr/include/bits/fcntl.h
+/usr/include/stdc-predef.h:
+../lib/config.h:
+../lib/time.h:
+/usr/include/time.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+../lib/stddef.h:
+/usr/include/stddef.h:
+../lib/intprops.h:
+../lib/intprops-internal.h:
+../lib/limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+../lib/stdio.h:
+/usr/include/stdio.h:
+/usr/include/stdarg.h:
+../lib/sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+sys/select.h:
+sys/time.h:
+/usr/include/sys/time.h:
+/usr/include/sys/select.h:
+../lib/signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+../lib/unistd.h:
+/usr/include/unistd.h:
+../lib/stdlib.h:
+/usr/include/stdlib.h:
+../lib/alloca.h:
+../lib/getopt-cdefs.h:
+../lib/getopt-pfx-core.h:
+../lib/getopt-core.h:
+../lib/fcntl.h:
+../lib/sys/stat.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:

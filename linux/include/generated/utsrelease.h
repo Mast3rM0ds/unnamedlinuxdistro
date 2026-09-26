@@ -1,1 +1,1 @@
-#define UTS_RELEASE "7.2.7-bloink1"
+#define UTS_RELEASE "7.2.8-bloink1"

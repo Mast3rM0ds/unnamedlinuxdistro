@@ -1,0 +1,94 @@
+libm4_a-clean-temp.o: clean-temp.c /usr/include/stdc-predef.h config.h \
+ clean-temp.h stdio.h /usr/include/stdio.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/stdarg.h stddef.h \
+ /usr/include/stddef.h sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h /usr/include/sys/select.h clean-temp-simple.h \
+ /usr/include/errno.h /usr/include/bits/errno.h fcntl.h sys/stat.h time.h \
+ /usr/include/time.h /usr/include/sys/stat.h /usr/include/bits/stat.h \
+ /usr/include/fcntl.h /usr/include/bits/fcntl.h unistd.h \
+ /usr/include/unistd.h stdlib.h /usr/include/stdlib.h alloca.h \
+ getopt-cdefs.h getopt-pfx-core.h getopt-core.h signal.h \
+ /usr/include/signal.h /usr/include/bits/signal.h string.h \
+ /usr/include/string.h /usr/include/strings.h clean-temp-private.h \
+ gl_list.h asyncsafe-spin.h glthread/spin.h error.h fatal-signal.h \
+ pathmax.h limits.h /usr/include/limits.h /usr/include/bits/limits.h \
+ tmpdir.h xalloc.h idx.h stdint.h /usr/include/stdint.h \
+ /usr/include/bits/stdint.h xmalloca.h malloca.h xalloc-oversized.h \
+ glthread/lock.h glthread/once.h thread-optim.h hashkey-string.h \
+ gl_xlist.h gl_linkedhash_list.h gl_linked_list.h gettext.h locale.h \
+ /usr/include/locale.h setlocale_null.h arg-nonnull.h tempname.h \
+ close-stream.h stdio--.h stdio-safer.h
+/usr/include/stdc-predef.h:
+config.h:
+clean-temp.h:
+stdio.h:
+/usr/include/stdio.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/stdarg.h:
+stddef.h:
+/usr/include/stddef.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/sys/select.h:
+clean-temp-simple.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+fcntl.h:
+sys/stat.h:
+time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+unistd.h:
+/usr/include/unistd.h:
+stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+getopt-core.h:
+signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+string.h:
+/usr/include/string.h:
+/usr/include/strings.h:
+clean-temp-private.h:
+gl_list.h:
+asyncsafe-spin.h:
+glthread/spin.h:
+error.h:
+fatal-signal.h:
+pathmax.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+tmpdir.h:
+xalloc.h:
+idx.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+xmalloca.h:
+malloca.h:
+xalloc-oversized.h:
+glthread/lock.h:
+glthread/once.h:
+thread-optim.h:
+hashkey-string.h:
+gl_xlist.h:
+gl_linkedhash_list.h:
+gl_linked_list.h:
+gettext.h:
+locale.h:
+/usr/include/locale.h:
+setlocale_null.h:
+arg-nonnull.h:
+tempname.h:
+close-stream.h:
+stdio--.h:
+stdio-safer.h:

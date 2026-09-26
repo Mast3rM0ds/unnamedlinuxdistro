@@ -1258,66 +1258,14 @@ deps_fs/super.o := \
   include/uapi/linux/blkzoned.h \
   include/linux/sbitmap.h \
   include/linux/file.h \
-  include/linux/security.h \
-    $(wildcard include/config/SECURITY_NETWORK) \
-    $(wildcard include/config/SECURITY_PATH) \
-    $(wildcard include/config/SECURITY_INFINIBAND) \
-    $(wildcard include/config/SECURITY_NETWORK_XFRM) \
-    $(wildcard include/config/SECURITYFS) \
-  include/linux/kernel_read_file.h \
-  include/linux/sockptr.h \
-  include/linux/bpf.h \
-    $(wildcard include/config/CGROUP_BPF) \
-    $(wildcard include/config/DEBUG_KERNEL) \
-    $(wildcard include/config/DYNAMIC_FTRACE_WITH_JMP) \
-    $(wildcard include/config/FINEIBT) \
-    $(wildcard include/config/BPF_LSM) \
-    $(wildcard include/config/BPF_JIT_ALWAYS_ON) \
-    $(wildcard include/config/INET) \
-  include/uapi/linux/bpf.h \
-    $(wildcard include/config/BPF_LIRC_MODE2) \
-    $(wildcard include/config/EFFICIENT_UNALIGNED_ACCESS) \
-    $(wildcard include/config/CGROUP_NET_CLASSID) \
-    $(wildcard include/config/IP_ROUTE_CLASSID) \
-    $(wildcard include/config/BPF_KPROBE_OVERRIDE) \
-    $(wildcard include/config/XFRM) \
-    $(wildcard include/config/SOCK_CGROUP_DATA) \
-    $(wildcard include/config/IPV6) \
-  include/uapi/linux/bpf_common.h \
-  include/uapi/linux/filter.h \
-  include/linux/bpf_defs.h \
-  include/crypto/sha2.h \
-  include/linux/kallsyms.h \
-    $(wildcard include/config/KALLSYMS_ALL) \
-    $(wildcard include/config/HAVE_FUNCTION_DESCRIPTORS) \
-  arch/x86/include/asm/sections.h \
-  include/asm-generic/sections.h \
-  include/linux/bpfptr.h \
-  include/linux/btf.h \
-  include/linux/bsearch.h \
-  include/linux/btf_ids.h \
-  include/uapi/linux/btf.h \
-  include/linux/rcupdate_trace.h \
-    $(wildcard include/config/TASKS_TRACE_RCU_NO_MB) \
-  include/linux/static_call.h \
-  include/linux/cpu.h \
-    $(wildcard include/config/GENERIC_CPU_DEVICES) \
-    $(wildcard include/config/PM_SLEEP_SMP) \
-    $(wildcard include/config/PM_SLEEP_SMP_NONZERO_CPU) \
-    $(wildcard include/config/ARCH_HAS_CPU_FINALIZE_INIT) \
-  include/linux/node.h \
-    $(wildcard include/config/HMEM_REPORTING) \
-  include/linux/cpuhotplug.h \
-    $(wildcard include/config/HOTPLUG_CORE_SYNC_DEAD) \
-  arch/x86/include/asm/static_call.h \
-  arch/x86/include/asm/text-patching.h \
-    $(wildcard include/config/UML_X86) \
   include/linux/memcontrol.h \
     $(wildcard include/config/MEMCG_NMI_SAFETY_REQUIRES_ATOMIC) \
   include/linux/cgroup.h \
     $(wildcard include/config/DEBUG_CGROUP_REF) \
     $(wildcard include/config/CGROUP_CPUACCT) \
+    $(wildcard include/config/SOCK_CGROUP_DATA) \
     $(wildcard include/config/CGROUP_DATA) \
+    $(wildcard include/config/CGROUP_BPF) \
   include/uapi/linux/cgroupstats.h \
   include/uapi/linux/taskstats.h \
   include/linux/seq_file.h \
@@ -1349,14 +1297,19 @@ deps_fs/super.o := \
   arch/x86/include/asm/irq.h \
   arch/x86/include/asm/irq_vectors.h \
     $(wildcard include/config/PCI_MSI) \
+  arch/x86/include/asm/sections.h \
+  include/asm-generic/sections.h \
+    $(wildcard include/config/HAVE_FUNCTION_DESCRIPTORS) \
   include/linux/cgroup-defs.h \
     $(wildcard include/config/EXT_SUB_SCHED) \
+    $(wildcard include/config/CGROUP_NET_CLASSID) \
     $(wildcard include/config/CGROUP_NET_PRIO) \
   include/linux/u64_stats_sync.h \
   arch/x86/include/generated/asm/local64.h \
   include/asm-generic/local64.h \
   arch/x86/include/asm/local.h \
   include/linux/bpf-cgroup-defs.h \
+    $(wildcard include/config/BPF_LSM) \
   include/linux/psi_types.h \
   include/linux/kthread.h \
   include/linux/cgroup_subsys.h \
@@ -1380,6 +1333,53 @@ deps_fs/super.o := \
   include/linux/backing-dev-defs.h \
     $(wildcard include/config/DEBUG_FS) \
   include/linux/folio_batch.h \
+  include/linux/security.h \
+    $(wildcard include/config/SECURITY_NETWORK) \
+    $(wildcard include/config/SECURITY_PATH) \
+    $(wildcard include/config/SECURITY_INFINIBAND) \
+    $(wildcard include/config/SECURITY_NETWORK_XFRM) \
+    $(wildcard include/config/SECURITYFS) \
+  include/linux/kernel_read_file.h \
+  include/linux/sockptr.h \
+  include/linux/bpf.h \
+    $(wildcard include/config/DEBUG_KERNEL) \
+    $(wildcard include/config/DYNAMIC_FTRACE_WITH_JMP) \
+    $(wildcard include/config/FINEIBT) \
+    $(wildcard include/config/BPF_JIT_ALWAYS_ON) \
+    $(wildcard include/config/INET) \
+  include/uapi/linux/bpf.h \
+    $(wildcard include/config/BPF_LIRC_MODE2) \
+    $(wildcard include/config/EFFICIENT_UNALIGNED_ACCESS) \
+    $(wildcard include/config/IP_ROUTE_CLASSID) \
+    $(wildcard include/config/BPF_KPROBE_OVERRIDE) \
+    $(wildcard include/config/XFRM) \
+    $(wildcard include/config/IPV6) \
+  include/uapi/linux/bpf_common.h \
+  include/uapi/linux/filter.h \
+  include/linux/bpf_defs.h \
+  include/crypto/sha2.h \
+  include/linux/kallsyms.h \
+    $(wildcard include/config/KALLSYMS_ALL) \
+  include/linux/bpfptr.h \
+  include/linux/btf.h \
+  include/linux/bsearch.h \
+  include/linux/btf_ids.h \
+  include/uapi/linux/btf.h \
+  include/linux/rcupdate_trace.h \
+    $(wildcard include/config/TASKS_TRACE_RCU_NO_MB) \
+  include/linux/static_call.h \
+  include/linux/cpu.h \
+    $(wildcard include/config/GENERIC_CPU_DEVICES) \
+    $(wildcard include/config/PM_SLEEP_SMP) \
+    $(wildcard include/config/PM_SLEEP_SMP_NONZERO_CPU) \
+    $(wildcard include/config/ARCH_HAS_CPU_FINALIZE_INIT) \
+  include/linux/node.h \
+    $(wildcard include/config/HMEM_REPORTING) \
+  include/linux/cpuhotplug.h \
+    $(wildcard include/config/HOTPLUG_CORE_SYNC_DEAD) \
+  arch/x86/include/asm/static_call.h \
+  arch/x86/include/asm/text-patching.h \
+    $(wildcard include/config/UML_X86) \
   include/linux/cfi.h \
   arch/x86/include/asm/cfi.h \
     $(wildcard include/config/FINEIBT_BHI) \

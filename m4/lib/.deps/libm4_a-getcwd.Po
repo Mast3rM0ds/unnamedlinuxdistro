@@ -1,0 +1,54 @@
+libm4_a-getcwd.o: getcwd.c /usr/include/stdc-predef.h config.h stdio.h \
+ /usr/include/stdio.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/stdarg.h stddef.h \
+ /usr/include/stddef.h sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h /usr/include/sys/select.h unistd.h \
+ /usr/include/unistd.h stdlib.h /usr/include/stdlib.h alloca.h \
+ getopt-cdefs.h getopt-pfx-core.h getopt-core.h fcntl.h sys/stat.h time.h \
+ /usr/include/time.h /usr/include/sys/stat.h /usr/include/bits/stat.h \
+ /usr/include/fcntl.h /usr/include/bits/fcntl.h pathmax.h limits.h \
+ /usr/include/limits.h /usr/include/bits/limits.h /usr/include/errno.h \
+ /usr/include/bits/errno.h dirent.h /usr/include/dirent.h \
+ /usr/include/bits/dirent.h string.h /usr/include/string.h \
+ /usr/include/strings.h
+/usr/include/stdc-predef.h:
+config.h:
+stdio.h:
+/usr/include/stdio.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/stdarg.h:
+stddef.h:
+/usr/include/stddef.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/sys/select.h:
+unistd.h:
+/usr/include/unistd.h:
+stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+getopt-core.h:
+fcntl.h:
+sys/stat.h:
+time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+pathmax.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+dirent.h:
+/usr/include/dirent.h:
+/usr/include/bits/dirent.h:
+string.h:
+/usr/include/string.h:
+/usr/include/strings.h:

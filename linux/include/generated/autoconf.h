@@ -1,6 +1,6 @@
 /*
  * Automatically generated file; DO NOT EDIT.
- * Linux/x86 7.2.7 Kernel Configuration
+ * Linux/x86 7.2.8 Kernel Configuration
  */
 #define CONFIG_FUTEX_ROBUST_UNLOCK 1
 #define CONFIG_SERIAL_8250_RUNTIME_UARTS 4

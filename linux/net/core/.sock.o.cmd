@@ -1797,6 +1797,9 @@ deps_net/core/sock.o := \
     $(wildcard include/config/HAVE_SYSCALL_TRACEPOINTS) \
   include/trace/events/net_probe_common.h \
   include/trace/define_trace.h \
+  include/net/psp.h \
+  include/uapi/linux/psp.h \
+  include/net/psp/functions.h \
   include/net/tcp.h \
     $(wildcard include/config/BPF_STREAM_PARSER) \
   include/net/inet_hashtables.h \
@@ -1807,6 +1810,7 @@ deps_net/core/sock.o := \
     $(wildcard include/config/MPTCP_IPV6) \
   include/net/secure_seq.h \
   include/linux/bpf-cgroup.h \
+  include/net/psp/types.h \
   include/net/busy_poll.h \
   include/net/xdp.h \
   include/linux/bitfield.h \

@@ -1,0 +1,17 @@
+libm4_a-sig-handler.o: sig-handler.c /usr/include/stdc-predef.h config.h \
+ sig-handler.h signal.h sys/types.h /usr/include/sys/types.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/endian.h /usr/include/sys/select.h /usr/include/signal.h \
+ /usr/include/bits/signal.h
+/usr/include/stdc-predef.h:
+config.h:
+sig-handler.h:
+signal.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/endian.h:
+/usr/include/sys/select.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:

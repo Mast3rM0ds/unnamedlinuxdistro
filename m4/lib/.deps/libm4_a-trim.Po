@@ -1,0 +1,63 @@
+libm4_a-trim.o: trim.c /usr/include/stdc-predef.h config.h trim.h \
+ stdlib.h /usr/include/stdlib.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h alloca.h stddef.h /usr/include/stddef.h \
+ unistd.h /usr/include/unistd.h sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h /usr/include/sys/select.h getopt-cdefs.h \
+ getopt-pfx-core.h getopt-core.h fcntl.h sys/stat.h time.h \
+ /usr/include/time.h /usr/include/sys/stat.h /usr/include/bits/stat.h \
+ /usr/include/fcntl.h /usr/include/bits/fcntl.h /usr/include/ctype.h \
+ string.h /usr/include/string.h /usr/include/strings.h mbchar.h uchar.h \
+ /usr/include/uchar.h stdint.h /usr/include/stdint.h \
+ /usr/include/bits/stdint.h limits.h /usr/include/limits.h \
+ /usr/include/bits/limits.h wchar.h /usr/include/wchar.h wctype.h \
+ /usr/include/wctype.h mbuiterf.h /usr/include/assert.h strnlen1.h \
+ xalloc.h idx.h
+/usr/include/stdc-predef.h:
+config.h:
+trim.h:
+stdlib.h:
+/usr/include/stdlib.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+alloca.h:
+stddef.h:
+/usr/include/stddef.h:
+unistd.h:
+/usr/include/unistd.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/sys/select.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+getopt-core.h:
+fcntl.h:
+sys/stat.h:
+time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
+/usr/include/ctype.h:
+string.h:
+/usr/include/string.h:
+/usr/include/strings.h:
+mbchar.h:
+uchar.h:
+/usr/include/uchar.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+wchar.h:
+/usr/include/wchar.h:
+wctype.h:
+/usr/include/wctype.h:
+mbuiterf.h:
+/usr/include/assert.h:
+strnlen1.h:
+xalloc.h:
+idx.h:

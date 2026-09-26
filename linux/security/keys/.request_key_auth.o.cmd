@@ -644,13 +644,37 @@ deps_security/keys/request_key_auth.o := \
   include/generated/rq-offsets.h \
   include/linux/sched/ext.h \
     $(wildcard include/config/EXT_GROUP_SCHED) \
-  include/linux/seq_file.h \
-    $(wildcard include/config/USER_NS) \
-  include/linux/string_helpers.h \
-  include/linux/ctype.h \
-  include/linux/string_choices.h \
+  include/linux/pid.h \
+  include/linux/rculist.h \
+    $(wildcard include/config/PROVE_RCU_LIST) \
+  include/linux/rcupdate.h \
+    $(wildcard include/config/TINY_RCU) \
+    $(wildcard include/config/RCU_STRICT_GRACE_PERIOD) \
+    $(wildcard include/config/RCU_LAZY) \
+    $(wildcard include/config/RCU_STALL_COMMON) \
+    $(wildcard include/config/VIRT_XFER_TO_GUEST_WORK) \
+    $(wildcard include/config/RCU_NOCB_CPU) \
+    $(wildcard include/config/TASKS_RCU_GENERIC) \
+    $(wildcard include/config/TASKS_RUDE_RCU) \
+    $(wildcard include/config/TREE_RCU) \
+    $(wildcard include/config/DEBUG_OBJECTS_RCU_HEAD) \
+    $(wildcard include/config/PROVE_RCU) \
+    $(wildcard include/config/ARCH_WEAK_RELEASE_ACQUIRE) \
+  include/linux/context_tracking_irq.h \
+    $(wildcard include/config/CONTEXT_TRACKING_IDLE) \
+  include/linux/rcutree.h \
+  include/linux/refcount.h \
+  include/linux/rhashtable-types.h \
+  include/linux/alloc_tag.h \
+    $(wildcard include/config/MEM_ALLOC_PROFILING_ENABLED_BY_DEFAULT) \
+  include/linux/codetag.h \
+    $(wildcard include/config/MODULES) \
+    $(wildcard include/config/CODE_TAGGING) \
   include/linux/mutex.h \
   include/linux/debug_locks.h \
+  include/linux/wait.h \
+  include/linux/proc_fs.h \
+    $(wildcard include/config/PROC_PID_ARCH_STATUS) \
   include/linux/fs.h \
     $(wildcard include/config/FANOTIFY_ACCESS_PERMISSIONS) \
     $(wildcard include/config/FS_POSIX_ACL) \
@@ -682,27 +706,21 @@ deps_security/keys/request_key_auth.o := \
   arch/x86/include/uapi/asm/msr.h \
   arch/x86/include/asm/shared/msr.h \
   include/linux/percpu.h \
-    $(wildcard include/config/MODULES) \
     $(wildcard include/config/KMALLOC_PARTITION_CACHES) \
     $(wildcard include/config/PAGE_SIZE_4KB) \
     $(wildcard include/config/NEED_PER_CPU_PAGE_FIRST_CHUNK) \
-  include/linux/alloc_tag.h \
-    $(wildcard include/config/MEM_ALLOC_PROFILING_ENABLED_BY_DEFAULT) \
-  include/linux/codetag.h \
-    $(wildcard include/config/CODE_TAGGING) \
   include/vdso/time32.h \
   include/vdso/time.h \
   include/linux/uidgid.h \
     $(wildcard include/config/MULTIUSER) \
+    $(wildcard include/config/USER_NS) \
   include/linux/highuid.h \
   include/linux/errseq.h \
   include/linux/list_lru.h \
   include/linux/shrinker.h \
     $(wildcard include/config/SHRINKER_DEBUG) \
-  include/linux/refcount.h \
   include/linux/completion.h \
   include/linux/swait.h \
-  include/linux/wait.h \
   include/linux/xarray.h \
     $(wildcard include/config/XARRAY_MULTI) \
   include/linux/gfp.h \
@@ -763,22 +781,6 @@ deps_security/keys/request_key_auth.o := \
   arch/x86/include/uapi/asm/auxvec.h \
   include/linux/kref.h \
   include/linux/rbtree.h \
-  include/linux/rcupdate.h \
-    $(wildcard include/config/TINY_RCU) \
-    $(wildcard include/config/RCU_STRICT_GRACE_PERIOD) \
-    $(wildcard include/config/RCU_LAZY) \
-    $(wildcard include/config/RCU_STALL_COMMON) \
-    $(wildcard include/config/VIRT_XFER_TO_GUEST_WORK) \
-    $(wildcard include/config/RCU_NOCB_CPU) \
-    $(wildcard include/config/TASKS_RCU_GENERIC) \
-    $(wildcard include/config/TASKS_RUDE_RCU) \
-    $(wildcard include/config/TREE_RCU) \
-    $(wildcard include/config/DEBUG_OBJECTS_RCU_HEAD) \
-    $(wildcard include/config/PROVE_RCU) \
-    $(wildcard include/config/ARCH_WEAK_RELEASE_ACQUIRE) \
-  include/linux/context_tracking_irq.h \
-    $(wildcard include/config/CONTEXT_TRACKING_IDLE) \
-  include/linux/rcutree.h \
   include/linux/maple_tree.h \
     $(wildcard include/config/MAPLE_RCU_DISABLED) \
     $(wildcard include/config/DEBUG_MAPLE_TREE) \
@@ -872,8 +874,6 @@ deps_security/keys/request_key_auth.o := \
     $(wildcard include/config/BSD_PROCESS_ACCT) \
     $(wildcard include/config/TASKSTATS) \
     $(wildcard include/config/STACK_GROWSUP) \
-  include/linux/rculist.h \
-    $(wildcard include/config/PROVE_RCU_LIST) \
   include/linux/signal.h \
     $(wildcard include/config/DYNAMIC_SIGFRAME) \
   include/linux/sched/jobctl.h \
@@ -949,8 +949,6 @@ deps_security/keys/request_key_auth.o := \
     $(wildcard include/config/SECRETMEM) \
     $(wildcard include/config/WATCH_QUEUE) \
   include/linux/ratelimit.h \
-  include/linux/pid.h \
-  include/linux/rhashtable-types.h \
   include/linux/posix-timers.h \
   include/linux/alarmtimer.h \
     $(wildcard include/config/RTC_CLASS) \
@@ -1023,6 +1021,10 @@ deps_security/keys/request_key_auth.o := \
   include/linux/rw_hint.h \
   include/linux/file_ref.h \
   include/uapi/linux/fs.h \
+  include/linux/seq_file.h \
+  include/linux/string_helpers.h \
+  include/linux/ctype.h \
+  include/linux/string_choices.h \
   security/keys/internal.h \
     $(wildcard include/config/PERSISTENT_KEYRINGS) \
     $(wildcard include/config/KEY_DH_OPERATIONS) \

@@ -1,0 +1,16 @@
+libm4_a-printf-frexpl.o: printf-frexpl.c /usr/include/stdc-predef.h \
+ config.h printf-frexp.c printf-frexpl.h float.h /usr/include/float.h \
+ /usr/include/bits/float.h math.h /usr/include/math.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h fpucw.h
+/usr/include/stdc-predef.h:
+config.h:
+printf-frexp.c:
+printf-frexpl.h:
+float.h:
+/usr/include/float.h:
+/usr/include/bits/float.h:
+math.h:
+/usr/include/math.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+fpucw.h:

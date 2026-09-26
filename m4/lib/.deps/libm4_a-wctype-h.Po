@@ -1,0 +1,17 @@
+libm4_a-wctype-h.o: wctype-h.c /usr/include/stdc-predef.h config.h \
+ wctype.h wchar.h /usr/include/features.h stddef.h /usr/include/stddef.h \
+ /usr/include/bits/alltypes.h /usr/include/wchar.h string.h \
+ /usr/include/string.h /usr/include/strings.h /usr/include/wctype.h
+/usr/include/stdc-predef.h:
+config.h:
+wctype.h:
+wchar.h:
+/usr/include/features.h:
+stddef.h:
+/usr/include/stddef.h:
+/usr/include/bits/alltypes.h:
+/usr/include/wchar.h:
+string.h:
+/usr/include/string.h:
+/usr/include/strings.h:
+/usr/include/wctype.h:

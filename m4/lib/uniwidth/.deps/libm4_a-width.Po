@@ -1,0 +1,30 @@
+uniwidth/libm4_a-width.o: uniwidth/width.c /usr/include/stdc-predef.h \
+ config.h uniwidth.h unitypes.h stdint.h /usr/include/stdint.h \
+ /usr/include/bits/alltypes.h /usr/include/bits/stdint.h limits.h \
+ /usr/include/limits.h /usr/include/features.h /usr/include/bits/limits.h \
+ stddef.h /usr/include/stddef.h localcharset.h uniwidth/cjk.h streq.h \
+ string.h /usr/include/string.h /usr/include/strings.h uniwidth/width0.h \
+ uniwidth/width2.h unictype/bitmap.h
+/usr/include/stdc-predef.h:
+config.h:
+uniwidth.h:
+unitypes.h:
+stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/alltypes.h:
+/usr/include/bits/stdint.h:
+limits.h:
+/usr/include/limits.h:
+/usr/include/features.h:
+/usr/include/bits/limits.h:
+stddef.h:
+/usr/include/stddef.h:
+localcharset.h:
+uniwidth/cjk.h:
+streq.h:
+string.h:
+/usr/include/string.h:
+/usr/include/strings.h:
+uniwidth/width0.h:
+uniwidth/width2.h:
+unictype/bitmap.h:

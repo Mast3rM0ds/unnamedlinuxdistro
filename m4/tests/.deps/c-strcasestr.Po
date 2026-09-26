@@ -1,0 +1,26 @@
+c-strcasestr.o: c-strcasestr.c /usr/include/stdc-predef.h ../lib/config.h \
+ c-strcasestr.h ../lib/string.h /usr/include/string.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/strings.h ../lib/stddef.h /usr/include/stddef.h \
+ ../lib/c-ctype.h c-strcase.h str-two-way.h ../lib/limits.h \
+ /usr/include/limits.h /usr/include/bits/limits.h ../lib/stdint.h \
+ /usr/include/stdint.h /usr/include/bits/stdint.h
+/usr/include/stdc-predef.h:
+../lib/config.h:
+c-strcasestr.h:
+../lib/string.h:
+/usr/include/string.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+/usr/include/strings.h:
+../lib/stddef.h:
+/usr/include/stddef.h:
+../lib/c-ctype.h:
+c-strcase.h:
+str-two-way.h:
+../lib/limits.h:
+/usr/include/limits.h:
+/usr/include/bits/limits.h:
+../lib/stdint.h:
+/usr/include/stdint.h:
+/usr/include/bits/stdint.h:

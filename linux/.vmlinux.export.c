@@ -22024,6 +22024,8 @@ KSYMTAB_FUNC(dev_get_iflink, "");
 SYMBOL_FLAGS(dev_get_iflink, 0x00);
 KSYMTAB_FUNC(dev_fill_metadata_dst, "");
 SYMBOL_FLAGS(dev_fill_metadata_dst, 0x01);
+KSYMTAB_FUNC(dev_fill_forward_path_release, "");
+SYMBOL_FLAGS(dev_fill_forward_path_release, 0x01);
 KSYMTAB_FUNC(dev_fill_forward_path, "");
 SYMBOL_FLAGS(dev_fill_forward_path, 0x01);
 KSYMTAB_FUNC(__dev_get_by_name, "");

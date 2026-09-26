@@ -1,0 +1,46 @@
+libm4_a-spawn_faction_adddup2.o: spawn_faction_adddup2.c \
+ /usr/include/stdc-predef.h config.h spawn.h /usr/include/spawn.h \
+ /usr/include/features.h /usr/include/bits/alltypes.h sched.h \
+ /usr/include/sched.h sys/types.h /usr/include/sys/types.h \
+ /usr/include/endian.h /usr/include/sys/select.h signal.h \
+ /usr/include/signal.h /usr/include/bits/signal.h /usr/include/errno.h \
+ /usr/include/bits/errno.h unistd.h /usr/include/unistd.h stddef.h \
+ /usr/include/stddef.h stdlib.h /usr/include/stdlib.h alloca.h \
+ getopt-cdefs.h getopt-pfx-core.h getopt-core.h fcntl.h sys/stat.h time.h \
+ /usr/include/time.h /usr/include/sys/stat.h /usr/include/bits/stat.h \
+ /usr/include/fcntl.h /usr/include/bits/fcntl.h
+/usr/include/stdc-predef.h:
+config.h:
+spawn.h:
+/usr/include/spawn.h:
+/usr/include/features.h:
+/usr/include/bits/alltypes.h:
+sched.h:
+/usr/include/sched.h:
+sys/types.h:
+/usr/include/sys/types.h:
+/usr/include/endian.h:
+/usr/include/sys/select.h:
+signal.h:
+/usr/include/signal.h:
+/usr/include/bits/signal.h:
+/usr/include/errno.h:
+/usr/include/bits/errno.h:
+unistd.h:
+/usr/include/unistd.h:
+stddef.h:
+/usr/include/stddef.h:
+stdlib.h:
+/usr/include/stdlib.h:
+alloca.h:
+getopt-cdefs.h:
+getopt-pfx-core.h:
+getopt-core.h:
+fcntl.h:
+sys/stat.h:
+time.h:
+/usr/include/time.h:
+/usr/include/sys/stat.h:
+/usr/include/bits/stat.h:
+/usr/include/fcntl.h:
+/usr/include/bits/fcntl.h:
